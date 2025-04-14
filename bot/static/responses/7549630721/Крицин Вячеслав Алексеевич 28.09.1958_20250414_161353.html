@@ -1,0 +1,3617 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Крицин Вячеслав Алексеевич 28.09.1958</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Крицин Вячеслав Алексеевич 28.09.1958</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">34 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ<br>
+                Крицин Вячеслав Алексеевич<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                28.09.1958<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                НОВОКУЙБЫШЕВСК , КУТУЗОВА УЛ Д. 20 КВ. 83<br>
+                Россия Самарская область г Новокуйбышевск ул Кутузова 20/24 83<br>
+                НОВОКУЙБЫШЕВСК  КУТУЗОВА УЛ Д. 20 КВ. 83<br>
+                Самарская область<br>
+                НОВОКУЙБЫШЕВСК КУТУЗОВА УЛ д.20 кв.83<br>
+                КУТУЗОВА УЛ д.20 кв.83<br>
+                Самарская область Новокуйбышевск г Новокуйбышевск г Кутузова ул 20/24 83<br>
+                Самарская область Новокуйбышевск<br>
+                НОВОКУЙБЫШЕВСК , КУТУЗОВА УЛ д. 20 кв. 83<br>
+                Г.НОВОКУЙБЫШЕВ КУТУЗОВА 20/24 83<br>
+                НОВОКУЙБЫШЕВСК КУТУЗОВА 20/24 83<br>
+                НКБШ НОВОКУЙБЫШЕВСКИЙ р-н РАСКОВОЙ 6 А 58<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79270169786<br>
+                79276049769<br>
+                79276013888<br>
+                79276044976<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                9902895574<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                01176334823<br>
+                1176334823<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                IV-ЕР505369<br>
+                3604472584<br>
+                362472584<br>
+                3602006113<br>
+                3604472584 ОВД НКБШ<br>
+                4ЕР505369<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                6330000553<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТ</div>
+              <div class="info-value">
+                Паспорт гражданина РФ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                М187ЕМ159<br>
+                е369хр763<br>
+                Е393МУ163<br>
+                В957ТН63<br>
+                Х943РР63<br>
+                В957ТН6<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА</div>
+              <div class="info-value">
+                2007<br>
+                1989<br>
+                2002<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЛ</div>
+              <div class="info-value">
+                М<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                Т<br>
+                Работающий<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИИ ВУ</div>
+              <div class="info-value">
+                B,B1,BE,C,C1,C1E,CE,D,D1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВУ</div>
+              <div class="info-value">
+                2018-10-09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ВУ</div>
+              <div class="info-value">
+                1978<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ВУ</div>
+              <div class="info-value">
+                2028-10-09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА ЗАМЕНЫ ВУ</div>
+              <div class="info-value">
+                Замена ВУ в связи с истечением срока его действия<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ВУ</div>
+              <div class="info-value">
+                Регистрационно-экзаменационное отделение Государственной инспекции безопасности дорожного движения отдела Министерства внутренних дел России по городу Новокуйбышевску<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАЖ</div>
+              <div class="info-value">
+                1978<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС НОМЕРА ВУ</div>
+              <div class="info-value">
+                Т<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ГИБДД</div>
+              <div class="info-value">
+                Регистрационно-экзаменационное отделение Государственной инспекции безопасности дорожного движения отдела Министерства внутренних дел России по городу Новокуйбышевску<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАЧАЛА ДЕЙСТВИЯ ВУ</div>
+              <div class="info-value">
+                2018-10-09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ДЕЙСТВИЯ ВУ</div>
+              <div class="info-value">
+                2028-10-09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                город Новокуйбышевск Куйбышевской области<br>
+                гор. Новокуйбышевск Куйбышевской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Самарская область, г. Новокуйбышевск, ул. Расковой, д. 6-а, кв. 58<br>
+                Самарская область, г.Новокуйбышевск, ул.Кутузова, д.20/24, кв.83<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                1977-12-01<br>
+                2003-11-04<br>
+                04.11.2003<br>
+                12.02.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                ОВД Новокуйбышевского горисполкома Куйбышевской области<br>
+                ОВД  города  Новокуйбышевска Самарской области<br>
+                Отделом внутренних дел города  Новокуйбышевска Самарской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                632-018<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                Паспорт гражданина РФ<br>
+                Паспорт гражданина Российской Федерации<br>
+                Паспорт<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                446200, обл. Самарская, г. Новокуйбышевск, ул. Кутузова, д. 20/24, кв. 83<br>
+                Самарская обл., г. Новокуйбышевск, ул. Кутузова. д.20/24, кв. 83<br>
+                Самарская область, гор. Новокуйбышевск, ул. Кутузова  д.20/24,  кв.83<br>
+                446200, обл Самарская, г Новокуйбышевск, ул Кутузова, д 20/24, кв 83<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                Z8NHSNHGN60872844<br>
+                WAUZZZ4F26N090891<br>
+                Х9L21230070164580<br>
+                ХТА210700К0431127<br>
+                ХТА21110020123883<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВАНИЯ</div>
+              <div class="info-value">
+                2022-07-13<br>
+                2018-07-13<br>
+                2021-07-13<br>
+                2019-07-13<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                Nissan TERRANO<br>
+                ШЕВРОЛЕНИВА<br>
+                ВАЗ2107<br>
+                ВАЗ21110<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                КРИЦИН АРСЕНИЙ ВЯЧЕСЛАВОВИЧ 30.07.1991, КРИЦИНА ТАТЬЯНА НИКОЛАЕВНА 23.06.1957<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТС</div>
+              <div class="info-value">
+                9902895574<br>
+                63АН929703<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2023-12-28 16:38:27Z<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР СТРАХОВКИ</div>
+              <div class="info-value">
+                ХХХ0368765732<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ОВД Г.НОВОКУЙБЫШЕВСКА САМАРСКОЙ ОБЛАСТИ<br>
+                НКБШ ГОВД<br>
+                ОВД НКБШ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</div>
+              <div class="info-value">
+                09.10.2018<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ПОЛИСА</div>
+              <div class="info-value">
+                ЮЛ155253<br>
+                6350140821000491<br>
+                ТР161297<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                13.03.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО РЕДАКТИРОВАНИЯ ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                29.08.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ЛПУ ПМСП</div>
+              <div class="info-value">
+                3102<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВОЙ ПОЛИС</div>
+              <div class="info-value">
+                ЮЛ 155253<br>
+                ААА0405498971<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВНЕСЕНИЯ ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                13.03.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИЗМЕНЕНИЯ ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                29.08.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОЛИСА</div>
+              <div class="info-value">
+                13.03.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЕНП (ЕДИНЫЙ НОМЕР ПОЛИСА)</div>
+              <div class="info-value">
+                6350140821000491<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕЙ МОДИФИКАЦИИ</div>
+              <div class="info-value">
+                29.08.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА</div>
+              <div class="info-value">
+                13.03.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА КОРРЕКЦИИ</div>
+              <div class="info-value">
+                29.08.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПТС</div>
+              <div class="info-value">
+                63МК408161<br>
+                63КР867318<br>
+                63КМ688794<br>
+                63ММ584617<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ</div>
+              <div class="info-value">
+                темно-серый-металлик<br>
+                светло-бежевый<br>
+                золотисто-серый<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПТС</div>
+              <div class="info-value">
+                06.03.2007<br>
+                17.01.2004<br>
+                26.06.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАЦИЯ</div>
+              <div class="info-value">
+                первичная регистрация<br>
+                снятие с учета в связи с отчуждением<br>
+                ПЕРВИЧ УЧЕТ ЛАМТ<br>
+                В КОММАГ<br>
+                ДОГОВОР КУПЛИ ПРОДАЖИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП КУЗОВА</div>
+              <div class="info-value">
+                легковой<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ ТС</div>
+              <div class="info-value">
+                В<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР КУЗОВА</div>
+              <div class="info-value">
+                0164580<br>
+                0431127<br>
+                0123883<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                бенз<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦЕНЫ НА УСЛУГИ</div>
+              <div class="info-value">
+                364500<br>
+                166000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ТРАНСПОРТА</div>
+              <div class="info-value">
+                легковые-прочие<br>
+                ЛЕГКОВОЙ ЛИЧН<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                0175972<br>
+                0528460<br>
+                0634171<br>
+                0634171 2111<br>
+                0528460 2103<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                09.03.2007<br>
+                17.01.2004<br>
+                24.02.2007<br>
+                02.08.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВАЯ КОМПАНИЯ</div>
+              <div class="info-value">
+                РЕКОН<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСЯЦ ПРОХОЖДЕНИЯ ТО</div>
+              <div class="info-value">
+                3<br>
+                9<br>
+                7<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СРОК ДЕЙСТВИЯ ПОЛИСА</div>
+              <div class="info-value">
+                08.03.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВОГО ПОЛИСА</div>
+              <div class="info-value">
+                09.03.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРВОЙ РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                09.03.2007<br>
+                02.08.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</div>
+              <div class="info-value">
+                63РВ863484<br>
+                63АН929703<br>
+                63МК657239<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИДЕНТИФИКАЦИОННЫЙ НОМЕР (EIN)</div>
+              <div class="info-value">
+                6301958097803517<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТРАНЗИТНЫЙ НОМЕР</div>
+              <div class="info-value">
+                ТУ634305<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН СЛЕДОВАНИЯ</div>
+              <div class="info-value">
+                САМАРСКАЯ ОБЛ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАЙОН</div>
+              <div class="info-value">
+                УЧЕТ ИЗ ОБЛСОБЕС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ ТС</div>
+              <div class="info-value">
+                9001<br>
+                СВЕТЛО-БЕЖЕВЫЙ 103<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД АМТС</div>
+              <div class="info-value">
+                6<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ</div>
+              <div class="info-value">
+                В<br>
+                B<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР СЕРИИ</div>
+              <div class="info-value">
+                943Р<br>
+                957Т<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТ-ОСНОВАНИЕ</div>
+              <div class="info-value">
+                01 63ЕР6898481136 01/08/02<br>
+                18 3147 1136 29/07/96<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ДОКУМЕНТЫ)</div>
+              <div class="info-value">
+                2002<br>
+                1989<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСЯЦ ТО</div>
+              <div class="info-value">
+                9<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕХНИЧЕСКИЙ ТАЛОН</div>
+              <div class="info-value">
+                63АЕ108657<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ТЕХНИЧЕСКОГО ОСМОТРА</div>
+              <div class="info-value">
+                2003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОЩНОСТЬ</div>
+              <div class="info-value">
+                52.5<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБЪЕМ ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                1451<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАССА БЕЗ НАГРУЗКИ</div>
+              <div class="info-value">
+                1060<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАКСИМАЛЬНАЯ МАССА</div>
+              <div class="info-value">
+                1430<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕХНИЧЕСКИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                63ВЕ269898<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                КУЙБЫШЕВСКАЯ ОБЛАСТЬ НОВОКУЙБЫШЕВСК<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">М</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">B,B1,BE,C,C1,C1E,CE,D,D1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВУ</td>
+                  <td class="">2018-10-09</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ВУ</td>
+                  <td class="">1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ВУ</td>
+                  <td class="">2028-10-09</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ВУ</td>
+                  <td class="">Регистрационно-экзаменационное отделение Государственной инспекции безопасности дорожного движения отдела Министерства внутренних дел России по городу Новокуйбышевску</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9902895574</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водители РФ 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">М</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СТАЖ</td>
+                  <td class="">1978</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">B,B1,BE,C,C1,C1E,CE,D,D1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС НОМЕРА ВУ</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ГИБДД</td>
+                  <td class="">Регистрационно-экзаменационное отделение Государственной инспекции безопасности дорожного движения отдела Министерства внутренних дел России по городу Новокуйбышевску</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАЧАЛА ДЕЙСТВИЯ ВУ</td>
+                  <td class="">2018-10-09</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ДЕЙСТВИЯ ВУ</td>
+                  <td class="">2028-10-09</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9902895574</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01176334823</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">IV-ЕР505369</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">город Новокуйбышевск Куйбышевской области</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Самарская область, г. Новокуйбышевск, ул. Расковой, д. 6-а, кв. 58</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">1977-12-01</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">ОВД Новокуйбышевского горисполкома Куйбышевской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79270169786</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Новокуйбышевск Куйбышевской области</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Самарская область, г.Новокуйбышевск, ул.Кутузова, д.20/24, кв.83</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">632-018</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-11-04</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">ОВД  города  Новокуйбышевска Самарской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79276049769</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Новокуйбышевск Куйбышевской области</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">446200, обл. Самарская, г. Новокуйбышевск, ул. Кутузова, д. 20/24, кв. 83</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">632-018</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-11-04</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом внутренних дел города  Новокуйбышевска Самарской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79276049769</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Новокуйбышевск Куйбышевской области</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">632-018</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-11-04</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом внутренних дел города  Новокуйбышевска Самарской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79276049769</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Новокуйбышевск Куйбышевской области</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Самарская обл., г. Новокуйбышевск, ул. Кутузова. д.20/24, кв. 83</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">632-018</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-11-04</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом внутренних дел города  Новокуйбышевска Самарской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79276049769</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Новокуйбышевск Куйбышевской области</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Самарская область, гор. Новокуйбышевск, ул. Кутузова  д.20/24,  кв.83</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">632-018</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-11-04</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом внутренних дел города  Новокуйбышевска Самарской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79276049769</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Новокуйбышевск Куйбышевской области</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">446200, обл Самарская, г Новокуйбышевск, ул Кутузова, д 20/24, кв 83</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">632-018</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-11-04</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом внутренних дел города  Новокуйбышевска Самарской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Z8NHSNHGN60872844</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М187ЕМ159</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2022-07-13</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Nissan TERRANO</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Z8NHSNHGN60872844</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М187ЕМ159</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2018-07-13</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Nissan TERRANO</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , КУТУЗОВА УЛ Д. 20 КВ. 83</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">КРИЦИН АРСЕНИЙ ВЯЧЕСЛАВОВИЧ 30.07.1991, КРИЦИНА ТАТЬЯНА НИКОЛАЕВНА 23.06.1957</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Z8NHSNHGN60872844</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М187ЕМ159</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-07-13</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Nissan TERRANO</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ОСАГО 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">9902895574</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2023-12-28 16:38:27Z</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WAUZZZ4F26N090891</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79276013888</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">е369хр763</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СТРАХОВКИ</td>
+                  <td class="">ХХХ0368765732</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Z8NHSNHGN60872844</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М187ЕМ159</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2019-07-13</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Nissan TERRANO</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Россия Самарская область г Новокуйбышевск ул Кутузова 20/24 83</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79276044976</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОВД Г.НОВОКУЙБЫШЕВСКА САМАРСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">04.11.2003</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9902895574</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</td>
+                  <td class="">09.10.2018</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК  КУТУЗОВА УЛ Д. 20 КВ. 83</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01176334823</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС РОССИИ 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская область</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01176334823</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ЮЛ155253</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ИНФОРМАЦИИ</td>
+                  <td class="">13.03.2006</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО РЕДАКТИРОВАНИЯ ИНФОРМАЦИИ</td>
+                  <td class="">29.08.2008</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Самарская область 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01176334823</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>КОД ЛПУ ПМСП</td>
+                  <td class="">3102</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">6350140821000491</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ ПОЛИС</td>
+                  <td class="">ЮЛ 155253</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВНЕСЕНИЯ ИНФОРМАЦИИ</td>
+                  <td class="">13.03.2006</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИЗМЕНЕНИЯ ИНФОРМАЦИИ</td>
+                  <td class="">29.08.2008</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Фомс Самара 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">6330000553</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК КУТУЗОВА УЛ д.20 кв.83</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Работающий</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">362472584</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ТР161297</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Самара 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КУТУЗОВА УЛ д.20 кв.83</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">1176334823</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">Паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОЛИСА</td>
+                  <td class="">13.03.2006</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ЮЛ155253</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ЕНП (ЕДИНЫЙ НОМЕР ПОЛИСА)</td>
+                  <td class="">6350140821000491</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕЙ МОДИФИКАЦИИ</td>
+                  <td class="">29.08.2008</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Медстрахование Самара 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК КУТУЗОВА УЛ д.20 кв.83</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">Паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА</td>
+                  <td class="">13.03.2006</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ЮЛ155253</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ДАТА КОРРЕКЦИИ</td>
+                  <td class="">29.08.2008</td>
+                </tr>
+                <tr>
+                  <td>ЕНП (ЕДИНЫЙ НОМЕР ПОЛИСА)</td>
+                  <td class="">6350140821000491</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили России 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63МК408161</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ</td>
+                  <td class="">темно-серый-металлик</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская область Новокуйбышевск г Новокуйбышевск г Кутузова ул 20/24 83</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Х9L21230070164580</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">06.03.2007</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">первичная регистрация</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е393МУ163</td>
+                </tr>
+                <tr>
+                  <td>ТИП КУЗОВА</td>
+                  <td class="">легковой</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА</td>
+                  <td class="">2007</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ ТС</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">0164580</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДВИГАТЕЛЯ</td>
+                  <td class="">бенз</td>
+                </tr>
+                <tr>
+                  <td>ЦЕНЫ НА УСЛУГИ</td>
+                  <td class="">364500</td>
+                </tr>
+                <tr>
+                  <td>ВИД ТРАНСПОРТА</td>
+                  <td class="">легковые-прочие</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">0175972</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ ПОЛИС</td>
+                  <td class="">ААА0405498971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">09.03.2007</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ШЕВРОЛЕНИВА</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НКБШ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">РЕКОН</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">04.11.2003</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ПРОХОЖДЕНИЯ ТО</td>
+                  <td class="">3</td>
+                </tr>
+                <tr>
+                  <td>СРОК ДЕЙСТВИЯ ПОЛИСА</td>
+                  <td class="">08.03.2008</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВОГО ПОЛИСА</td>
+                  <td class="">09.03.2007</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРВОЙ РЕГИСТРАЦИИ</td>
+                  <td class="">09.03.2007</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63РВ863484</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили России 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63КР867318</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ</td>
+                  <td class="">светло-бежевый</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская область Новокуйбышевск</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА210700К0431127</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">17.01.2004</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">снятие с учета в связи с отчуждением</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">В957ТН63</td>
+                </tr>
+                <tr>
+                  <td>ТИП КУЗОВА</td>
+                  <td class="">легковой</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА</td>
+                  <td class="">1989</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ ТС</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">0431127</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ВИД ТРАНСПОРТА</td>
+                  <td class="">легковые-прочие</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">0528460</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">17.01.2004</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ2107</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОВД НКБШ</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ПРОХОЖДЕНИЯ ТО</td>
+                  <td class="">9</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63АН929703</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Самара 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , КУТУЗОВА УЛ д. 20 кв. 83</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ЮЛ155253</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт</td>
+                </tr>
+                <tr>
+                  <td>ИДЕНТИФИКАЦИОННЫЙ НОМЕР (EIN)</td>
+                  <td class="">6301958097803517</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Самара 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , КУТУЗОВА УЛ д. 20 кв. 83</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили России 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63КМ688794</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ</td>
+                  <td class="">золотисто-серый</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская область Новокуйбышевск г Новокуйбышевск г Кутузова ул 20/24 83</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА21110020123883</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">26.06.2002</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">снятие с учета в связи с отчуждением</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Х943РР63</td>
+                </tr>
+                <tr>
+                  <td>ТИП КУЗОВА</td>
+                  <td class="">легковой</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА</td>
+                  <td class="">2002</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ ТС</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">0123883</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ЦЕНЫ НА УСЛУГИ</td>
+                  <td class="">166000</td>
+                </tr>
+                <tr>
+                  <td>ВИД ТРАНСПОРТА</td>
+                  <td class="">легковые-прочие</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">0634171</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">24.02.2007</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ21110</td>
+                </tr>
+                <tr>
+                  <td>ТРАНЗИТНЫЙ НОМЕР</td>
+                  <td class="">ТУ634305</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НКБШ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН СЛЕДОВАНИЯ</td>
+                  <td class="">САМАРСКАЯ ОБЛ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">04.11.2003</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ПРОХОЖДЕНИЯ ТО</td>
+                  <td class="">7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРВОЙ РЕГИСТРАЦИИ</td>
+                  <td class="">02.08.2002</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63МК657239</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Самара 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63КМ688794</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.НОВОКУЙБЫШЕВ КУТУЗОВА 20/24 83</td>
+                </tr>
+                <tr>
+                  <td>РАЙОН</td>
+                  <td class="">УЧЕТ ИЗ ОБЛСОБЕС</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">9001</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА21110020123883</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602006113</td>
+                </tr>
+                <tr>
+                  <td>ВИД АМТС</td>
+                  <td class="">6</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">26.06.2002</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">ПЕРВИЧ УЧЕТ ЛАМТ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Х943РР63</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СЕРИИ</td>
+                  <td class="">943Р</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">0123883</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">0634171 2111</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">02.08.2002</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ21110</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НКБШ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ-ОСНОВАНИЕ</td>
+                  <td class="">01 63ЕР6898481136 01/08/02</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">12.02.2002</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2002</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63МК657239</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Самара 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63КР867318</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК КУТУЗОВА 20/24 83</td>
+                </tr>
+                <tr>
+                  <td>РАЙОН</td>
+                  <td class="">УЧЕТ ИЗ ОБЛСОБЕС</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">СВЕТЛО-БЕЖЕВЫЙ 103</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА210700К0431127</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3604472584 ОВД НКБШ</td>
+                </tr>
+                <tr>
+                  <td>ВИД АМТС</td>
+                  <td class="">6</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">17.01.2004</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ТО</td>
+                  <td class="">9</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">В КОММАГ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">В957ТН6</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СЕРИИ</td>
+                  <td class="">957Т</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">0431127</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">0528460 2103</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">17.01.2004</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ2107</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ТАЛОН</td>
+                  <td class="">63АЕ108657</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ-ОСНОВАНИЕ</td>
+                  <td class="">18 3147 1136 29/07/96</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1989</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ТЕХНИЧЕСКОГО ОСМОТРА</td>
+                  <td class="">2003</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63АН929703</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Самара 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63ММ584617</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">63АН929703</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крицин Вячеслав Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НКБШ НОВОКУЙБЫШЕВСКИЙ р-н РАСКОВОЙ 6 А 58</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">СВЕТЛО-БЕЖЕВЫЙ 103</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА210700К0431127</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4ЕР505369</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ</td>
+                  <td class="">52.5</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">ДОГОВОР КУПЛИ ПРОДАЖИ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">В957ТН63</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">0431127</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ВИД ТРАНСПОРТА</td>
+                  <td class="">ЛЕГКОВОЙ ЛИЧН</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">0528460</td>
+                </tr>
+                <tr>
+                  <td>ОБЪЕМ ДВИГАТЕЛЯ</td>
+                  <td class="">1451</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ2107</td>
+                </tr>
+                <tr>
+                  <td>МАССА БЕЗ НАГРУЗКИ</td>
+                  <td class="">1060</td>
+                </tr>
+                <tr>
+                  <td>МАКСИМАЛЬНАЯ МАССА</td>
+                  <td class="">1430</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ</td>
+                  <td class="">63ВЕ269898</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1989</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Фомс Самара 2005</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">6330000553</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК КУТУЗОВА УЛ д.20 кв.83</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Работающий</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">362472584</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ТР161297</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пенсионеры Самара 2004</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">1176334823</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КУЙБЫШЕВСКАЯ ОБЛАСТЬ НОВОКУЙБЫШЕВСК</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРИЦИН ВЯЧЕСЛАВ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , КУТУЗОВА УЛ д. 20 кв. 83</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">КРИЦИН АРСЕНИЙ ВЯЧЕСЛАВОВИЧ 30.07.1991, КРИЦИНА ТАТЬЯНА НИКОЛАЕВНА 23.06.1957</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">28.09.1958</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Водительские удостоверения 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Водители РФ 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                ОСАГО 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Водительские удостоверения 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                ФОМС РОССИИ 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                ФОМС Самарская область 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Фомс Самара 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                ФОМС Самара 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Медстрахование Самара 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Автомобили России 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Автомобили России 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Жители Самара 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                ФОМС Самара 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Автомобили России 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Автомобили Самара 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Автомобили Самара 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Автомобили Самара 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Фомс Самара 2005
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Пенсионеры Самара 2004
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

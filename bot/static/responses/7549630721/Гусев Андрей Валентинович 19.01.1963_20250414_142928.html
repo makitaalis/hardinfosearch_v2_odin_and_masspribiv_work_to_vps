@@ -1,0 +1,4901 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Гусев Андрей Валентинович 19.01.1963</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Гусев Андрей Валентинович 19.01.1963</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">52 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                ГУСЕВ АНДРЕЙ ВАЛЕНТИНОВИЧ<br>
+                Гусев Андрей Валентинович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                19.01.1963<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                обл. Новгородская, г. Великий Новгород, ул. Чудинцева,11/62,89<br>
+                173001, г. великий новгород, ул. чудинцева, д. 11/62, кв. 89<br>
+                Великий Новгород<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79062029266<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                9930511607<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                05237247949<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                4907845738<br>
+                714013587<br>
+                764348685<br>
+                8457384907<br>
+                4902433861<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                А023ЕН53<br>
+                Е347СТ53<br>
+                В704МХ53<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЛ</div>
+              <div class="info-value">
+                М<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                Т<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИИ ВУ</div>
+              <div class="info-value">
+                B,B1,M<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВУ</div>
+              <div class="info-value">
+                2023-03-04<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ВУ</div>
+              <div class="info-value">
+                2003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ВУ</div>
+              <div class="info-value">
+                2033-03-04<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА ЗАМЕНЫ ВУ</div>
+              <div class="info-value">
+                Замена ВУ в связи с истечением срока его действия<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ВУ</div>
+              <div class="info-value">
+                Экзаменационное отделение Межрайонного регистрационно-экзаменационного отдела Государственной инспекции безопасности дорожного движения управления министерства внутренних дел России по Новгородской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАЖ</div>
+              <div class="info-value">
+                2003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС НОМЕРА ВУ</div>
+              <div class="info-value">
+                Т<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ГИБДД</div>
+              <div class="info-value">
+                Экзаменационное отделение Межрайонного регистрационно-экзаменационного отдела Государственной инспекции безопасности дорожного движения управления министерства внутренних дел России по Новгородской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАЧАЛА ДЕЙСТВИЯ ВУ</div>
+              <div class="info-value">
+                2023-03-04<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ДЕЙСТВИЯ ВУ</div>
+              <div class="info-value">
+                2033-03-04<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                XMCSNDA1A3F027333<br>
+                Z8TXTGF3WEM032049<br>
+                JMBXNCW5W8Z004096<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                MITSUBISHI CARISMA<br>
+                MITSUBISHI OUTLANDER<br>
+                MITSUBISHI/OUTLANDER<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ФАКТ)</div>
+              <div class="info-value">
+                2003<br>
+                2014<br>
+                2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ДАННЫХ</div>
+              <div class="info-value">
+                2011-08-03 18:20:31<br>
+                2019-12-19 20:36:45<br>
+                2011-08-16 14:08:10<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОСНОМЕР (ЛАТИНИЦЕЙ)</div>
+              <div class="info-value">
+                A023EH53<br>
+                E347CT53<br>
+                B704MX53<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2012-12-12 14:44:53<br>
+                2019-12-19 21:26:05<br>
+                2012-12-12 15:06:21<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                город Новгород<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                530-002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2008-02-19<br>
+                21.02.2003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                Отделом УФМС России по Новгородской области в гор. Великий Новгород<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Новгородская область, г.Великий Новгород, ул.Чудинцева, д.11/62, кв.89<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2018-12-11 13:15:44<br>
+                2017-09-01 09:43:17<br>
+                2017-10-17 13:24:47<br>
+                2017-10-15 14:16:03<br>
+                2017-08-30 15:33:42<br>
+                2017-05-28 14:01:42<br>
+                2023-09-09 05:47:49<br>
+                2018-06-27 15:22:23<br>
+                2018-06-29 12:24:27<br>
+                2018-12-09 13:46:26<br>
+                2018-09-05 12:49:34<br>
+                2018-09-02 13:06:54<br>
+                2014-08-23 00:00:00<br>
+                2014-09-06 00:00:00<br>
+                2019-03-31 13:32:43<br>
+                2019-05-25 10:40:33<br>
+                2021-09-11 13:42:25<br>
+                2021-09-26 15:13:37<br>
+                2020-03-15 13:09:59<br>
+                2020-03-16 12:19:30<br>
+                2015-10-24 00:11:31<br>
+                2015-05-16 13:35:57<br>
+                2015-05-30 04:31:20<br>
+                2015-06-13 15:56:33<br>
+                2015-06-13 13:23:35<br>
+                2019-05-11 18:20:30<br>
+                2019-04-02 13:50:53<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЪЕЗД<br>
+                ВЫЕЗД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЛИЦЕНЗИИ</div>
+              <div class="info-value">
+                E347CT53<br>
+                TK-417<br>
+                В704МХ53<br>
+                TK-413<br>
+                TCLSA<br>
+                EIDFS<br>
+                EIUNB<br>
+                EIUNA<br>
+                TCLTH<br>
+                TK-416<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                АВТОМОБИЛЬНЫЙ ТРАНСПОРТ<br>
+                АВИАЦИОННЫЙ ТРАНСПОРТ<br>
+                ПЕРЕДВИЖЕНИЕ ПЕШКОМ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                НАРВА<br>
+                ИМАТРА<br>
+                ТАЛЛИН<br>
+                СТАМБУЛ<br>
+                ХУРГАДА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                ИВАНГОРОД (АВТО)<br>
+                СВЕТОГОРСК (АВТО)<br>
+                МОСКВА (ВНУКОВО-B) (АВИА)<br>
+                МОСКВА (ШЕРЕМЕТЬЕВО). ТЕРМИНАЛ C<br>
+                ТОРФЯНОВКА (АВТО)<br>
+                ПУЛКОВО-1<br>
+                ИВАНГОРОД АВТО<br>
+                САНКТ-ПЕТЕРБУРГ (ПУЛКОВО) (АВИА)<br>
+                ИВАНГОРОД (ПЕШ.)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                ЭСТОНИЯ<br>
+                ФИНЛЯНДИЯ<br>
+                ТУРЦИЯ<br>
+                ЕГИПЕТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2011-04-11<br>
+                2021-04-14<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                2018-12-11 13:14:00<br>
+                2017-09-01 09:42:00<br>
+                2017-10-17 13:28:00<br>
+                2017-10-15 14:21:00<br>
+                2017-08-30 15:32:00<br>
+                2017-05-28 13:50:00<br>
+                2017-05-28 13:44:00<br>
+                2023-09-09 08:20:00<br>
+                2018-06-27 15:27:00<br>
+                2018-06-29 12:24:00<br>
+                2018-12-09 13:45:00<br>
+                2018-09-05 12:50:00<br>
+                2018-09-02 13:06:00<br>
+                2014-08-23 16:17:00<br>
+                2014-09-06 19:02:00<br>
+                2019-03-31 13:31:00<br>
+                2019-05-25 10:40:00<br>
+                2019-05-25 10:16:00<br>
+                2021-09-11 16:00:00<br>
+                2021-09-26 14:55:00<br>
+                2020-03-15 13:08:00<br>
+                2020-03-16 12:18:00<br>
+                2015-10-23 21:45:00<br>
+                2015-10-24 00:00:00<br>
+                2015-05-16 16:00:00<br>
+                2015-05-16 17:35:00<br>
+                2015-05-30 03:45:00<br>
+                2015-05-30 04:30:00<br>
+                0000-00-00 00:00:00<br>
+                2021-09-26 15:05:00<br>
+                2019-05-11 20:35:00<br>
+                2019-05-11 21:00:00<br>
+                2019-04-02 13:49:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР РЕЙСА</div>
+              <div class="info-value">
+                E347CT53<br>
+                SU-422<br>
+                В704МХ53<br>
+                TK-402<br>
+                TK-401<br>
+                UN9480<br>
+                UN9479<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ПРИБЫТИЯ</div>
+              <div class="info-value">
+                НАРВА<br>
+                ИМАТРА<br>
+                ХУРГАДА<br>
+                СТАМБУЛ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ПРИБЫТИЯ</div>
+              <div class="info-value">
+                ЭСТОНИЯ<br>
+                ФИНЛЯНДИЯ<br>
+                ЕГИПЕТ<br>
+                ТУРЦИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕРЕВОЗЧИК</div>
+              <div class="info-value">
+                ТУРКИШ ЭЙРЛАЙНС<br>
+                АЭРОФЛОТ<br>
+                ТУРЕЦКИЕ АВИАЛИНИИ<br>
+                АК ТРАНСАЭРО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЛОГИН</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2020-11-11 10:57:51<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                увд великого новгорода<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                MSK (UTC+3)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                ОАО Вымпел - Коммуникации<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН ТЕЛЕФОНА</div>
+              <div class="info-value">
+                Новгородская обл.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЖЕЛАЕМАЯ ЗАРПЛАТА</div>
+              <div class="info-value">
+                80000.0<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">М</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГУСЕВ АНДРЕЙ ВАЛЕНТИНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">B,B1,M</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВУ</td>
+                  <td class="">2023-03-04</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ВУ</td>
+                  <td class="">2003</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ВУ</td>
+                  <td class="">2033-03-04</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ВУ</td>
+                  <td class="">Экзаменационное отделение Межрайонного регистрационно-экзаменационного отдела Государственной инспекции безопасности дорожного движения управления министерства внутренних дел России по Новгородской области</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9930511607</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водители РФ 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">М</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГУСЕВ АНДРЕЙ ВАЛЕНТИНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СТАЖ</td>
+                  <td class="">2003</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">B,B1,M</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС НОМЕРА ВУ</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ГИБДД</td>
+                  <td class="">Экзаменационное отделение Межрайонного регистрационно-экзаменационного отдела Государственной инспекции безопасности дорожного движения управления министерства внутренних дел России по Новгородской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАЧАЛА ДЕЙСТВИЯ ВУ</td>
+                  <td class="">2023-03-04</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ДЕЙСТВИЯ ВУ</td>
+                  <td class="">2033-03-04</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9930511607</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГУСЕВ АНДРЕЙ ВАЛЕНТИНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XMCSNDA1A3F027333</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">А023ЕН53</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">MITSUBISHI CARISMA</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2003</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2011-08-03 18:20:31</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">A023EH53</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2012-12-12 14:44:53</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГУСЕВ АНДРЕЙ ВАЛЕНТИНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Z8TXTGF3WEM032049</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е347СТ53</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">MITSUBISHI OUTLANDER</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2014</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2019-12-19 20:36:45</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2019-12-19 21:26:05</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГУСЕВ АНДРЕЙ ВАЛЕНТИНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">JMBXNCW5W8Z004096</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">В704МХ53</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">MITSUBISHI/OUTLANDER</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2007</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2011-08-16 14:08:10</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">B704MX53</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2012-12-12 15:06:21</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">05237247949</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4907845738</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79062029266</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">город Новгород</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">530-002</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2008-02-19</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по Новгородской области в гор. Великий Новгород</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">05237247949</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4907845738</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">город Новгород</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Новгородская область, г.Великий Новгород, ул.Чудинцева, д.11/62, кв.89</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">530-002</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2008-02-19</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по Новгородской области в гор. Великий Новгород</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-12-11 13:15:44</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-12-11 13:14:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-09-01 09:43:17</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ИМАТРА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">СВЕТОГОРСК (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ФИНЛЯНДИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-09-01 09:42:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-10-17 13:24:47</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТАЛЛИН</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-10-17 13:28:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-10-15 14:16:03</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-10-15 14:21:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-08-30 15:33:42</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ИМАТРА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ФИНЛЯНДИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">СВЕТОГОРСК (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-08-30 15:32:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-05-28 14:01:42</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-417</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-05-28 13:50:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-05-28 14:01:42</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-417</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-05-28 13:44:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">764348685</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2023-09-09 05:47:49</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЭРОФЛОТ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">SU-422</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ХУРГАДА</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЕГИПЕТ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ШЕРЕМЕТЬЕВО). ТЕРМИНАЛ C</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2021-04-14</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2023-09-09 08:20:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-06-27 15:22:23</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-06-27 15:27:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-06-29 12:24:27</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-06-29 12:24:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-06-27 15:22:23</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-06-27 15:27:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-12-09 13:46:26</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-12-09 13:45:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-06-29 12:24:27</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-06-29 12:24:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-09-05 12:49:34</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-09-05 12:50:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-09-02 13:06:54</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-09-02 13:06:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2014-08-23 00:00:00</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">В704МХ53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">В704МХ53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ТОРФЯНОВКА (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2014-08-23 16:17:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2014-09-06 00:00:00</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">В704МХ53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">В704МХ53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ТОРФЯНОВКА (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2014-09-06 19:02:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи helix.ru 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79062029266</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-03-31 13:32:43</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-03-31 13:31:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-25 10:40:33</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-413</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-25 10:40:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-25 10:40:33</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-413</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-25 10:16:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи sogaz-life.ru 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ЛОГИН</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79062029266</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-11-11 10:57:51</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">05237247949</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79062029266</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">обл. Новгородская, г. Великий Новгород, ул. Чудинцева,11/62,89</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">05237247949</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">8457384907</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79062029266</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">764348685</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2021-09-11 13:42:25</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРЕЦКИЕ АВИАЛИНИИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">TK-402</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ПУЛКОВО-1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2021-04-14</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2021-09-11 16:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">764348685</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2021-09-26 15:13:37</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРЕЦКИЕ АВИАЛИНИИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">TK-401</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TCLSA</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ПУЛКОВО-1</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2021-04-14</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2021-09-26 14:55:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2020-03-15 13:09:59</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД АВТО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2020-03-15 13:08:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2020-03-16 12:19:30</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД АВТО</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2020-03-16 12:18:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-10-24 00:11:31</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АК ТРАНСАЭРО</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">UN9480</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ХУРГАДА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">САНКТ-ПЕТЕРБУРГ (ПУЛКОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЕГИПЕТ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2015-10-23 21:45:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-10-24 00:11:31</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АК ТРАНСАЭРО</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">UN9480</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">EIDFS</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ХУРГАДА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">САНКТ-ПЕТЕРБУРГ (ПУЛКОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЕГИПЕТ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2015-10-24 00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-05-16 13:35:57</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АК ТРАНСАЭРО</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">UN9479</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ХУРГАДА</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЕГИПЕТ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">САНКТ-ПЕТЕРБУРГ (ПУЛКОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2015-05-16 16:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-05-16 13:35:57</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АК ТРАНСАЭРО</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">UN9479</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ХУРГАДА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">EIUNB</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЕГИПЕТ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">САНКТ-ПЕТЕРБУРГ (ПУЛКОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2015-05-16 17:35:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-05-30 04:31:20</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АК ТРАНСАЭРО</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">UN9480</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ХУРГАДА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">САНКТ-ПЕТЕРБУРГ (ПУЛКОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЕГИПЕТ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2015-05-30 03:45:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-05-30 04:31:20</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АК ТРАНСАЭРО</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">UN9480</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">EIUNA</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ХУРГАДА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">САНКТ-ПЕТЕРБУРГ (ПУЛКОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЕГИПЕТ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2015-05-30 04:30:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-06-13 15:56:33</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">ПЕРЕДВИЖЕНИЕ ПЕШКОМ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (ПЕШ.)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">0000-00-00 00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-06-13 13:23:35</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">ПЕРЕДВИЖЕНИЕ ПЕШКОМ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (ПЕШ.)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">0000-00-00 00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">764348685</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2021-09-11 13:42:25</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРЕЦКИЕ АВИАЛИНИИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">TK-402</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TCLTH</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ПУЛКОВО-1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2021-04-14</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2021-09-11 16:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">764348685</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2021-09-26 15:13:37</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРЕЦКИЕ АВИАЛИНИИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">TK-401</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ПУЛКОВО-1</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2021-04-14</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2021-09-26 15:05:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-11 18:20:30</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-416</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-11 20:35:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-11 18:20:30</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">СТАМБУЛ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-416</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-11 21:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">714013587</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-04-02 13:50:53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">E347CT53</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">НАРВА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ИВАНГОРОД (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЭСТОНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-04-11</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-04-02 13:49:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">05237247949</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79062029266</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">173001, г. великий новгород, ул. чудинцева, д. 11/62, кв. 89</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4902433861</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79062029266</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">увд великого новгорода</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">21.02.2003</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГУСЕВ АНДРЕЙ ВАЛЕНТИНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Резюме superjob.ru 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гусев Андрей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Великий Новгород</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79062029266</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">MSK (UTC+3)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.01.1963</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ОАО Вымпел - Коммуникации</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН ТЕЛЕФОНА</td>
+                  <td class="">Новгородская обл.</td>
+                </tr>
+                <tr>
+                  <td>ЖЕЛАЕМАЯ ЗАРПЛАТА</td>
+                  <td class="">80000.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Водительские удостоверения 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Водители РФ 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Пользователи helix.ru 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Пользователи sogaz-life.ru 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                Резюме superjob.ru 2016
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

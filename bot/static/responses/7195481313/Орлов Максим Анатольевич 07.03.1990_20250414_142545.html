@@ -1,0 +1,3900 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Орлов Максим Анатольевич 07.03.1990</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Орлов Максим Анатольевич 07.03.1990</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">46 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Орлов Максим Анатольевич<br>
+                ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ<br>
+                Орлов максим анатольевич<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                г. Казань, Р. Зорге д. 56 кв. 13<br>
+                Респ. Татарстан, г. Казань, ул. Рихарда Зорге,56,13<br>
+                Респ. Татарстан, г. Казань, ул. Академика Парина,4А,137<br>
+                Казань<br>
+                643,420104,16,Г КАЗАНЬ,УЛ РИХАРДА ЗОРГЕ,56,13<br>
+                643,420104,16,,Г КАЗАНЬ,,УЛ РИХАРДА ЗОРГЕ,56,,13<br>
+                643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13<br>
+                643, 420104, 16, КАЗАНЬ, РИХАРДА ЗОРГЕ, 56, 13<br>
+                ТАТАРСТАН РЕСП. РЕСПУБЛИКА ТАТАРСТАН, НУ 3 21<br>
+                РЕСПУБЛИКА ТАТАPСТАН,420000,РЕСПУБЛИКА ТАТАРСТАН,РЕСП,Г.НУРЛАТ УЛ.ЭЛЕКТРОСТАНЦИЯ Д.3,КВ.21<br>
+                643,420101,16,КАЗАНЬ Г,РИХАРДА ЗОРГЕ УЛ,56,13<br>
+                Республика Татарстан РТ, г. Нурлат, ул. Электростанция, 3-13<br>
+                20 ТАТАРСТАН РЕСП. РЕСПУБЛИКА ТАТАРСТАН, НУ д.3 кв.21<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                07.03.1990<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79869285070<br>
+                79377772532<br>
+                79655992600<br>
+                79650234525<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                9209949174<br>
+                9205554498<br>
+                9491749209<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                12645549166<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                163204620802<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                1615861719<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛЖНОСТЬ</div>
+              <div class="info-value">
+                Торговый Представитель<br>
+                Торговый представитель<br>
+                ВОДИТЕЛЬ<br>
+                ЗАМЕСТИТЕЛЬ ДИРЕКТОРА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ООО ТАТТРАНСАВТО<br>
+                ООО ТЕРМИНАЛ 16<br>
+                ООО ЗМТ-ГРУПП<br>
+                ЗАО КОМПАНИЯ ЭР-ТЕЛЕКОМ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                131136/22/16058-ИП<br>
+                131212/22/16058-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                15.04.2020<br>
+                03.06.2019<br>
+                16.09.2019<br>
+                20.06.2019<br>
+                25.06.2019<br>
+                31.05.2019<br>
+                23.07.2019<br>
+                12.09.2016<br>
+                12.10.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                500<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                T114TK116<br>
+                Y621YO116<br>
+                Т392СК116<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                Работает<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕЙТИНГ</div>
+              <div class="info-value">
+                0.98<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СЕГМЕНТ</div>
+              <div class="info-value">
+                Мало заказов<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС EMAIL</div>
+              <div class="info-value">
+                Не подтвержден<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АВТОМОБИЛЬ</div>
+              <div class="info-value">
+                Hyundai Elantra фиолетовый T114TK116<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">БАЗА (НАЛОГ)</div>
+              <div class="info-value">
+                Максим Казань<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАЧАЛА</div>
+              <div class="info-value">
+                2018-09-17 14:45:30<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ПАСПОРТА</div>
+              <div class="info-value">
+                РФ (10 цифр)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФИО (ВОДИТЕЛЬ)</div>
+              <div class="info-value">
+                Вострилов Антон Владимирович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2025-01-22 00:22:47<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОТОБРАЖЕНИЯ</div>
+              <div class="info-value">
+                Своя организация<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЛАСС АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                Средний класс<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРВОГО ВХОДА</div>
+              <div class="info-value">
+                2018-09-17 05:00:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСТОЧНИК (ВОДИТЕЛЬ)</div>
+              <div class="info-value">
+                goo-search<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">БАЗОВАЯ ОРГАНИЗАЦИЯ</div>
+              <div class="info-value">
+                Максим Казань<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФО ПО ДИСПЕТЧЕРИЗАЦИИ</div>
+              <div class="info-value">
+                Проверен ПР УведМежгор ОплатаСбер удаленно обучение ДомашнийМастер Грузчик Автопомощь КиП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                Паспорт гражданина Российской Федерации<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                гор. Буинск ТАССР<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                160030<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2010-03-29<br>
+                2005-01-10<br>
+                29.03.2010<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                Отделением УФМС России по Республике Татарстан в Нурлатском районе<br>
+                ОВД Нурлатского района Республики Татарстан<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                XW8AG1NH3GK123136<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                Skoda Rapid<br>
+                СКАНИЯ Р-440<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ФАКТ)</div>
+              <div class="info-value">
+                2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ДАННЫХ</div>
+              <div class="info-value">
+                2018-03-19 10:45:50<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОСНОМЕР (ЛАТИНИЦЕЙ)</div>
+              <div class="info-value">
+                Y621YO116<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2018-04-02 13:44:10<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАКТИЧЕСКИЙ АДРЕС</div>
+              <div class="info-value">
+                Республика Татарстан (Татарстан), Нурлатский район, г. Нурлат, ул. Электростанция, д.3, кв.13<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОНЫ</div>
+              <div class="info-value">
+                79650234525,79655992600<br>
+                79650234525,79869285070<br>
+                79869285070,79655992600<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЗАЕМ</div>
+              <div class="info-value">
+                35 000 Руб.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОЛГА</div>
+              <div class="info-value">
+                500<br>
+                1000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАИМЕНОВАНИЕ ИП</div>
+              <div class="info-value">
+                ОСП по ВАШ по г. Казани<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВОЗБУЖДЕНИЯ ИП</div>
+              <div class="info-value">
+                10.01.2022<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                35 000 руб.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">О СЕБЕ</div>
+              <div class="info-value">
+                энергичен<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА 2</div>
+              <div class="info-value">
+                35000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБРАЗОВАНИЕ</div>
+              <div class="info-value">
+                трудолюбив<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАЦИОНАЛЬНОСТЬ</div>
+              <div class="info-value">
+                Россия<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОИСКОВАЯ СТРОКА</div>
+              <div class="info-value">
+                Менеджер по продажам<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОХОДА</div>
+              <div class="info-value">
+                87000<br>
+                70000<br>
+                30000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАБОЧИЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                79650234525<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</div>
+              <div class="info-value">
+                ОСП по ВАШ по г. Казани<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                248752/20/16058-ИП<br>
+                336246/19/16058-ИП<br>
+                517386/19/16058-ИП<br>
+                336262/19/16058-ИП<br>
+                356286/19/16058-ИП<br>
+                355960/19/16058-ИП<br>
+                370009/19/16058-ИП<br>
+                323872/19/16058-ИП<br>
+                336263/19/16058-ИП<br>
+                407347/19/16058-ИП<br>
+                181107/16/16058-ИП<br>
+                214926/16/16058-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН ПО МЕСТУ РАБОТЫ</div>
+              <div class="info-value">
+                79377772532<br>
+                79872380488, 79869285070<br>
+                78435673015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                ОСП по ВАШ по г. Казани<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+                Штраф ГИБДД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Оштрафован<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД НАРУШЕНИЯ</div>
+              <div class="info-value">
+                Превышение установленной скорости от 20 до 40 км/ч Ст.12.9 ч.2<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАЗМЕР ШТРАФА</div>
+              <div class="info-value">
+                500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАРУШЕНИЯ</div>
+              <div class="info-value">
+                08.08.2015 10:55<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС НАРУШЕНИЯ</div>
+              <div class="info-value">
+                НИЖЕГОРОДСКАЯ ОБЛ. 567 52ФД-0003 НИЖНИЙ НОВГОРО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУБЪЕКТ НАРУШЕНИЯ</div>
+              <div class="info-value">
+                Вод.гос,АО,ТОО МТС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПРИНЯТИЯ РЕШЕНИЯ</div>
+              <div class="info-value">
+                08.08.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ПРИНЯВШИЙ РЕШЕНИЕ</div>
+              <div class="info-value">
+                СПАССКИЙ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП АДМИНИСТРАТИВНОГО МАТЕРИАЛА</div>
+              <div class="info-value">
+                ПОСТАНОВЛЕНИЕ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                РЕСПУБЛИКА ТАТАPСТАН,420000,РЕСПУБЛИКА ТАТАРСТАН,РЕСП,Г.НУРЛАТ УЛ.ЭЛЕКТРОСТАНЦИЯ Д.3,КВ.21<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РАБОТЫ</div>
+              <div class="info-value">
+                420097,РЕСПУБЛИКА ТАТАРСТАН,КАЗАНЬ УЛ.ЗИНИНА Д.7,<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                01.11.2016<br>
+                13.10.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОСП</div>
+              <div class="info-value">
+                16058<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСТАТОК</div>
+              <div class="info-value">
+                500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПАСПОРТА</div>
+              <div class="info-value">
+                160030<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ОТДЕЛЕНИЕМ УФМС РОССИИ ПО РЕСПУБЛИКЕ ТАТАРСТАН В НУРЛАТСКОМ РАЙОНЕ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                15.06.2005<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО РЕДАКТИРОВАНИЯ ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                13.06.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                РЕСПУБЛИКА ТАТАРСТАН<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Оштрафован<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водители taxsee.com 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. Казань, Р. Зорге д. 56 кв. 13</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Работает</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>РЕЙТИНГ</td>
+                  <td class="">0.98</td>
+                </tr>
+                <tr>
+                  <td>СЕГМЕНТ</td>
+                  <td class="">Мало заказов</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79869285070</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">T114TK116</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС EMAIL</td>
+                  <td class="">Не подтвержден</td>
+                </tr>
+                <tr>
+                  <td>АВТОМОБИЛЬ</td>
+                  <td class="">Hyundai Elantra фиолетовый T114TK116</td>
+                </tr>
+                <tr>
+                  <td>БАЗА (НАЛОГ)</td>
+                  <td class="">Максим Казань</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАЧАЛА</td>
+                  <td class="">2018-09-17 14:45:30</td>
+                </tr>
+                <tr>
+                  <td>ТИП ПАСПОРТА</td>
+                  <td class="">РФ (10 цифр)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ФИО (ВОДИТЕЛЬ)</td>
+                  <td class="">Вострилов Антон Владимирович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2025-01-22 00:22:47</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОТОБРАЖЕНИЯ</td>
+                  <td class="">Своя организация</td>
+                </tr>
+                <tr>
+                  <td>КЛАСС АВТОМОБИЛЯ</td>
+                  <td class="">Средний класс</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРВОГО ВХОДА</td>
+                  <td class="">2018-09-17 05:00:00</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК (ВОДИТЕЛЬ)</td>
+                  <td class="">goo-search</td>
+                </tr>
+                <tr>
+                  <td>БАЗОВАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">Максим Казань</td>
+                </tr>
+                <tr>
+                  <td>ИНФО ПО ДИСПЕТЧЕРИЗАЦИИ</td>
+                  <td class="">Проверен ПР УведМежгор ОплатаСбер удаленно обучение ДомашнийМастер Грузчик Автопомощь КиП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79869285070</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Буинск ТАССР</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">160030</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2010-03-29</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделением УФМС России по Республике Татарстан в Нурлатском районе</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XW8AG1NH3GK123136</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Y621YO116</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Skoda Rapid</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2016</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2018-03-19 10:45:50</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">Y621YO116</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2018-04-02 13:44:10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9205554498</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ФАКТИЧЕСКИЙ АДРЕС</td>
+                  <td class="">Республика Татарстан (Татарстан), Нурлатский район, г. Нурлат, ул. Электростанция, д.3, кв.13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2005-01-10</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">ОВД Нурлатского района Республики Татарстан</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Респ. Татарстан, г. Казань, ул. Рихарда Зорге,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9491749209</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79377772532</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Респ. Татарстан, г. Казань, ул. Академика Парина,4А,137</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9491749209</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79377772532</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79869285070</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">79650234525,79655992600</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79655992600</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">79650234525,79869285070</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79650234525</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">79869285070,79655992600</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79377772532</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрозаймов 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ЗАЕМ</td>
+                  <td class="">35 000 Руб.</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Казань</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79377772532</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">Торговый Представитель</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,Г КАЗАНЬ,УЛ РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">131136/22/16058-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">10.01.2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,Г КАЗАНЬ,УЛ РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">131212/22/16058-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">10.01.2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">163204620802</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,Г КАЗАНЬ,УЛ РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">131212/22/16058-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">10.01.2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">163204620802</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,Г КАЗАНЬ,УЛ РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">131136/22/16058-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">10.01.2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79377772532</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,,Г КАЗАНЬ,,УЛ РИХАРДА ЗОРГЕ,56,,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79377772532</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи bulgar-promo.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Казань</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">35 000 руб.</td>
+                </tr>
+                <tr>
+                  <td>О СЕБЕ</td>
+                  <td class="">энергичен</td>
+                </tr>
+                <tr>
+                  <td>СУММА 2</td>
+                  <td class="">35000</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79377772532</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">Торговый представитель</td>
+                </tr>
+                <tr>
+                  <td>ОБРАЗОВАНИЕ</td>
+                  <td class="">трудолюбив</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>НАЦИОНАЛЬНОСТЬ</td>
+                  <td class="">Россия</td>
+                </tr>
+                <tr>
+                  <td>ПОИСКОВАЯ СТРОКА</td>
+                  <td class="">Менеджер по продажам</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79650234525</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">ВОДИТЕЛЬ</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ТАТТРАНСАВТО</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">87000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">79650234525</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,Г КАЗАНЬ,УЛ РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">163204620802</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,Г КАЗАНЬ,УЛ РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 420104, 16, КАЗАНЬ, РИХАРДА ЗОРГЕ, 56, 13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">15.04.2020</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">248752/20/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ТЕРМИНАЛ 16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">ВОДИТЕЛЬ</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ЗМТ-ГРУПП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">70000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН ПО МЕСТУ РАБОТЫ</td>
+                  <td class="">79377772532</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">ЗАМЕСТИТЕЛЬ ДИРЕКТОРА</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ТЕРМИНАЛ 16</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">70000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН ПО МЕСТУ РАБОТЫ</td>
+                  <td class="">79872380488, 79869285070</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">ВОДИТЕЛЬ</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ТАТТРАНСАВТО</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">30000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН ПО МЕСТУ РАБОТЫ</td>
+                  <td class="">78435673015</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">03.06.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">336246/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">16.09.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">517386/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">03.06.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">336262/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">20.06.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">356286/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">20.06.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">355960/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">25.06.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">370009/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">31.05.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">323872/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">03.06.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">336263/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов максим анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420104,16,КАЗАНЬ,РИХАРДА ЗОРГЕ,56,13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">23.07.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">407347/19/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАТАРСТАН РЕСП. РЕСПУБЛИКА ТАТАРСТАН, НУ 3 21</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Т392СК116</td>
+                </tr>
+                <tr>
+                  <td>ВИД ВЗЫСКАНИЯ</td>
+                  <td class="">Оштрафован</td>
+                </tr>
+                <tr>
+                  <td>ВИД НАРУШЕНИЯ</td>
+                  <td class="">Превышение установленной скорости от 20 до 40 км/ч Ст.12.9 ч.2</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>РАЗМЕР ШТРАФА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">08.08.2015 10:55</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС НАРУШЕНИЯ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ. 567 52ФД-0003 НИЖНИЙ НОВГОРО</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">СКАНИЯ Р-440</td>
+                </tr>
+                <tr>
+                  <td>СУБЪЕКТ НАРУШЕНИЯ</td>
+                  <td class="">Вод.гос,АО,ТОО МТС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПРИНЯТИЯ РЕШЕНИЯ</td>
+                  <td class="">08.08.2015</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ПРИНЯВШИЙ РЕШЕНИЕ</td>
+                  <td class="">СПАССКИЙ</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">1615861719</td>
+                </tr>
+                <tr>
+                  <td>ТИП АДМИНИСТРАТИВНОГО МАТЕРИАЛА</td>
+                  <td class="">ПОСТАНОВЛЕНИЕ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">РЕСПУБЛИКА ТАТАPСТАН,420000,РЕСПУБЛИКА ТАТАРСТАН,РЕСП,Г.НУРЛАТ УЛ.ЭЛЕКТРОСТАНЦИЯ Д.3,КВ.21</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАО КОМПАНИЯ ЭР-ТЕЛЕКОМ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РАБОТЫ</td>
+                  <td class="">420097,РЕСПУБЛИКА ТАТАРСТАН,КАЗАНЬ УЛ.ЗИНИНА Д.7,</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РЕСПУБЛИКА ТАТАPСТАН,420000,РЕСПУБЛИКА ТАТАРСТАН,РЕСП,Г.НУРЛАТ УЛ.ЭЛЕКТРОСТАНЦИЯ Д.3,КВ.21</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">01.11.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420101,16,КАЗАНЬ Г,РИХАРДА ЗОРГЕ УЛ,56,13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">12.09.2016</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">16058</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">160030</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОТДЕЛЕНИЕМ УФМС РОССИИ ПО РЕСПУБЛИКЕ ТАТАРСТАН В НУРЛАТСКОМ РАЙОНЕ</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">29.03.2010</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">181107/16/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">01.11.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420101,16,КАЗАНЬ Г,РИХАРДА ЗОРГЕ УЛ,56,13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">12.10.2016</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">16058</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9209949174</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">160030</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОТДЕЛЕНИЕМ УФМС РОССИИ ПО РЕСПУБЛИКЕ ТАТАРСТАН В НУРЛАТСКОМ РАЙОНЕ</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">29.03.2010</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">214926/16/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС РОССИИ 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Республика Татарстан РТ, г. Нурлат, ул. Электростанция, 3-13</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">12645549166</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9205554498</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ИНФОРМАЦИИ</td>
+                  <td class="">15.06.2005</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО РЕДАКТИРОВАНИЯ ИНФОРМАЦИИ</td>
+                  <td class="">13.06.2007</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Орлов Максим Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">13.10.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,420101,16,КАЗАНЬ Г,РИХАРДА ЗОРГЕ УЛ,56,13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">12.09.2016</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">16058</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ по г. Казани</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">181107/16/16058-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Нижний Новгород 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОРЛОВ МАКСИМ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">20 ТАТАРСТАН РЕСП. РЕСПУБЛИКА ТАТАРСТАН, НУ д.3 кв.21</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Т392СК116</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.03.1990</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">СКАНИЯ Р-440</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">РЕСПУБЛИКА ТАТАРСТАН</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Оштрафован</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">1615861719</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Водители taxsee.com 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Клиенты микрозаймов 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Пользователи bulgar-promo.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Доходы физлиц 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Доходы физлиц 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Доходы физлиц 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Доходы физлиц 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Доходы физлиц 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Нарушители ПДД Нижний Новгород 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                ФОМС РОССИИ 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                Нарушение ПДД Нижний Новгород 2015
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

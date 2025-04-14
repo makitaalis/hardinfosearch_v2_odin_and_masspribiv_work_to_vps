@@ -1,0 +1,3973 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Щербаков Денис Александрович 05.05.1990</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Щербаков Денис Александрович 05.05.1990</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">55 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Щербаков Денис Александрович<br>
+                ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                г. Москва, Ташкентская улица, д. 4, к. 1, кв. 149<br>
+                г Москва, ул Ташкентская,4,149<br>
+                1, 270057<br>
+                ТАШКЕНТСКАЯ УЛ. 4 1 149<br>
+                ,109444,77,,,,ТАШКЕНТСКАЯ УЛ,4,1,149<br>
+                ЮВАО Выхино-Жулебино город Москва, Ташкентская улица, дом 4, корпус 1 кв. 149<br>
+                Москва город, Ташкентская улица,4,149<br>
+                Россия Москва ул Ташкентская 4 1 149<br>
+                Москва Ташкентская 4 1 149<br>
+                г. Москва и Московская область<br>
+                109444,77,ТАШКЕНТСКАЯ УЛ,4,1,149<br>
+                Россия, Москва г, г Москва, 109444, Ташкентская ул, д. 4, кор. 1, кв. 149<br>
+                643, 109444, 77, МОСКВА Г, ТАШКЕНТСКАЯ УЛ, 4, 1, 149<br>
+                ТАШКЕНТСКАЯ УЛ.Д.4 КОРП.1 КВ.149; ТАШКЕНТСКАЯ УЛ. Д.4 КОРП.1 КВ.149<br>
+                ТАШКЕНТСКАЯ - 4 - 1 - 149<br>
+                ТАШКЕНТСКАЯ УЛ. Д.4 КОРП.1 КВ.149<br>
+                ул. ТАШКЕНТСКАЯ УЛ., д. 4, корп. 1, кв. 149<br>
+                ТАШКЕНТСКАЯ УЛИЦА Д.4 КОРП.1 КВ.149<br>
+                Ташкентская ул.д.4 корп.1 кв.149; Ташкентская ул. д.4 корп.1 кв.149<br>
+                ТАШКЕНТСКАЯ Ул. 4 1 149<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                05.05.1990<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                77<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79162290541<br>
+                79104043557<br>
+                74953775809<br>
+                4953775809<br>
+                4507602466<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                13181323622<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                4507602466<br>
+                7123754510<br>
+                4510712375<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                772159961245<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                9912694537<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                МОСКОВСКИЙ ГОРОДСКОЙ ФОНД МОЛОДЕЖИ (НЕКОММЕРЧЕСКАЯ ОРГАНИЗАЦИЯ)<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                14.03.2018<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                Р378АХ799<br>
+                XTAGAB330J1037370<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СВЯЗАННЫЕ ЛИЦА</div>
+              <div class="info-value">
+                Щербаков Александр Викторович 1963-11-18; Тарасова Юлия Олеговна 1991-02-25; Рогова Людмила Васильевна 1941-06-16; Щербакова Лариса Вячеславовна 1965-10-05<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ДАННЫХ</div>
+              <div class="info-value">
+                2018-08-30 11:10:41<br>
+                2018-08-30 09:44:05<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОСНОМЕР (ЛАТИНИЦЕЙ)</div>
+              <div class="info-value">
+                P378AX799<br>
+                XTAGAB330J1037370<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2018-08-30 11:11:58<br>
+                2018-08-30 11:11:48<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                XTAGAB330J1037370<br>
+                NMTEZ28E00R138978<br>
+                ХТАGАВ330J1037370<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                ВАЗ/LADAXRAY<br>
+                Lada XRay<br>
+                ВАЗ Lada GAB130 LADA XRAY<br>
+                ЛАДА GАВ 330 LАDА ХRАУ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ФАКТ)</div>
+              <div class="info-value">
+                2017<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Г. МОСКВА ТАШКЕНТСКАЯ УЛ., ДОМ 4, КОР.1, КВ. 149<br>
+                1000008 270057 ул. Ташкентская, д. 4, корп. 1, кв. 149<br>
+                Россия, Москва г, г Москва, 109444, Ташкентская ул, д. 4, кор. 1, кв. 149<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2004-07-30<br>
+                10.06.2010<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                ОВД Р-НА ВЫХИНО Г.МОСКВЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТС</div>
+              <div class="info-value">
+                7754507419<br>
+                770X602437<br>
+                7754 507419<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ПОЛИСА</div>
+              <div class="info-value">
+                7700003059550590<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ЗАГС</div>
+              <div class="info-value">
+                ОТДЕЛЕНИЕМ ПО Р-НУ ВЫХИНО ОУФМС РОССИИ ПО Г. МОСКВЕ В ЮВАО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПОЛИС</div>
+              <div class="info-value">
+                АКЦИОНЕРНОЕ ОБЩЕСТВО СТРАХОВАЯ КОМПАНИЯ СОГАЗ-МЕД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2023-08-04 17:14:17<br>
+                2013-10-28 00:06:37<br>
+                2018-09-30 17:41:05<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2020-12-20 02:56:31<br>
+                2019-09-18<br>
+                2014-04-01 09:15:21<br>
+                2019-04-01 22:20:37<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ОТДЕЛЕНИЕМ ПО Р-НУ ВЫХИНО ОУФМС РОССИИ ПО Г. МОСКВЕ В ЮВАО<br>
+                ОВД Р-НА ВЫХИНО Г.МОСКВЫ<br>
+                Отделением по району Выхино ОУФМС России по гор.Москве в ЮВАО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                770100<br>
+                770-100<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЗАГС (АКТА/СВИДЕТЕЛЬСТВА)</div>
+              <div class="info-value">
+                4510712375<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                НИКУЛИНА Е И<br>
+                РОГОВА ЛЮДМИЛА ВАСИЛЬЕВНА 16.06.1941<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВАНИЯ</div>
+              <div class="info-value">
+                2021-10-14<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЛИС ОМС</div>
+              <div class="info-value">
+                7700003059550590<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИСТРАЦИЯ</div>
+              <div class="info-value">
+                MOS_REGISTERED<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                паспорт гражданина РФ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАКТИЧЕСКИЙ АДРЕС</div>
+              <div class="info-value">
+                ЮВАО Выхино-Жулебино город Москва, Ташкентская улица, дом 4, корпус 1 кв. 149<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                город Москва<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2015-11-14 21:13:57<br>
+                2007-08-06<br>
+                06.08.2022<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР СТРАХОВКИ</div>
+              <div class="info-value">
+                ЕЕЕ0364696224<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР КАРТЫ</div>
+              <div class="info-value">
+                7083373207283621117<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОП. ТЕЛЕФОН</div>
+              <div class="info-value">
+                89162290541<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНОЕ ФИО</div>
+              <div class="info-value">
+                Щербаков Денис<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ (ДОПОЛНИТЕЛЬНАЯ)</div>
+              <div class="info-value">
+                05.05.1990<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</div>
+              <div class="info-value">
+                11.10.2019<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВНЕСЕНИЯ</div>
+              <div class="info-value">
+                2013-10-28 00:06:37<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                UTC+3<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                ПАО Мобильные ТелеСистемы<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ESIA ID</div>
+              <div class="info-value">
+                1012788666<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                GOOD<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТЫ</div>
+              <div class="info-value">
+                4510 712375, выдан 10.06.2010 Отделением по району Выхино ОУФМС России по гор.Москве в ЮВАО 770100<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРЕПАРАТ</div>
+              <div class="info-value">
+                Гам-КОВИД-Вак Комбинированная векторная вакцина для профилактики коронавирусной инфекции, вызываемой вирусом SARS-CoV-2<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СЕРИЯ ВАКЦИНЫ</div>
+              <div class="info-value">
+                ii-110521<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПТС</div>
+              <div class="info-value">
+                ОТ 135030 11.09.2017<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ ТС</div>
+              <div class="info-value">
+                СЕРЕБРИСТЫЙ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП БАЗЫ ДАННЫХ</div>
+              <div class="info-value">
+                Гибдд по Москве и МО (2017)<br>
+                Гибдд 2010-2018 с адресами<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА (НЕ УТОЧНЕНО)</div>
+              <div class="info-value">
+                15.10.2017<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОЩНОСТЬ ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                122.4<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ДОКУМЕНТЫ)</div>
+              <div class="info-value">
+                2017<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                Ташкентская ул.д.4 корп.1 кв.149; Ташкентская ул. д.4 корп.1 кв.149<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Дата рейса: 21.12.2018; Откуда: Омск Россия; Куда: Домодедово Москва Россия; Номер рейса: 170; Авиакомпания: СИБИРЬ авиакомпания SBI S7 РОССИЯ СИБ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                МОСП по ВАШ №6<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Штраф ГИБДД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                189607/18/77052-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАБУЛА</div>
+              <div class="info-value">
+                ДУЛИЦКИЙ М.А. СОВЕРШИЛ ПОСОБНИЧЕСТВО В ПОДДЕЛКЕ ОФИЦИАЛЬНОГО ДОКУМЕНТА -ПАСПОРТА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТЬЯ УК</div>
+              <div class="info-value">
+                159002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВОЗБУЖДЕНИЯ ДЕЛА</div>
+              <div class="info-value">
+                2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Тип учета: НЕГАТИВ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП УЧЁТА</div>
+              <div class="info-value">
+                НЕГАТИВ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД РОЖДЕНИЯ</div>
+              <div class="info-value">
+                1990<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГРАЖДАНСТВО</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                ИНФОРМАЦИЯ О ГРАЖДАНСТВЕ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗАННЫЕ ЛИЦА ПО АДРЕСУ</div>
+              <div class="info-value">
+                РОГОВА ЛЮДМИЛА ВАСИЛЬЕВНА 16.06.1941; ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ 05.05.1990; ЩЕРБАКОВА ЛАРИСА ВЯЧЕСЛАВОВНА 05.10.1965; ОСИНИНА ПЕЛОГЕЯ ИВАНОВНА 26.04.1908; РОГОВ ВЯЧЕСЛАВ НИКОЛАЕВИЧ 07.01.1939<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОЛИЧЕСТВО ЗАРЕГИСТРИРОВАННЫХ ПО АДРЕСУ</div>
+              <div class="info-value">
+                5<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАБОЧИЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                3500955<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                4582572<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГНИ ФИЗЛИЦА</div>
+              <div class="info-value">
+                7702<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОДОВОЙ ДОХОД</div>
+              <div class="info-value">
+                627.27<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ДОХОДА</div>
+              <div class="info-value">
+                2004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОХОД ПО МЕСЯЦАМ (АЛЬТ)</div>
+              <div class="info-value">
+                0.00,0.00,0.00,0.00,0.00,0.00,0.00,27.27,300.00,300.00,0.00,0.00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</div>
+              <div class="info-value">
+                7721<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. Москва, Ташкентская улица, д. 4, к. 1, кв. 149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗАННЫЕ ЛИЦА</td>
+                  <td class="">Щербаков Александр Викторович 1963-11-18; Тарасова Юлия Олеговна 1991-02-25; Рогова Людмила Васильевна 1941-06-16; Щербакова Лариса Вячеславовна 1965-10-05</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р378АХ799</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2018-08-30 11:10:41</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">P378AX799</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2018-08-30 11:11:58</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XTAGAB330J1037370</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">XTAGAB330J1037370</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ/LADAXRAY</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2017</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2018-08-30 09:44:05</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">XTAGAB330J1037370</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2018-08-30 11:11:48</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи medcenter-sitimed.ru 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4507602466</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Г. МОСКВА ТАШКЕНТСКАЯ УЛ., ДОМ 4, КОР.1, КВ. 149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2004-07-30</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">ОВД Р-НА ВЫХИНО Г.МОСКВЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г Москва, ул Ташкентская,4,149</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7123754510</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ИС УДРВС 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">7754507419</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">1, 270057</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4510712375</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р378АХ799</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">7700003059550590</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ЗАГС</td>
+                  <td class="">ОТДЕЛЕНИЕМ ПО Р-НУ ВЫХИНО ОУФМС РОССИИ ПО Г. МОСКВЕ В ЮВАО</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПОЛИС</td>
+                  <td class="">АКЦИОНЕРНОЕ ОБЩЕСТВО СТРАХОВАЯ КОМПАНИЯ СОГАЗ-МЕД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2023-08-04 17:14:17</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-12-20 02:56:31</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Lada XRay</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОТДЕЛЕНИЕМ ПО Р-НУ ВЫХИНО ОУФМС РОССИИ ПО Г. МОСКВЕ В ЮВАО</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">1000008 270057 ул. Ташкентская, д. 4, корп. 1, кв. 149</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">770100</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЗАГС (АКТА/СВИДЕТЕЛЬСТВА)</td>
+                  <td class="">4510712375</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ УЛ. 4 1 149</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">НИКУЛИНА Е И</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">,109444,77,,,,ТАШКЕНТСКАЯ УЛ,4,1,149</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">РОГОВА ЛЮДМИЛА ВАСИЛЬЕВНА 16.06.1941</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XTAGAB330J1037370</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р378АХ799</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-10-14</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ Lada GAB130 LADA XRAY</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты МТС банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772159961245</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79104043557</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Департамент здравоохранения 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЮВАО Выхино-Жулебино город Москва, Ташкентская улица, дом 4, корпус 1 кв. 149</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4510712375</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ПОЛИС ОМС</td>
+                  <td class="">7700003059550590</td>
+                </tr>
+                <tr>
+                  <td>РЕГИСТРАЦИЯ</td>
+                  <td class="">MOS_REGISTERED</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>ФАКТИЧЕСКИЙ АДРЕС</td>
+                  <td class="">ЮВАО Выхино-Жулебино город Москва, Ташкентская улица, дом 4, корпус 1 кв. 149</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">город Москва</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ОСАГО 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">770X602437</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2015-11-14 21:13:57</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">NMTEZ28E00R138978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СТРАХОВКИ</td>
+                  <td class="">ЕЕЕ0364696224</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва город, Ташкентская улица,4,149</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7123754510</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772159961245</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты lukoil.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КАРТЫ</td>
+                  <td class="">7083373207283621117</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ТЕЛЕФОН</td>
+                  <td class="">89162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНОЕ ФИО</td>
+                  <td class="">Щербаков Денис</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ (ДОПОЛНИТЕЛЬНАЯ)</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Россия Москва ул Ташкентская 4 1 149</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4510712375</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОВД Р-НА ВЫХИНО Г.МОСКВЫ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">10.06.2010</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9912694537</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</td>
+                  <td class="">11.10.2019</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772159961245</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты sportmaster.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2007-08-06</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва Ташкентская 4 1 149</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВНЕСЕНИЯ</td>
+                  <td class="">2013-10-28 00:06:37</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2013-10-28 00:06:37</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Сбербанк 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. Москва и Московская область</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">UTC+3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ПАО Мобильные ТелеСистемы</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2019-09-18</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты gemotest.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2018-09-30 17:41:05</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2014-04-01 09:15:21</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772159961245</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">109444,77,ТАШКЕНТСКАЯ УЛ,4,1,149</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772159961245</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ЕСИА госуслуги 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772159961245</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ESIA ID</td>
+                  <td class="">1012788666</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Россия, Москва г, г Москва, 109444, Ташкентская ул, д. 4, кор. 1, кв. 149</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">GOOD</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4510712375</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79162290541</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТЫ</td>
+                  <td class="">4510 712375, выдан 10.06.2010 Отделением по району Выхино ОУФМС России по гор.Москве в ЮВАО 770100</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2019-04-01 22:20:37</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">Отделением по району Выхино ОУФМС России по гор.Москве в ЮВАО</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Россия, Москва г, г Москва, 109444, Ташкентская ул, д. 4, кор. 1, кв. 149</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">770-100</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">10.06.2010</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Вакцинация Москва 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">06.08.2022</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">77</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4510712375</td>
+                </tr>
+                <tr>
+                  <td>ПРЕПАРАТ</td>
+                  <td class="">Гам-КОВИД-Вак Комбинированная векторная вакцина для профилактики коронавирусной инфекции, вызываемой вирусом SARS-CoV-2</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>СЕРИЯ ВАКЦИНЫ</td>
+                  <td class="">ii-110521</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 109444, 77, МОСКВА Г, ТАШКЕНТСКАЯ УЛ, 4, 1, 149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ УЛ.Д.4 КОРП.1 КВ.149; ТАШКЕНТСКАЯ УЛ. Д.4 КОРП.1 КВ.149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">109444,77,ТАШКЕНТСКАЯ УЛ,4,1,149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772159961245</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">ОТ 135030 11.09.2017</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">7754507419</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ - 4 - 1 - 149</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">СЕРЕБРИСТЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТАGАВ330J1037370</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4510712375</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р378АХ799</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд по Москве и МО (2017)</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ЛАДА GАВ 330 LАDА ХRАУ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">15.10.2017</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ ДВИГАТЕЛЯ</td>
+                  <td class="">122.4</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2017</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ УЛ. Д.4 КОРП.1 КВ.149</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">Ташкентская ул.д.4 корп.1 кв.149; Ташкентская ул. д.4 корп.1 кв.149</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4507602466</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">74953775809</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">ОТ 135030 11.09.2017</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">7754 507419</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ - 4 - 1 - 149</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">СЕРЕБРИСТЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТАGАВ330J1037370</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4510712375</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р378АХ799</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд 2010-2018 с адресами</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ЛАДА GАВ 330 LАDА ХRАУ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">15.10.2017</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ ДВИГАТЕЛЯ</td>
+                  <td class="">122.4</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2017</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Авиаперелеты Сирена 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4510712375</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">Дата рейса: 21.12.2018; Откуда: Омск Россия; Куда: Домодедово Москва Россия; Номер рейса: 170; Авиакомпания: СИБИРЬ авиакомпания SBI S7 РОССИЯ СИБ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">109444,77,ТАШКЕНТСКАЯ УЛ,4,1,149</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4507602466</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Щербаков Денис Александрович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 109444, 77, МОСКВА Г, ТАШКЕНТСКАЯ УЛ, 4, 1, 149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">14.03.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">МОСП по ВАШ №6</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">189607/18/77052-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминал судимые 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ул. ТАШКЕНТСКАЯ УЛ., д. 4, корп. 1, кв. 149</td>
+                </tr>
+                <tr>
+                  <td>ФАБУЛА</td>
+                  <td class="">ДУЛИЦКИЙ М.А. СОВЕРШИЛ ПОСОБНИЧЕСТВО В ПОДДЕЛКЕ ОФИЦИАЛЬНОГО ДОКУМЕНТА -ПАСПОРТА</td>
+                </tr>
+                <tr>
+                  <td>СТАТЬЯ УК</td>
+                  <td class="">159002</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВОЗБУЖДЕНИЯ ДЕЛА</td>
+                  <td class="">2011</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">109444,77,ТАШКЕНТСКАЯ УЛ,4,1,149</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4507602466</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: НЕГАТИВ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ УЛИЦА Д.4 КОРП.1 КВ.149</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">4953775809</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">НЕГАТИВ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1990</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: НЕГАТИВ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Статус Лица Москва 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ УЛ. Д.4 КОРП.1 КВ.149</td>
+                </tr>
+                <tr>
+                  <td>ГРАЖДАНСТВО</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>ТИП ИНФОРМАЦИИ</td>
+                  <td class="">ИНФОРМАЦИЯ О ГРАЖДАНСТВЕ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">НЕГАТИВ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Связь по адресу 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ УЛ. Д.4 КОРП.1 КВ.149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗАННЫЕ ЛИЦА ПО АДРЕСУ</td>
+                  <td class="">РОГОВА ЛЮДМИЛА ВАСИЛЬЕВНА 16.06.1941; ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ 05.05.1990; ЩЕРБАКОВА ЛАРИСА ВЯЧЕСЛАВОВНА 05.10.1965; ОСИНИНА ПЕЛОГЕЯ ИВАНОВНА 26.04.1908; РОГОВ ВЯЧЕСЛАВ НИКОЛАЕВИЧ 07.01.1939</td>
+                </tr>
+                <tr>
+                  <td>КОЛИЧЕСТВО ЗАРЕГИСТРИРОВАННЫХ ПО АДРЕСУ</td>
+                  <td class="">5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2013</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ УЛИЦА Д.4 КОРП.1 КВ.149</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">4953775809</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ташкентская ул.д.4 корп.1 кв.149; Ташкентская ул. д.4 корп.1 кв.149</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4507602466</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">4953775809</td>
+                </tr>
+                <tr>
+                  <td>ГРАЖДАНСТВО</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1990</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">109444,77,ТАШКЕНТСКАЯ УЛ,4,1,149</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4507602466</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">3500955</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">109444,77,ТАШКЕНТСКАЯ УЛ,4,1,149</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13181323622</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">4582572</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4507602466</td>
+                </tr>
+                <tr>
+                  <td>ГНИ ФИЗЛИЦА</td>
+                  <td class="">7702</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">МОСКОВСКИЙ ГОРОДСКОЙ ФОНД МОЛОДЕЖИ (НЕКОММЕРЧЕСКАЯ ОРГАНИЗАЦИЯ)</td>
+                </tr>
+                <tr>
+                  <td>ГОДОВОЙ ДОХОД</td>
+                  <td class="">627.27</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">3500955</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ДОХОДА</td>
+                  <td class="">2004</td>
+                </tr>
+                <tr>
+                  <td>ДОХОД ПО МЕСЯЦАМ (АЛЬТ)</td>
+                  <td class="">0.00,0.00,0.00,0.00,0.00,0.00,0.00,27.27,300.00,300.00,0.00,0.00</td>
+                </tr>
+                <tr>
+                  <td>ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</td>
+                  <td class="">7721</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ Ул. 4 1 149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 53 -->
+      <div class="card source-card" id="source52">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">4507602466</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 54 -->
+      <div class="card source-card" id="source53">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные лица 2004</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТАШКЕНТСКАЯ Ул. 4 1 149</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 55 -->
+      <div class="card source-card" id="source54">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЩЕРБАКОВ ДЕНИС АЛЕКСАНДРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">,109444,77,,,,ТАШКЕНТСКАЯ УЛ,4,1,149</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">РОГОВА ЛЮДМИЛА ВАСИЛЬЕВНА 16.06.1941</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.05.1990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Возможные связи по адресу 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Пользователи medcenter-sitimed.ru 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                ИС УДРВС 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Клиенты МТС банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Департамент здравоохранения 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                ОСАГО 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Клиенты lukoil.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Водительские удостоверения 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Клиенты sportmaster.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Клиенты Сбербанк 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Клиенты gemotest.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                ЕСИА госуслуги 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Вакцинация Москва 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Жители Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Авиаперелеты Сирена 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Криминал судимые 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Жители 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Жители Москва 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Статус Лица Москва 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Связь по адресу 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Жители Москва 2013
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                Жители Москва 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Жители 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Доходы физлиц 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                Жители 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source52" class="nav-link " onclick="scrollToSource('source52', event)">
+                Жители Москва 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source53" class="nav-link " onclick="scrollToSource('source53', event)">
+                Криминальные лица 2004
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source54" class="nav-link " onclick="scrollToSource('source54', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

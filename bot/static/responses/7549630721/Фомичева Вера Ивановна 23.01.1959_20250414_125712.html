@@ -1,0 +1,2818 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фомичева Вера Ивановна 23.01.1959</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Фомичева Вера Ивановна 23.01.1959</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">35 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Фомичева Вера Ивановна<br>
+                ФОМИЧЕВА ВЕРА ИВАНОВНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                23.01.1959<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                142040 ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ. 1 7<br>
+                142000 Московская обл. Домодедовский р-н г. Домодедово Школьная ул. 1 7<br>
+                мо, г. домодедово, пр-д кутузовский, д. 7, кв. 4<br>
+                ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1<br>
+                142040 ДОМОДЕДОВСКИЙ Р-Н ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ 1 7<br>
+                142040,ДОМОДЕДОВО Г,ШКОЛЬНАЯ УЛ,1,7<br>
+                МОСКОВСКАЯ ОБЛ.,ДОМОДЕДОВСКИЙ Р-Н<br>
+                МОСКОВСКАЯ ОБЛАСТЬ,142000,Г.ДОМОДЕДОВО,УЛ.КУТУЗОВСКИЙ,Д.7,КВ.4<br>
+                Россия, Московская область, г.Домодедово, ул.Школьная, д.1, кв.7<br>
+                РОССИЯ, МОСКОВСКАЯ ОБЛАСТЬ, Г.ДОМОДЕДОВО, УЛ.ШКОЛЬНАЯ, Д.1, КВ.7<br>
+                ДОМОДЕДОВСКИЙ РАЙОН, МОСКОВСКАЯ ОБЛАСТЬ<br>
+                ДОМОДЕДОВО КУТУЗОВСКИЙ ПРОЕЗД Д:7 КВ:4<br>
+                ДОМОДЕДОВО КУТУЗОВСКИЙ ПРОЕЗД Д.7 КВ.4<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79269189213<br>
+                79629189213<br>
+                74959523787<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                02828743170<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                4605789869<br>
+                645232067<br>
+                XIXИК502337<br>
+                502337 XIX-ИК ОВД Домодедовского горисполкома Московской области<br>
+                19ИК502337<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ООО МАРС<br>
+                ГОСУДАРСТВЕННОЕ УНИТАРНОЕ ПРЕДПРИЯТИЕ ОЗДОРОВИТЕЛЬ<br>
+                ГОСУДАРСТВЕННОЕ УНИТАРНОЕ ПРЕДПРИЯТИЕ ОЗДОРОВИТЕ<br>
+                ОАО СЕДЬМОЙ КОНТИНЕНТ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                гор. Домодедово Московской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                обл.Московская, г.Домодедово, Кутузова пр., д.7, кв.4<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2004-05-28<br>
+                28.05.2004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                УВД Домодедовского района Московской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОНЫ</div>
+              <div class="info-value">
+                74959523787<br>
+                79629189213<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЛИС ОМС</div>
+              <div class="info-value">
+                7704518046441359<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИСТРАЦИЯ</div>
+              <div class="info-value">
+                OTHER<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                паспорт гражданина РФ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                ФОМИЧЕВ МИХАИЛ СЕРГЕЕВИЧ 15.04.1981<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2017-07-24 12:01:42<br>
+                2017-08-08 09:39:10<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕРЕВОЗЧИК</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЫЕЗД<br>
+                ВЪЕЗД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ПРИБЫТИЯ</div>
+              <div class="info-value">
+                ПУНТА-КАНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЛИЦЕНЗИИ</div>
+              <div class="info-value">
+                SDM-5879<br>
+                SDM5880<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                АВИАЦИОННЫЙ ТРАНСПОРТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ПРИБЫТИЯ</div>
+              <div class="info-value">
+                ДОМИНИКАНСКАЯ РЕСПУБЛИКА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                МОСКВА (ВНУКОВО-B) (АВИА)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2012-10-20<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                2017-07-24 19:11:00<br>
+                2017-07-24 08:55:00<br>
+                2017-07-24 18:30:00<br>
+                2017-08-08 09:00:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                ПУНТА-КАНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                ДОМИНИКАНСКАЯ РЕСПУБЛИКА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2005-03-06<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВНЕСЕНИЯ</div>
+              <div class="info-value">
+                2013-10-28 00:06:37<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2013-10-28 00:06:37<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                увд домодедовского района московской области<br>
+                ОВД Домодедовского горисполкома Московской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1; ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                МОСКОВСКАЯ ОБЛАСТЬ,142000,Г.ДОМОДЕДОВО,УЛ.КУТУЗОВСКИЙ,Д.7,КВ.4<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГРАЖДАНСТВО</div>
+              <div class="info-value">
+                Гражданка РФ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУБЪЕКТ ПРАВА</div>
+              <div class="info-value">
+                58689231<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">УЧАСТНИК СДЕЛКИ</div>
+              <div class="info-value">
+                50208427<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕКСТ ИЗ СВИДЕТЕЛЬСТВА</div>
+              <div class="info-value">
+                Гражданка РФ Фомичева Вера Ивановна, дата рождения 23.01.1959г., паспорт: серия XIX-ИК, № 502337, выдан 22.11.1980г. ОВД Домодедовского горисполкома Московской области. Адрес: Россия, Московская область, г.Домодедово, ул.Школьная, д.1, кв.7<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД РОЖДЕНИЯ</div>
+              <div class="info-value">
+                1959<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАБОЧИЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                4-46-63<br>
+                1337244<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                45645995<br>
+                54356743<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОДОВОЙ ДОХОД</div>
+              <div class="info-value">
+                20788.31<br>
+                10400.09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ДОХОДА</div>
+              <div class="info-value">
+                2000<br>
+                1999<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОХОД ПО МЕСЯЦАМ (АЛЬТ)</div>
+              <div class="info-value">
+                1686.16 1170.44 1170.04 1170.64 1550.24 2375.24 2100.74 4908.18 421.82 1426.27 1450.77 1357.77<br>
+                936.17 710.95 680.23 874.63 1063.15 1011 800.78 800.78 1197.56 505.62 941.52 877.7<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</div>
+              <div class="info-value">
+                5009<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Номер полиса 46-06 596729<br>
+                Номер полиса: 4606 596729<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ID НОМЕР</div>
+              <div class="info-value">
+                61642109<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СИСТЕМНЫЙ НОМЕР</div>
+              <div class="info-value">
+                53120812<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КПП МЕСТА РАБОТЫ</div>
+              <div class="info-value">
+                774301001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН РАБОТОДАТЕЛЯ</div>
+              <div class="info-value">
+                7705005628<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСТОЧНИК ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                СВЕДЕНИЯ ПО РАБОТОДАТЕЛЯМ НА ИЮЛЬ 2008 ГОДА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ РАБОТОДАТЕЛЯ</div>
+              <div class="info-value">
+                Негосударственные предприятия<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЮРИДИЧЕСКИЙ АДРЕС РАБОТОДАТЕЛЯ</div>
+              <div class="info-value">
+                ФЕСТИВАЛЬНАЯ 8 1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                ДОМОДЕДОВО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА ЗАМЕНЫ ДОКУМЕНТА</div>
+              <div class="info-value">
+                ДРУГИЕ ПРИЧИНЫ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">02828743170</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4605789869</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269189213</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Домодедово Московской области</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">обл.Московская, г.Домодедово, Кутузова пр., д.7, кв.4</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2004-05-28</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">УВД Домодедовского района Московской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79629189213</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">74959523787</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">74959523787</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">79629189213</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Департамент здравоохранения 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4605789869</td>
+                </tr>
+                <tr>
+                  <td>ПОЛИС ОМС</td>
+                  <td class="">7704518046441359</td>
+                </tr>
+                <tr>
+                  <td>РЕГИСТРАЦИЯ</td>
+                  <td class="">OTHER</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина РФ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040 ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ. 1 7</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ФОМИЧЕВ МИХАИЛ СЕРГЕЕВИЧ 15.04.1981</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">645232067</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-07-24 12:01:42</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ПУНТА-КАНА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SDM-5879</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ДОМИНИКАНСКАЯ РЕСПУБЛИКА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2012-10-20</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-07-24 19:11:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">645232067</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-07-24 12:01:42</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ПУНТА-КАНА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SDM-5879</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ДОМИНИКАНСКАЯ РЕСПУБЛИКА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2012-10-20</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-07-24 08:55:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">645232067</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-07-24 12:01:42</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ПУНТА-КАНА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SDM-5879</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ДОМИНИКАНСКАЯ РЕСПУБЛИКА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2012-10-20</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-07-24 18:30:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">645232067</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-08-08 09:39:10</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SDM5880</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ПУНТА-КАНА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ДОМИНИКАНСКАЯ РЕСПУБЛИКА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2012-10-20</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-08-08 09:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты sportmaster.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2005-03-06</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142000 Московская обл. Домодедовский р-н г. Домодедово Школьная ул. 1 7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВНЕСЕНИЯ</td>
+                  <td class="">2013-10-28 00:06:37</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2013-10-28 00:06:37</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">мо, г. домодедово, пр-д кутузовский, д. 7, кв. 4</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4605789869</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79629189213</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">увд домодедовского района московской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">28.05.2004</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040 ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ. 1 7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040 ДОМОДЕДОВСКИЙ Р-Н ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ 1 7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040,ДОМОДЕДОВО Г,ШКОЛЬНАЯ УЛ,1,7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКАЯ ОБЛ.,ДОМОДЕДОВСКИЙ Р-Н</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1; ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4605789869</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО МАРС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКАЯ ОБЛАСТЬ,142000,Г.ДОМОДЕДОВО,УЛ.КУТУЗОВСКИЙ,Д.7,КВ.4</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4605789869</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4605789869</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">МОСКОВСКАЯ ОБЛАСТЬ,142000,Г.ДОМОДЕДОВО,УЛ.КУТУЗОВСКИЙ,Д.7,КВ.4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Собственники Москва 2013</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Россия, Московская область, г.Домодедово, ул.Школьная, д.1, кв.7</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">XIXИК502337</td>
+                </tr>
+                <tr>
+                  <td>ГРАЖДАНСТВО</td>
+                  <td class="">Гражданка РФ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>СУБЪЕКТ ПРАВА</td>
+                  <td class="">58689231</td>
+                </tr>
+                <tr>
+                  <td>УЧАСТНИК СДЕЛКИ</td>
+                  <td class="">50208427</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОВД Домодедовского горисполкома Московской области</td>
+                </tr>
+                <tr>
+                  <td>ТЕКСТ ИЗ СВИДЕТЕЛЬСТВА</td>
+                  <td class="">Гражданка РФ Фомичева Вера Ивановна, дата рождения 23.01.1959г., паспорт: серия XIX-ИК, № 502337, выдан 22.11.1980г. ОВД Домодедовского горисполкома Московской области. Адрес: Россия, Московская область, г.Домодедово, ул.Школьная, д.1, кв.7</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Недвижимость Москва 2013</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОССИЯ, МОСКОВСКАЯ ОБЛАСТЬ, Г.ДОМОДЕДОВО, УЛ.ШКОЛЬНАЯ, Д.1, КВ.7</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">502337 XIX-ИК ОВД Домодедовского горисполкома Московской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1959</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040 ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ. 1 7</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">XIXИК502337</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">4-46-63</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040 ДОМОДЕДОВСКИЙ Р-Н ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ 1 7</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">XIXИК502337</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">4-46-63</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040 ДОМОДЕДОВСКИЙ Р-Н ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ 1 7</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">45645995</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">XIXИК502337</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ГОСУДАРСТВЕННОЕ УНИТАРНОЕ ПРЕДПРИЯТИЕ ОЗДОРОВИТЕЛЬ</td>
+                </tr>
+                <tr>
+                  <td>ГОДОВОЙ ДОХОД</td>
+                  <td class="">20788.31</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">4-46-63</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ДОХОДА</td>
+                  <td class="">2000</td>
+                </tr>
+                <tr>
+                  <td>ДОХОД ПО МЕСЯЦАМ (АЛЬТ)</td>
+                  <td class="">1686.16 1170.44 1170.04 1170.64 1550.24 2375.24 2100.74 4908.18 421.82 1426.27 1450.77 1357.77</td>
+                </tr>
+                <tr>
+                  <td>ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</td>
+                  <td class="">5009</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040 ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ. 1 7</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">54356743</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">XIXИК502337</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ГОСУДАРСТВЕННОЕ УНИТАРНОЕ ПРЕДПРИЯТИЕ ОЗДОРОВИТЕ</td>
+                </tr>
+                <tr>
+                  <td>ГОДОВОЙ ДОХОД</td>
+                  <td class="">10400.09</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">4-46-63</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ДОХОДА</td>
+                  <td class="">1999</td>
+                </tr>
+                <tr>
+                  <td>ДОХОД ПО МЕСЯЦАМ (АЛЬТ)</td>
+                  <td class="">936.17 710.95 680.23 874.63 1063.15 1011 800.78 800.78 1197.56 505.62 941.52 877.7</td>
+                </tr>
+                <tr>
+                  <td>ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</td>
+                  <td class="">5009</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКАЯ ОБЛ.,ДОМОДЕДОВСКИЙ Р-Н</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Номер полиса 46-06 596729</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Место работы Москва 2008</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ФЕСТИВАЛЬНАЯ УЛИЦА Д.8 СТР.1</td>
+                </tr>
+                <tr>
+                  <td>ID НОМЕР</td>
+                  <td class="">61642109</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ОАО СЕДЬМОЙ КОНТИНЕНТ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">1337244</td>
+                </tr>
+                <tr>
+                  <td>СИСТЕМНЫЙ НОМЕР</td>
+                  <td class="">53120812</td>
+                </tr>
+                <tr>
+                  <td>КПП МЕСТА РАБОТЫ</td>
+                  <td class="">774301001</td>
+                </tr>
+                <tr>
+                  <td>ИНН РАБОТОДАТЕЛЯ</td>
+                  <td class="">7705005628</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">СВЕДЕНИЯ ПО РАБОТОДАТЕЛЯМ НА ИЮЛЬ 2008 ГОДА</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ РАБОТОДАТЕЛЯ</td>
+                  <td class="">Негосударственные предприятия</td>
+                </tr>
+                <tr>
+                  <td>ЮРИДИЧЕСКИЙ АДРЕС РАБОТОДАТЕЛЯ</td>
+                  <td class="">ФЕСТИВАЛЬНАЯ 8 1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС 2008</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОМОДЕДОВСКИЙ РАЙОН, МОСКОВСКАЯ ОБЛАСТЬ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Номер полиса: 4606 596729</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Смена паспорта 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Фомичева Вера Ивановна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОМОДЕДОВО КУТУЗОВСКИЙ ПРОЕЗД Д:7 КВ:4</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4605789869</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ДОМОДЕДОВО</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ДОКУМЕНТА</td>
+                  <td class="">ДРУГИЕ ПРИЧИНЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">АДРЕСА 2006</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОМОДЕДОВО КУТУЗОВСКИЙ ПРОЕЗД Д.7 КВ.4</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2005</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040,ДОМОДЕДОВО Г,ШКОЛЬНАЯ УЛ,1,7</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">19ИК502337</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФОМИЧЕВА ВЕРА ИВАНОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">142040 ДОМОДЕДОВО Г ШКОЛЬНАЯ УЛ. 1 7</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ФОМИЧЕВ МИХАИЛ СЕРГЕЕВИЧ 15.04.1981</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.01.1959</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Департамент здравоохранения 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Клиенты sportmaster.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Жители Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Собственники Москва 2013
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Недвижимость Москва 2013
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Жители Москва 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Жители 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Жители 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Доходы физлиц 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Доходы физлиц 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                ФОМС 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Место работы Москва 2008
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                ФОМС 2008
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Смена паспорта 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                АДРЕСА 2006
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Жители Москва 2005
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

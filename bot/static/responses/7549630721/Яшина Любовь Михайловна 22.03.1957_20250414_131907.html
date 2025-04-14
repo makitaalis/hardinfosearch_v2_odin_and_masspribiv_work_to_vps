@@ -1,0 +1,5217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Яшина Любовь Михайловна 22.03.1957</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Яшина Любовь Михайловна 22.03.1957</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">57 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА<br>
+                Яшина Любовь Михайловна<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                22.03.1957<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                Московская обл, г Домодедово, мкр Южный, ул Курыжова,19,118<br>
+                г. Москва и Московская область<br>
+                Россия Московская область г Домодедово ул Курыжева 19 3 118<br>
+                ЗАСВИЯЖСКИЙ .. УЛЬЯНОВСК Г .. РЯБИКОВА УЛ .. 70 .. 2 .. 221<br>
+                Московская область, г.Домодедово микр. Южный ул.Курыжова д. 19 к.3, кв.118<br>
+                ЗАСВИЯЖСКИЙ .. Г.УЛЬЯНОВСК .. РЯБИКОВА .. 70 .. 2 .. 221<br>
+                ДОМОДЕДОВО Г. - КУРЫЖОВА МКР ЮЖНЫЙ - 19 - 3 - 118<br>
+                Ульяновск г Рябикова ул 70 2 221<br>
+                432054 Ульяновская область УЛЬЯНОВСК ЗАСВИЯЖСКИЙ РАЙОН Г. УЛЬЯНОВСКА РЯБИКОВА д. 70 корп. 2 кв. 221<br>
+                432054, Ульяновская область, УЛЬЯНОВСК, - город Ульяновск, ЗАСВИЯЖСКИЙ РАЙОН Г. УЛЬЯНОВСКА, ул. РЯБИКОВА, д. 70, корп. 2, кв. 221<br>
+                Ульяновск<br>
+                Засвияжский г.Ульяновск Рябикова 70 2 221<br>
+                Засвияжский Ульяновск г Рябикова ул 70 2 221<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                50<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79853369542<br>
+                79272731440<br>
+                639059<br>
+                89272731<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                10745701339<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                7304093345<br>
+                731259522<br>
+                770476207<br>
+                0933457304<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                732800147580<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                5029530670<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                Т822АВ73<br>
+                С155УУ190<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                XTA211020Y0213414<br>
+                Х7LВSRВУАDН597941<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                ВАЗ21102<br>
+                РЕНО САНДЕРО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ФАКТ)</div>
+              <div class="info-value">
+                2000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ДАННЫХ</div>
+              <div class="info-value">
+                2012-07-20 16:46:54<br>
+                2012-05-12 14:01:09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОСНОМЕР (ЛАТИНИЦЕЙ)</div>
+              <div class="info-value">
+                T822AB73<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2012-12-12 15:31:13<br>
+                2012-12-12 15:24:43<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Ульяновская область, г.Ульяновск, бульв.Киевский, д.7, кв.243<br>
+                Ульяновская область, г.Ульяновск, ул.Рябикова, д.70, корп.2, кв.221<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                732-003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2003-12-14<br>
+                14.12.2003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                УПРАВЛЕНИЕМ ВНУТРЕННИХ ДЕЛ ЗАВОЛЖСКОГО РАЙОНА ГОРОДА УЛЬЯНОВСКА<br>
+                Управлением внутренних дел Заволжского р-на гор. Ульяновска<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                Паспорт гражданина Российской Федерации<br>
+                паспорт гражданина РФ<br>
+                ПАСПОРТ РОССИИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                гор. Караганда<br>
+                город Караганда<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                142000, Московская обл, г. Домодедово, мкр. Южный, ул. Курыжова, д. 19, к. 3, кв. 118<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2017-10-26 11:44:20<br>
+                2023-06-03 13:19:27<br>
+                2019-05-19 23:46:33<br>
+                2017-10-15 00:48:58<br>
+                2018-09-10 12:05:46<br>
+                2023-06-14 13:20:16<br>
+                2019-06-01 12:20:58<br>
+                2018-05-20 01:38:17<br>
+                2018-06-02 23:39:58<br>
+                2018-09-21 11:21:11<br>
+                2021-09-21 14:07:51<br>
+                2021-09-09 02:14:08<br>
+                2020-08-30 13:59:04<br>
+                2020-09-12 13:14:01<br>
+                2016-07-22 01:15:12<br>
+                2016-07-29 11:18:07<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕРЕВОЗЧИК</div>
+              <div class="info-value">
+                АЗУР ЭЙР<br>
+                CORENDON AIRLINES<br>
+                УРАЛЬСКИЕ АВИАЛИНИИ<br>
+                РЕД ВИНГС<br>
+                А%К ЯМАЛ<br>
+                ТУРКИШ ЭЙРЛАЙНС<br>
+                РОССИЯ.<br>
+                РОССИЯ<br>
+                А%К УРАЛЬСКИЕ АВИАЛИНИИ<br>
+                РЕД ВИНКС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЪЕЗД<br>
+                ВЫЕЗД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЛИЦЕНЗИИ</div>
+              <div class="info-value">
+                7774<br>
+                U63575<br>
+                КЮ7773<br>
+                WZ-9605<br>
+                TK-3236<br>
+                FV-5859<br>
+                SDM-5860<br>
+                U6-1004<br>
+                VPBMR<br>
+                73693<br>
+                КЮ-7785<br>
+                КЮ7786<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                АВИАЦИОННЫЙ ТРАНСПОРТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                ЛАРНАКА<br>
+                АНТАЛЬЯ<br>
+                ВАРНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                МОСКВА (ДОМОДЕДОВО) (АВИА)<br>
+                МОСКВА (ДОМОДЕДОВО)<br>
+                МОСКВА (ВНУКОВО-B) (АВИА)<br>
+                АДЛЕР АВТО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                КИПР<br>
+                ТУРЦИЯ<br>
+                БОЛГАРИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2013-09-19<br>
+                2023-04-12<br>
+                2003-12-14<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                2017-10-26 11:20:00<br>
+                2023-06-03 15:15:00<br>
+                2019-05-20 03:10:00<br>
+                2019-05-20 03:02:00<br>
+                2019-05-20 02:55:00<br>
+                2017-10-15 03:10:00<br>
+                2018-09-10 14:03:00<br>
+                2023-06-14 12:50:00<br>
+                2018-09-10 13:50:00<br>
+                2019-06-01 11:54:00<br>
+                2018-05-20 04:39:00<br>
+                2018-06-02 23:18:00<br>
+                2018-06-02 23:10:00<br>
+                2018-09-21 10:58:00<br>
+                2019-06-01 12:05:00<br>
+                2021-09-21 13:22:00<br>
+                2021-09-09 04:40:00<br>
+                2021-09-09 04:30:00<br>
+                2021-09-21 13:30:00<br>
+                2023-06-14 12:55:00<br>
+                0000-00-00 00:00:00<br>
+                2016-07-22 04:00:00<br>
+                2016-07-22 03:55:00<br>
+                2016-07-29 10:57:00<br>
+                2018-05-20 04:30:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР РЕЙСА</div>
+              <div class="info-value">
+                XC8956<br>
+                YC-9340<br>
+                WZ-7012<br>
+                WZ-7009<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ПРИБЫТИЯ</div>
+              <div class="info-value">
+                АНТАЛЬЯ<br>
+                ЛАРНАКА<br>
+                ВАРНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ПРИБЫТИЯ</div>
+              <div class="info-value">
+                ТУРЦИЯ<br>
+                КИПР<br>
+                БОЛГАРИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИСТРАЦИЯ</div>
+              <div class="info-value">
+                OTHER<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                UTC+3<br>
+                MSK+1 (UTC+4)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                ПАО Мобильные ТелеСистемы<br>
+                ПАО МегаФон<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2021-07-14<br>
+                2020-10-23 09:59:09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОКВЭД</div>
+              <div class="info-value">
+                1319<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОГРНИП</div>
+              <div class="info-value">
+                304732804000062<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ФНС</div>
+              <div class="info-value">
+                7325<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ПФР</div>
+              <div class="info-value">
+                83028039244<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТАТУСА</div>
+              <div class="info-value">
+                13.01.2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА (НЕ УТОЧНЕНО)</div>
+              <div class="info-value">
+                09.02.2004<br>
+                28.10.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                УВД ЗАВОЛЖСКОГО Р-НА Г.УЛЬЯНОВСКА<br>
+                УВД Заволжского р-на г. Ульяновска<br>
+                УВД ЗАВОЛЖСКОГО РАЙОНА Г.УЛЯЬНОВСКА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</div>
+              <div class="info-value">
+                28.10.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                Московская область Московская область, г.Домодедово микр. Южный ул.Курыжова д. 19 к.3, кв.118<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2021-06-07 15:24:19<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                04.03.2022<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРЕПАРАТ</div>
+              <div class="info-value">
+                Гам-КОВИД-Вак Комбинированная векторная вакцина для профилактики коронавирусной инфекции, вызываемой вирусом SARS-CoV-2<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СЕРИЯ ВАКЦИНЫ</div>
+              <div class="info-value">
+                ZB02420<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАСКА ПАСПОРТА</div>
+              <div class="info-value">
+                7* ****522<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ДОКУМЕНТА</div>
+              <div class="info-value">
+                2566692<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">УНИКАЛЬНЫЙ НОМЕР РЗ</div>
+              <div class="info-value">
+                9500000002566692<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПТС</div>
+              <div class="info-value">
+                НС 137695 12.02.2013<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТС</div>
+              <div class="info-value">
+                5044 17310<br>
+                5044017310<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ ТС</div>
+              <div class="info-value">
+                БЕЛЫЙ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП БАЗЫ ДАННЫХ</div>
+              <div class="info-value">
+                Гибдд 2010-2018 с адресами<br>
+                Гибдд по Москве и МО (Март - Декабрь 2016)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОЩНОСТЬ ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                103<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ДОКУМЕНТЫ)</div>
+              <div class="info-value">
+                2013<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕНСИЯ</div>
+              <div class="info-value">
+                12657,85; 12687,94; 12923,68; 13402,12<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИЖДИВЕНЕЦ</div>
+              <div class="info-value">
+                ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА 22.03.1957<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГРАЖДАНСТВО</div>
+              <div class="info-value">
+                РОССИЙСКАЯ ФЕДЕРАЦИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЗНАК РАБОТЫ</div>
+              <div class="info-value">
+                ДА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБЩИЙ ТРУДОВОЙ СТАЖ</div>
+              <div class="info-value">
+                24/1/5<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СОЦДОПЛАТА К ПЕНСИИ</div>
+              <div class="info-value">
+                12657,85; 12687,94; 12923,68; 13402,12<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЗАРАБОТОК ПЕНСИОНЕРА</div>
+              <div class="info-value">
+                2631,13<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЛЬГОТНЫЙ ТРУДОВОЙ СТАЖ</div>
+              <div class="info-value">
+                0/0/0<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                КАРАГАНДА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРОДОЛЖИТЕЛЬНОСТЬ СТАЖА</div>
+              <div class="info-value">
+                00/00/00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЛЬГОТНЫЙ СТАЖ ПЕНСИОНЕРА</div>
+              <div class="info-value">
+                32/10/27<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВОЙ СТАЖ ПЕНСИОНЕРА</div>
+              <div class="info-value">
+                32/10/27<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕНСИИ</div>
+              <div class="info-value">
+                12657,85; 12687,94; 12923,68; 13402,12<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЗНАК ЗАНЯТОСТИ</div>
+              <div class="info-value">
+                ДА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТРУДОВОЙ СТАЖ ДО 2002 Г.</div>
+              <div class="info-value">
+                24/1/5<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЛЬГОТНЫЙ ТРУДОВОЙ СТАЖ ДО 2002 Г.</div>
+              <div class="info-value">
+                0/0/0<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН ТЕЛЕФОНА</div>
+              <div class="info-value">
+                Ульяновская обл.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЖЕЛАЕМАЯ ЗАРПЛАТА</div>
+              <div class="info-value">
+                18000.0<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XTA211020Y0213414</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Т822АВ73</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ21102</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2012-07-20 16:46:54</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">T822AB73</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2012-12-12 15:31:13</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Ульяновская область, г.Ульяновск, бульв.Киевский, д.7, кв.243</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">732-003</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-12-14</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">УПРАВЛЕНИЕМ ВНУТРЕННИХ ДЕЛ ЗАВОЛЖСКОГО РАЙОНА ГОРОДА УЛЬЯНОВСКА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Караганда</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">142000, Московская обл, г. Домодедово, мкр. Южный, ул. Курыжова, д. 19, к. 3, кв. 118</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-12-14</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Управлением внутренних дел Заволжского р-на гор. Ульяновска</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Караганда</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Ульяновская область, г.Ульяновск, ул.Рябикова, д.70, корп.2, кв.221</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">732-003</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-12-14</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Управлением внутренних дел Заволжского р-на гор. Ульяновска</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">город Караганда</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Ульяновская область, г.Ульяновск, ул.Рябикова, д.70, корп.2, кв.221</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">732-003</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2003-12-14</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">УПРАВЛЕНИЕМ ВНУТРЕННИХ ДЕЛ ЗАВОЛЖСКОГО РАЙОНА ГОРОДА УЛЬЯНОВСКА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Т822АВ73</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2012-05-12 14:01:09</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">T822AB73</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2012-12-12 15:24:43</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-10-26 11:44:20</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">7774</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЛАРНАКА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">КИПР</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-10-26 11:20:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">770476207</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2023-06-03 13:19:27</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">CORENDON AIRLINES</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">XC8956</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2023-04-12</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2023-06-03 15:15:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-19 23:46:33</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">УРАЛЬСКИЕ АВИАЛИНИИ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">U63575</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-20 03:10:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-19 23:46:33</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">УРАЛЬСКИЕ АВИАЛИНИИ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">U63575</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-20 03:02:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-19 23:46:33</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">УРАЛЬСКИЕ АВИАЛИНИИ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">U63575</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-20 02:55:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-10-15 00:48:58</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ЛАРНАКА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">КЮ7773</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">КИПР</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-10-15 03:10:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-09-10 12:05:46</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РЕД ВИНГС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">WZ-9605</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-09-10 14:03:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">770476207</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2023-06-14 13:20:16</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">А%К ЯМАЛ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">YC-9340</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2023-04-12</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2023-06-14 12:50:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-09-10 12:05:46</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РЕД ВИНГС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">WZ-9605</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-09-10 13:50:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-06-01 12:20:58</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-3236</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-06-01 11:54:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-05-20 01:38:17</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РОССИЯ.</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">FV-5859</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-05-20 04:39:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-06-02 23:39:58</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SDM-5860</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-06-02 23:18:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-06-02 23:39:58</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SDM-5860</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-06-02 23:10:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-09-21 11:21:11</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">А%К УРАЛЬСКИЕ АВИАЛИНИИ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">U6-1004</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-09-21 10:58:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-06-01 12:20:58</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-3236</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-06-01 12:05:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2021-09-21 14:07:51</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РЕД ВИНКС</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">WZ-7012</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">VPBMR</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2021-09-21 13:22:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2021-09-09 02:14:08</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РЕД ВИНКС</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">WZ-7009</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">VPBMR</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2021-09-09 04:40:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2021-09-09 02:14:08</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РЕД ВИНКС</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">WZ-7009</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2021-09-09 04:30:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2021-09-21 14:07:51</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РЕД ВИНКС</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">WZ-7012</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2021-09-21 13:30:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">770476207</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2023-06-14 13:20:16</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">А%К ЯМАЛ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">YC-9340</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">73693</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2023-04-12</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2023-06-14 12:55:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2020-08-30 13:59:04</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">АДЛЕР АВТО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2003-12-14</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">0000-00-00 00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2020-09-12 13:14:01</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">АДЛЕР АВТО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2003-12-14</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">0000-00-00 00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2016-07-22 01:15:12</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ВАРНА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">КЮ-7785</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">БОЛГАРИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2016-07-22 04:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2016-07-22 01:15:12</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ВАРНА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">КЮ-7785</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">БОЛГАРИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2016-07-22 03:55:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2016-07-29 11:18:07</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">КЮ7786</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ВАРНА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">БОЛГАРИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2016-07-29 10:57:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Департамент здравоохранения 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79853369542</td>
+                </tr>
+                <tr>
+                  <td>РЕГИСТРАЦИЯ</td>
+                  <td class="">OTHER</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина РФ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79853369542</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Московская обл, г Домодедово, мкр Южный, ул Курыжова,19,118</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">0933457304</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79853369542</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">732800147580</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79272731440</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">731259522</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-05-20 01:38:17</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">РОССИЯ.</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">FV-5859</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2013-09-19</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-05-20 04:30:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Сбербанк 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. Москва и Московская область</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79853369542</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">UTC+3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ПАО Мобильные ТелеСистемы</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-07-14</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Индивидуальные предприниматели 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">732800147580</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>ОКВЭД</td>
+                  <td class="">1319</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ОГРНИП</td>
+                  <td class="">304732804000062</td>
+                </tr>
+                <tr>
+                  <td>КОД ФНС</td>
+                  <td class="">7325</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79272731440</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПФР</td>
+                  <td class="">83028039244</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТАТУСА</td>
+                  <td class="">13.01.2011</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">09.02.2004</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Россия Московская область г Домодедово ул Курыжева 19 3 118</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79853369542</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">УВД ЗАВОЛЖСКОГО Р-НА Г.УЛЬЯНОВСКА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">14.12.2003</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">5029530670</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</td>
+                  <td class="">28.10.2016</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">732800147580</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЗАСВИЯЖСКИЙ .. УЛЬЯНОВСК Г .. РЯБИКОВА УЛ .. 70 .. 2 .. 221</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79272731440</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">732800147580</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79272731440</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">732800147580</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79272731440</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты gemotest.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Московская область, г.Домодедово микр. Южный ул.Курыжова д. 19 к.3, кв.118</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">Московская область Московская область, г.Домодедово микр. Южный ул.Курыжова д. 19 к.3, кв.118</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79853369542</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-06-07 15:24:19</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-10-23 09:59:09</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">УВД Заволжского р-на г. Ульяновска</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Вакцинация Москвоская область 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">04.03.2022</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">50</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ПРЕПАРАТ</td>
+                  <td class="">Гам-КОВИД-Вак Комбинированная векторная вакцина для профилактики коронавирусной инфекции, вызываемой вирусом SARS-CoV-2</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>СЕРИЯ ВАКЦИНЫ</td>
+                  <td class="">ZB02420</td>
+                </tr>
+                <tr>
+                  <td>МАСКА ПАСПОРТА</td>
+                  <td class="">7* ****522</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДОКУМЕНТА</td>
+                  <td class="">2566692</td>
+                </tr>
+                <tr>
+                  <td>УНИКАЛЬНЫЙ НОМЕР РЗ</td>
+                  <td class="">9500000002566692</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">732800147580</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЗАСВИЯЖСКИЙ .. УЛЬЯНОВСК Г .. РЯБИКОВА УЛ .. 70 .. 2 .. 221</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЗАСВИЯЖСКИЙ .. Г.УЛЬЯНОВСК .. РЯБИКОВА .. 70 .. 2 .. 221</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">НС 137695 12.02.2013</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5044 17310</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОМОДЕДОВО Г. - КУРЫЖОВА МКР ЮЖНЫЙ - 19 - 3 - 118</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">БЕЛЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Х7LВSRВУАDН597941</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">С155УУ190</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд 2010-2018 с адресами</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">РЕНО САНДЕРО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">28.10.2016</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ ДВИГАТЕЛЯ</td>
+                  <td class="">103</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2013</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">НС 137695 12.02.2013</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5044017310</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОМОДЕДОВО Г. - КУРЫЖОВА МКР ЮЖНЫЙ - 19 - 3 - 118</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">БЕЛЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Х7LВSRВУАDН597941</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">С155УУ190</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд по Москве и МО (Март - Декабрь 2016)</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">РЕНО САНДЕРО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">28.10.2016</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ ДВИГАТЕЛЯ</td>
+                  <td class="">103</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2013</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ульяновск г Рябикова ул 70 2 221</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Ульяновск 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">432054 Ульяновская область УЛЬЯНОВСК ЗАСВИЯЖСКИЙ РАЙОН Г. УЛЬЯНОВСКА РЯБИКОВА д. 70 корп. 2 кв. 221</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ПЕНСИЯ</td>
+                  <td class="">12657,85; 12687,94; 12923,68; 13402,12</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">639059</td>
+                </tr>
+                <tr>
+                  <td>ИЖДИВЕНЕЦ</td>
+                  <td class="">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА 22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГРАЖДАНСТВО</td>
+                  <td class="">РОССИЙСКАЯ ФЕДЕРАЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">ПАСПОРТ РОССИИ</td>
+                </tr>
+                <tr>
+                  <td>ПРИЗНАК РАБОТЫ</td>
+                  <td class="">ДА</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">УВД ЗАВОЛЖСКОГО РАЙОНА Г.УЛЯЬНОВСКА</td>
+                </tr>
+                <tr>
+                  <td>ОБЩИЙ ТРУДОВОЙ СТАЖ</td>
+                  <td class="">24/1/5</td>
+                </tr>
+                <tr>
+                  <td>СОЦДОПЛАТА К ПЕНСИИ</td>
+                  <td class="">12657,85; 12687,94; 12923,68; 13402,12</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">14.12.2003</td>
+                </tr>
+                <tr>
+                  <td>ЗАРАБОТОК ПЕНСИОНЕРА</td>
+                  <td class="">2631,13</td>
+                </tr>
+                <tr>
+                  <td>ЛЬГОТНЫЙ ТРУДОВОЙ СТАЖ</td>
+                  <td class="">0/0/0</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КАРАГАНДА</td>
+                </tr>
+                <tr>
+                  <td>ПРОДОЛЖИТЕЛЬНОСТЬ СТАЖА</td>
+                  <td class="">00/00/00</td>
+                </tr>
+                <tr>
+                  <td>ЛЬГОТНЫЙ СТАЖ ПЕНСИОНЕРА</td>
+                  <td class="">32/10/27</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ СТАЖ ПЕНСИОНЕРА</td>
+                  <td class="">32/10/27</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 53 -->
+      <div class="card source-card" id="source52">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Ульяновск 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">432054 Ульяновская область УЛЬЯНОВСК ЗАСВИЯЖСКИЙ РАЙОН Г. УЛЬЯНОВСКА РЯБИКОВА д. 70 корп. 2 кв. 221</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ПЕНСИЯ</td>
+                  <td class="">12657,85; 12687,94; 12923,68; 13402,12</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">89272731</td>
+                </tr>
+                <tr>
+                  <td>ИЖДИВЕНЕЦ</td>
+                  <td class="">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА 22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГРАЖДАНСТВО</td>
+                  <td class="">РОССИЙСКАЯ ФЕДЕРАЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">ПАСПОРТ РОССИИ</td>
+                </tr>
+                <tr>
+                  <td>ПРИЗНАК РАБОТЫ</td>
+                  <td class="">ДА</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">УВД ЗАВОЛЖСКОГО РАЙОНА Г.УЛЯЬНОВСКА</td>
+                </tr>
+                <tr>
+                  <td>ОБЩИЙ ТРУДОВОЙ СТАЖ</td>
+                  <td class="">24/1/5</td>
+                </tr>
+                <tr>
+                  <td>СОЦДОПЛАТА К ПЕНСИИ</td>
+                  <td class="">12657,85; 12687,94; 12923,68; 13402,12</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">14.12.2003</td>
+                </tr>
+                <tr>
+                  <td>ЗАРАБОТОК ПЕНСИОНЕРА</td>
+                  <td class="">2631,13</td>
+                </tr>
+                <tr>
+                  <td>ЛЬГОТНЫЙ ТРУДОВОЙ СТАЖ</td>
+                  <td class="">0/0/0</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КАРАГАНДА</td>
+                </tr>
+                <tr>
+                  <td>ПРОДОЛЖИТЕЛЬНОСТЬ СТАЖА</td>
+                  <td class="">00/00/00</td>
+                </tr>
+                <tr>
+                  <td>ЛЬГОТНЫЙ СТАЖ ПЕНСИОНЕРА</td>
+                  <td class="">32/10/27</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ СТАЖ ПЕНСИОНЕРА</td>
+                  <td class="">32/10/27</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 54 -->
+      <div class="card source-card" id="source53">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Ульяновская область 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">432054, Ульяновская область, УЛЬЯНОВСК, - город Ульяновск, ЗАСВИЯЖСКИЙ РАЙОН Г. УЛЬЯНОВСКА, ул. РЯБИКОВА, д. 70, корп. 2, кв. 221</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10745701339</td>
+                </tr>
+                <tr>
+                  <td>ПЕНСИИ</td>
+                  <td class="">12657,85; 12687,94; 12923,68; 13402,12</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">89272731</td>
+                </tr>
+                <tr>
+                  <td>ИЖДИВЕНЕЦ</td>
+                  <td class="">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА 22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ГРАЖДАНСТВО</td>
+                  <td class="">РОССИЙСКАЯ ФЕДЕРАЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">ПАСПОРТ РОССИИ</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">УВД ЗАВОЛЖСКОГО РАЙОНА Г.УЛЯЬНОВСКА</td>
+                </tr>
+                <tr>
+                  <td>ПРИЗНАК ЗАНЯТОСТИ</td>
+                  <td class="">ДА</td>
+                </tr>
+                <tr>
+                  <td>СОЦДОПЛАТА К ПЕНСИИ</td>
+                  <td class="">12657,85; 12687,94; 12923,68; 13402,12</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">14.12.2003</td>
+                </tr>
+                <tr>
+                  <td>ТРУДОВОЙ СТАЖ ДО 2002 Г.</td>
+                  <td class="">24/1/5</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КАРАГАНДА</td>
+                </tr>
+                <tr>
+                  <td>ЛЬГОТНЫЙ СТАЖ ПЕНСИОНЕРА</td>
+                  <td class="">32/10/27</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ СТАЖ ПЕНСИОНЕРА</td>
+                  <td class="">32/10/27</td>
+                </tr>
+                <tr>
+                  <td>ЛЬГОТНЫЙ ТРУДОВОЙ СТАЖ ДО 2002 Г.</td>
+                  <td class="">0/0/0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 55 -->
+      <div class="card source-card" id="source54">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Резюме superjob.ru 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Яшина Любовь Михайловна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ульяновск</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79272731440</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">MSK+1 (UTC+4)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ПАО МегаФон</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН ТЕЛЕФОНА</td>
+                  <td class="">Ульяновская обл.</td>
+                </tr>
+                <tr>
+                  <td>ЖЕЛАЕМАЯ ЗАРПЛАТА</td>
+                  <td class="">18000.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 56 -->
+      <div class="card source-card" id="source55">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Ульяновская область 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Засвияжский г.Ульяновск Рябикова 70 2 221</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 57 -->
+      <div class="card source-card" id="source56">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Ульяновская область 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЯШИНА ЛЮБОВЬ МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Засвияжский Ульяновск г Рябикова ул 70 2 221</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">7304093345</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">22.03.1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Департамент здравоохранения 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Клиенты Сбербанк 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Индивидуальные предприниматели 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Водительские удостоверения 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Клиенты gemotest.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Вакцинация Москвоская область 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                ФОМС Ульяновск 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source52" class="nav-link " onclick="scrollToSource('source52', event)">
+                ФОМС Ульяновск 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source53" class="nav-link " onclick="scrollToSource('source53', event)">
+                Жители Ульяновская область 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source54" class="nav-link " onclick="scrollToSource('source54', event)">
+                Резюме superjob.ru 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source55" class="nav-link " onclick="scrollToSource('source55', event)">
+                ФОМС Ульяновская область 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source56" class="nav-link " onclick="scrollToSource('source56', event)">
+                ФОМС Ульяновская область 2011
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

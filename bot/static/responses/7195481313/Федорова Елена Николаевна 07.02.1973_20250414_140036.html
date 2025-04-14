@@ -1,0 +1,3362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Федорова Елена Николаевна 07.02.1973</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Федорова Елена Николаевна 07.02.1973</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">45 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА<br>
+                Федорова Елена Николаевна<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                07.02.1973<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                КАЛИНИНСКИЙ ЧЕБОКСАРЫ ГАГАРИНА Д.45 КВ.78<br>
+                ДОНСКОЙ 2-Й ПР-Д 7/1-ОБЩ<br>
+                Чебоксары Гагарина 45 78<br>
+                428012 21 ЧЕБОКСАРЫ Г ГАГАРИНА УЛ Д.45 КВ.78<br>
+                г. чебоксары, ул. гагарина, д. 45, кв. 78<br>
+                чр, г. чебоксары, ул. гагарина, д. 45, кв. 78<br>
+                428000, чр, г. чебоксары, ул. гагарина, д. 45, кв. 78<br>
+                428022, чр, г. чебоксары, ул. гагарина, д. 16, кв. 78<br>
+                428003, РОССИЯ,   Г. ЧЕБОКСАРЫ,  УЛ. ГАГАРИНА Ю., Д. 45,  КВ. 78<br>
+                ДОНСКОЙ 2-Й ПР. 7/1-ОБЩ<br>
+                428003, Россия, г. Чебоксары, ул. Гагарина Ю., д. 45, кв. 78<br>
+                428012 21 ЧЕБОКСАРЫ Г ГАГАРИНА УЛ д.45 кв.78<br>
+                РЕСПУБЛИКА ТАТАPСТАН,423570,РЕСПУБЛИКА ТАТАРСТАН,Р-Н,Г.НИЖНЕКАМСК УЛ.КОРАБЕЛЬНАЯ Д.13,КВ.310<br>
+                РЕСПУБЛИКА ТАТАPСТАН,423570 РЕСПУБЛИКА ТАТАРСТАН ТАТАРСТАН Г.-УЛ.КОРАБЕЛЬНАЯ Д.13 К.-КВ.310<br>
+                ДОНСКОЙ 2-Й Пр-д 7/1-ОБЩ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79050277183<br>
+                79172710422<br>
+                78555492363<br>
+                79061161207<br>
+                79872923500<br>
+                78555339343<br>
+                78555303373<br>
+                79178582257<br>
+                79050278896<br>
+                79053450087<br>
+                79033893110<br>
+                79702667870<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                9917903366<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                9702667870<br>
+                9208587481<br>
+                9217343444<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                04942049866<br>
+                07534776291<br>
+                7534776291<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                165112867803<br>
+                212701681113<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛЖНОСТЬ</div>
+              <div class="info-value">
+                МЕДСЕСТРА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ГОР.БОЛЬНИЦА №3<br>
+                ООО МОДА МИКС<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                30000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                03.12.2018<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЛ</div>
+              <div class="info-value">
+                Ж<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                Т<br>
+                Резидент<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИИ ВУ</div>
+              <div class="info-value">
+                B,B1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВУ</div>
+              <div class="info-value">
+                2020-09-18<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ВУ</div>
+              <div class="info-value">
+                2010<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ВУ</div>
+              <div class="info-value">
+                2030-09-18<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА ЗАМЕНЫ ВУ</div>
+              <div class="info-value">
+                Замена ВУ в связи с истечением срока его действия<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ВУ</div>
+              <div class="info-value">
+                Регистрационное отделение отдела государственной инспекции безопасности дорожного движения Управления МВД России по Нижнекамскому району<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                гор. Чебоксары<br>
+                дер. Наримановка Нижнекамского района Татарской АССР<br>
+                дер. Наримановка Нижнекамский район Татарская АССР<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Чувашская Республика - Чувашия, г.Чебоксары, ул. Гагарина Ю., д.45, кв.78<br>
+                Республика Татарстан (Татарстан), г.Нижнекамск, ул.Корабельная, д.13, кв.514<br>
+                РЕСПУБЛИКА ТАТАPСТАН,423570,РЕСПУБЛИКА ТАТАРСТАН,Р-Н,Г.НИЖНЕКАМСК УЛ.КОРАБЕЛЬНАЯ Д.13,КВ.310<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2002-07-18<br>
+                2008-12-18<br>
+                2018-02-22<br>
+                18.07.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                Калининским РОВД гор.Чебоксары Чувашской Республики<br>
+                Отделом УФМС России по Республике Татарстан в гор. Нижнекамске<br>
+                МВД по Республике Татарстан<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                Татарстан Респ, р-н. Нижнекамский, г. Нижнекамск, ул. Гагарина, д. 20, кв. 52<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                160-013<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОНЫ</div>
+              <div class="info-value">
+                79061161207,78555303373,78555339343<br>
+                78555492363,78555303373,78555339343<br>
+                78555492363,79061161207,78555303373<br>
+                78555492363,79061161207,78555339343<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2018-09-08 05:33:23<br>
+                2018-09-08 21:16:51<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЫЕЗД<br>
+                ВЪЕЗД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                ПЕРЕДВИЖЕНИЕ ПЕШКОМ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                АДЛЕР (АВТО)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2018-02-22<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                0000-00-00 00:00:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИСТРАЦИЯ</div>
+              <div class="info-value">
+                OTHER<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                ФЕДОРОВ НИКОЛАЙ ИВАНОВИЧ 14.05.1947, ФЕДОРОВА ГАЛИНА АНДРЕЕВНА 15.11.1947, ФЕДОРОВ ДМИТРИЙ НИКОЛАЕВИЧ 24.09.1977<br>
+                ПЕТРИС ОКСАНА КОНСТАНТИНОВНА 05.02.1979, ЧИСТЯКОВА ЕКАТЕРИНА НИКОЛАЕВНА 09.10.1980, ПАВЛОВ ГЕОРГИЙ ВЛАДИМИРОВИЧ 18.04.1978, НИКОЛАЕВА ЕЛЕНА БОРИСОВНА 01.01.1972, ЛЫЧАГИНА ТАТЬЯНА НИКОЛАЕВНА 01.01.1973, СУВОРОВА СВЕТЛАНА ЮРЬЕВНА 04.05.1974, ЕГОРОВА ВИЛЮЯНА СПИРИДОНОВНА 12.04.1976, МАТКИНА ТАТЬЯНА ВИТАЛЬЕВНА 07.08.1978<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2009-06-21<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВНЕСЕНИЯ</div>
+              <div class="info-value">
+                2013-10-28 00:06:37<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2013-10-28 00:06:37<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОМАШНИЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                352283189<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                калининским ровд гор. чебоксары чр<br>
+                калининским ровд г.чебоксары чр<br>
+                калининским ровд г. чебоксары чр<br>
+                калининским ровд,г.чебоксары<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                Донской 2-й пр. 7/1-общ; Донской 2-й пр. 7/1-общ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                Калининский РОСП г. Чебоксары<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                118172/18/21003-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН МЕНЕДЖЕРА</div>
+              <div class="info-value">
+                78555492363<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РАБОТЫ</div>
+              <div class="info-value">
+                423570,РЕСПУБЛИКА ТАТАРСТАН,Р-Н,Г.НИЖНЕКАМСК УЛ.СТРОИТЕЛЕЙ Д.10Б,<br>
+                423570 РЕСПУБЛИКА ТАТАРСТАН ТАТАРСТАН Г.-УЛ.СТРОИТЕЛЕЙД.10Б К.-КОМ.-<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                78555303373<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГРАЖДАНСТВО</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                ИНФОРМАЦИЯ О ГРАЖДАНСТВЕ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД РОЖДЕНИЯ</div>
+              <div class="info-value">
+                1973<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                14258362<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГНИ ФИЗЛИЦА</div>
+              <div class="info-value">
+                2127<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОДОВОЙ ДОХОД</div>
+              <div class="info-value">
+                3014.29<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБЩАЯ СУММА ДОХОДА</div>
+              <div class="info-value">
+                261<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ДОХОДА</div>
+              <div class="info-value">
+                2003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОХОД ПО МЕСЯЦАМ (АЛЬТ)</div>
+              <div class="info-value">
+                900, 1200, 914.29, 0, 0, 0, 0, 0, 0, 0, 0, 0<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</div>
+              <div class="info-value">
+                7718<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБЛАГАЕМАЯ СУММА ДОХОДА</div>
+              <div class="info-value">
+                2009.53<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ID НОМЕР</div>
+              <div class="info-value">
+                20564534<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                ПАСПОРТ ГРАЖДАНИНА РФ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СИСТЕМНЫЙ НОМЕР</div>
+              <div class="info-value">
+                3983820<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН РАБОТОДАТЕЛЯ</div>
+              <div class="info-value">
+                7718221175<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД СТРАНЫ ПО ОКСМ</div>
+              <div class="info-value">
+                643<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВНЕСЕНИЯ В РЕЕСТР</div>
+              <div class="info-value">
+                15.03.2004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ГНИ ПРЕДОСТАВЛЕНИЯ</div>
+              <div class="info-value">
+                7718<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ГНИ МЕСТА ЖИТЕЛЬСТВА</div>
+              <div class="info-value">
+                2127<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">Ж</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">B,B1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВУ</td>
+                  <td class="">2020-09-18</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ВУ</td>
+                  <td class="">2010</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ВУ</td>
+                  <td class="">2030-09-18</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ВУ</td>
+                  <td class="">Регистрационное отделение отдела государственной инспекции безопасности дорожного движения Управления МВД России по Нижнекамскому району</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9917903366</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79050277183</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Чебоксары</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Чувашская Республика - Чувашия, г.Чебоксары, ул. Гагарина Ю., д.45, кв.78</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2002-07-18</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Калининским РОВД гор.Чебоксары Чувашской Республики</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9208587481</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">дер. Наримановка Нижнекамского района Татарской АССР</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Республика Татарстан (Татарстан), г.Нижнекамск, ул.Корабельная, д.13, кв.514</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2008-12-18</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по Республике Татарстан в гор. Нижнекамске</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">04942049866</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9217343444</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79172710422</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">дер. Наримановка Нижнекамский район Татарская АССР</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Татарстан Респ, р-н. Нижнекамский, г. Нижнекамск, ул. Гагарина, д. 20, кв. 52</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">160-013</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2018-02-22</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">МВД по Республике Татарстан</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">78555492363</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">79061161207,78555303373,78555339343</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты МТС банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">165112867803</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79061161207</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">78555492363,78555303373,78555339343</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9217343444</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-09-08 05:33:23</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">ПЕРЕДВИЖЕНИЕ ПЕШКОМ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">АДЛЕР (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2018-02-22</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">0000-00-00 00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9217343444</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-09-08 21:16:51</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">ПЕРЕДВИЖЕНИЕ ПЕШКОМ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">АДЛЕР (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2018-02-22</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">0000-00-00 00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Департамент здравоохранения 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>РЕГИСТРАЦИЯ</td>
+                  <td class="">OTHER</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79872923500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛИНИНСКИЙ ЧЕБОКСАРЫ ГАГАРИНА Д.45 КВ.78</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ФЕДОРОВ НИКОЛАЙ ИВАНОВИЧ 14.05.1947, ФЕДОРОВА ГАЛИНА АНДРЕЕВНА 15.11.1947, ФЕДОРОВ ДМИТРИЙ НИКОЛАЕВИЧ 24.09.1977</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОНСКОЙ 2-Й ПР-Д 7/1-ОБЩ</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ПЕТРИС ОКСАНА КОНСТАНТИНОВНА 05.02.1979, ЧИСТЯКОВА ЕКАТЕРИНА НИКОЛАЕВНА 09.10.1980, ПАВЛОВ ГЕОРГИЙ ВЛАДИМИРОВИЧ 18.04.1978, НИКОЛАЕВА ЕЛЕНА БОРИСОВНА 01.01.1972, ЛЫЧАГИНА ТАТЬЯНА НИКОЛАЕВНА 01.01.1973, СУВОРОВА СВЕТЛАНА ЮРЬЕВНА 04.05.1974, ЕГОРОВА ВИЛЮЯНА СПИРИДОНОВНА 12.04.1976, МАТКИНА ТАТЬЯНА ВИТАЛЬЕВНА 07.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">78555339343</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">78555492363,79061161207,78555303373</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">78555303373</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">78555492363,79061161207,78555339343</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты МТС банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">165112867803</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79178582257</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты sportmaster.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2009-06-21</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Чебоксары Гагарина 45 78</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79050277183</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВНЕСЕНИЯ</td>
+                  <td class="">2013-10-28 00:06:37</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2013-10-28 00:06:37</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">352283189</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428012 21 ЧЕБОКСАРЫ Г ГАГАРИНА УЛ Д.45 КВ.78</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79872923500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. чебоксары, ул. гагарина, д. 45, кв. 78</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79050278896</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">калининским ровд гор. чебоксары чр</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">18.07.2002</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">чр, г. чебоксары, ул. гагарина, д. 45, кв. 78</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79053450087</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">калининским ровд г.чебоксары чр</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">18.07.2002</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428000, чр, г. чебоксары, ул. гагарина, д. 45, кв. 78</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79050277183</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">калининским ровд г. чебоксары чр</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">18.07.2002</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428022, чр, г. чебоксары, ул. гагарина, д. 16, кв. 78</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79033893110</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">калининским ровд,г.чебоксары</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">18.07.2002</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428003, РОССИЯ,   Г. ЧЕБОКСАРЫ,  УЛ. ГАГАРИНА Ю., Д. 45,  КВ. 78</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428012 21 ЧЕБОКСАРЫ Г ГАГАРИНА УЛ Д.45 КВ.78</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОНСКОЙ 2-Й ПР. 7/1-ОБЩ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">Донской 2-й пр. 7/1-общ; Донской 2-й пр. 7/1-общ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">30000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428003, Россия, г. Чебоксары, ул. Гагарина Ю., д. 45, кв. 78</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">07534776291</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">03.12.2018</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9208587481</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Калининский РОСП г. Чебоксары</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">118172/18/21003-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Федорова Елена Николаевна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428012 21 ЧЕБОКСАРЫ Г ГАГАРИНА УЛ д.45 кв.78</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">07534776291</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428012 21 ЧЕБОКСАРЫ Г ГАГАРИНА УЛ д.45 кв.78</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">7534776291</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9208587481</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">МЕДСЕСТРА</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ГОР.БОЛЬНИЦА №3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН МЕНЕДЖЕРА</td>
+                  <td class="">78555492363</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РАБОТЫ</td>
+                  <td class="">423570,РЕСПУБЛИКА ТАТАРСТАН,Р-Н,Г.НИЖНЕКАМСК УЛ.СТРОИТЕЛЕЙ Д.10Б,</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9208587481</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">МЕДСЕСТРА</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ГОР.БОЛЬНИЦА №3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН МЕНЕДЖЕРА</td>
+                  <td class="">78555492363</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РАБОТЫ</td>
+                  <td class="">423570 РЕСПУБЛИКА ТАТАРСТАН ТАТАРСТАН Г.-УЛ.СТРОИТЕЛЕЙД.10Б К.-КОМ.-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9208587481</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ГОР.БОЛЬНИЦА №3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН МЕНЕДЖЕРА</td>
+                  <td class="">78555492363</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РЕСПУБЛИКА ТАТАPСТАН,423570,РЕСПУБЛИКА ТАТАРСТАН,Р-Н,Г.НИЖНЕКАМСК УЛ.КОРАБЕЛЬНАЯ Д.13,КВ.310</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9208587481</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">78555303373</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РЕСПУБЛИКА ТАТАPСТАН,423570 РЕСПУБЛИКА ТАТАРСТАН ТАТАРСТАН Г.-УЛ.КОРАБЕЛЬНАЯ Д.13 К.-КВ.310</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9208587481</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">78555303373</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9208587481</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">РЕСПУБЛИКА ТАТАPСТАН,423570,РЕСПУБЛИКА ТАТАРСТАН,Р-Н,Г.НИЖНЕКАМСК УЛ.КОРАБЕЛЬНАЯ Д.13,КВ.310</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН РЕГИСТРАЦИИ</td>
+                  <td class="">78555303373</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Статус Лица Москва 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОНСКОЙ 2-Й ПР. 7/1-ОБЩ</td>
+                </tr>
+                <tr>
+                  <td>ГРАЖДАНСТВО</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ТИП ИНФОРМАЦИИ</td>
+                  <td class="">ИНФОРМАЦИЯ О ГРАЖДАНСТВЕ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ГРАЖДАНСТВО</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1973</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОНСКОЙ 2-Й Пр-д 7/1-ОБЩ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428012 21 ЧЕБОКСАРЫ Г ГАГАРИНА УЛ д.45 кв.78</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">07534776291</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">14258362</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ГНИ ФИЗЛИЦА</td>
+                  <td class="">2127</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО МОДА МИКС</td>
+                </tr>
+                <tr>
+                  <td>ГОДОВОЙ ДОХОД</td>
+                  <td class="">3014.29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ОБЩАЯ СУММА ДОХОДА</td>
+                  <td class="">261</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ДОХОДА</td>
+                  <td class="">2003</td>
+                </tr>
+                <tr>
+                  <td>ДОХОД ПО МЕСЯЦАМ (АЛЬТ)</td>
+                  <td class="">900, 1200, 914.29, 0, 0, 0, 0, 0, 0, 0, 0, 0</td>
+                </tr>
+                <tr>
+                  <td>ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</td>
+                  <td class="">7718</td>
+                </tr>
+                <tr>
+                  <td>ОБЛАГАЕМАЯ СУММА ДОХОДА</td>
+                  <td class="">2009.53</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">428012 21 ЧЕБОКСАРЫ Г ГАГАРИНА УЛ д.45 кв.78</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">07534776291</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79702667870</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Место работы Москва 2004</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">212701681113</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Резидент</td>
+                </tr>
+                <tr>
+                  <td>ID НОМЕР</td>
+                  <td class="">20564534</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">9702667870</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО МОДА МИКС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">ПАСПОРТ ГРАЖДАНИНА РФ</td>
+                </tr>
+                <tr>
+                  <td>СИСТЕМНЫЙ НОМЕР</td>
+                  <td class="">3983820</td>
+                </tr>
+                <tr>
+                  <td>ИНН РАБОТОДАТЕЛЯ</td>
+                  <td class="">7718221175</td>
+                </tr>
+                <tr>
+                  <td>КОД СТРАНЫ ПО ОКСМ</td>
+                  <td class="">643</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВНЕСЕНИЯ В РЕЕСТР</td>
+                  <td class="">15.03.2004</td>
+                </tr>
+                <tr>
+                  <td>КОД ГНИ ПРЕДОСТАВЛЕНИЯ</td>
+                  <td class="">7718</td>
+                </tr>
+                <tr>
+                  <td>КОД ГНИ МЕСТА ЖИТЕЛЬСТВА</td>
+                  <td class="">2127</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные лица 2004</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОНСКОЙ 2-Й Пр-д 7/1-ОБЩ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ФЕДОРОВА ЕЛЕНА НИКОЛАЕВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ДОНСКОЙ 2-Й Пр-д 7/1-ОБЩ</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ПЕТРИС ОКСАНА КОНСТАНТИНОВНА 05.02.1979, ЧИСТЯКОВА ЕКАТЕРИНА НИКОЛАЕВНА 09.10.1980, ПАВЛОВ ГЕОРГИЙ ВЛАДИМИРОВИЧ 18.04.1978, НИКОЛАЕВА ЕЛЕНА БОРИСОВНА 01.01.1972, ЛЫЧАГИНА ТАТЬЯНА НИКОЛАЕВНА 01.01.1973, СУВОРОВА СВЕТЛАНА ЮРЬЕВНА 04.05.1974, ЕГОРОВА ВИЛЮЯНА СПИРИДОНОВНА 12.04.1976, МАТКИНА ТАТЬЯНА ВИТАЛЬЕВНА 07.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">07.02.1973</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Водительские удостоверения 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Клиенты МТС банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Департамент здравоохранения 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Клиенты МТС банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Клиенты sportmaster.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Жители Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Жители 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Статус Лица Москва 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Жители Москва 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Жители 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Доходы физлиц 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Жители 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Жители Москва 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Место работы Москва 2004
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Криминальные лица 2004
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

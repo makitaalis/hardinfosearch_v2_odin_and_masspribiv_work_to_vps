@@ -1,0 +1,4930 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Свиридов Кирилл Викторович 08.06.1987</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Свиридов Кирилл Викторович 08.06.1987</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">72 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Свиридов Кирилл Викторович<br>
+                СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ<br>
+                Свиридов кирилл викторович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                08.06.1987<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                643,248021,40,,КАЛУГА,,ГЛАГОЛЕВА,36,,1<br>
+                248021, РОССИЯ, Г. КАЛУГА, УЛ. ГЛАГОЛЕВА, Д. 36, КВ. 1<br>
+                643,248021,40,КАЛУГА,ГЛАГОЛЕВА,36,1<br>
+                643, 248912, 40, КАЛУГА Г. , ГЛАГОЛЕВА УЛ. , 36, 1<br>
+                Калужская обл.<br>
+                643,248912,40,КАЛУГА,ГЛАГОЛЕВА,36,1<br>
+                643,248912,40,КАЛУГА Г.,ГЛАГОЛЕВА УЛ.,36,1<br>
+                643, 248912, 40, КАЛУГА Г., ГЛАГОЛЕВА УЛ., 36, 1<br>
+                643, 248912, 40, КАЛУГА, ГЛАГОЛЕВА, 36, 1<br>
+                643,248912,40,,КАЛУГА,,ГЛАГОЛЕВА,36,,1<br>
+                643,248912,40,,КАЛУГА Г.,,ГЛАГОЛЕВА УЛ.,36,,1<br>
+                КАЛУГА ГЛАГОЛЕВА 36 2<br>
+                КАЛУЖСКАЯ ОБЛАСТЬ,248021 КАЛУЖСКАЯ ОБЛАСТЬ Г.-УЛ.МОСКОВСКАЯ Д.240 К.-КВ.66<br>
+                248021, Россия, г. Калуга, ул. Глаголева, д. 36, кв. 1<br>
+                248021 Россия г. Калуга ул. Глаголева д. 36 кв. 1<br>
+                МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1<br>
+                248021 Россия г. Калуга ул. Глаголева д. 36 кв. 2<br>
+                КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1; КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2<br>
+                248021, Калужская обл, Калуга г, Глаголева ул, д.36, кв.1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                РФ<br>
+                [29] Калукжская Область (КСРФ=40)<br>
+                Калуга - КМ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79208827338<br>
+                79158960178<br>
+                79533313123<br>
+                74842568265<br>
+                79208705498<br>
+                8920870549<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                08533043756<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                2043862906<br>
+                2906204386<br>
+                2902617045<br>
+                2330466<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                402814538025<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТ</div>
+              <div class="info-value">
+                2902 617045 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ МОСКОВСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:15.12.2002 (ВЫДАН);2906 204386 КЕМ ВЫДАН:ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В МОСКОВСКОМ ОКРУГЕ ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:18.06.2007 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2902 617045 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ МОСКОВСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:15.12.2002<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ООО<br>
+                ООО КАЛУГА-ЛАДА<br>
+                калуга-лада зерновая 17 механник; калуга-лада (зерновая 17) КЕМ: механник<br>
+                калуга-лада (зерновая 17) КЕМ: механник<br>
+                калуга-лада зерновая 17 механник<br>
+                УЧАЩИЕСЯ СР.ШКОЛЫ N11 (Директор: Гор.Голова Иванов В.В.)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОЛЖНОСТЬ</div>
+              <div class="info-value">
+                МЕХАНИК<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                66707/22/40053-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                14.09.2019<br>
+                20.02.2019<br>
+                15.09.2019<br>
+                29.03.2019<br>
+                18.08.2019<br>
+                11.12.2018<br>
+                07.03.2018<br>
+                02.06.2018<br>
+                19.10.2015<br>
+                07.09.2015<br>
+                23.07.2014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                1500<br>
+                500<br>
+                800<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                М627АР40<br>
+                Е923ТО40<br>
+                Е805НТ40<br>
+                К108РР40<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ЛОГИН</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2021-09-10 20:24:40<br>
+                2022-09-10 11:45:02<br>
+                2020-05-18<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                X7LLSRABH8H162100<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВАНИЯ</div>
+              <div class="info-value">
+                2019-09-14<br>
+                2018-09-14<br>
+                2021-09-14<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                Renault Logan SR<br>
+                41<br>
+                ВАЗ-21061<br>
+                346<br>
+                ВАЗ-21067<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                АМЕЛИНА ЕЛЕНА ВИКТОРОВНА 28.06.1992, КОРЕНЕВ ДЕНИС ЮРЬЕВИЧ 03.05.1991<br>
+                КАРАСУЧЕНКО МАРИАНА ДМИТРИЕВНА 12.10.1973, АМЕЛИНА ЕЛЕНА ВИКТОРОВНА 28.06.1992, НАЖИМОВ ТИМУР НУРАТДИНОВИЧ 02.05.1985, НАЖИМОВА РОЗА НУРАТДИНОВНА 09.11.1983, ПОПОВА АНАСТАСИЯ ВИКТОРОВНА 07.02.1978, БАЛАКИНА НИЛУФАР НУРАТДИНОВНА 02.01.1981, НАЖИМОВА ВЕРА ВАСИЛЬЕВНА 04.04.1959, ГУСЕВА ИННА ВАЛЕРЬЕВНА 26.09.1981<br>
+                Амелина Елена Викторовна 28.06.1992, Коренев Денис Юрьевич 03.05.1991<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОЛГА</div>
+              <div class="info-value">
+                1000<br>
+                800<br>
+                500<br>
+                1800<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАИМЕНОВАНИЕ ИП</div>
+              <div class="info-value">
+                ОСП по ВАШ по г. Калуге УФССП России по Калужской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВОЗБУЖДЕНИЯ ИП</div>
+              <div class="info-value">
+                04.06.2022<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                UTC+3<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                ПАО МегаФон<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</div>
+              <div class="info-value">
+                ОСП по ВАШ в гор. Калуге<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                2001/20/40053-ИП<br>
+                160211/19/40053-ИП<br>
+                160051/19/40053-ИП<br>
+                82685/19/40053-ИП<br>
+                138303/19/40053-ИП<br>
+                38759/19/40053-ИП<br>
+                37534/18/40053-ИП<br>
+                98058/18/40053-ИП<br>
+                34817/15/40022-ИП<br>
+                30529/15/40022-ИП<br>
+                19760/14/22/40<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                ОСП по ВАШ в гор. Калуге<br>
+                ОСП по Московскому округу г. Калуги<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+                Штраф ГИБДД<br>
+                Штраф гибдд<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В МОСКОВСКОМ ОКРУГЕ ГОРОДА КАЛУГИ<br>
+                400002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2007-06-18<br>
+                18.06.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН МЕНЕДЖЕРА</div>
+              <div class="info-value">
+                74842791111<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РАБОТЫ</div>
+              <div class="info-value">
+                248025 КАЛУЖСКАЯ ОБЛАСТЬ Г.-УЛ.ЗЕРНОВАЯД.17 К.-КОМ.-<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                КАЛУЖСКАЯ ОБЛАСТЬ,248021 КАЛУЖСКАЯ ОБЛАСТЬ Г.-УЛ.ГЛАГОЛЕВА Д.36 К.-КВ.1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                74842555419<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА УЧЕТА</div>
+              <div class="info-value">
+                01.12.2005<br>
+                25.04.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИМЕЧАНИЕ</div>
+              <div class="info-value">
+                Дата коррекции : 16.10.2003Место рождения : Г.КАЛУГАДактоформула : 01.61334<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕКСТ ДАТЫ РОЖДЕНИЯ</div>
+              <div class="info-value">
+                08.06.1987<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОМАШНИЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                555419<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСТОЧНИК ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                Банк Пушкино; ИББ ПУШКИНО<br>
+                Sabch (phreaker.us)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                29.01.2016<br>
+                25.12.2015<br>
+                08.09.2014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОСП</div>
+              <div class="info-value">
+                40022<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСТАТОК</div>
+              <div class="info-value">
+                500<br>
+                1500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПАСПОРТА</div>
+              <div class="info-value">
+                400002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОММЕНТАРИЙ</div>
+              <div class="info-value">
+                Судимость А - Антикредит-Другие регионы - Калуга - КМ - Дата коррекции : 16.10.2003 Место рождения : Г.КАЛУГА Дактоформула : 01.61334/01.62335 Гражданство : РФ Адрес : Г.КАЛУГА УЛ.ГЛАГОЛЕВА Д.36 КВ.2 Работа долж. : УЧ-СЯ О С У Ж Д Е Н Дата коррекции<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАБУЛА</div>
+              <div class="info-value">
+                Дата коррекции : 16.10.2003Место рождения : Г.КАЛУГАДактоформула : 01.61334 ;<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Тип учета: НЕГАТИВ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП УЧЁТА</div>
+              <div class="info-value">
+                НЕГАТИВ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД РОЖДЕНИЯ</div>
+              <div class="info-value">
+                1987<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВСЕ ПАСПОРТА</div>
+              <div class="info-value">
+                2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402 002; 2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402.002 15.12.2002<br>
+                2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402 002 15.12.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТЫ ОБРАЩЕНИЙ</div>
+              <div class="info-value">
+                15.12.2002; 25.04.2007<br>
+                25.04.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРЕДИТНАЯ ОРГАНИЗАЦИЯ</div>
+              <div class="info-value">
+                ИББ ПУШКИНО<br>
+                Банк Пушкино<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАРУШЕНИЯ</div>
+              <div class="info-value">
+                24.12.2009<br>
+                30.07.2008<br>
+                07.01.2008<br>
+                31.07.2007<br>
+                09.09.2008<br>
+                21.10.2007<br>
+                29.10.2007<br>
+                18.04.2009<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</div>
+              <div class="info-value">
+                Рег. знак: Е923ТО40 Марка: 41 УПРАВЛЕНИЕ ТС С НАРУШЕНИЯМИ УСЛОВИЙ, УКАЗАННЫХ В ПОЛИСЕ ОСАГО Дата нарушения: 24.12.2009 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.37.1 Рег.номер: 40#52409R40ПК0446704 Состояние: Вынесено постановление Постановление: 40ПК0446704 Дата:24.12.2009 Наказание: Штраф Штраф: 300 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Подразделение исполнитель: 2 ОБ ДПС<br>
+                Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ НЕСОБЛЮДЕНИЕ ТРЕБОВАНИЙ, ПРЕДПИСАННЫХ ДОРОЖНЫМИ ЗНАКАМИ ИЛИ РАЗМЕТКОЙ ПРОЕЗЖЕЙ ЧАСТИ ДОРОГИ Дата нарушения: 30.07.2008 Выявлено: 1 ОБ ДПС Статья КоАП: 12.16 Рег.номер: 40#40ПК161226Т69 Состояние: Вынесено постановление Протокол: 40ПК161226 Дата:30.07.2008 Постановление: 40ПК161226 Дата:30.07.2008 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ НАРУШЕНИЕ ПРАВИЛ ПРИМЕНЕНИЯ РЕМНЕЙ БЕЗОПАСНОСТИ Дата нарушения: 07.01.2008 Выявлено: 1 ОБ ДПС Статья КоАП: 12.6 Рег.номер: 40#40АА666844Т71 Состояние: РАССМОТРЕНИЕ ПРОТОКОЛА ПОДРАЗДЕЛЕНИИ-ИСПОЛНИТЕЛЕ Протокол: 40АА666844 Дата:07.01.2008 Исполнение: Не исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ УПРАВЛЕНИЕ ТС ВОДИТЕЛЕМ, НЕ ИМЕЮЩИМ ПРАВА УПРАВЛЕНИЯ Дата нарушения: 31.07.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.7.1 Рег.номер: 40#40АА616402Т71 Состояние: Вынесено постановление Протокол: 40АА616402 Дата:31.07.2007 Постановление: 40АП185656 Дата:07.08.2007 Наказание: Штраф Штраф: 1000 Дата оплаты:07.08.2007 Исполнение: Исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС; Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ УПРАВЛЕНИЕ ТС С НАРУШЕНИЯМИ УСЛОВИЙ, УКАЗАННЫХ В ПОЛИСЕ ОСАГО Дата нарушения: 31.07.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.37.1 Рег.номер: 40#40АА616404Т71 Состояние: Вынесено постановление Протокол: 40АА616404 Дата:31.07.2007 Постановление: 40АП118298 Дата:31.07.2007 Наказание: Штраф Штраф: 300 Дата оплаты:07.08.2007 Исполнение: Исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ УПРАВЛЕНИЕ ЗАРЕГИСТРИРОВАННЫМ ТС С НЕЧИТАЕМЫМИ, НЕСТАНДАРТНЫМИ ИЛИ НЕВЕРНО УСТАНОВЛЕННЫМ РЕГИСТРАЦИОННЫМИ ЗНАКАМИ Дата нарушения: 09.09.2008 Выявлено: 1 ОБ ДПС Статья КоАП: 12.2.1 Рег.номер: 40#40ПК172677Т69 Состояние: Вынесено постановление Протокол: 40ПК172677 Дата:09.09.2008 Постановление: 40ПК172677 Дата:09.09.2008 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ НАРУШЕНИЕ ПРАВИЛ РАСПОЛОЖЕНИЯ ТС НА ПРОЕЗЖЕЙ ЧАСТИ, ВСТРЕЧНОГО РАЗЪЕЗДА ИЛИ ОБГОНА, ДВИЖЕНИЕ ПО ОБОЧИНЕ ИЛИ ПЕРЕСЕЧЕНИЕ ОРГАНИЗОВАННОЙ КОЛОННЫ ИЛИ ЗАНЯТИЕ МЕСТА В НЕЙ Дата нарушения: 21.10.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.15.1 Рег.номер: 40#40АА631763Т71 Состояние: РАССМОТРЕНИЕ ПРОТОКОЛА ПОДРАЗДЕЛЕНИИ-ИСПОЛНИТЕЛЕ Протокол: 40АА631763 Дата:21.10.2007 Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 20 ДО 40 КМ/Ч Дата нарушения: 29.10.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.9.2 Рег.номер: 40#40ПК079408Т69 Состояние: Вынесено постановление Протокол: 40ПК079408 Дата:29.10.2007 Постановление: 40ПК079408 Дата:29.10.2007 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: К108РР40 Марка: 346 ЛЕГКОВОЙ АВТОМОБИЛЬ НЕСОБЛЮДЕНИЕ ТРЕБОВАНИЙ, ПРЕДПИСАННЫХ ДОРОЖНЫМИ ЗНАКАМИ ИЛИ РАЗМЕТКОЙ ПРОЕЗЖЕЙ ЧАСТИ ДОРОГИ Дата нарушения: 18.04.2009 Выявлено: 1 ОБ ДПС Статья КоАП: 12.16 Рег.номер: 40#510940ПК0260613 Состояние: Вынесено постановление Протокол: 40ПК0260613 Дата:18.04.2009 Постановление: 40ПК0260613 Дата:18.04.2009 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 1 (ПРИКАЗ МВД № 346-93) №:40ОВ448317 Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: Е805НТ40 ВАЗ-21067 ЛЕГКОВОЙ АВТОМОБИЛЬ УКЛОНЕНИЕ ВОДИТЕЛЯ, ИМЕЮЩЕГО ПРАВО УПРАВЛЕНИЯ ТС, ОТ ПРОХОЖДЕНИИ МЕДИЦИНСКОГО ОСВИДЕТЕЛЬСТВОВАНИЯ НА СОСТОЯНИЕ ОПЬЯНЕНИЯ Дата нарушения: 31.07.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.26.1 Рег.номер: 40#40АА616403Т71 Состояние: Передано на рассмотрение в суд Протокол: 40АА616403 Дата:31.07.2007 Исполнение: Не исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                ГОР. КАЛУГА ГЛАГОЛЕВА Д:36 КВ:2<br>
+                РОССИЯ КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА Д.36 КВ.2 (Данные от: 26.07.2007); РОССИЯ КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА Д.36 КВ.1 (Данные от: 27.07.2010); РОССИЯ КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА Д.36 КВ.1 (Данные от: 27.09.2010); РОССИЯ КАЛ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ДОКУМЕНТА</div>
+              <div class="info-value">
+                ДРУГИЕ ПРИЧИНЫ;ПО 20-ТИ (45-ТИ) ЛЕТИЮ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                КАЛУГА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФИЛИАЛ</div>
+              <div class="info-value">
+                Филиал в г. Калуге<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАНАЛ ПРОДАЖ</div>
+              <div class="info-value">
+                Партнерский Авто<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВАЯ СУММА</div>
+              <div class="info-value">
+                400 000,00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВАЯ ПРЕМИЯ</div>
+              <div class="info-value">
+                2 613,60<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП СТРАХОВАТЕЛЯ</div>
+              <div class="info-value">
+                ФЛ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВОЙ ПРОДУКТ</div>
+              <div class="info-value">
+                ОСАГО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЗНАК ПРОЛОНГАЦИИ</div>
+              <div class="info-value">
+                Новый бизнес<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАЧАЛА ДОГОВОРА</div>
+              <div class="info-value">
+                28.06.2012<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАЖ ВОЖДЕНИЯ НА ДАТУ</div>
+              <div class="info-value">
+                5<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ДОГОВОРА</div>
+              <div class="info-value">
+                27.06.2013<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФИО КУРАТОРА СТРАХОВАНИЯ</div>
+              <div class="info-value">
+                Пугаев Евгений Юрьевич<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР СТРАХОВОГО ДОГОВОРА</div>
+              <div class="info-value">
+                ВВВ-0593945537<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СПРАВКА</div>
+              <div class="info-value">
+                Дата коррекции : 16.10.2003 Место рождения : Г.КАЛУГА Дактоформула : 01.61334/01.62335 Гражданство : РФ Адрес : Г.КАЛУГА УЛ.ГЛАГОЛЕВА Д.36 КВ.2 Работа (долж.) : УЧ-СЯ О С У Ж Д Е Н Дата коррекции : 16.06.2003 Орган : СО МРОВД Г.КАЛУГИ Дата привлечения : 00.00.2003 УД : 20421 ОТ 23.12.2002 Статья (привл.) : СТ.213 Ч.2 П.А УК РФ Р Е Ш Е Н И Я П О Д Е Л У Н Е Т Дата осуждения : 06.05.2003 Кем осужден : КАЛУЖСКИМ Р/С КАЛУЖСКОЙ ОБЛ. Статья (осужд.) : СТ.213 Ч.2 П.А СТ.73 УК РФ Дата приговора : 19.05.2003 Наказание : 2 ГОДА Л/СВ УСЛОВНО С ИСПЫТ. СРОКОМ 1 ГОД О С У Ж Д Е Н Дата коррекции : 16.10.2003 Орган : МОСКОВСКИМ РОВД Г.КАЛУГИ Дата ареста : 27.02.2003 Преступление : УМЫШЛЕННОЕ ПРИЧИНЕНИЕ ТЯЖКОГО ВРЕДА ЗДОРОВЬЮ Статья (привл.) : СТ.111 Ч.3 П.А УК РФ Р Е Ш Е Н И Я П О Д Е Л У Н Е Т Дата осуждения : 10.07.2003 Кем осужден : КАЛУЖСКИМ Р/С КАЛУЖСКОЙ ОБЛ. Статья (осужд.) : СТ.111 Ч.2 П.Д УК РФ Дата приговора : 21.07.2003 Наказание : 3 ГОДА Л/СВ # В СООТВ. СО СТ.69 Ч.5 УК РФ НАКАЗ. ПО ПРИГ. ЭТОГО ЖЕ СУДА ОТ 06.05.03Г. ИСПОЛНЯТЬ САМОСТОЯТЕЛЬНО # 14.08.03Г.ВК УИН МЮ РФ ПО КАЛУЖСКОЙ ОБЛ.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТНОСИМОСТЬ (НАПРИМЕР, РОЗЫСК)</div>
+              <div class="info-value">
+                Калуга - КМ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2043862906</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208827338</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи sogaz-life.ru 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ЛОГИН</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208827338</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-09-10 20:24:40</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208827338</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты МТС банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79158960178</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X7LLSRABH8H162100</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М627АР40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2019-09-14</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault Logan SR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X7LLSRABH8H162100</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М627АР40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2018-09-14</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault Logan SR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X7LLSRABH8H162100</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М627АР40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-09-14</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault Logan SR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи sogaz-life.ru 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ЛОГИН</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79533313123</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2022-09-10 11:45:02</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248021,40,,КАЛУГА,,ГЛАГОЛЕВА,36,,1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">АМЕЛИНА ЕЛЕНА ВИКТОРОВНА 28.06.1992, КОРЕНЕВ ДЕНИС ЮРЬЕВИЧ 03.05.1991</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248021, РОССИЯ, Г. КАЛУГА, УЛ. ГЛАГОЛЕВА, Д. 36, КВ. 1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">КАРАСУЧЕНКО МАРИАНА ДМИТРИЕВНА 12.10.1973, АМЕЛИНА ЕЛЕНА ВИКТОРОВНА 28.06.1992, НАЖИМОВ ТИМУР НУРАТДИНОВИЧ 02.05.1985, НАЖИМОВА РОЗА НУРАТДИНОВНА 09.11.1983, ПОПОВА АНАСТАСИЯ ВИКТОРОВНА 07.02.1978, БАЛАКИНА НИЛУФАР НУРАТДИНОВНА 02.01.1981, НАЖИМОВА ВЕРА ВАСИЛЬЕВНА 04.04.1959, ГУСЕВА ИННА ВАЛЕРЬЕВНА 26.09.1981</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248021,40,КАЛУГА,ГЛАГОЛЕВА,36,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">66707/22/40053-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">ОСП по ВАШ по г. Калуге УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">04.06.2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248912, 40, КАЛУГА Г. , ГЛАГОЛЕВА УЛ. , 36, 1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208827338</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Сбербанк 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калужская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208827338</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">UTC+3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ПАО МегаФон</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-05-18</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248021,40,КАЛУГА,ГЛАГОЛЕВА,36,1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,КАЛУГА,ГЛАГОЛЕВА,36,1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,КАЛУГА Г.,ГЛАГОЛЕВА УЛ.,36,1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248912, 40, КАЛУГА Г., ГЛАГОЛЕВА УЛ., 36, 1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248912, 40, КАЛУГА, ГЛАГОЛЕВА, 36, 1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,,КАЛУГА,,ГЛАГОЛЕВА,36,,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">800</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">2001/20/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,,КАЛУГА Г.,,ГЛАГОЛЕВА УЛ.,36,,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">14.09.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">160211/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248912, 40, КАЛУГА, ГЛАГОЛЕВА, 36, 1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">20.02.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1800</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">2001/20/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,,КАЛУГА Г.,,ГЛАГОЛЕВА УЛ.,36,,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">15.09.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">160051/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов кирилл викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,КАЛУГА Г.,ГЛАГОЛЕВА УЛ.,36,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">29.03.2019</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">82685/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов кирилл викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,КАЛУГА Г.,ГЛАГОЛЕВА УЛ.,36,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">14.09.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">160211/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов кирилл викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,КАЛУГА Г.,ГЛАГОЛЕВА УЛ.,36,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">15.09.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">160051/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов кирилл викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">800</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,КАЛУГА Г.,ГЛАГОЛЕВА УЛ.,36,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">18.08.2019</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">138303/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402814538025</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248912,40,КАЛУГА,ГЛАГОЛЕВА,36,1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08533043756</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">11.12.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">38759/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные лица 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">РФ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248912, 40, КАЛУГА Г. , ГЛАГОЛЕВА УЛ. , 36, 1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">07.03.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">37534/18/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов кирилл викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248912, 40, КАЛУГА, ГЛАГОЛЕВА, 36, 1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">02.06.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">98058/18/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители РФ (ПР) 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В МОСКОВСКОМ ОКРУГЕ ГОРОДА КАЛУГИ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2007-06-18</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУЖСКАЯ ОБЛАСТЬ,248021 КАЛУЖСКАЯ ОБЛАСТЬ Г.-УЛ.МОСКОВСКАЯ Д.240 К.-КВ.66</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">74842568265</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН МЕНЕДЖЕРА</td>
+                  <td class="">74842791111</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">МЕХАНИК</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО КАЛУГА-ЛАДА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН МЕНЕДЖЕРА</td>
+                  <td class="">74842791111</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РАБОТЫ</td>
+                  <td class="">248025 КАЛУЖСКАЯ ОБЛАСТЬ Г.-УЛ.ЗЕРНОВАЯД.17 К.-КОМ.-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">КАЛУЖСКАЯ ОБЛАСТЬ,248021 КАЛУЖСКАЯ ОБЛАСТЬ Г.-УЛ.ГЛАГОЛЕВА Д.36 К.-КВ.1</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН РЕГИСТРАЦИИ</td>
+                  <td class="">74842555419</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Бюро кредитных историй 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">01.12.2005</td>
+                </tr>
+                <tr>
+                  <td>ПРИМЕЧАНИЕ</td>
+                  <td class="">Дата коррекции : 16.10.2003Место рождения : Г.КАЛУГАДактоформула : 01.61334</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ТЕКСТ ДАТЫ РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредит 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">[29] Калукжская Область (КСРФ=40)</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2902617045</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">25.04.2007</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">калуга-лада зерновая 17 механник; калуга-лада (зерновая 17) КЕМ: механник</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">555419</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">Банк Пушкино; ИББ ПУШКИНО</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">29.01.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248021, Россия, г. Калуга, ул. Глаголева, д. 36, кв. 1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">19.10.2015</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">40022</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">400002</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Московскому округу г. Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">18.06.2007</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">34817/15/40022-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикриминал скоринг 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>КОММЕНТАРИЙ</td>
+                  <td class="">Судимость А - Антикредит-Другие регионы - Калуга - КМ - Дата коррекции : 16.10.2003 Место рождения : Г.КАЛУГА Дактоформула : 01.61334/01.62335 Гражданство : РФ Адрес : Г.КАЛУГА УЛ.ГЛАГОЛЕВА Д.36 КВ.2 Работа долж. : УЧ-СЯ О С У Ж Д Е Н Дата коррекции</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные лица 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>КОММЕНТАРИЙ</td>
+                  <td class="">Судимость А - Антикредит-Другие регионы - Калуга - КМ - Дата коррекции : 16.10.2003 Место рождения : Г.КАЛУГА Дактоформула : 01.61334/01.62335 Гражданство : РФ Адрес : Г.КАЛУГА УЛ.ГЛАГОЛЕВА Д.36 КВ.2 Работа долж. : УЧ-СЯ О С У Ж Д Е Н Дата коррекции</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредит 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Калуга - КМ</td>
+                </tr>
+                <tr>
+                  <td>ФАБУЛА</td>
+                  <td class="">Дата коррекции : 16.10.2003Место рождения : Г.КАЛУГАДактоформула : 01.61334 ;</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">01.12.2005</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">Sabch (phreaker.us)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: НЕГАТИВ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">НЕГАТИВ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">25.12.2015</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248021 Россия г. Калуга ул. Глаголева д. 36 кв. 1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">07.09.2015</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">40022</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Московскому округу г. Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">400002</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">18.06.2007</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">30529/15/40022-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2902617045</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208705498</td>
+                </tr>
+                <tr>
+                  <td>ВСЕ ПАСПОРТА</td>
+                  <td class="">2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402 002; 2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402.002 15.12.2002</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">калуга-лада (зерновая 17) КЕМ: механник</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТЫ ОБРАЩЕНИЙ</td>
+                  <td class="">15.12.2002; 25.04.2007</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">555419</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">ИББ ПУШКИНО</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е923ТО40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">24.12.2009</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">41</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: Е923ТО40 Марка: 41 УПРАВЛЕНИЕ ТС С НАРУШЕНИЯМИ УСЛОВИЙ, УКАЗАННЫХ В ПОЛИСЕ ОСАГО Дата нарушения: 24.12.2009 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.37.1 Рег.номер: 40#52409R40ПК0446704 Состояние: Вынесено постановление Постановление: 40ПК0446704 Дата:24.12.2009 Наказание: Штраф Штраф: 300 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Подразделение исполнитель: 2 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: НЕГАТИВ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">НЕГАТИВ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2902617045</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">8920870549</td>
+                </tr>
+                <tr>
+                  <td>ВСЕ ПАСПОРТА</td>
+                  <td class="">2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402 002 15.12.2002</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">калуга-лада зерновая 17 механник</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТЫ ОБРАЩЕНИЙ</td>
+                  <td class="">25.04.2007</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">Банк Пушкино</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">08.09.2014</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248021 Россия г. Калуга ул. Глаголева д. 36 кв. 2</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">23.07.2014</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">40022</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Московскому округу г. Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф гибдд</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">19760/14/22/40</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 53 -->
+      <div class="card source-card" id="source52">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">ГОР. КАЛУГА ГЛАГОЛЕВА Д:36 КВ:2</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2902617045</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">2902 617045 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ МОСКОВСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:15.12.2002 (ВЫДАН);2906 204386 КЕМ ВЫДАН:ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В МОСКОВСКОМ ОКРУГЕ ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:18.06.2007 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2902 617045 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ МОСКОВСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:15.12.2002</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ДОКУМЕНТА</td>
+                  <td class="">ДРУГИЕ ПРИЧИНЫ;ПО 20-ТИ (45-ТИ) ЛЕТИЮ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КАЛУГА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 54 -->
+      <div class="card source-card" id="source53">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">ГОР. КАЛУГА ГЛАГОЛЕВА Д:36 КВ:2</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906204386</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">2902 617045 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ МОСКОВСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:15.12.2002 (ВЫДАН);2906 204386 КЕМ ВЫДАН:ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В МОСКОВСКОМ ОКРУГЕ ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:18.06.2007 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2902 617045 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ МОСКОВСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:15.12.2002</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ДОКУМЕНТА</td>
+                  <td class="">ДРУГИЕ ПРИЧИНЫ;ПО 20-ТИ (45-ТИ) ЛЕТИЮ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КАЛУГА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 55 -->
+      <div class="card source-card" id="source54">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е805НТ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">30.07.2008</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ-21061</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ НЕСОБЛЮДЕНИЕ ТРЕБОВАНИЙ, ПРЕДПИСАННЫХ ДОРОЖНЫМИ ЗНАКАМИ ИЛИ РАЗМЕТКОЙ ПРОЕЗЖЕЙ ЧАСТИ ДОРОГИ Дата нарушения: 30.07.2008 Выявлено: 1 ОБ ДПС Статья КоАП: 12.16 Рег.номер: 40#40ПК161226Т69 Состояние: Вынесено постановление Протокол: 40ПК161226 Дата:30.07.2008 Постановление: 40ПК161226 Дата:30.07.2008 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 56 -->
+      <div class="card source-card" id="source55">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е805НТ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">07.01.2008</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ-21061</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ НАРУШЕНИЕ ПРАВИЛ ПРИМЕНЕНИЯ РЕМНЕЙ БЕЗОПАСНОСТИ Дата нарушения: 07.01.2008 Выявлено: 1 ОБ ДПС Статья КоАП: 12.6 Рег.номер: 40#40АА666844Т71 Состояние: РАССМОТРЕНИЕ ПРОТОКОЛА ПОДРАЗДЕЛЕНИИ-ИСПОЛНИТЕЛЕ Протокол: 40АА666844 Дата:07.01.2008 Исполнение: Не исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 57 -->
+      <div class="card source-card" id="source56">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2902617045</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208705498</td>
+                </tr>
+                <tr>
+                  <td>ВСЕ ПАСПОРТА</td>
+                  <td class="">2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402 002 15.12.2002</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">калуга-лада зерновая 17 механник</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТЫ ОБРАЩЕНИЙ</td>
+                  <td class="">25.04.2007</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">Банк Пушкино</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 58 -->
+      <div class="card source-card" id="source57">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2902617045</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">8920870549</td>
+                </tr>
+                <tr>
+                  <td>ВСЕ ПАСПОРТА</td>
+                  <td class="">2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402 002; 2902 617045 ОВД МОСКОВСКОГО ОКРУГА Г.КАЛУГИ 402.002 15.12.2002</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">калуга-лада (зерновая 17) КЕМ: механник</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТЫ ОБРАЩЕНИЙ</td>
+                  <td class="">15.12.2002; 25.04.2007</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">555419</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">ИББ ПУШКИНО</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 59 -->
+      <div class="card source-card" id="source58">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1; КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">РОССИЯ КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА Д.36 КВ.2 (Данные от: 26.07.2007); РОССИЯ КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА Д.36 КВ.1 (Данные от: 27.07.2010); РОССИЯ КАЛУЖСКАЯ МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА Д.36 КВ.1 (Данные от: 27.09.2010); РОССИЯ КАЛ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КАЛУГА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 60 -->
+      <div class="card source-card" id="source59">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е805НТ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">31.07.2007</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ-21061</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ УПРАВЛЕНИЕ ТС ВОДИТЕЛЕМ, НЕ ИМЕЮЩИМ ПРАВА УПРАВЛЕНИЯ Дата нарушения: 31.07.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.7.1 Рег.номер: 40#40АА616402Т71 Состояние: Вынесено постановление Протокол: 40АА616402 Дата:31.07.2007 Постановление: 40АП185656 Дата:07.08.2007 Наказание: Штраф Штраф: 1000 Дата оплаты:07.08.2007 Исполнение: Исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС; Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ УПРАВЛЕНИЕ ТС С НАРУШЕНИЯМИ УСЛОВИЙ, УКАЗАННЫХ В ПОЛИСЕ ОСАГО Дата нарушения: 31.07.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.37.1 Рег.номер: 40#40АА616404Т71 Состояние: Вынесено постановление Протокол: 40АА616404 Дата:31.07.2007 Постановление: 40АП118298 Дата:31.07.2007 Наказание: Штраф Штраф: 300 Дата оплаты:07.08.2007 Исполнение: Исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 61 -->
+      <div class="card source-card" id="source60">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е805НТ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">09.09.2008</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ-21061</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ УПРАВЛЕНИЕ ЗАРЕГИСТРИРОВАННЫМ ТС С НЕЧИТАЕМЫМИ, НЕСТАНДАРТНЫМИ ИЛИ НЕВЕРНО УСТАНОВЛЕННЫМ РЕГИСТРАЦИОННЫМИ ЗНАКАМИ Дата нарушения: 09.09.2008 Выявлено: 1 ОБ ДПС Статья КоАП: 12.2.1 Рег.номер: 40#40ПК172677Т69 Состояние: Вынесено постановление Протокол: 40ПК172677 Дата:09.09.2008 Постановление: 40ПК172677 Дата:09.09.2008 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 62 -->
+      <div class="card source-card" id="source61">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е805НТ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">21.10.2007</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ-21061</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ НАРУШЕНИЕ ПРАВИЛ РАСПОЛОЖЕНИЯ ТС НА ПРОЕЗЖЕЙ ЧАСТИ, ВСТРЕЧНОГО РАЗЪЕЗДА ИЛИ ОБГОНА, ДВИЖЕНИЕ ПО ОБОЧИНЕ ИЛИ ПЕРЕСЕЧЕНИЕ ОРГАНИЗОВАННОЙ КОЛОННЫ ИЛИ ЗАНЯТИЕ МЕСТА В НЕЙ Дата нарушения: 21.10.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.15.1 Рег.номер: 40#40АА631763Т71 Состояние: РАССМОТРЕНИЕ ПРОТОКОЛА ПОДРАЗДЕЛЕНИИ-ИСПОЛНИТЕЛЕ Протокол: 40АА631763 Дата:21.10.2007 Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 63 -->
+      <div class="card source-card" id="source62">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е805НТ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">29.10.2007</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ-21061</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: Е805НТ40 ВАЗ-21061 ЛЕГКОВОЙ АВТОМОБИЛЬ ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 20 ДО 40 КМ/Ч Дата нарушения: 29.10.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.9.2 Рег.номер: 40#40ПК079408Т69 Состояние: Вынесено постановление Протокол: 40ПК079408 Дата:29.10.2007 Постановление: 40ПК079408 Дата:29.10.2007 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 64 -->
+      <div class="card source-card" id="source63">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К108РР40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">18.04.2009</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">346</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К108РР40 Марка: 346 ЛЕГКОВОЙ АВТОМОБИЛЬ НЕСОБЛЮДЕНИЕ ТРЕБОВАНИЙ, ПРЕДПИСАННЫХ ДОРОЖНЫМИ ЗНАКАМИ ИЛИ РАЗМЕТКОЙ ПРОЕЗЖЕЙ ЧАСТИ ДОРОГИ Дата нарушения: 18.04.2009 Выявлено: 1 ОБ ДПС Статья КоАП: 12.16 Рег.номер: 40#510940ПК0260613 Состояние: Вынесено постановление Протокол: 40ПК0260613 Дата:18.04.2009 Постановление: 40ПК0260613 Дата:18.04.2009 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 1 (ПРИКАЗ МВД № 346-93) №:40ОВ448317 Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 65 -->
+      <div class="card source-card" id="source64">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 2; МОСКОВСКИЙ КАЛУГА ГЛАГОЛЕВА 36 1</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е805НТ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">31.07.2007</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ-21067</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: Е805НТ40 ВАЗ-21067 ЛЕГКОВОЙ АВТОМОБИЛЬ УКЛОНЕНИЕ ВОДИТЕЛЯ, ИМЕЮЩЕГО ПРАВО УПРАВЛЕНИЯ ТС, ОТ ПРОХОЖДЕНИИ МЕДИЦИНСКОГО ОСВИДЕТЕЛЬСТВОВАНИЯ НА СОСТОЯНИЕ ОПЬЯНЕНИЯ Дата нарушения: 31.07.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.26.1 Рег.номер: 40#40АА616403Т71 Состояние: Передано на рассмотрение в суд Протокол: 40АА616403 Дата:31.07.2007 Исполнение: Не исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 66 -->
+      <div class="card source-card" id="source65">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты СК ЦЮРИХ 2013</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248021, Калужская обл, Калуга г, Глаголева ул, д.36, кв.1</td>
+                </tr>
+                <tr>
+                  <td>ФИЛИАЛ</td>
+                  <td class="">Филиал в г. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208827338</td>
+                </tr>
+                <tr>
+                  <td>КАНАЛ ПРОДАЖ</td>
+                  <td class="">Партнерский Авто</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ СУММА</td>
+                  <td class="">400 000,00</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ ПРЕМИЯ</td>
+                  <td class="">2 613,60</td>
+                </tr>
+                <tr>
+                  <td>ТИП СТРАХОВАТЕЛЯ</td>
+                  <td class="">ФЛ</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ ПРОДУКТ</td>
+                  <td class="">ОСАГО</td>
+                </tr>
+                <tr>
+                  <td>ПРИЗНАК ПРОЛОНГАЦИИ</td>
+                  <td class="">Новый бизнес</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАЧАЛА ДОГОВОРА</td>
+                  <td class="">28.06.2012</td>
+                </tr>
+                <tr>
+                  <td>СТАЖ ВОЖДЕНИЯ НА ДАТУ</td>
+                  <td class="">5</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ДОГОВОРА</td>
+                  <td class="">27.06.2013</td>
+                </tr>
+                <tr>
+                  <td>ФИО КУРАТОРА СТРАХОВАНИЯ</td>
+                  <td class="">Пугаев Евгений Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СТРАХОВОГО ДОГОВОРА</td>
+                  <td class="">ВВВ-0593945537</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 67 -->
+      <div class="card source-card" id="source66">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредиторы 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>СПРАВКА</td>
+                  <td class="">Дата коррекции : 16.10.2003 Место рождения : Г.КАЛУГА Дактоформула : 01.61334/01.62335 Гражданство : РФ Адрес : Г.КАЛУГА УЛ.ГЛАГОЛЕВА Д.36 КВ.2 Работа (долж.) : УЧ-СЯ О С У Ж Д Е Н Дата коррекции : 16.06.2003 Орган : СО МРОВД Г.КАЛУГИ Дата привлечения : 00.00.2003 УД : 20421 ОТ 23.12.2002 Статья (привл.) : СТ.213 Ч.2 П.А УК РФ Р Е Ш Е Н И Я П О Д Е Л У Н Е Т Дата осуждения : 06.05.2003 Кем осужден : КАЛУЖСКИМ Р/С КАЛУЖСКОЙ ОБЛ. Статья (осужд.) : СТ.213 Ч.2 П.А СТ.73 УК РФ Дата приговора : 19.05.2003 Наказание : 2 ГОДА Л/СВ УСЛОВНО С ИСПЫТ. СРОКОМ 1 ГОД О С У Ж Д Е Н Дата коррекции : 16.10.2003 Орган : МОСКОВСКИМ РОВД Г.КАЛУГИ Дата ареста : 27.02.2003 Преступление : УМЫШЛЕННОЕ ПРИЧИНЕНИЕ ТЯЖКОГО ВРЕДА ЗДОРОВЬЮ Статья (привл.) : СТ.111 Ч.3 П.А УК РФ Р Е Ш Е Н И Я П О Д Е Л У Н Е Т Дата осуждения : 10.07.2003 Кем осужден : КАЛУЖСКИМ Р/С КАЛУЖСКОЙ ОБЛ. Статья (осужд.) : СТ.111 Ч.2 П.Д УК РФ Дата приговора : 21.07.2003 Наказание : 3 ГОДА Л/СВ # В СООТВ. СО СТ.69 Ч.5 УК РФ НАКАЗ. ПО ПРИГ. ЭТОГО ЖЕ СУДА ОТ 06.05.03Г. ИСПОЛНЯТЬ САМОСТОЯТЕЛЬНО # 14.08.03Г.ВК УИН МЮ РФ ПО КАЛУЖСКОЙ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТНОСИМОСТЬ (НАПРИМЕР, РОЗЫСК)</td>
+                  <td class="">Калуга - КМ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 68 -->
+      <div class="card source-card" id="source67">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 69 -->
+      <div class="card source-card" id="source68">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">СВИРИДОВ КИРИЛЛ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 70 -->
+      <div class="card source-card" id="source69">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Бюро кредитных историй 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 71 -->
+      <div class="card source-card" id="source70">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Место Работы Калужская область 2003</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2330466</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">УЧАЩИЕСЯ СР.ШКОЛЫ N11 (Директор: Гор.Голова Иванов В.В.)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 72 -->
+      <div class="card source-card" id="source71">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Свиридов Кирилл Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248021,40,,КАЛУГА,,ГЛАГОЛЕВА,36,,1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">Амелина Елена Викторовна 28.06.1992, Коренев Денис Юрьевич 03.05.1991</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">08.06.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Пользователи sogaz-life.ru 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Клиенты МТС банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пользователи sogaz-life.ru 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Клиенты Сбербанк 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Криминальные лица 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Жители РФ (ПР) 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Бюро кредитных историй 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Антикредит 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Антикриминал скоринг 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Криминальные лица 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Антикредит 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                ФССП 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                ФССП 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source52" class="nav-link " onclick="scrollToSource('source52', event)">
+                Жители Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source53" class="nav-link " onclick="scrollToSource('source53', event)">
+                Жители Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source54" class="nav-link " onclick="scrollToSource('source54', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source55" class="nav-link " onclick="scrollToSource('source55', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source56" class="nav-link " onclick="scrollToSource('source56', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source57" class="nav-link " onclick="scrollToSource('source57', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source58" class="nav-link " onclick="scrollToSource('source58', event)">
+                Жители Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source59" class="nav-link " onclick="scrollToSource('source59', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source60" class="nav-link " onclick="scrollToSource('source60', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source61" class="nav-link " onclick="scrollToSource('source61', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source62" class="nav-link " onclick="scrollToSource('source62', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source63" class="nav-link " onclick="scrollToSource('source63', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source64" class="nav-link " onclick="scrollToSource('source64', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source65" class="nav-link " onclick="scrollToSource('source65', event)">
+                Клиенты СК ЦЮРИХ 2013
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source66" class="nav-link " onclick="scrollToSource('source66', event)">
+                Антикредиторы 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source67" class="nav-link " onclick="scrollToSource('source67', event)">
+                Криминальные Лица 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source68" class="nav-link " onclick="scrollToSource('source68', event)">
+                Криминальные Лица 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source69" class="nav-link " onclick="scrollToSource('source69', event)">
+                Бюро кредитных историй 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source70" class="nav-link " onclick="scrollToSource('source70', event)">
+                Место Работы Калужская область 2003
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source71" class="nav-link " onclick="scrollToSource('source71', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

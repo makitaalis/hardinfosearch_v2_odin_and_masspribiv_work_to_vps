@@ -1,0 +1,2961 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>79037300226</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">79037300226</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">29 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Сергей<br>
+                Дмитрий М<br>
+                Мельников Дмитрий Алексеевич<br>
+                МЕЛЬНИКОВ ДМИТРИЙ АЛЕКСЕЕВИЧ<br>
+                Дмитрий<br>
+                Мельников Алексей Валентинович<br>
+                Васильев Сергей Михайлович<br>
+                Дмитрий Мельников<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                Москва<br>
+                115211 Москва г, Москва 211<br>
+                г Москва, ш Каширское,55,845<br>
+                Москва Каширское ш. 51-5-359<br>
+                Москва, Каширское шоссе, д. 55к3, подъезд 4, этаж 11, кв. 845,  код домофона 845<br>
+                Москва, Каширское шоссе, д. 55к3<br>
+                Москва, Каширское шоссе, д. 51к5, подъезд 1, этаж 4, кв. 359,  код домофона 344<br>
+                г. москва, ш. каширское, д. 55 корп. 3, кв. 845<br>
+                МО ГО Чехов СНТ ВИМС-2 (откуда/куда) Каширское Ш. 51к5<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                05.10.2004<br>
+                18.04.1973<br>
+                5.10.2004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                г.Москва и Московская область<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79037300226<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                4518882624<br>
+                8826244518<br>
+                101002988<br>
+                4500878168<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                19174095793<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                М724тв799<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ССЫЛКА</div>
+              <div class="info-value">
+                https://www.barahla.net/user/35583/<br>
+                https://reviews.yandex.ru/user/29u27gr2kf1dt488abpmvdfpxc?main_tab=org<br>
+                https://t.me/+79037300226<br>
+                https://vk.com/id388731294<br>
+                https://www.facebook.com/profile.php?id=100014759742024<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПИСАНИЕ</div>
+              <div class="info-value">
+                Частное лицо<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЛОГИН</div>
+              <div class="info-value">
+                [email protected]<br>
+                melnikovda-24<br>
+                krikunc<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕТКА ВРЕМЕНИ</div>
+              <div class="info-value">
+                2021-01-29 02:28:41<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОСЛЕДНИЙ ВХОД</div>
+              <div class="info-value">
+                2020-08-04 02:35:22<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2020-08-02 23:01:47<br>
+                2020-12-21 14:40:04<br>
+                2021-05-31 17:51:54<br>
+                2021-10-23 22:43:13<br>
+                2021-10-23 17:23:04<br>
+                2021-11-14 04:49:35<br>
+                2021-11-14 04:46:37<br>
+                2021-11-14 04:45:47<br>
+                2021-11-14 04:40:10<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВРЕМЯ КОНТРОЛЬНОГО СЛОВА</div>
+              <div class="info-value">
+                2020-08-02 23:01:47<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВЕС</div>
+              <div class="info-value">
+                3.0<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ВАЛЮТЫ</div>
+              <div class="info-value">
+                0.0<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТПРАВЛЕНО В</div>
+              <div class="info-value">
+                2021-07-05 10:11:37<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                Обыкновенное<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН ОТПРАВИТЕЛЯ</div>
+              <div class="info-value">
+                744410767676<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                800831 Москва г, АО Почта России<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВАЛЮТА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                RUB<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН ОТПРАВИТЕЛЯ</div>
+              <div class="info-value">
+                79642474997<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА И ВРЕМЯ ПОЛУЧЕНИЯ</div>
+              <div class="info-value">
+                2021-07-11 16:52:35<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАИМЕНОВАНИЕ ОТПРАВИТЕЛЯ</div>
+              <div class="info-value">
+                ИП Ганин Максим Александрович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОПЕЙКИ (СУММА В ПОДЕДИНИЦАХ)</div>
+              <div class="info-value">
+                0.8<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ ПОЧТОВОГО ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                Посылка<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СМЕЩЕНИЕ ПО ЧАСОВОМУ ПОЯСУ (НАЗНАЧЕНИЕ)</div>
+              <div class="info-value">
+                3.0<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                1 9857 Город, Москва, ул. Каширское шоссе, д. дом 55, корпус 3, корп. 3, кв. 845<br>
+                Москва Москва Каширское ш. 51-5-359<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР КАРТЫ</div>
+              <div class="info-value">
+                220902779643907755500400958<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ЗАГС</div>
+              <div class="info-value">
+                ГУ МВД РОССИИ ПО Г. МОСКВЕ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2023-08-01 09:06:39<br>
+                2021-12-03 17:42:54<br>
+                2025-04-14 13:22:57<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ГУ МВД РОССИИ ПО Г. МОСКВЕ<br>
+                ГУ МВД России по г. Москве<br>
+                овд московоречье сабурово города москвы<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                7 Город, Москва г., ул. Каширское шоссе, д. 55, корп. 3, кв. 845<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                770034<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫПУСКА КАРТЫ</div>
+              <div class="info-value">
+                2017-09-26<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СРОК ДЕЙСТВИЯ КАРТЫ</div>
+              <div class="info-value">
+                2022-10-01<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЗАГС (АКТА/СВИДЕТЕЛЬСТВА)</div>
+              <div class="info-value">
+                4518882624<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОНЫ</div>
+              <div class="info-value">
+                79037788418<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2022-08-03 19:00:00.000Z<br>
+                2017-07-07 09:36:13.388802<br>
+                2024-02-09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">БОНУС</div>
+              <div class="info-value">
+                0.0<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД</div>
+              <div class="info-value">
+                Подольск<br>
+                Москва<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                517<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАЕВЫЕ</div>
+              <div class="info-value">
+                0.00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЛАЧЕНО</div>
+              <div class="info-value">
+                517.0000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЗЫВНОЙ</div>
+              <div class="info-value">
+                108y44984<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОБАВЛЕНО</div>
+              <div class="info-value">
+                2022-08-04 07:52:22<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ</div>
+              <div class="info-value">
+                courier<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОСТАВЩИК</div>
+              <div class="info-value">
+                Яндекс.Доставка<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КООРДИНАТЫ</div>
+              <div class="info-value">
+                37.54746,55.42058<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬ (ID)</div>
+              <div class="info-value">
+                44984<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВРЕМЯ ВВОДА</div>
+              <div class="info-value">
+                00:02:42<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС ПОДАЧИ</div>
+              <div class="info-value">
+                Большая Серпуховская улица, 45<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВРЕМЯ ЗАКАЗА</div>
+              <div class="info-value">
+                00:29:31<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВРЕМЯ ПОДАЧИ</div>
+              <div class="info-value">
+                00:11:35<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЗАКАЗА</div>
+              <div class="info-value">
+                1716522<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                15:00:13<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВРЕМЯ ЗАКАЗА 2</div>
+              <div class="info-value">
+                00:29:31<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СОЗДАНИЯ</div>
+              <div class="info-value">
+                2022-08-04 07:00:13.000Z<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СПОСОБ ОПЛАТЫ</div>
+              <div class="info-value">
+                Безнал<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВРЕМЯ В ЗАКАЗЕ</div>
+              <div class="info-value">
+                00:29:12<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС ДОСТАВКИ</div>
+              <div class="info-value">
+                СНТ Молоди ВИМС-2, СНТ Молоди ВИМС-2, 29<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБЩАЯ КОМИССИЯ</div>
+              <div class="info-value">
+                23.339<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ДОБАВЛЕНИЯ</div>
+              <div class="info-value">
+                1970-01-20 05:00:07.213Z<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАССТОЯНИЕ ПУТИ</div>
+              <div class="info-value">
+                16.91<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОМИССИЯ СЕРВИСА</div>
+              <div class="info-value">
+                0.074<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОМИССИЯ ВЕБТАКСИ</div>
+              <div class="info-value">
+                23.265<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАССТОЯНИЕ ДО ПОДАЧИ</div>
+              <div class="info-value">
+                4.6<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА И ВРЕМЯ ДОБАВЛЕНИЯ</div>
+              <div class="info-value">
+                1970-01-20 05:00:17.542Z<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАССТОЯНИЕ ДО ОСТАНОВКИ</div>
+              <div class="info-value">
+                0.08<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА 1</div>
+              <div class="info-value">
+                2021-08-29 02:02:14.330013<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ШИРОТА</div>
+              <div class="info-value">
+                55.638231<br>
+                55.640884<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОЛГОТА</div>
+              <div class="info-value">
+                37.695384<br>
+                37.692438<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ЗАКАЗОВ</div>
+              <div class="info-value">
+                2044<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА В РУБЛЯХ</div>
+              <div class="info-value">
+                916<br>
+                1128<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АГЕНТ (УСТРОЙСТВО)</div>
+              <div class="info-value">
+                android (2.58.0)<br>
+                android (2.59.1)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                20.06.2001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦЕЛЬ ПЕРЕМЕЩЕНИЯ</div>
+              <div class="info-value">
+                С дачи домой<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОЗРАСТ</div>
+              <div class="info-value">
+                1969<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП БАЗЫ</div>
+              <div class="info-value">
+                Кадровое агенство Амплуа - кадровый резерв 2007 год<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Должность: Руководитель/зам.руководителя/специалист службы безопасности РЕЗЮМЕ. Васильев Сергей Михайлович Дата рождения : 30.05.1969 Образование : высшее Опыт работы : свыше 5 лет. Профессиональные навыки: планирование и организация работы (с нуля)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">TELEGRAM ID</div>
+              <div class="info-value">
+                1215095627<br>
+                5846266892<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОЗМОЖНЫЕ ИМЕНА</div>
+              <div class="info-value">
+                ❤sugar Daddy❤, ?дима, Dima, Васильев С., Дима, Дима Долбаеб, Дима Дэб, Дима Крут, Дима Мел, Дима Мельников, Дима Мельников ⚠, Дима Мельников ?, Дима Насти, Дима Одноклассник, Дима Уник, Дима Хомяк, Дима Чемпион ?, Дима Шитиков, Дима12, Диман Сабурова, Димас, Димасик, Димасик-пивасик, Димон, Димочка Бразер Жени, Дк(дима Кувшин), Дмитрий Алексеевич М., Дмитрий Мельников, Дмитрий Мельников В Мкпп, Единорог, Зая?, Лило(дима), Мел, Мельников, Мельников Дмитрий, Меля, Пубертатная Язва, Пупырышка?, Сергей Васильев, Хомячок?❤, Юнга Дима, Я Не Ебусь<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VID</div>
+              <div class="info-value">
+                388731294<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИМЯ</div>
+              <div class="info-value">
+                Дмитрий<br>
+                -<br>
+                Дмитрий Алексеевич М.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЛ</div>
+              <div class="info-value">
+                2<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА</div>
+              <div class="info-value">
+                Россия<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОМЕН VK</div>
+              <div class="info-value">
+                krikunc<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАМИЛИЯ</div>
+              <div class="info-value">
+                Мельников<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЛНОЕ ИМЯ</div>
+              <div class="info-value">
+                Дмитрий Мельников<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ССЫЛКА НА ФОТО ПРОФИЛЯ</div>
+              <div class="info-value">
+                https://sun1-94.userapi.com/s/v1/ig2/6QdjDe51l4-Fl3k5yQ0SFCPNSmNJDsJky4Xatf78pEUMiuD5gobDzFXyQLqTlesSgoWbsX-rFAh3MWcwB4drMDQG.jpg?quality=95&amp;crop=127,148,798,798&amp;as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&amp;ava=1&amp;u=SZRY_D1bmA4KJFHAItqB062cWRKrtaXaGLM6xqGK-yQ&amp;cs=200x200<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИМЯ БАНКА</div>
+              <div class="info-value">
+                Альфа Банк<br>
+                Сбербанк<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ID ПОЛЬЗОВАТЕЛЯ (FID)</div>
+              <div class="info-value">
+                100014759742024<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                Билайн<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи barahla.net 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Сергей</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА</td>
+                  <td class="">https://www.barahla.net/user/35583/</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ОПИСАНИЕ</td>
+                  <td class="">Частное лицо</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи Яндекс отзывы 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Дмитрий М</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА</td>
+                  <td class="">https://reviews.yandex.ru/user/29u27gr2kf1dt488abpmvdfpxc?main_tab=org</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи re-store.ru 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Мельников Дмитрий Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва</td>
+                </tr>
+                <tr>
+                  <td>ЛОГИН</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>МЕТКА ВРЕМЕНИ</td>
+                  <td class="">2021-01-29 02:28:41</td>
+                </tr>
+                <tr>
+                  <td>ПОСЛЕДНИЙ ВХОД</td>
+                  <td class="">2020-08-04 02:35:22</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-08-02 23:01:47</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ КОНТРОЛЬНОГО СЛОВА</td>
+                  <td class="">2020-08-02 23:01:47</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Почта России 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ВЕС</td>
+                  <td class="">3.0</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Мельников Дмитрий Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">115211 Москва г, Москва 211</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>КОД ВАЛЮТЫ</td>
+                  <td class="">0.0</td>
+                </tr>
+                <tr>
+                  <td>ОТПРАВЛЕНО В</td>
+                  <td class="">2021-07-05 10:11:37</td>
+                </tr>
+                <tr>
+                  <td>ВИД ОТПРАВЛЕНИЯ</td>
+                  <td class="">Обыкновенное</td>
+                </tr>
+                <tr>
+                  <td>ИНН ОТПРАВИТЕЛЯ</td>
+                  <td class="">744410767676</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС ОТПРАВЛЕНИЯ</td>
+                  <td class="">800831 Москва г, АО Почта России</td>
+                </tr>
+                <tr>
+                  <td>ВАЛЮТА ОТПРАВЛЕНИЯ</td>
+                  <td class="">RUB</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН ОТПРАВИТЕЛЯ</td>
+                  <td class="">79642474997</td>
+                </tr>
+                <tr>
+                  <td>ДАТА И ВРЕМЯ ПОЛУЧЕНИЯ</td>
+                  <td class="">2021-07-11 16:52:35</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ОТПРАВИТЕЛЯ</td>
+                  <td class="">ИП Ганин Максим Александрович</td>
+                </tr>
+                <tr>
+                  <td>КОПЕЙКИ (СУММА В ПОДЕДИНИЦАХ)</td>
+                  <td class="">0.8</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ ПОЧТОВОГО ОТПРАВЛЕНИЯ</td>
+                  <td class="">Посылка</td>
+                </tr>
+                <tr>
+                  <td>СМЕЩЕНИЕ ПО ЧАСОВОМУ ПОЯСУ (НАЗНАЧЕНИЕ)</td>
+                  <td class="">3.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи barahla.net 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Сергей</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА</td>
+                  <td class="">https://www.barahla.net/user/35583/</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ОПИСАНИЕ</td>
+                  <td class="">Частное лицо</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ИС УДРВС 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">МЕЛЬНИКОВ ДМИТРИЙ АЛЕКСЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">1 9857 Город, Москва, ул. Каширское шоссе, д. дом 55, корпус 3, корп. 3, кв. 845</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4518882624</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КАРТЫ</td>
+                  <td class="">220902779643907755500400958</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.10.2004</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ЗАГС</td>
+                  <td class="">ГУ МВД РОССИИ ПО Г. МОСКВЕ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2023-08-01 09:06:39</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-12-21 14:40:04</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ГУ МВД РОССИИ ПО Г. МОСКВЕ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">7 Город, Москва г., ул. Каширское шоссе, д. 55, корп. 3, кв. 845</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">770034</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫПУСКА КАРТЫ</td>
+                  <td class="">2017-09-26</td>
+                </tr>
+                <tr>
+                  <td>СРОК ДЕЙСТВИЯ КАРТЫ</td>
+                  <td class="">2022-10-01</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЗАГС (АКТА/СВИДЕТЕЛЬСТВА)</td>
+                  <td class="">4518882624</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Мельников Дмитрий Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">79037788418</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.10.2004</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Заказы rulyou.ru 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2022-08-03 19:00:00.000Z</td>
+                </tr>
+                <tr>
+                  <td>БОНУС</td>
+                  <td class="">0.0</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД</td>
+                  <td class="">Подольск</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">517</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">1</td>
+                </tr>
+                <tr>
+                  <td>ЧАЕВЫЕ</td>
+                  <td class="">0.00</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ОПЛАЧЕНО</td>
+                  <td class="">517.0000</td>
+                </tr>
+                <tr>
+                  <td>ПОЗЫВНОЙ</td>
+                  <td class="">108y44984</td>
+                </tr>
+                <tr>
+                  <td>ДОБАВЛЕНО</td>
+                  <td class="">2022-08-04 07:52:22</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">courier</td>
+                </tr>
+                <tr>
+                  <td>ПОСТАВЩИК</td>
+                  <td class="">Яндекс.Доставка</td>
+                </tr>
+                <tr>
+                  <td>КООРДИНАТЫ</td>
+                  <td class="">37.54746,55.42058</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬ (ID)</td>
+                  <td class="">44984</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ ВВОДА</td>
+                  <td class="">00:02:42</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС ПОДАЧИ</td>
+                  <td class="">Большая Серпуховская улица, 45</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ ЗАКАЗА</td>
+                  <td class="">00:29:31</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ ПОДАЧИ</td>
+                  <td class="">00:11:35</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЗАКАЗА</td>
+                  <td class="">1716522</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">15:00:13</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ ЗАКАЗА 2</td>
+                  <td class="">00:29:31</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СОЗДАНИЯ</td>
+                  <td class="">2022-08-04 07:00:13.000Z</td>
+                </tr>
+                <tr>
+                  <td>СПОСОБ ОПЛАТЫ</td>
+                  <td class="">Безнал</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ В ЗАКАЗЕ</td>
+                  <td class="">00:29:12</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС ДОСТАВКИ</td>
+                  <td class="">СНТ Молоди ВИМС-2, СНТ Молоди ВИМС-2, 29</td>
+                </tr>
+                <tr>
+                  <td>ОБЩАЯ КОМИССИЯ</td>
+                  <td class="">23.339</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ДОБАВЛЕНИЯ</td>
+                  <td class="">1970-01-20 05:00:07.213Z</td>
+                </tr>
+                <tr>
+                  <td>РАССТОЯНИЕ ПУТИ</td>
+                  <td class="">16.91</td>
+                </tr>
+                <tr>
+                  <td>КОМИССИЯ СЕРВИСА</td>
+                  <td class="">0.074</td>
+                </tr>
+                <tr>
+                  <td>КОМИССИЯ ВЕБТАКСИ</td>
+                  <td class="">23.265</td>
+                </tr>
+                <tr>
+                  <td>РАССТОЯНИЕ ДО ПОДАЧИ</td>
+                  <td class="">4.6</td>
+                </tr>
+                <tr>
+                  <td>ДАТА И ВРЕМЯ ДОБАВЛЕНИЯ</td>
+                  <td class="">1970-01-20 05:00:17.542Z</td>
+                </tr>
+                <tr>
+                  <td>РАССТОЯНИЕ ДО ОСТАНОВКИ</td>
+                  <td class="">0.08</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Мельников Дмитрий Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г Москва, ш Каширское,55,845</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">19174095793</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">8826244518</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Образовательное учереждение 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Мельников Дмитрий Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2017-07-07 09:36:13.388802</td>
+                </tr>
+                <tr>
+                  <td>ДАТА 1</td>
+                  <td class="">2021-08-29 02:02:14.330013</td>
+                </tr>
+                <tr>
+                  <td>ЛОГИН</td>
+                  <td class="">melnikovda-24</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">19174095793</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">101002988</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.10.2004</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты gemotest.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Мельников Дмитрий Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва Каширское ш. 51-5-359</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">Москва Москва Каширское ш. 51-5-359</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4518882624</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">05.10.2004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-12-03 17:42:54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-05-31 17:51:54</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ГУ МВД России по г. Москве</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи eda.yandex.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Дмитрий</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва, Каширское шоссе, д. 55к3, подъезд 4, этаж 11, кв. 845,  код домофона 845</td>
+                </tr>
+                <tr>
+                  <td>ШИРОТА</td>
+                  <td class="">55.638231</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГОТА</td>
+                  <td class="">37.695384</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>СУММА ЗАКАЗОВ</td>
+                  <td class="">2044</td>
+                </tr>
+                <tr>
+                  <td>СУММА В РУБЛЯХ</td>
+                  <td class="">916</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-10-23 22:43:13</td>
+                </tr>
+                <tr>
+                  <td>АГЕНТ (УСТРОЙСТВО)</td>
+                  <td class="">android (2.58.0)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи eda.yandex.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Дмитрий</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва, Каширское шоссе, д. 55к3</td>
+                </tr>
+                <tr>
+                  <td>ШИРОТА</td>
+                  <td class="">55.638231</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГОТА</td>
+                  <td class="">37.695384</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>СУММА ЗАКАЗОВ</td>
+                  <td class="">2044</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-10-23 17:23:04</td>
+                </tr>
+                <tr>
+                  <td>АГЕНТ (УСТРОЙСТВО)</td>
+                  <td class="">android (2.58.0)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи eda.yandex.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Дмитрий</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва, Каширское шоссе, д. 51к5, подъезд 1, этаж 4, кв. 359,  код домофона 344</td>
+                </tr>
+                <tr>
+                  <td>ШИРОТА</td>
+                  <td class="">55.640884</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГОТА</td>
+                  <td class="">37.692438</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>СУММА ЗАКАЗОВ</td>
+                  <td class="">2044</td>
+                </tr>
+                <tr>
+                  <td>СУММА В РУБЛЯХ</td>
+                  <td class="">1128</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-11-14 04:49:35</td>
+                </tr>
+                <tr>
+                  <td>АГЕНТ (УСТРОЙСТВО)</td>
+                  <td class="">android (2.59.1)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи eda.yandex.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Дмитрий</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва, Каширское шоссе, д. 51к5, подъезд 1, этаж 4, кв. 359,  код домофона 344</td>
+                </tr>
+                <tr>
+                  <td>ШИРОТА</td>
+                  <td class="">55.640884</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГОТА</td>
+                  <td class="">37.692438</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>СУММА ЗАКАЗОВ</td>
+                  <td class="">2044</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-11-14 04:46:37</td>
+                </tr>
+                <tr>
+                  <td>АГЕНТ (УСТРОЙСТВО)</td>
+                  <td class="">android (2.59.1)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи eda.yandex.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Дмитрий</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва, Каширское шоссе, д. 51к5, подъезд 1, этаж 4, кв. 359,  код домофона 344</td>
+                </tr>
+                <tr>
+                  <td>ШИРОТА</td>
+                  <td class="">55.640884</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГОТА</td>
+                  <td class="">37.692438</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>СУММА ЗАКАЗОВ</td>
+                  <td class="">2044</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-11-14 04:45:47</td>
+                </tr>
+                <tr>
+                  <td>АГЕНТ (УСТРОЙСТВО)</td>
+                  <td class="">android (2.59.1)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи eda.yandex.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Дмитрий</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва, Каширское шоссе, д. 51к5, подъезд 1, этаж 4, кв. 359,  код домофона 344</td>
+                </tr>
+                <tr>
+                  <td>ШИРОТА</td>
+                  <td class="">55.640884</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГОТА</td>
+                  <td class="">37.692438</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>СУММА ЗАКАЗОВ</td>
+                  <td class="">2044</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-11-14 04:40:10</td>
+                </tr>
+                <tr>
+                  <td>АГЕНТ (УСТРОЙСТВО)</td>
+                  <td class="">android (2.59.1)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Мельников Алексей Валентинович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. москва, ш. каширское, д. 55 корп. 3, кв. 845</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4500878168</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">18.04.1973</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">овд московоречье сабурово города москвы</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">20.06.2001</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пропуска во время COVID 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Мельников Дмитрий Алексеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МО ГО Чехов СНТ ВИМС-2 (откуда/куда) Каширское Ш. 51к5</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4518882624</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М724тв799</td>
+                </tr>
+                <tr>
+                  <td>ЦЕЛЬ ПЕРЕМЕЩЕНИЯ</td>
+                  <td class="">С дачи домой</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Резюме 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Васильев Сергей Михайлович</td>
+                </tr>
+                <tr>
+                  <td>ВОЗРАСТ</td>
+                  <td class="">1969</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ</td>
+                  <td class="">Кадровое агенство Амплуа - кадровый резерв 2007 год</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Должность: Руководитель/зам.руководителя/специалист службы безопасности РЕЗЮМЕ. Васильев Сергей Михайлович Дата рождения : 30.05.1969 Образование : высшее Опыт работы : свыше 5 лет. Профессиональные навыки: планирование и организация работы (с нуля)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи Telegram</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>TELEGRAM ID</td>
+                  <td class="">1215095627</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА</td>
+                  <td class="">https://t.me/+79037300226</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Телефонные книги</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ВОЗМОЖНЫЕ ИМЕНА</td>
+                  <td class="">❤sugar Daddy❤, ?дима, Dima, Васильев С., Дима, Дима Долбаеб, Дима Дэб, Дима Крут, Дима Мел, Дима Мельников, Дима Мельников ⚠, Дима Мельников ?, Дима Насти, Дима Одноклассник, Дима Уник, Дима Хомяк, Дима Чемпион ?, Дима Шитиков, Дима12, Диман Сабурова, Димас, Димасик, Димасик-пивасик, Димон, Димочка Бразер Жени, Дк(дима Кувшин), Дмитрий Алексеевич М., Дмитрий Мельников, Дмитрий Мельников В Мкпп, Единорог, Зая?, Лило(дима), Мел, Мельников, Мельников Дмитрий, Меля, Пубертатная Язва, Пупырышка?, Сергей Васильев, Хомячок?❤, Юнга Дима, Я Не Ебусь</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи Вконтакте</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>VID</td>
+                  <td class="">388731294</td>
+                </tr>
+                <tr>
+                  <td>ИМЯ</td>
+                  <td class="">Дмитрий</td>
+                </tr>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">2</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД</td>
+                  <td class="">Москва</td>
+                </tr>
+                <tr>
+                  <td>ЛОГИН</td>
+                  <td class="">krikunc</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА</td>
+                  <td class="">https://vk.com/id388731294</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА</td>
+                  <td class="">Россия</td>
+                </tr>
+                <tr>
+                  <td>ДОМЕН VK</td>
+                  <td class="">krikunc</td>
+                </tr>
+                <tr>
+                  <td>ФАМИЛИЯ</td>
+                  <td class="">Мельников</td>
+                </tr>
+                <tr>
+                  <td>ПОЛНОЕ ИМЯ</td>
+                  <td class="">Дмитрий Мельников</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">5.10.2004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2025-04-14 13:22:57</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА НА ФОТО ПРОФИЛЯ</td>
+                  <td class="">https://sun1-94.userapi.com/s/v1/ig2/6QdjDe51l4-Fl3k5yQ0SFCPNSmNJDsJky4Xatf78pEUMiuD5gobDzFXyQLqTlesSgoWbsX-rFAh3MWcwB4drMDQG.jpg?quality=95&amp;crop=127,148,798,798&amp;as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&amp;ava=1&amp;u=SZRY_D1bmA4KJFHAItqB062cWRKrtaXaGLM6xqGK-yQ&amp;cs=200x200</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи Telegram</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>TELEGRAM ID</td>
+                  <td class="">5846266892</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА</td>
+                  <td class="">https://t.me/+79037300226</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи Whatsapp</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ИМЯ</td>
+                  <td class="">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Мобильный банк Альфа Банк</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИМЯ</td>
+                  <td class="">Дмитрий Алексеевич М.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2024-02-09</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ИМЯ БАНКА</td>
+                  <td class="">Альфа Банк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Мобильный банк Сбербанк</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИМЯ</td>
+                  <td class="">Дмитрий Алексеевич М.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2024-02-09</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ИМЯ БАНКА</td>
+                  <td class="">Сбербанк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи Facebook</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Дмитрий Мельников</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА</td>
+                  <td class="">https://www.facebook.com/profile.php?id=100014759742024</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ID ПОЛЬЗОВАТЕЛЯ (FID)</td>
+                  <td class="">100014759742024</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Информация об операторе</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">г.Москва и Московская область</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА</td>
+                  <td class="">Россия</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037300226</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">Билайн</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Пользователи barahla.net 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Пользователи Яндекс отзывы 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Пользователи re-store.ru 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Почта России 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Пользователи barahla.net 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                ИС УДРВС 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Заказы rulyou.ru 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Образовательное учереждение 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Клиенты gemotest.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Пользователи eda.yandex.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Пользователи eda.yandex.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Пользователи eda.yandex.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Пользователи eda.yandex.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Пользователи eda.yandex.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Пользователи eda.yandex.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Пропуска во время COVID 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Резюме 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Пользователи Telegram
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Телефонные книги
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Пользователи Вконтакте
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Пользователи Telegram
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Пользователи Whatsapp
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Мобильный банк Альфа Банк
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Мобильный банк Сбербанк
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Пользователи Facebook
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Информация об операторе
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

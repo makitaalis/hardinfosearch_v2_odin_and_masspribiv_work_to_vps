@@ -1,0 +1,3700 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Олеринская Елена Викторовна 17.03.1963</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Олеринская Елена Викторовна 17.03.1963</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">50 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Олеринская Елена Викторовна<br>
+                ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                17.03.1963<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                692519 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ Д.11 КВ.1<br>
+                ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ 11 1<br>
+                692519 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ Д. 11 КВ. 1<br>
+                692519 643 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ Д.11 КВ.1<br>
+                692519 ПРИМОРСКИЙ КРАЙ УССУРИЙСК Г РУССКАЯ УЛ. 11 1<br>
+                РОССИЯ,692500,ПРИМОРСКИЙ,,УССУРИЙСК Г ,,РУССКАЯ УЛ ,11,,1<br>
+                692500, РОССИЯ, ПРИМОРСКИЙ КРАЙ, Г УССУРИЙСК, УЛ РУССКАЯ, 11, КВ 1<br>
+                РОСТОВ РОСТОВ-Н/Д,ШОЛОХОВА 199/1-2<br>
+                РОСТОВ-НА-ДОНУ КАЗАХСКАЯ 1/А 22<br>
+                обл. Ростовская, г. Ростов-на-Дону, ул. Казахская,1А,26<br>
+                Ростовская обл, г Ростов-на-Дону, ул Казахская,1,26<br>
+                Ростовская обл.<br>
+                Г.УССУРИЙСК УЛ.РУССКАЯ Д.11 КВ.1<br>
+                692510 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ 11 1<br>
+                344032, РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, УЛ КАЗАХСКАЯ, Д. 1А, КВ. 26 / РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, ПР-КТ ШОЛОХОВА, Д. 199/1, КВ. 2<br>
+                РОСТОВСКАЯ ОБЛАСТЬ,344000,Г.РОСТОВ-НА-ДОНУ,УЛ.КАЗАХСКАЯ,Д.1,КОР.А,КВ.26<br>
+                РОСТОВСКАЯ РОСТОВ НА ДОНУ КАЗАХСКАЯ 1 А 26 ШОЛОХОВА 199 1 2<br>
+                РО, РОСТОВ_Н/Д, КАЗАХСКАЯ 1/А_26<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79604546567<br>
+                79281908060<br>
+                542671<br>
+                79034063061<br>
+                78632907734<br>
+                78632545264<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                251100271109<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                6008254655<br>
+                IX-ВС503116<br>
+                716882518<br>
+                2546556008<br>
+                IXВС503116<br>
+                6004482994<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                10021616772<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ООО ГОСТЕПРИИМНЫЙ ДВОР<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                г.Ростов-на-Дону<br>
+                Россия, Ростовская область, г. Ростов-на-Дону<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Приморский край, г.Уссурийск, ул.Русская, д.11, кв.1<br>
+                РОСТОВСКАЯ ОБЛАСТЬ,344000,Г.РОСТОВ-НА-ДОНУ,УЛ.КАЗАХСКАЯ,Д.1,КОР.А,КВ.26<br>
+                РОСТОВСКАЯ ОБЛАСТЬ,РОСТОВ-НА-ДОНУ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                252-015<br>
+                610-014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                1988-01-21<br>
+                2008-06-25<br>
+                25.06.2008<br>
+                21.01.1988<br>
+                16.12.2003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                ОВД Уссурийского ГИК Приморского края<br>
+                Отдел УФМС России по Ростовской области в Первомайском районе города Ростова-на-Дону<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                паспорт гражданина Российской Федерации<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                Ростовская область, г. Ростов-на-Дону, р-н. Первомайский, ул. Казахская, д. 1а, кв. 26<br>
+                Россия, Ростовская область, г. Ростов-на-Дону, р-н. Первомайский, ул. Казахская, д. 1а, кв. 26<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАКТИЧЕСКИЙ АДРЕС</div>
+              <div class="info-value">
+                Ростовская область, г. Ростов-на-Дону, р-н. Первомайский, ул. Казахская, д. 1а, кв. 26<br>
+                Россия, Ростовская область, г. Ростов-на-Дону, р-н. Первомайский, ул. Казахская, д. 1а, кв. 26<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964, ТЯН КИРА НИКОЛАЕВНА 23.05.1969<br>
+                ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, ЮГАЙ ВИКТОРИЯ ЕВГЕНЬЕВНА 15.09.1982, ЮГАЙ КРИСТИНА ЮРЬЕВНА 03.07.2009<br>
+                ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, ТЯН КИРА НИКОЛАЕВНА 23.05.1969, КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964<br>
+                КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964, СЕК НИНА АЛЕКСАНДРОВНА 05.08.1932, ТЯН КИРА НИКОЛАЕВНА 23.05.1969, ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988<br>
+                КРЫЖАНОВСКИЙ ВИКТОР АЛЕКСАНДРОВИЧ 23.09.1959<br>
+                СЛАВИНСКАЯ ТАИСИЯ ВАСИЛЬЕВНА 01.01.1939, КУПРЮШКИНА НАТАЛЬЯ АЛЕКСАНДРОВНА 16.05.1981<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2018-06-30 08:46:11<br>
+                2018-07-08 03:09:55<br>
+                2017-06-26 04:50:52<br>
+                2017-07-03 16:07:11<br>
+                2020-02-19 14:38:39<br>
+                2020-02-11 21:10:57<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЫЕЗД<br>
+                ВЪЕЗД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ПРИБЫТИЯ</div>
+              <div class="info-value">
+                ИРАКЛИОН<br>
+                БУРГАС<br>
+                КОЛОМБО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЛИЦЕНЗИИ</div>
+              <div class="info-value">
+                6165<br>
+                ZF-6166<br>
+                VQDTY<br>
+                VQBSY<br>
+                VPBXW<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                АВИАЦИОННЫЙ ТРАНСПОРТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ПРИБЫТИЯ</div>
+              <div class="info-value">
+                ГРЕЦИЯ<br>
+                БОЛГАРИЯ<br>
+                ШРИ-ЛАНКА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                РОСТОВ-НА-ДОНУ (ПЛАТОВ) (АВИА)<br>
+                РОСТОВ-НА-ДОНУ (АВИА)<br>
+                МОСКВА (ВНУКОВО)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2011-11-24<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                2018-06-30 11:00:00<br>
+                2018-07-08 03:25:00<br>
+                2017-06-26 06:20:00<br>
+                2017-07-03 15:40:00<br>
+                2018-07-08 02:55:00<br>
+                2017-06-26 06:30:00<br>
+                2020-02-19 14:07:00<br>
+                2020-02-19 14:55:00<br>
+                2020-02-11 23:42:00<br>
+                2020-02-11 23:05:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕРЕВОЗЧИК</div>
+              <div class="info-value">
+                АЗУР ЭЙР<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                ИРАКЛИОН<br>
+                БУРГАС<br>
+                КОЛОМБО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                ГРЕЦИЯ<br>
+                БОЛГАРИЯ<br>
+                ШРИ-ЛАНКА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОНЫ</div>
+              <div class="info-value">
+                78632545264,79604546567,78632907734,79034063061<br>
+                78632545264,79604546567,78632907734,0542671<br>
+                78632545264,79604546567,0542671,79034063061<br>
+                78632545264,78632907734,0542671,79034063061<br>
+                79604546567,78632907734,0542671,79034063061<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР РЕЙСА</div>
+              <div class="info-value">
+                6181<br>
+                6182<br>
+                ZF-7750<br>
+                ZF-7749<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                UTC+3<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                ПАО Вымпел-Коммуникации<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2020-03-30<br>
+                2017-12-19 07:29:46<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2018-09-30 17:41:05<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ОУФМС В ПЕРВОМАЙСКОМ Р-НЕ Г.РОСТОВА-НА-ДОНУ<br>
+                УССУРИЙСКИМ ГОВД<br>
+                ОВД ПЕРВОМАЙСКОГО РАЙОНА РОСТОВСКОЙ ОБЛАСТИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                ГОРОД РОСТОВ-НА-ДОНУ,РОСТОВСКАЯ ОБЛАСТЬ<br>
+                ГОРОД РОСТОВ ДОНУ РОСТОВСКАЯ ОБЛАСТЬ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РАБОТЫ</div>
+              <div class="info-value">
+                344011,Г.РОСТОВ-НА-ДОНУ,УЛ.БУДЕННОВСКИЙ,Д.93/295,КВ.207<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                78632545264<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                СНИЛС:100-216-167 72ООО ГостиницаРостов<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФНС 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">251100271109</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">251100271109</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">IX-ВС503116</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">г.Ростов-на-Дону</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Приморский край, г.Уссурийск, ул.Русская, д.11, кв.1</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">252-015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">1988-01-21</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">ОВД Уссурийского ГИК Приморского края</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">Россия, Ростовская область, г. Ростов-на-Дону</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Ростовская область, г. Ростов-на-Дону, р-н. Первомайский, ул. Казахская, д. 1а, кв. 26</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">610-014</td>
+                </tr>
+                <tr>
+                  <td>ФАКТИЧЕСКИЙ АДРЕС</td>
+                  <td class="">Ростовская область, г. Ростов-на-Дону, р-н. Первомайский, ул. Казахская, д. 1а, кв. 26</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2008-06-25</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отдел УФМС России по Ростовской области в Первомайском районе города Ростова-на-Дону</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79281908060</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">Россия, Ростовская область, г. Ростов-на-Дону</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Россия, Ростовская область, г. Ростов-на-Дону, р-н. Первомайский, ул. Казахская, д. 1а, кв. 26</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">610-014</td>
+                </tr>
+                <tr>
+                  <td>ФАКТИЧЕСКИЙ АДРЕС</td>
+                  <td class="">Россия, Ростовская область, г. Ростов-на-Дону, р-н. Первомайский, ул. Казахская, д. 1а, кв. 26</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2008-06-25</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отдел УФМС России по Ростовской области в Первомайском районе города Ростова-на-Дону</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">692519 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ Д.11 КВ.1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964, ТЯН КИРА НИКОЛАЕВНА 23.05.1969</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-06-30 08:46:11</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ИРАКЛИОН</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">6165</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ГРЕЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">РОСТОВ-НА-ДОНУ (ПЛАТОВ) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-06-30 11:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-07-08 03:09:55</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">ZF-6166</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ИРАКЛИОН</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">РОСТОВ-НА-ДОНУ (ПЛАТОВ) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ГРЕЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-07-08 03:25:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">542671</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">78632545264,79604546567,78632907734,79034063061</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ 11 1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, ЮГАЙ ВИКТОРИЯ ЕВГЕНЬЕВНА 15.09.1982, ЮГАЙ КРИСТИНА ЮРЬЕВНА 03.07.2009</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-06-26 04:50:52</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">6181</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">БУРГАС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">БОЛГАРИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">РОСТОВ-НА-ДОНУ (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-06-26 06:20:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">692519 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ Д. 11 КВ. 1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964, ТЯН КИРА НИКОЛАЕВНА 23.05.1969</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">692519 643 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ Д.11 КВ.1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964, ТЯН КИРА НИКОЛАЕВНА 23.05.1969</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">692519 ПРИМОРСКИЙ КРАЙ УССУРИЙСК Г РУССКАЯ УЛ. 11 1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964, ТЯН КИРА НИКОЛАЕВНА 23.05.1969</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОССИЯ,692500,ПРИМОРСКИЙ,,УССУРИЙСК Г ,,РУССКАЯ УЛ ,11,,1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988, ТЯН КИРА НИКОЛАЕВНА 23.05.1969, КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">692500, РОССИЯ, ПРИМОРСКИЙ КРАЙ, Г УССУРИЙСК, УЛ РУССКАЯ, 11, КВ 1</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">КИМ ВЯЧЕСЛАВ ВАЛЕНТИНОВИЧ 06.01.1964, СЕК НИНА АЛЕКСАНДРОВНА 05.08.1932, ТЯН КИРА НИКОЛАЕВНА 23.05.1969, ОЛЕРИНСКАЯ АЛЕКСАНДРА АЛЕКСАНДРОВНА 07.05.1988</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВ РОСТОВ-Н/Д,ШОЛОХОВА 199/1-2</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">КРЫЖАНОВСКИЙ ВИКТОР АЛЕКСАНДРОВИЧ 23.09.1959</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВ-НА-ДОНУ КАЗАХСКАЯ 1/А 22</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">СЛАВИНСКАЯ ТАИСИЯ ВАСИЛЬЕВНА 01.01.1939, КУПРЮШКИНА НАТАЛЬЯ АЛЕКСАНДРОВНА 16.05.1981</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-07-03 16:07:11</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">6182</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">БУРГАС</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">РОСТОВ-НА-ДОНУ (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">БОЛГАРИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-07-03 15:40:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-07-08 03:09:55</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">ZF-6166</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ИРАКЛИОН</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">РОСТОВ-НА-ДОНУ (ПЛАТОВ) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ГРЕЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-07-08 02:55:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-06-26 04:50:52</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">6181</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">БУРГАС</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">VQDTY</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">БОЛГАРИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">РОСТОВ-НА-ДОНУ (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-06-26 06:30:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2020-02-19 14:38:39</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">ZF-7750</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">VQBSY</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">КОЛОМБО</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ШРИ-ЛАНКА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2020-02-19 14:07:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2020-02-19 14:38:39</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">ZF-7750</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">КОЛОМБО</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ШРИ-ЛАНКА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2020-02-19 14:55:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2020-02-11 21:10:57</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">ZF-7749</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">КОЛОМБО</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">VPBXW</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ШРИ-ЛАНКА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2020-02-11 23:42:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">716882518</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2020-02-11 21:10:57</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">ZF-7749</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">КОЛОМБО</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ШРИ-ЛАНКА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2011-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2020-02-11 23:05:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">обл. Ростовская, г. Ростов-на-Дону, ул. Казахская,1А,26</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2546556008</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79034063061</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">78632545264,79604546567,78632907734,0542671</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ростовская обл, г Ростов-на-Дону, ул Казахская,1,26</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2546556008</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">78632907734</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">78632545264,79604546567,0542671,79034063061</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">78632545264,78632907734,0542671,79034063061</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">78632545264</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">79604546567,78632907734,0542671,79034063061</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Сбербанк 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ростовская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">UTC+3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ПАО Вымпел-Коммуникации</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-03-30</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты gemotest.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2018-09-30 17:41:05</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2017-12-19 07:29:46</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.УССУРИЙСК УЛ.РУССКАЯ Д.11 КВ.1</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79604546567</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">251100271109</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.УССУРИЙСК УЛ.РУССКАЯ Д.11 КВ.1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">251100271109</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">692510 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ 11 1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">344032, РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, УЛ КАЗАХСКАЯ, Д. 1А, КВ. 26 / РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, ПР-КТ ШОЛОХОВА, Д. 199/1, КВ. 2</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОУФМС В ПЕРВОМАЙСКОМ Р-НЕ Г.РОСТОВА-НА-ДОНУ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">25.06.2008</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ГОРОД РОСТОВ-НА-ДОНУ,РОСТОВСКАЯ ОБЛАСТЬ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">251100271109</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">692510 ПРИМОРСКИЙ КРАЙ УССУРИЙСК РУССКАЯ 11 1</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">IXВС503116</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">УССУРИЙСКИМ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">21.01.1988</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Олеринская Елена Викторовна</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">344032, РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, УЛ КАЗАХСКАЯ, Д. 1А, КВ. 26 / РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, ПР-КТ ШОЛОХОВА, Д. 199/1, КВ. 2</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6004482994</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОВД ПЕРВОМАЙСКОГО РАЙОНА РОСТОВСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">16.12.2003</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ГОРОД РОСТОВ-НА-ДОНУ,РОСТОВСКАЯ ОБЛАСТЬ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">РОСТОВСКАЯ ОБЛАСТЬ,344000,Г.РОСТОВ-НА-ДОНУ,УЛ.КАЗАХСКАЯ,Д.1,КОР.А,КВ.26</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ГОСТЕПРИИМНЫЙ ДВОР</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РАБОТЫ</td>
+                  <td class="">344011,Г.РОСТОВ-НА-ДОНУ,УЛ.БУДЕННОВСКИЙ,Д.93/295,КВ.207</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВСКАЯ ОБЛАСТЬ,344000,Г.РОСТОВ-НА-ДОНУ,УЛ.КАЗАХСКАЯ,Д.1,КОР.А,КВ.26</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">РОСТОВСКАЯ ОБЛАСТЬ,РОСТОВ-НА-ДОНУ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН РЕГИСТРАЦИИ</td>
+                  <td class="">78632545264</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Ростов 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВСКАЯ РОСТОВ НА ДОНУ КАЗАХСКАЯ 1 А 26 ШОЛОХОВА 199 1 2</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">10021616772</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6004482994</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ГОРОД РОСТОВ ДОНУ РОСТОВСКАЯ ОБЛАСТЬ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Ростов 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РО, РОСТОВ_Н/Д, КАЗАХСКАЯ 1/А_26</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6008254655</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">СНИЛС:100-216-167 72ООО ГостиницаРостов</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ОЛЕРИНСКАЯ ЕЛЕНА ВИКТОРОВНА</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВ РОСТОВ-Н/Д,ШОЛОХОВА 199/1-2</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">КРЫЖАНОВСКИЙ ВИКТОР АЛЕКСАНДРОВИЧ 23.09.1959</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.03.1963</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                ФНС 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Клиенты Сбербанк 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Клиенты gemotest.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Жители Ростов 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                Жители Ростов 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

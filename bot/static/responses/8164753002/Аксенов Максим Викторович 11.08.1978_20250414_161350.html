@@ -1,0 +1,3079 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Аксенов Максим Викторович 11.08.1978</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Аксенов Максим Викторович 11.08.1978</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">35 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Аксенов Максим Викторович<br>
+                Аксёнов Максим Викторович<br>
+                АКСЕНОВ МАКСИМ ВИКТОРОВИЧ<br>
+                Аксенов максим викторович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                11.08.1978<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                141321, Россия, Московская обл. , Сергиево-Посадский р-н, г. Краснозаводск, ул. Новая, д. 4, кв. 19<br>
+                141321 г Краснозаводск ул Трудовые Резервы 9 кв. 44<br>
+                Московская область, г. Краснозаводск, Сергиево-Пос<br>
+                141321, Россия, Московская обл., Сергиев Посад г., г. Краснозаводск, ул. Трудовые Резервы, д. 9, кв. 44<br>
+                141321,МОСКОВСКАЯ ОБЛ,СЕРГИЕВО-ПОСАДСКИЙ Р-Н,КРАСНОЗАВОДСК Г,НОВАЯ УЛ,Д. 4,КВ. 19<br>
+                141321, РОССИЯ, МОСКОВСКАЯ ОБЛ., СЕРГИЕВО-ПОСАДСКИЙ Р-Н, Г. КРАСНОЗАВОДСК, УЛ. НОВАЯ, Д. 4, КВ. 19<br>
+                141321, Россия, Московская обл. , Сергиев Посад г. , г. Краснозаводск, ул. Трудовые Резервы, д. 9, кв. 44<br>
+                141321 , ,МОСКОВСКАЯ ОБЛ,СЕРГИЕВО-ПОСАДСКИЙ Р-Н,КРАСНОЗАВОДСК Г,НОВАЯ УЛ,Д. 4,КВ. 19<br>
+                141321, Россия, Московская обл., Сергиево-Посадский р-н, г. Краснозаводск, ул. Новая, д. 4, кв. 19<br>
+                141321 , ,МОСКОВСКАЯ ОБЛ,СЕРГИЕВО-ПОСАДСКИЙ Р-Н,КРАСНОЗАВОДСК Г,,НОВАЯ УЛ,Д. 4,,КВ. 19<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                050<br>
+                Москва Москва<br>
+                г Москва<br>
+                Москва Московская обл.<br>
+                Москва Московская область<br>
+                50<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79269402228<br>
+                79772672330<br>
+                79152575497<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                4613074760<br>
+                4621573627<br>
+                4381150773<br>
+                1949243868<br>
+                6971501279<br>
+                461374760<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                504216622277<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                17769619038<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛЖНОСТЬ</div>
+              <div class="info-value">
+                Контроллер в отдел контроля<br>
+                ДЕЖУРНЫЙ<br>
+                ДЕЖУРНЫЙ АДМИНИСТРАТОР<br>
+                МАСТЕР УЧАСТКА<br>
+                КОНТРОЛЕ СБ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ТИПОГРАФИЯ<br>
+                ЗАО ЛОГИСТИЧЕСКАЯ КОМПАНИЯ МОЛКОМ<br>
+                АО ГРУППА МЛК<br>
+                АО ТРУБНЫЙ ЗАВОД ПРОФИЛЬ-АКРАС ИМ.МАКАРОВА В.В.<br>
+                СЛАДКАЯ ЖИЗНЬ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                119779<br>
+                48470<br>
+                119842<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                152768/23/50037-ИП<br>
+                26502/21/50037-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                03.12.2020<br>
+                21.02.2020<br>
+                24.10.2017<br>
+                07.12.2019<br>
+                11.04.2018<br>
+                11.12.2015<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">IP-АДРЕС</div>
+              <div class="info-value">
+                82.202.165.96<br>
+                94.143.50.145<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПАСПОРТА</div>
+              <div class="info-value">
+                500-150<br>
+                500138<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2021-11-11 15:56:49<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2013-07-13<br>
+                2022-03-03<br>
+                2019-07-16<br>
+                2011-11-11<br>
+                2021-05-22<br>
+                2016-09-23<br>
+                2016-05-27<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВОЗБУЖДЕНИЯ ИП</div>
+              <div class="info-value">
+                24.10.2017<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</div>
+              <div class="info-value">
+                Сергиево-Посадский РОСП ГУФССП России по Московской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                25000<br>
+                15000<br>
+                35000<br>
+                11000<br>
+                10000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2023-03-01 14:06:14<br>
+                25.08.2022<br>
+                2019-08-22<br>
+                25.02.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ГУ МВД РОССИИ ПО МОСКОВСКОЙ ОБЛ.<br>
+                ТП №4 ОУФМС РОССИИ ПО МОСКОВСКОЙ ОБЛАСТИ ПО СЕРГИЕВО-ПОСАДСКОМУ МУНИЦИПАЛЬНОМУ РАЙОНУ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СРОК ДЕЙСТВИЯ ПАСПОРТА</div>
+              <div class="info-value">
+                2023-08-11<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Г КРСНОЗАВОДСК ЗАГОСКИЙ Р-Н МОСКОВСКАЯ ОБЛ.<br>
+                Г. КРАСНОЗАВОДСК ЗАГОРСКОГО Р-НА МОСКОВСКОЙ ОБЛ.<br>
+                КРАСНОЗАВОДСК , ЗАГОРСКИЙ , МОСКОВСКАЯ ОБЛАСТЬ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">UA CID</div>
+              <div class="info-value">
+                580918563.1641924941<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                141321 г Краснозаводск ул Трудовые Резервы 9 кв. 44<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">БАЛАНС</div>
+              <div class="info-value">
+                0.00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕФЕРЕР</div>
+              <div class="info-value">
+                https://go.cityclub.finance/<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНТЕРФЕЙС</div>
+              <div class="info-value">
+                site<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС ИНН</div>
+              <div class="info-value">
+                found<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОХОДА</div>
+              <div class="info-value">
+                60000<br>
+                43500<br>
+                47850<br>
+                39150<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СОЗДАНИЯ</div>
+              <div class="info-value">
+                2022-01-12 01:22:39<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИЗМЕНЕНИЯ</div>
+              <div class="info-value">
+                2022-01-12 12:06:10<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРЕДИТНЫЙ ЛИМИТ</div>
+              <div class="info-value">
+                6000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОСЛЕДНЯЯ ПРОВЕРКА</div>
+              <div class="info-value">
+                2022-01-12<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО ВИЗИТА</div>
+              <div class="info-value">
+                2022-01-12 01:54:55<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАЧАЛЬНЫЙ ТАРИФ ЗАЯВКИ</div>
+              <div class="info-value">
+                53<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАЧАЛЬНЫЙ КРЕДИТНЫЙ ЛИМИТ</div>
+              <div class="info-value">
+                6000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАКСИМАЛЬНЫЙ КРЕДИТНЫЙ ЛИМИТ</div>
+              <div class="info-value">
+                30000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЯЗЫКИ</div>
+              <div class="info-value">
+                Английский Уровень владения: Чтение и письмо со словарем<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОЗРАСТ</div>
+              <div class="info-value">
+                42<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЗАРПЛАТА</div>
+              <div class="info-value">
+                35000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЗЮМЕ</div>
+              <div class="info-value">
+                2022-12-25 00:00:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБРАЗОВАНИЕ</div>
+              <div class="info-value">
+                Среднее специальное<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРЕПАРАТ</div>
+              <div class="info-value">
+                Гам-КОВИД-Вак Комбинированная векторная вакцина для профилактики коронавирусной инфекции, вызываемой вирусом SARS-CoV-2<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СЕРИЯ ВАКЦИНЫ</div>
+              <div class="info-value">
+                II-050121<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ДОКУМЕНТА</div>
+              <div class="info-value">
+                39034810<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">УНИКАЛЬНЫЙ НОМЕР РЗ</div>
+              <div class="info-value">
+                9500000039034810<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАБОЧИЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                79772672330<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                Сергиево-Посадский РОСП ГУФССП России по Московской области<br>
+                101075/20/50037-ИП<br>
+                150591/20/50037-ИП<br>
+                119825/20/50037-ИП<br>
+                20821/18/50037-ИП<br>
+                74893/15/50037-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОЛГА</div>
+              <div class="info-value">
+                1000<br>
+                111943<br>
+                61000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН ПО МЕСТУ РАБОТЫ</div>
+              <div class="info-value">
+                79772672330<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                Сергиево-Посадский РОСП УФССП России по Московской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Иные взыскания имущественного характера не в бюджеты РФ<br>
+                Алименты на содержание детей<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                МОСКОВСКАЯ ОБЛАСТЬ,КРАСНОЗАВОДСК<br>
+                Г.МОСКВА,КРАСНОЗАВОДСК<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                74965471821<br>
+                74965457134<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОСП</div>
+              <div class="info-value">
+                50037<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи bankiros.ru 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи qzaem.ru 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>IP-АДРЕС</td>
+                  <td class="">82.202.165.96</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">500-150</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-11-11 15:56:49</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2013-07-13</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи qzaem.ru 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">504216622277</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">119779</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, Россия, Московская обл. , Сергиево-Посадский р-н, г. Краснозаводск, ул. Новая, д. 4, кв. 19</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">050</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">152768/23/50037-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">24.10.2017</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Сергиево-Посадский РОСП ГУФССП России по Московской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">25000</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Москва Москва</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2013-07-13</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксёнов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">15000</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Москва Москва</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4621573627</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2022-03-03</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">35000</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">г Москва</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4381150773</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2019-07-16</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксёнов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">25000</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">г Москва</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2011-11-11</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксёнов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">11000</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Москва Московская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2021-05-22</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">10000</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Москва Московская область</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">1949243868</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2016-09-23</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2023-03-01 14:06:14</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4621573627</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">500138</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ГУ МВД РОССИИ ПО МОСКОВСКОЙ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2022-03-03</td>
+                </tr>
+                <tr>
+                  <td>СРОК ДЕЙСТВИЯ ПАСПОРТА</td>
+                  <td class="">2023-08-11</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Г КРСНОЗАВОДСК ЗАГОСКИЙ Р-Н МОСКОВСКАЯ ОБЛ.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">504216622277</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">119779</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, Россия, Московская обл. , Сергиево-Посадский р-н, г. Краснозаводск, ул. Новая, д. 4, кв. 19</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">50</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">152768/23/50037-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">24.10.2017</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Сергиево-Посадский РОСП ГУФССП России по Московской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксёнов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">11000</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Москва Московская обл.</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6971501279</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2016-05-27</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты микрофинансовых компаний 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>UA CID</td>
+                  <td class="">580918563.1641924941</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">504216622277</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321 г Краснозаводск ул Трудовые Резервы 9 кв. 44</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">141321 г Краснозаводск ул Трудовые Резервы 9 кв. 44</td>
+                </tr>
+                <tr>
+                  <td>БАЛАНС</td>
+                  <td class="">0.00</td>
+                </tr>
+                <tr>
+                  <td>IP-АДРЕС</td>
+                  <td class="">94.143.50.145</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">461374760</td>
+                </tr>
+                <tr>
+                  <td>РЕФЕРЕР</td>
+                  <td class="">https://go.cityclub.finance/</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79152575497</td>
+                </tr>
+                <tr>
+                  <td>ИНТЕРФЕЙС</td>
+                  <td class="">site</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС ИНН</td>
+                  <td class="">found</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">500-150</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">60000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СОЗДАНИЯ</td>
+                  <td class="">2022-01-12 01:22:39</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИЗМЕНЕНИЯ</td>
+                  <td class="">2022-01-12 12:06:10</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНЫЙ ЛИМИТ</td>
+                  <td class="">6000</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ТП №4 ОУФМС РОССИИ ПО МОСКОВСКОЙ ОБЛАСТИ ПО СЕРГИЕВО-ПОСАДСКОМУ МУНИЦИПАЛЬНОМУ РАЙОНУ</td>
+                </tr>
+                <tr>
+                  <td>ПОСЛЕДНЯЯ ПРОВЕРКА</td>
+                  <td class="">2022-01-12</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2013-07-13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ВИЗИТА</td>
+                  <td class="">2022-01-12 01:54:55</td>
+                </tr>
+                <tr>
+                  <td>НАЧАЛЬНЫЙ ТАРИФ ЗАЯВКИ</td>
+                  <td class="">53</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Г. КРАСНОЗАВОДСК ЗАГОРСКОГО Р-НА МОСКОВСКОЙ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>НАЧАЛЬНЫЙ КРЕДИТНЫЙ ЛИМИТ</td>
+                  <td class="">6000</td>
+                </tr>
+                <tr>
+                  <td>МАКСИМАЛЬНЫЙ КРЕДИТНЫЙ ЛИМИТ</td>
+                  <td class="">30000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Резюме на работу 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Московская область, г. Краснозаводск, Сергиево-Пос</td>
+                </tr>
+                <tr>
+                  <td>ЯЗЫКИ</td>
+                  <td class="">Английский Уровень владения: Чтение и письмо со словарем</td>
+                </tr>
+                <tr>
+                  <td>ВОЗРАСТ</td>
+                  <td class="">42</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ЗАРПЛАТА</td>
+                  <td class="">35000</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">Контроллер в отдел контроля</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЗЮМЕ</td>
+                  <td class="">2022-12-25 00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ОБРАЗОВАНИЕ</td>
+                  <td class="">Среднее специальное</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Вакцинация Москвоская область 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">25.08.2022</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">50</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ПРЕПАРАТ</td>
+                  <td class="">Гам-КОВИД-Вак Комбинированная векторная вакцина для профилактики коронавирусной инфекции, вызываемой вирусом SARS-CoV-2</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>СЕРИЯ ВАКЦИНЫ</td>
+                  <td class="">II-050121</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДОКУМЕНТА</td>
+                  <td class="">39034810</td>
+                </tr>
+                <tr>
+                  <td>УНИКАЛЬНЫЙ НОМЕР РЗ</td>
+                  <td class="">9500000039034810</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2019-08-22</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79269402228</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ТИПОГРАФИЯ</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">43500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">ДЕЖУРНЫЙ</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАО ЛОГИСТИЧЕСКАЯ КОМПАНИЯ МОЛКОМ</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">47850</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">ДЕЖУРНЫЙ АДМИНИСТРАТОР</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">АО ГРУППА МЛК</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">47850</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">МАСТЕР УЧАСТКА</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">АО ТРУБНЫЙ ЗАВОД ПРОФИЛЬ-АКРАС ИМ.МАКАРОВА В.В.</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">43500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">79772672330</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">504216622277</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов максим викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">48470</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, Россия, Московская обл., Сергиев Посад г., г. Краснозаводск, ул. Трудовые Резервы, д. 9, кв. 44</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">03.12.2020</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">26502/21/50037-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">Сергиево-Посадский РОСП ГУФССП России по Московской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321,МОСКОВСКАЯ ОБЛ,СЕРГИЕВО-ПОСАДСКИЙ Р-Н,КРАСНОЗАВОДСК Г,НОВАЯ УЛ,Д. 4,КВ. 19</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, РОССИЯ, МОСКОВСКАЯ ОБЛ., СЕРГИЕВО-ПОСАДСКИЙ Р-Н, Г. КРАСНОЗАВОДСК, УЛ. НОВАЯ, Д. 4, КВ. 19</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, Россия, Московская обл. , Сергиев Посад г. , г. Краснозаводск, ул. Трудовые Резервы, д. 9, кв. 44</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">21.02.2020</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Сергиево-Посадский РОСП ГУФССП России по Московской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">101075/20/50037-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">504216622277</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, Россия, Московская обл. , Сергиево-Посадский р-н, г. Краснозаводск, ул. Новая, д. 4, кв. 19</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">24.10.2017</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">111943</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Сергиево-Посадский РОСП ГУФССП России по Московской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">150591/20/50037-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">504216622277</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, Россия, Московская обл. , Сергиево-Посадский р-н, г. Краснозаводск, ул. Новая, д. 4, кв. 19</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">07.12.2019</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">61000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Сергиево-Посадский РОСП ГУФССП России по Московской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">119825/20/50037-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">КОНТРОЛЕ СБ</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">СЛАДКАЯ ЖИЗНЬ</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОХОДА</td>
+                  <td class="">39150</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН ПО МЕСТУ РАБОТЫ</td>
+                  <td class="">79772672330</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321 , ,МОСКОВСКАЯ ОБЛ,СЕРГИЕВО-ПОСАДСКИЙ Р-Н,КРАСНОЗАВОДСК Г,НОВАЯ УЛ,Д. 4,КВ. 19</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КРАСНОЗАВОДСК , ЗАГОРСКИЙ , МОСКОВСКАЯ ОБЛАСТЬ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">119842</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, Россия, Московская обл., Сергиево-Посадский р-н, г. Краснозаводск, ул. Новая, д. 4, кв. 19</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">11.04.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Сергиево-Посадский РОСП УФССП России по Московской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Иные взыскания имущественного характера не в бюджеты РФ</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">20821/18/50037-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321 , ,МОСКОВСКАЯ ОБЛ,СЕРГИЕВО-ПОСАДСКИЙ Р-Н,КРАСНОЗАВОДСК Г,,НОВАЯ УЛ,Д. 4,,КВ. 19</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">17769619038</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">МОСКОВСКАЯ ОБЛАСТЬ,КРАСНОЗАВОДСК</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН РЕГИСТРАЦИИ</td>
+                  <td class="">74965471821</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">АКСЕНОВ МАКСИМ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4613074760</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Г.МОСКВА,КРАСНОЗАВОДСК</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН РЕГИСТРАЦИИ</td>
+                  <td class="">74965457134</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Аксенов Максим Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">25.02.2016</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">141321, Россия, Московская обл., Сергиево-Посадский р-н, г. Краснозаводск, ул. Новая, д. 4, кв. 19</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">11.12.2015</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">50037</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Сергиево-Посадский РОСП УФССП России по Московской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">11.08.1978</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Алименты на содержание детей</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">74893/15/50037-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Пользователи bankiros.ru 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Пользователи qzaem.ru 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Пользователи qzaem.ru 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                ФССП 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                ФССП 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Клиенты микрофинансовых компаний 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Резюме на работу 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Вакцинация Москвоская область 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Абоненты 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Доходы физлиц 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Доходы физлиц 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Доходы физлиц 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Доходы физлиц 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Доходы физлиц 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Жители 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                ФССП 2016
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

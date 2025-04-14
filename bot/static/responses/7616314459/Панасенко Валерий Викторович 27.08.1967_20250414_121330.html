@@ -1,0 +1,4656 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Панасенко Валерий Викторович 27.08.1967</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Панасенко Валерий Викторович 27.08.1967</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">51 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ<br>
+                Панасенко Валерий Викторович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                27.08.1967<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                Ростовская обл, г Ростов-на-Дону, пер Ашхабадский,6/2,15<br>
+                РО, РОСТОВ_Н/Д, НИКУЛИНОЙ, 3_35<br>
+                обл Ростовская, г Ростов-на-Дону, ул Никулиной,3,36<br>
+                643, 61, Ростов-на-Дону, Никулиной, 3, 36<br>
+                643, 344016, 61, РОСТОВ-НА-ДОНУ, НИКУЛИНОЙ, 3, 35<br>
+                ростов-на-дону никулиной 3 кв 36<br>
+                Ростовская обл.<br>
+                Россия Ростовская область г Ростов-на-Дону ул Никулиной 3 36<br>
+                Россия, Ростовская обл, г Ростов-на-Дону, 344038, Ашхабадский пер, д. 6/2, кв. 15<br>
+                Ростовская область<br>
+                344016, РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, УЛ НИКУЛИНОЙ, Д. 3, КВ. 35<br>
+                ПЕР. АШХАБАТСКИЙ 62 КВ 15<br>
+                РОСТОВСКАЯ РОСТОВ НА ДОНУ НИКУЛИНОЙ 3 35<br>
+                643,344016,61,РОСТОВ-НА-ДОНУ Г,НИКУЛИНОЙ УЛ,3,35<br>
+                344016, Россия, г. Ростов-на-Дону, ул. Никулиной, д. 3, кв. 35<br>
+                РО, РОСТОВ_Н/Д, НИКУЛИНОЙ 3_35<br>
+                РОСТОВ-НА-ДОНУ НИКУЛИНОЙ д.3 кв.35<br>
+                ОКТЯБРЬСКИЙ-РОСТОВ РОСТОВ Н/Д НИКУЛИНОЙ д.3 кв.35<br>
+                респ.РОССИЯ р-н-Г.РОСТОВ,МРЭО н/п.РОСТОВ-НА-ДОНУ ул.НИКУЛИНОЙ д.3 кв.35<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                61<br>
+                Ростовская обл<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79185548979<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                9906506183<br>
+                61АО844387<br>
+                61ОО520557<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                11238248731<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                6012226984<br>
+                6005725191<br>
+                2269846012<br>
+                719572975<br>
+                АВ092690<br>
+                6000230360<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                616508897000<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ПАО ГРАНИТ<br>
+                ООО БИЗОН ТРЭЙД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОЛЖНОСТЬ</div>
+              <div class="info-value">
+                ЗАМЕСТИТЕЛЬ ДИРЕКТОРА<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                300<br>
+                500<br>
+                4742<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                168790/23/61029-ИП<br>
+                73963/23/61026-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                03.10.2016<br>
+                13.10.2016<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                XWEDH511BB0008297<br>
+                е380тн196<br>
+                Х418АН<br>
+                Х418АН61<br>
+                Н352РС<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЛ</div>
+              <div class="info-value">
+                М<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                Т<br>
+                GOOD<br>
+                Действующее<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИИ ВУ</div>
+              <div class="info-value">
+                B,B1,C,C1,M<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВУ</div>
+              <div class="info-value">
+                2019-02-22<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ВУ</div>
+              <div class="info-value">
+                1993<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ВУ</div>
+              <div class="info-value">
+                2029-02-22<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА ЗАМЕНЫ ВУ</div>
+              <div class="info-value">
+                Замена ВУ в связи с истечением срока его действия<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ВУ</div>
+              <div class="info-value">
+                РЕГИСТРАЦИОННО-ЭКЗАМЕНАЦИОННЫЙ ПУНКТ ОТДЕЛЕНИЕ № 1 МРЭО ГИБДД ГУ МВД РОССИИ ПО РОСТОВСКОЙ ОБЛАСТИ, Г. РОСТОВ-НА-ДОНУ (ОБСЛУЖИВАЕМЫЕ РАЙОНЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАЖ</div>
+              <div class="info-value">
+                1993<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС НОМЕРА ВУ</div>
+              <div class="info-value">
+                Т<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ГИБДД</div>
+              <div class="info-value">
+                РЕГИСТРАЦИОННО-ЭКЗАМЕНАЦИОННЫЙ ПУНКТ ОТДЕЛЕНИЕ № 1 МРЭО ГИБДД ГУ МВД РОССИИ ПО РОСТОВСКОЙ ОБЛАСТИ, Г. РОСТОВ-НА-ДОНУ (ОБСЛУЖИВАЕМЫЕ РАЙОНЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАЧАЛА ДЕЙСТВИЯ ВУ</div>
+              <div class="info-value">
+                2019-02-22<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ДЕЙСТВИЯ ВУ</div>
+              <div class="info-value">
+                2029-02-22<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                XWEDH511BB0008297<br>
+                LVYPSALADMP101080<br>
+                X7LLSRB1HDH680895<br>
+                XTAFS025LM1404851<br>
+                XTA210930V2168787<br>
+                ХТА210930V2168787<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                KIA RIO<br>
+                Volvo S90<br>
+                Renault Logan SR<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ФАКТ)</div>
+              <div class="info-value">
+                2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ДАННЫХ</div>
+              <div class="info-value">
+                2011-08-19 16:40:04<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОСНОМЕР (ЛАТИНИЦЕЙ)</div>
+              <div class="info-value">
+                XWEDH511BB0008297<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2016-01-15 17:25:54<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                Паспорт гражданина РФ<br>
+                паспорт гражданина Российской Федерации<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                гор.Броды Львовской области Украина<br>
+                Украина, Львовская область, г. Броды<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                344016, Ростовская обл, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 36<br>
+                Россия, Ростовская область, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 35<br>
+                Ростовская область, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 35<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                610-013<br>
+                612-072<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2012-09-27<br>
+                2006-09-05<br>
+                27.09.2012<br>
+                05.09.2006<br>
+                28.09.2000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                Отделом УФМС России по Ростовской обл. в Октябрьском р-не города Ростова-на-Дону<br>
+                Отдел УФМС России по Ростовской области в Октябрьском р-не города Ростова-на-Дону<br>
+                ОВД Октябрьского района г. Ростова-на-Дону<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАКТИЧЕСКИЙ АДРЕС</div>
+              <div class="info-value">
+                Россия, Ростовская область, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 35<br>
+                Ростовская область, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 35<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                ПАНАСЕНКО ИРИНА МИХАЙЛОВНА 10.07.1967<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВАНИЯ</div>
+              <div class="info-value">
+                2021-10-19<br>
+                2021-07-16<br>
+                2019-07-16<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2016-05-21 16:00:15<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕРЕВОЗЧИК</div>
+              <div class="info-value">
+                МОЛДОВА ЭРЛАЙН<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР РЕЙСА</div>
+              <div class="info-value">
+                9У171<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЪЕЗД<br>
+                ПЕРВИЧНАЯ_РЕГИСТРАЦИЯ ТС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                АВИАЦИОННЫЙ ТРАНСПОРТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                КИШЕНЁВ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                МОСКВА (ДОМОДЕДОВО) (АВИА)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                МОЛДОВА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2012-06-06<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                2016-05-21 15:30:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВОЗБУЖДЕНИЯ ИП</div>
+              <div class="info-value">
+                16.05.2023<br>
+                28.06.2022<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</div>
+              <div class="info-value">
+                Октябрьское районное отделение судебных приставов г. Ростова-на-Дону<br>
+                Железнодорожное районное отделение судебных приставов г. Ростова-на-Дону<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОКВЭД</div>
+              <div class="info-value">
+                1620<br>
+                74.15<br>
+                15.5<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОГРНИП</div>
+              <div class="info-value">
+                307616526100044<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ФНС</div>
+              <div class="info-value">
+                6196<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ПФР</div>
+              <div class="info-value">
+                71058049125<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТАТУСА</div>
+              <div class="info-value">
+                26.08.2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА (НЕ УТОЧНЕНО)</div>
+              <div class="info-value">
+                18.09.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                Ростовская область пер. ашхабатский 6 2 кв 15<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2022-01-29 13:51:39<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2021-12-25 08:16:36<br>
+                2020-08-05<br>
+                2016-08-03 09:59:23<br>
+                27.06.1994<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                отделом уфмс россии по ростовской обл. в октябрьском р-не города ростова-на-дону<br>
+                ОТДЕЛОМ УФМС РОССИИ ПО РОСТОВСКОЙ ОБЛАСТИ В ОКТЯБРЬСКОМ Р-НЕ Г. РОСТОВА-НА-ДОНУ<br>
+                отделом УФМС России по Ростовской области в Октябрьском районе города Ростова-на-Дону<br>
+                ОВД ОКТЯБРЬСКОГО РАЙОНА Г.РОСТОВА-НА-ДОНУ 612072<br>
+                ОВД ОКТЯБРЬСКОГО РАЙОНА ГОРОДА РОСТОВА-НА-ДОНУ<br>
+                ОУФМС В ОКТЯБРЬСКОМ Р-НЕ Г.РОСТОВА-НА-ДОНУ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                UTC+3<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                ПАО Мобильные ТелеСистемы<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</div>
+              <div class="info-value">
+                22.02.2019<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ESIA ID</div>
+              <div class="info-value">
+                1000588363<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТЫ</div>
+              <div class="info-value">
+                6012 226984, выдан 27.09.2012 отделом УФМС России по Ростовской области в Октябрьском районе города Ростова-на-Дону 610013<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Россия, Ростовская обл, г Ростов-на-Дону, 344016, Никулиной ул, д. 3, кв. 36<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОГРН</div>
+              <div class="info-value">
+                307616526100044<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОКПО</div>
+              <div class="info-value">
+                156119455<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ГРАЖДАНСТВА</div>
+              <div class="info-value">
+                граждане РФ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ДЕЯТЕЛЬНОСТИ</div>
+              <div class="info-value">
+                74.15 Деятельность по управлению финансово - промышленными группами и холдинг - компаниями<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ЗАПИСИ В ЕГРИП</div>
+              <div class="info-value">
+                18.09.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ГРАЖДАНСТВА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                г.Броды Львовская обл. Украина<br>
+                ЛЬВОВСКАЯ,УКРАИНСКАЯ ССР<br>
+                ЛЬВОВСКАЯ УКРАИНСКАЯ ССР<br>
+                УКРАИНА, ЛЬВОВСКАЯ ОБЛ., Г.БРОДЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВНЕСЕНИЯ В ГОСРЕЕСТР</div>
+              <div class="info-value">
+                18.09.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Товар: Участок 6 сот. (СНТ, ДНП), Категория: Недвижимость, Подкатегория: Земельные участки, Цена: 1000000, Ссылка: https://www.avito.ru/user/6e9903645c9b03f203e683350f491b86/profile, Регион: Ростовская область, Город: Ростов-на-Дону, Адрес: Ростов-на-Дону, садовое товарищество Защитник, Имя: Валерий, Всего продано товаров: 0, Доход всего: 0, Дата: 2018-08-28, Источник: АВИТО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАНО ВУ</div>
+              <div class="info-value">
+                МРЭО ПРИ УВД Г. РОСТОВА-НА-ДОНУ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЕЖЕМЕСЯЧНЫЙ ДОХОД</div>
+              <div class="info-value">
+                55000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФИО СУПРУГА ДО БРАКА</div>
+              <div class="info-value">
+                ФЕДОСЕЕВА ИРИНА МИХАЙЛОВНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ СУПРУГА</div>
+              <div class="info-value">
+                10.07.1967<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВИДЕТЕЛЬСТВО О БРАКЕ</div>
+              <div class="info-value">
+                I-АН 71 03.10.1987<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФИО СУПРУГА ПОСЛЕ БРАКА</div>
+              <div class="info-value">
+                ПАНАСЕНКО ИРИНА МИХАЙЛОВНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                20.10.2016<br>
+                22.11.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОСП</div>
+              <div class="info-value">
+                61083<br>
+                61029<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСТАТОК</div>
+              <div class="info-value">
+                500<br>
+                4742<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                отдел судебных приставов по г. Шахты и Октябрьскому району<br>
+                Октябрьский районный отдел судебных приставов г. Ростова-на-Дону<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Штраф ГИБДД<br>
+                Госпошлина, присужденная судом<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                95080/16/61083-ИП<br>
+                12292/16/61029-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПАСПОРТА</div>
+              <div class="info-value">
+                610013<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИФНС</div>
+              <div class="info-value">
+                МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 18 ПО РОСТОВСКОЙ ОБЛАСТИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОП. ОКВЭД</div>
+              <div class="info-value">
+                51.7<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КПП ЮР.ЛИЦА</div>
+              <div class="info-value">
+                611301001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС ЮР.ЛИЦА</div>
+              <div class="info-value">
+                347700, ОБЛАСТЬ РОСТОВСКАЯ, РАЙОН КАГАЛЬНИЦКИЙ, СТАНИЦА КАГАЛЬНИЦКАЯ, УЛИЦА ПОЧТОВАЯ, 151<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ЛИКВИДАЦИИ</div>
+              <div class="info-value">
+                30.12.1899<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОГРН ЮР.ЛИЦА</div>
+              <div class="info-value">
+                15.10.2003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА МОДИФИКАЦИИ</div>
+              <div class="info-value">
+                14.04.2016 12:16:07<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ПФР</div>
+              <div class="info-value">
+                УПРАВЛЕНИЕ ПЕНСИОННОГО ФОНДА РФ В КАГАЛЬНИЦКОМ РАЙОНЕ РОСТОВСКОЙ ОБЛАСТИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР В ПФР ЮР.ЛИЦА</div>
+              <div class="info-value">
+                071013000018<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД РЕГИОНА ЮР.ЛИЦА</div>
+              <div class="info-value">
+                61<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН ЮРИДИЧЕСКОГО ЛИЦА</div>
+              <div class="info-value">
+                6113000041<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ В ПФР</div>
+              <div class="info-value">
+                11.07.1991<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ В ФСС</div>
+              <div class="info-value">
+                30.12.1899<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОГРН ЮРИДИЧЕСКОГО ЛИЦА</div>
+              <div class="info-value">
+                1036113006654<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЛНОЕ НАЗВАНИЕ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ОТКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО КАГАЛЬНИЦКИЙ МОЛОКОЗАВОД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРАТКОЕ НАЗВАНИЕ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ОАО КМЗ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН РЕГИСТРАЦИИ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 26 ПО РОСТОВСКОЙ ОБЛАСТИ, ,344019,,, РОСТОВ-НА-ДОНУ Г,, МЯСНИКОВА УЛ, Д 52/32,,<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФОРМА СОБСТВЕННОСТИ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ПУБЛИЧНЫЕ АКЦИОНЕРНЫЕ ОБЩЕСТВА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСТАНОВКИ НА УЧЕТ В ИФНС</div>
+              <div class="info-value">
+                17.03.1995<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                СНИЛС:112-382-487 31неработающее население (прочее)<br>
+                Связь с автотранспортом: Н352РС ВАЗ2105; Н352РС ВАЗ2105; Н352РС ВАЗ2105; Н352РС ВАЗ2105; Х2336РП М412; Х2336РП М412; Х2336РП М412; Х2336РП М412; Х418АН ВАЗ21093<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНИЦИАТОР АРЕСТА</div>
+              <div class="info-value">
+                000-000, ОВД ОКТЯБРЬСКОГО РАЙОНА Г.РОСТОВА-НА-ДОНУ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСХОДЯЩЕЕ ПИСЬМО</div>
+              <div class="info-value">
+                0/15558<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИСХОДЯЩЕГО ПИСЬМА</div>
+              <div class="info-value">
+                27.09.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ ТС</div>
+              <div class="info-value">
+                белый<br>
+                БЕЛЫЙ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОЩНОСТЬ</div>
+              <div class="info-value">
+                72<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОДЕЛЬ ТС</div>
+              <div class="info-value">
+                ВАЗ21093<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОПЕРАЦИИ</div>
+              <div class="info-value">
+                07.02.1997<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МИНИМАЛЬНЫЙ ВЕС</div>
+              <div class="info-value">
+                945<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАКСИМАЛЬНЫЙ ВЕС</div>
+              <div class="info-value">
+                1370<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ВЛАДЕЛЬЦА АВТО</div>
+              <div class="info-value">
+                Лицо<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                B<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ДОКУМЕНТЫ)</div>
+              <div class="info-value">
+                1997<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТС</div>
+              <div class="info-value">
+                ЛЕГКОВОЙ КОМБИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТТЕНОК ЦВЕТА</div>
+              <div class="info-value">
+                БЕЛЫЙ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                2209780<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП СОБСТВЕННОСТИ</div>
+              <div class="info-value">
+                частная<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕХНИЧЕСКИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                63ВР519231<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">М</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">B,B1,C,C1,M</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВУ</td>
+                  <td class="">2019-02-22</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ВУ</td>
+                  <td class="">1993</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ВУ</td>
+                  <td class="">2029-02-22</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ВУ</td>
+                  <td class="">РЕГИСТРАЦИОННО-ЭКЗАМЕНАЦИОННЫЙ ПУНКТ ОТДЕЛЕНИЕ № 1 МРЭО ГИБДД ГУ МВД РОССИИ ПО РОСТОВСКОЙ ОБЛАСТИ, Г. РОСТОВ-НА-ДОНУ (ОБСЛУЖИВАЕМЫЕ РАЙОНЫ</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9906506183</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водители РФ 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">М</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СТАЖ</td>
+                  <td class="">1993</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">B,B1,C,C1,M</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС НОМЕРА ВУ</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ГИБДД</td>
+                  <td class="">РЕГИСТРАЦИОННО-ЭКЗАМЕНАЦИОННЫЙ ПУНКТ ОТДЕЛЕНИЕ № 1 МРЭО ГИБДД ГУ МВД РОССИИ ПО РОСТОВСКОЙ ОБЛАСТИ, Г. РОСТОВ-НА-ДОНУ (ОБСЛУЖИВАЕМЫЕ РАЙОНЫ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАЧАЛА ДЕЙСТВИЯ ВУ</td>
+                  <td class="">2019-02-22</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ДЕЙСТВИЯ ВУ</td>
+                  <td class="">2029-02-22</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9906506183</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XWEDH511BB0008297</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">XWEDH511BB0008297</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">KIA RIO</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2011</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2011-08-19 16:40:04</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">XWEDH511BB0008297</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2016-01-15 17:25:54</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор.Броды Львовской области Украина</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">344016, Ростовская обл, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 36</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">610-013</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2012-09-27</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по Ростовской обл. в Октябрьском р-не города Ростова-на-Дону</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">Украина, Львовская область, г. Броды</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Россия, Ростовская область, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">610-013</td>
+                </tr>
+                <tr>
+                  <td>ФАКТИЧЕСКИЙ АДРЕС</td>
+                  <td class="">Россия, Ростовская область, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2012-09-27</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отдел УФМС России по Ростовской области в Октябрьском р-не города Ростова-на-Дону</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6005725191</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">Украина, Львовская область, г. Броды</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Ростовская область, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">612-072</td>
+                </tr>
+                <tr>
+                  <td>ФАКТИЧЕСКИЙ АДРЕС</td>
+                  <td class="">Ростовская область, г. Ростов-на-Дону, р-н. Октябрьский, ул. Никулиной, д. 3, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2006-09-05</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">ОВД Октябрьского района г. Ростова-на-Дону</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ростовская обл, г Ростов-на-Дону, пер Ашхабадский,6/2,15</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2269846012</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РО, РОСТОВ_Н/Д, НИКУЛИНОЙ, 3_35</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ПАНАСЕНКО ИРИНА МИХАЙЛОВНА 10.07.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">LVYPSALADMP101080</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-10-19</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Volvo S90</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X7LLSRB1HDH680895</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">е380тн196</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-07-16</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault Logan SR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XTAFS025LM1404851</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">е380тн196</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2019-07-16</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault Logan SR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">719572975</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2016-05-21 16:00:15</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">МОЛДОВА ЭРЛАЙН</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">9У171</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">КИШЕНЁВ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ДОМОДЕДОВО) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">МОЛДОВА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2012-06-06</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2016-05-21 15:30:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">обл Ростовская, г Ростов-на-Дону, ул Никулиной,3,36</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2269846012</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты МТС банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">300</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 61, Ростов-на-Дону, Никулиной, 3, 36</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">61</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">168790/23/61029-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">16.05.2023</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Октябрьское районное отделение судебных приставов г. Ростова-на-Дону</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 344016, 61, РОСТОВ-НА-ДОНУ, НИКУЛИНОЙ, 3, 35</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">61</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6005725191</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">73963/23/61026-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">28.06.2022</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Железнодорожное районное отделение судебных приставов г. Ростова-на-Дону</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Индивидуальные предприниматели 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ОКВЭД</td>
+                  <td class="">1620</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ОГРНИП</td>
+                  <td class="">307616526100044</td>
+                </tr>
+                <tr>
+                  <td>КОД ФНС</td>
+                  <td class="">6196</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПФР</td>
+                  <td class="">71058049125</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТАТУСА</td>
+                  <td class="">26.08.2011</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">18.09.2007</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты gemotest.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ростов-на-дону никулиной 3 кв 36</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">Ростовская область пер. ашхабатский 6 2 кв 15</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2022-01-29 13:51:39</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-12-25 08:16:36</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">отделом уфмс россии по ростовской обл. в октябрьском р-не города ростова-на-дону</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Сбербанк 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ростовская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">UTC+3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ПАО Мобильные ТелеСистемы</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-08-05</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Россия Ростовская область г Ростов-на-Дону ул Никулиной 3 36</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОТДЕЛОМ УФМС РОССИИ ПО РОСТОВСКОЙ ОБЛАСТИ В ОКТЯБРЬСКОМ Р-НЕ Г. РОСТОВА-НА-ДОНУ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">27.09.2012</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9906506183</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</td>
+                  <td class="">22.02.2019</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты ВТБ 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ростовская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты ВТБ 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ростовская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты premiumbonus.ru 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ПАО ГРАНИТ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ЕСИА госуслуги 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>ESIA ID</td>
+                  <td class="">1000588363</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Россия, Ростовская обл, г Ростов-на-Дону, 344038, Ашхабадский пер, д. 6/2, кв. 15</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">GOOD</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТЫ</td>
+                  <td class="">6012 226984, выдан 27.09.2012 отделом УФМС России по Ростовской области в Октябрьском районе города Ростова-на-Дону 610013</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2016-08-03 09:59:23</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">отделом УФМС России по Ростовской области в Октябрьском районе города Ростова-на-Дону</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Россия, Ростовская обл, г Ростов-на-Дону, 344016, Никулиной ул, д. 3, кв. 36</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">610-013</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">27.09.2012</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ИП znaemvseh.ru 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>ОГРН</td>
+                  <td class="">307616526100044</td>
+                </tr>
+                <tr>
+                  <td>ОКПО</td>
+                  <td class="">156119455</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ростовская область</td>
+                </tr>
+                <tr>
+                  <td>ОКВЭД</td>
+                  <td class="">74.15</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Действующее</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ВИД ГРАЖДАНСТВА</td>
+                  <td class="">граждане РФ</td>
+                </tr>
+                <tr>
+                  <td>ВИД ДЕЯТЕЛЬНОСТИ</td>
+                  <td class="">74.15 Деятельность по управлению финансово - промышленными группами и холдинг - компаниями</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ЗАПИСИ В ЕГРИП</td>
+                  <td class="">18.09.2007</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ГРАЖДАНСТВА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">г.Броды Львовская обл. Украина</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВНЕСЕНИЯ В ГОСРЕЕСТР</td>
+                  <td class="">18.09.2007</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">344016, РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, УЛ НИКУЛИНОЙ, Д. 3, КВ. 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6005725191</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОВД ОКТЯБРЬСКОГО РАЙОНА Г.РОСТОВА-НА-ДОНУ 612072</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">05.09.2006</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЬВОВСКАЯ,УКРАИНСКАЯ ССР</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">344016, РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, УЛ НИКУЛИНОЙ, Д. 3, КВ. 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">АВ092690</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЬВОВСКАЯ,УКРАИНСКАЯ ССР</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">344016, РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, УЛ НИКУЛИНОЙ, Д. 3, КВ. 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6000230360</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОВД ОКТЯБРЬСКОГО РАЙОНА ГОРОДА РОСТОВА-НА-ДОНУ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">28.09.2000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЬВОВСКАЯ,УКРАИНСКАЯ ССР</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">344016, РОСТОВСКАЯ ОБЛ, Г РОСТОВ-НА-ДОНУ, УЛ НИКУЛИНОЙ, Д. 3, КВ. 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОУФМС В ОКТЯБРЬСКОМ Р-НЕ Г.РОСТОВА-НА-ДОНУ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">27.09.2012</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЬВОВСКАЯ,УКРАИНСКАЯ ССР</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи авито 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ПЕР. АШХАБАТСКИЙ 62 КВ 15</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">Товар: Участок 6 сот. (СНТ, ДНП), Категория: Недвижимость, Подкатегория: Земельные участки, Цена: 1000000, Ссылка: https://www.avito.ru/user/6e9903645c9b03f203e683350f491b86/profile, Регион: Ростовская область, Город: Ростов-на-Дону, Адрес: Ростов-на-Дону, садовое товарищество Защитник, Имя: Валерий, Всего продано товаров: 0, Доход всего: 0, Дата: 2018-08-28, Источник: АВИТО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Ростов 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВСКАЯ РОСТОВ НА ДОНУ НИКУЛИНОЙ 3 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАНО ВУ</td>
+                  <td class="">МРЭО ПРИ УВД Г. РОСТОВА-НА-ДОНУ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЬВОВСКАЯ УКРАИНСКАЯ ССР</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">61АО844387</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">ЗАМЕСТИТЕЛЬ ДИРЕКТОРА</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО БИЗОН ТРЭЙД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ЕЖЕМЕСЯЧНЫЙ ДОХОД</td>
+                  <td class="">55000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Ростов 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВСКАЯ РОСТОВ НА ДОНУ НИКУЛИНОЙ 3 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11238248731</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79185548979</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАНО ВУ</td>
+                  <td class="">МРЭО ПРИ УВД Г. РОСТОВА-НА-ДОНУ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЬВОВСКАЯ УКРАИНСКАЯ ССР</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">61ОО520557</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ЗАГС Ростов 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ФИО СУПРУГА ДО БРАКА</td>
+                  <td class="">ФЕДОСЕЕВА ИРИНА МИХАЙЛОВНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ СУПРУГА</td>
+                  <td class="">10.07.1967</td>
+                </tr>
+                <tr>
+                  <td>СВИДЕТЕЛЬСТВО О БРАКЕ</td>
+                  <td class="">I-АН 71 03.10.1987</td>
+                </tr>
+                <tr>
+                  <td>ФИО СУПРУГА ПОСЛЕ БРАКА</td>
+                  <td class="">ПАНАСЕНКО ИРИНА МИХАЙЛОВНА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">20.10.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,344016,61,РОСТОВ-НА-ДОНУ Г,НИКУЛИНОЙ УЛ,3,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">03.10.2016</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">61083</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">отдел судебных приставов по г. Шахты и Октябрьскому району</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">95080/16/61083-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">22.11.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">4742</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">344016, Россия, г. Ростов-на-Дону, ул. Никулиной, д. 3, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">13.10.2016</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">61029</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">4742</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6012226984</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">610013</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Октябрьский районный отдел судебных приставов г. Ростова-на-Дону</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Госпошлина, присужденная судом</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">27.09.2012</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">12292/16/61029-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Придприниматели 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ИФНС</td>
+                  <td class="">МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 18 ПО РОСТОВСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВСКАЯ РОСТОВ НА ДОНУ НИКУЛИНОЙ 3 35</td>
+                </tr>
+                <tr>
+                  <td>ОКВЭД</td>
+                  <td class="">15.5</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6005725191</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ОКВЭД</td>
+                  <td class="">51.7</td>
+                </tr>
+                <tr>
+                  <td>КПП ЮР.ЛИЦА</td>
+                  <td class="">611301001</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС ЮР.ЛИЦА</td>
+                  <td class="">347700, ОБЛАСТЬ РОСТОВСКАЯ, РАЙОН КАГАЛЬНИЦКИЙ, СТАНИЦА КАГАЛЬНИЦКАЯ, УЛИЦА ПОЧТОВАЯ, 151</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ЛИКВИДАЦИИ</td>
+                  <td class="">30.12.1899</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОГРН ЮР.ЛИЦА</td>
+                  <td class="">15.10.2003</td>
+                </tr>
+                <tr>
+                  <td>ДАТА МОДИФИКАЦИИ</td>
+                  <td class="">14.04.2016 12:16:07</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">27.06.1994</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ПФР</td>
+                  <td class="">УПРАВЛЕНИЕ ПЕНСИОННОГО ФОНДА РФ В КАГАЛЬНИЦКОМ РАЙОНЕ РОСТОВСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР В ПФР ЮР.ЛИЦА</td>
+                  <td class="">071013000018</td>
+                </tr>
+                <tr>
+                  <td>КОД РЕГИОНА ЮР.ЛИЦА</td>
+                  <td class="">61</td>
+                </tr>
+                <tr>
+                  <td>ИНН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">6113000041</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ПФР</td>
+                  <td class="">11.07.1991</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ФСС</td>
+                  <td class="">30.12.1899</td>
+                </tr>
+                <tr>
+                  <td>ОГРН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">1036113006654</td>
+                </tr>
+                <tr>
+                  <td>ПОЛНОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ОТКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО КАГАЛЬНИЦКИЙ МОЛОКОЗАВОД</td>
+                </tr>
+                <tr>
+                  <td>КРАТКОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ОАО КМЗ</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН РЕГИСТРАЦИИ ЮР.ЛИЦА</td>
+                  <td class="">МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 26 ПО РОСТОВСКОЙ ОБЛАСТИ, ,344019,,, РОСТОВ-НА-ДОНУ Г,, МЯСНИКОВА УЛ, Д 52/32,,</td>
+                </tr>
+                <tr>
+                  <td>ФОРМА СОБСТВЕННОСТИ ЮР.ЛИЦА</td>
+                  <td class="">ПУБЛИЧНЫЕ АКЦИОНЕРНЫЕ ОБЩЕСТВА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСТАНОВКИ НА УЧЕТ В ИФНС</td>
+                  <td class="">17.03.1995</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Придприниматели 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">616508897000</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ИФНС</td>
+                  <td class="">МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 18 ПО РОСТОВСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВСКАЯ РОСТОВ НА ДОНУ НИКУЛИНОЙ 3 35</td>
+                </tr>
+                <tr>
+                  <td>ОКВЭД</td>
+                  <td class="">15.5</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6000230360</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ОКВЭД</td>
+                  <td class="">51.7</td>
+                </tr>
+                <tr>
+                  <td>КПП ЮР.ЛИЦА</td>
+                  <td class="">611301001</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС ЮР.ЛИЦА</td>
+                  <td class="">347700, ОБЛАСТЬ РОСТОВСКАЯ, РАЙОН КАГАЛЬНИЦКИЙ, СТАНИЦА КАГАЛЬНИЦКАЯ, УЛИЦА ПОЧТОВАЯ, 151</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ЛИКВИДАЦИИ</td>
+                  <td class="">30.12.1899</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОГРН ЮР.ЛИЦА</td>
+                  <td class="">15.10.2003</td>
+                </tr>
+                <tr>
+                  <td>ДАТА МОДИФИКАЦИИ</td>
+                  <td class="">14.04.2016 12:16:07</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">27.06.1994</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ПФР</td>
+                  <td class="">УПРАВЛЕНИЕ ПЕНСИОННОГО ФОНДА РФ В КАГАЛЬНИЦКОМ РАЙОНЕ РОСТОВСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР В ПФР ЮР.ЛИЦА</td>
+                  <td class="">071013000018</td>
+                </tr>
+                <tr>
+                  <td>КОД РЕГИОНА ЮР.ЛИЦА</td>
+                  <td class="">61</td>
+                </tr>
+                <tr>
+                  <td>ИНН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">6113000041</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ПФР</td>
+                  <td class="">11.07.1991</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ФСС</td>
+                  <td class="">30.12.1899</td>
+                </tr>
+                <tr>
+                  <td>ОГРН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">1036113006654</td>
+                </tr>
+                <tr>
+                  <td>ПОЛНОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ОТКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО КАГАЛЬНИЦКИЙ МОЛОКОЗАВОД</td>
+                </tr>
+                <tr>
+                  <td>КРАТКОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ОАО КМЗ</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН РЕГИСТРАЦИИ ЮР.ЛИЦА</td>
+                  <td class="">МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 26 ПО РОСТОВСКОЙ ОБЛАСТИ, ,344019,,, РОСТОВ-НА-ДОНУ Г,, МЯСНИКОВА УЛ, Д 52/32,,</td>
+                </tr>
+                <tr>
+                  <td>ФОРМА СОБСТВЕННОСТИ ЮР.ЛИЦА</td>
+                  <td class="">ПУБЛИЧНЫЕ АКЦИОНЕРНЫЕ ОБЩЕСТВА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСТАНОВКИ НА УЧЕТ В ИФНС</td>
+                  <td class="">17.03.1995</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Ростов 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РО, РОСТОВ_Н/Д, НИКУЛИНОЙ 3_35</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6005725191</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">СНИЛС:112-382-487 31неработающее население (прочее)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные лица 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6005725191</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ИНИЦИАТОР АРЕСТА</td>
+                  <td class="">000-000, ОВД ОКТЯБРЬСКОГО РАЙОНА Г.РОСТОВА-НА-ДОНУ</td>
+                </tr>
+                <tr>
+                  <td>ИСХОДЯЩЕЕ ПИСЬМО</td>
+                  <td class="">0/15558</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">05.09.2006</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИСХОДЯЩЕГО ПИСЬМА</td>
+                  <td class="">27.09.2006</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">УКРАИНА, ЛЬВОВСКАЯ ОБЛ., Г.БРОДЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Ростов 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Ростов на Дону 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОСТОВ-НА-ДОНУ НИКУЛИНОЙ д.3 кв.35</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Ростовская обл</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">белый</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XTA210930V2168787</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ</td>
+                  <td class="">72</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Х418АН</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">ВАЗ21093</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОПЕРАЦИИ</td>
+                  <td class="">07.02.1997</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>МИНИМАЛЬНЫЙ ВЕС</td>
+                  <td class="">945</td>
+                </tr>
+                <tr>
+                  <td>МАКСИМАЛЬНЫЙ ВЕС</td>
+                  <td class="">1370</td>
+                </tr>
+                <tr>
+                  <td>ТИП ВЛАДЕЛЬЦА АВТО</td>
+                  <td class="">Лицо</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ АВТОМОБИЛЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1997</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Таганрог 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Панасенко Валерий Викторович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ОКТЯБРЬСКИЙ-РОСТОВ РОСТОВ Н/Д НИКУЛИНОЙ д.3 кв.35</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТС</td>
+                  <td class="">ЛЕГКОВОЙ КОМБИ</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">БЕЛЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА210930V2168787</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Х418АН61</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ПЕРВИЧНАЯ_РЕГИСТРАЦИЯ ТС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ОТТЕНОК ЦВЕТА</td>
+                  <td class="">БЕЛЫЙ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">2209780</td>
+                </tr>
+                <tr>
+                  <td>ТИП СОБСТВЕННОСТИ</td>
+                  <td class="">частная</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ</td>
+                  <td class="">63ВР519231</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Ростов 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПАНАСЕНКО ВАЛЕРИЙ ВИКТОРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">респ.РОССИЯ р-н-Г.РОСТОВ,МРЭО н/п.РОСТОВ-НА-ДОНУ ул.НИКУЛИНОЙ д.3 кв.35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Н352РС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">27.08.1967</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Связь с автотранспортом: Н352РС ВАЗ2105; Н352РС ВАЗ2105; Н352РС ВАЗ2105; Н352РС ВАЗ2105; Х2336РП М412; Х2336РП М412; Х2336РП М412; Х2336РП М412; Х418АН ВАЗ21093</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Водительские удостоверения 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Водители РФ 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Клиенты МТС банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                ФССП 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                ФССП 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Индивидуальные предприниматели 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Клиенты gemotest.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Клиенты Сбербанк 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Водительские удостоверения 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Клиенты ВТБ 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Клиенты ВТБ 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Клиенты premiumbonus.ru 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Доходы физлиц 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                ЕСИА госуслуги 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                ИП znaemvseh.ru 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Пользователи авито 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Жители Ростов 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Жители Ростов 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                ЗАГС Ростов 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Придприниматели 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Придприниматели 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                Жители Ростов 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Криминальные лица 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Жители Ростов 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                Автомобили Ростов на Дону 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Автомобили Таганрог 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Автомобили Ростов 2007
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

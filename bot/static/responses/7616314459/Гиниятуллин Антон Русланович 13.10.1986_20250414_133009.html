@@ -1,0 +1,5701 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Гиниятуллин Антон Русланович 13.10.1986</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Гиниятуллин Антон Русланович 13.10.1986</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">76 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ<br>
+                Гиниятуллин Антон Русланович<br>
+                Гиниятуллин антон русланович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                13.10.1986<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                р-н. Красногорский, пос.Нахабино, ул. Институтская, д. 13, корп. 3, кв. 16<br>
+                ,143430,50,КРАСНОГОРСКИЙ Р-Н,,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16<br>
+                кв. 16<br>
+                643, 143432, 50, НАХАБИНО, ИНСТИТУТСКАЯ, 13, 3, 16<br>
+                643,143432,50,,НАХАБИНО,,ИНСТИТУТСКАЯ,13,3,16<br>
+                Московская обл, Красногорский р-н, рп Нахабино, ул Институтская,13,16<br>
+                Красногорск<br>
+                143430КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16<br>
+                МОСКОВСКАЯ ОБЛ.,КРАСНОГОРСКИЙ Р-Н<br>
+                ИНСТИТУТСКАЯ 13 3 16<br>
+                643,143432,50,НАХАБИНО,ИНСТИТУТСКАЯ,13,3,16<br>
+                ,143430,50,КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16<br>
+                ЯНА РАЙНИСА БУЛЬВАР Д.1<br>
+                НАХАБИНО П. - ИНСТИТУТСКАЯ - 13 - 3 - 16<br>
+                ПГТ НАХАБИНО ИНСТИТУТСКАЯ 13 3 16<br>
+                НАХАБИНО - ИНСТИТУТСКАЯ - 13 - 3 - 16 / П НАХАБИНО - ИНСТИТУТСКАЯ - 13 - 3 - 16<br>
+                П НАХАБИНО - ИНСТИТУТСКАЯ - 13 - 3 - 16<br>
+                0 - 0 / П НАХАБИНО - ИНСТИТУТСКАЯ - 13 - 3 - 16<br>
+                143432, Россия, Московская обл., Красногорский р-н, рп. Нахабино, ул. Институтская, д. 13/3, кв. 16<br>
+                143430,50,КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16<br>
+                КРАСНОГОРСКИЙ РАЙОН, МОСКОВСКАЯ ОБЛАСТЬ<br>
+                НАХАБИНО П.Г.Т., ИНСТИТУТСКАЯ, 13, 3, 16<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79265470873<br>
+                79060478878<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                9923942506<br>
+                50РК027569<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                08982381930<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                4607393511<br>
+                753964896<br>
+                3935114607<br>
+                4601234166<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛЖНОСТЬ</div>
+              <div class="info-value">
+                Монтажник<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ООО ОНС<br>
+                542 ЗИВ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                17.03.2018<br>
+                19.03.2018<br>
+                17.02.2016<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                K965XX77<br>
+                К965ХХ77<br>
+                М887ХС77<br>
+                8352АТ50<br>
+                5487АУ50<br>
+                4672АО50<br>
+                Н433ОВ750<br>
+                К226КК90<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЛ</div>
+              <div class="info-value">
+                М<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                Т<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИИ ВУ</div>
+              <div class="info-value">
+                A,A1,B,B1,M<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВУ</div>
+              <div class="info-value">
+                2021-06-15<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ВУ</div>
+              <div class="info-value">
+                2005<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ВУ</div>
+              <div class="info-value">
+                2031-05-28<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА ЗАМЕНЫ ВУ</div>
+              <div class="info-value">
+                Замена ВУ в связи с истечением срока его действия<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ВУ</div>
+              <div class="info-value">
+                Регистрационное отделение регистрационно-экзаменационного отдела отдела государственной инспекция безопасности дорожного движения управления министерства внутренних дел Российской Федерации по г.о. Красногорск<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕДИЦИНСКИЙ ЦЕНТР</div>
+              <div class="info-value">
+                Красногорск, Ленина 63<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАЖ</div>
+              <div class="info-value">
+                2005<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС НОМЕРА ВУ</div>
+              <div class="info-value">
+                Т<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ГИБДД</div>
+              <div class="info-value">
+                Регистрационное отделение регистрационно-экзаменационного отдела отдела государственной инспекция безопасности дорожного движения управления министерства внутренних дел Российской Федерации по г.о. Красногорск<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАЧАЛА ДЕЙСТВИЯ ВУ</div>
+              <div class="info-value">
+                2021-06-15<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОКОНЧАНИЯ ДЕЙСТВИЯ ВУ</div>
+              <div class="info-value">
+                2031-05-28<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                X9FHXXEEDHBY88722<br>
+                X9FHXXEEDHBY88772<br>
+                MX1H4816BPK155146<br>
+                XWF0AHM75C0004211<br>
+                ZDСРD10В0VF003903<br>
+                JУАVР11Е27А104524<br>
+                КМJWА37JВАU231416<br>
+                Х9FНХХЕЕDНВУ88722<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                Ford Focus<br>
+                Ford FOCUS<br>
+                Opel ZAFIRA<br>
+                ХОНДА ТРАНСАЛП ХL600V<br>
+                ХОНДА ХR250 3Т<br>
+                ЯМАХА ХVS1100<br>
+                ХЕНДЭ ГРАНД СТАРЕКС<br>
+                ФОРД ФОКУС<br>
+                ВАЗ-21043<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ФАКТ)</div>
+              <div class="info-value">
+                2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ДАННЫХ</div>
+              <div class="info-value">
+                2016-08-05 11:13:39<br>
+                2018-09-13 12:06:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОСНОМЕР (ЛАТИНИЦЕЙ)</div>
+              <div class="info-value">
+                K965XX77<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2016-08-05 12:03:10<br>
+                2018-09-13 12:36:37<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                П. НАХАБИНО КРАСНОГОРСКИЙ Р-Н МОСКОВСКАЯ ОБЛ.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                503040<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2006-11-16<br>
+                16.11.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                НАХАБИНСКИЙ ОМ УВД КРАСНОГОРСКОГО Р-НА МОСКОВСКОЙ ОБЛ.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                ВИНОГРАДОВ, ИВАН, МИХАЙЛОВИЧ 08.09.1985, ГИНИЯТУЛИНА ТАТЬЯНА МИХАЙЛОВНА 04.12.1959<br>
+                ВИНОГРАДОВ ИВАН МИХАЙЛОВИЧ 08.09.1985, ГИНИЯТУЛИНА ТАТЬЯНА МИХАЙЛОВНА 04.12.1959<br>
+                ГИНИЯТУЛЛИН РУСЛАН АНВЕРОВИЧ 29.03.1964<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2018-08-04 16:51:12<br>
+                2017-09-14 02:55:48<br>
+                2017-09-04 00:53:16<br>
+                2018-07-24 12:31:25<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР РЕЙСА</div>
+              <div class="info-value">
+                H433OB750<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЪЕЗД<br>
+                ВЫЕЗД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЛИЦЕНЗИИ</div>
+              <div class="info-value">
+                H433OB750<br>
+                TK-3998<br>
+                TK-3977<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                АВТОМОБИЛЬНЫЙ ТРАНСПОРТ<br>
+                АВИАЦИОННЫЙ ТРАНСПОРТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                СУХУМ<br>
+                АНТАЛЬЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                АДЛЕР (АВТО)<br>
+                МОСКВА (ВНУКОВО-B) (АВИА)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                АБХАЗИЯ<br>
+                ТУРЦИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2006-11-16<br>
+                2016-11-24<br>
+                0000-00-00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                2018-08-04 16:49:00<br>
+                2017-09-14 02:19:00<br>
+                2017-09-04 03:38:00<br>
+                2017-09-04 03:20:00<br>
+                2018-07-24 12:29:00<br>
+                2017-09-14 02:20:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИСТРАЦИЯ</div>
+              <div class="info-value">
+                MOS_REGISTERED<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                паспорт гражданина РФ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНЫЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                74955669030<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕРЕВОЗЧИК</div>
+              <div class="info-value">
+                ТУРКИШ ЭЙРЛАЙНС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ПРИБЫТИЯ</div>
+              <div class="info-value">
+                АНТАЛЬЯ<br>
+                ГАГРА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ПРИБЫТИЯ</div>
+              <div class="info-value">
+                ТУРЦИЯ<br>
+                АБХАЗИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2023-07-29 06:08:18<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2020-12-21 16:31:42<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТС</div>
+              <div class="info-value">
+                5001161395<br>
+                5040352229<br>
+                5051252630<br>
+                50УУ 50УУ<br>
+                5058 882289<br>
+                5028 543071<br>
+                5040 352229<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2024-02-20 09:51:14Z<br>
+                2014-07-23<br>
+                07.05.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР СТРАХОВКИ</div>
+              <div class="info-value">
+                ХХХ0381680420<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВАНИЯ</div>
+              <div class="info-value">
+                2021-08-24<br>
+                2019-08-24<br>
+                2018-08-24<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР КАРТЫ</div>
+              <div class="info-value">
+                7083373259002731669<br>
+                7083373207754724887<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОП. ТЕЛЕФОН</div>
+              <div class="info-value">
+                89265470873<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНОЕ ФИО</div>
+              <div class="info-value">
+                Гиниятуллин Антон Русланович<br>
+                ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ (ДОПОЛНИТЕЛЬНАЯ)</div>
+              <div class="info-value">
+                13.10.1986<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЯЗЫКИ</div>
+              <div class="info-value">
+                Русский — Родной<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОЗРАСТ</div>
+              <div class="info-value">
+                33<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЗАРПЛАТА</div>
+              <div class="info-value">
+                60000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЗЮМЕ</div>
+              <div class="info-value">
+                2021-07-10 00:00:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБРАЗОВАНИЕ</div>
+              <div class="info-value">
+                Высшее<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                750<br>
+                28326024<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИМЯ ПОЛУЧАТЕЛЯ</div>
+              <div class="info-value">
+                Honazarova Nazirahon Muminovna<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                НАХАБИНСКИМ ОМ УВД КРАСНОГОРСКОГО РАЙОНА МО<br>
+                НАХАБИНСКИМ ОМ УВД КРАСНОГОРСКОГО Р-НА М<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ ПОЛУЧАТЕЛЯ</div>
+              <div class="info-value">
+                CF2052367<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ ПОЛУЧАТЕЛЯ</div>
+              <div class="info-value">
+                22.01.1978<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ ПОЛУЧАТЕЛЯ</div>
+              <div class="info-value">
+                кува тум ииб<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА ПОЛУЧАТЕЛЯ</div>
+              <div class="info-value">
+                2003-08-20<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПТС</div>
+              <div class="info-value">
+                УС 151011<br>
+                УР 615582 31.10.2012<br>
+                25 УМ 289627 от 05.04.2011<br>
+                УВ 299003 26.05.2011<br>
+                НВ 827623 01.06.2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП БАЗЫ ДАННЫХ</div>
+              <div class="info-value">
+                Гибдд по Москве и МО (Март - Декабрь 2016)<br>
+                Гибдд по Москве и МО (2017)<br>
+                Гибдд по Москве и МО 2016 год<br>
+                Гибдд по Москве и МО (Апрель и Май 2018)<br>
+                Гибдд 2010-2018 с адресами<br>
+                Гибдд по Москве (Март,Апрель,Май 2016)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА (НЕ УТОЧНЕНО)</div>
+              <div class="info-value">
+                09.04.2016<br>
+                06.06.2017<br>
+                28.06.2016<br>
+                05.04.2018<br>
+                09.12.2014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ДОКУМЕНТЫ)</div>
+              <div class="info-value">
+                1997<br>
+                2014<br>
+                2010<br>
+                2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ ТС</div>
+              <div class="info-value">
+                КРАСНО-БЕЛЫЙ<br>
+                ЧЕРНЫЙ<br>
+                СЕРЫЙ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОЩНОСТЬ ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                28<br>
+                145<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                034010<br>
+                А617719<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБЪЕМ ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                1063<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАРЫЙ ГОСНОМЕР</div>
+              <div class="info-value">
+                Н433ОВ750<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                ЯНА РАЙНИСА БУЛЬВАР Д.1; ЯНА РАЙНИСА БУЛЬВАР Д.1<br>
+                ИНСТИТУТСКАЯ 13 3 16<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                МОСП по ВАШ №1<br>
+                Красногорский РОСП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+                Штраф ГИБДД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                753953/18/50061-ИП<br>
+                753727/18/50061-ИП<br>
+                753719/18/50061-ИП<br>
+                28155/16/50017-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Категория: , Имя: Антон Г., Регион: Московская область, Город: Нахабино, Пол: М, Дата информации: Апрель 2019, Источник: ЮЛА<br>
+                Категория: Личные вещи Одежда, обувь, аксессуары, Москва Москва Антон Кроссовые мотоботинки Thor ratchet s12 Вид одежды: Мужская одежда &gt; Обувь Размер: Продам кроссовые ботинки thor ratchet размер 8, цвет чёрный. Ботинки НОВЫЕ! пришли по почте. не угадал с размером, мой 41-42,.. а ботинки где-то 40-41, мне в итоге немного жмут. Достал из коробки один ботинок, померил, немного жмёт, снял положил обратно. Продам за сколько купил. Место встречи по договорённости, возможно смогу подъехать куда надо. , Дата информации: 2014 год, Источник: Авито<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОСП</div>
+              <div class="info-value">
+                50017<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСТАТОК</div>
+              <div class="info-value">
+                500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП УЧЁТА</div>
+              <div class="info-value">
+                УЧЕТЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД РОЖДЕНИЯ</div>
+              <div class="info-value">
+                1986<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Тип учета: УЧЕТЫ<br>
+                ООО ОНС<br>
+                Номер полиса 46-23 755875<br>
+                Номер полиса 46-14 525841<br>
+                Номер полиса: 4614 525841<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАРУШЕНИЯ</div>
+              <div class="info-value">
+                16.08.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</div>
+              <div class="info-value">
+                Рег. знак: К226КК90 ВАЗ-21043 ЛЕГКОВОЙ АВТОМОБИЛЬ НАРУШЕНИЕ ПРАВИЛ ПОЛЬЗОВАНИЯ ВНЕШНИМИ СВЕТОВЫМИ ПРИБОРАМИ, ЗВУКОВЫМИ СИГНАЛАМИ, АВАРИЙНОЙ СИГНАЛИЗАЦИЕЙ ИЛИ ЗНАКОМ АВАРИЙНОЙ ОСТАНОВКИ Дата нарушения: 16.08.2007 Выявлено: 2 ОБ ДПС Статья КоАП: 12.20 Рег.номер: 40#40ПК063510Т69 Состояние: Вынесено постановление Протокол: 40ПК063510 Дата:16.08.2007 Постановление: 40ПК063510 Дата:16.08.2007 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 2 ОБ ДПС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ID НОМЕР</div>
+              <div class="info-value">
+                66700337<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАБОЧИЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                9955556<br>
+                566-25-42<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СИСТЕМНЫЙ НОМЕР</div>
+              <div class="info-value">
+                56022714<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КПП МЕСТА РАБОТЫ</div>
+              <div class="info-value">
+                773301001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН РАБОТОДАТЕЛЯ</div>
+              <div class="info-value">
+                7733517473<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСТОЧНИК ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                СВЕДЕНИЯ ПО РАБОТОДАТЕЛЯМ НА ИЮЛЬ 2010 ГОДА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЮРИДИЧЕСКИЙ АДРЕС РАБОТОДАТЕЛЯ</div>
+              <div class="info-value">
+                ЯНА РАЙНИСА БУЛЬВАР Д.1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГНИ ФИЗЛИЦА</div>
+              <div class="info-value">
+                5024<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОДОВОЙ ДОХОД</div>
+              <div class="info-value">
+                8507.2<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ПОЛУЧЕНИЯ ДОХОДА</div>
+              <div class="info-value">
+                2001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</div>
+              <div class="info-value">
+                5024<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВЫВОЗ</div>
+              <div class="info-value">
+                ROZ10399<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ</div>
+              <div class="info-value">
+                В<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫГРУЗКИ</div>
+              <div class="info-value">
+                09.07.2005<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ЗАГРУЗКИ</div>
+              <div class="info-value">
+                08.07.2005<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВРЕМЕННОГО РАЗРЕШЕНИЯ</div>
+              <div class="info-value">
+                00.00.1900<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</div>
+              <div class="info-value">
+                06.07.2005<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">М</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">A,A1,B,B1,M</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВУ</td>
+                  <td class="">2021-06-15</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ВУ</td>
+                  <td class="">2005</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ВУ</td>
+                  <td class="">2031-05-28</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ВУ</td>
+                  <td class="">Регистрационное отделение регистрационно-экзаменационного отдела отдела государственной инспекция безопасности дорожного движения управления министерства внутренних дел Российской Федерации по г.о. Красногорск</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9923942506</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи medcenter-sitimed.ru 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">р-н. Красногорский, пос.Нахабино, ул. Институтская, д. 13, корп. 3, кв. 16</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>МЕДИЦИНСКИЙ ЦЕНТР</td>
+                  <td class="">Красногорск, Ленина 63</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водители РФ 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЛ</td>
+                  <td class="">М</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СТАЖ</td>
+                  <td class="">2005</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИИ ВУ</td>
+                  <td class="">A,A1,B,B1,M</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС НОМЕРА ВУ</td>
+                  <td class="">Т</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА ЗАМЕНЫ ВУ</td>
+                  <td class="">Замена ВУ в связи с истечением срока его действия</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ГИБДД</td>
+                  <td class="">Регистрационное отделение регистрационно-экзаменационного отдела отдела государственной инспекция безопасности дорожного движения управления министерства внутренних дел Российской Федерации по г.о. Красногорск</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАЧАЛА ДЕЙСТВИЯ ВУ</td>
+                  <td class="">2021-06-15</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОКОНЧАНИЯ ДЕЙСТВИЯ ВУ</td>
+                  <td class="">2031-05-28</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">9923942506</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X9FHXXEEDHBY88722</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">K965XX77</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Ford Focus</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2011</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2016-08-05 11:13:39</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">K965XX77</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2016-08-05 12:03:10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ДТП 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X9FHXXEEDHBY88772</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К965ХХ77</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Ford FOCUS</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ФАКТ)</td>
+                  <td class="">2011</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ДАННЫХ</td>
+                  <td class="">2018-09-13 12:06:00</td>
+                </tr>
+                <tr>
+                  <td>ГОСНОМЕР (ЛАТИНИЦЕЙ)</td>
+                  <td class="">K965XX77</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ</td>
+                  <td class="">2018-09-13 12:36:37</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08982381930</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">П. НАХАБИНО КРАСНОГОРСКИЙ Р-Н МОСКОВСКАЯ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">503040</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2006-11-16</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">НАХАБИНСКИЙ ОМ УВД КРАСНОГОРСКОГО Р-НА МОСКОВСКОЙ ОБЛ.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">,143430,50,КРАСНОГОРСКИЙ Р-Н,,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ВИНОГРАДОВ, ИВАН, МИХАЙЛОВИЧ 08.09.1985, ГИНИЯТУЛИНА ТАТЬЯНА МИХАЙЛОВНА 04.12.1959</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-08-04 16:51:12</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">H433OB750</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">H433OB750</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">СУХУМ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">АДЛЕР (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">АБХАЗИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2006-11-16</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-08-04 16:49:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Департамент здравоохранения 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">кв. 16</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>РЕГИСТРАЦИЯ</td>
+                  <td class="">MOS_REGISTERED</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНЫЙ ТЕЛЕФОН</td>
+                  <td class="">74955669030</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">,143430,50,КРАСНОГОРСКИЙ Р-Н,,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ВИНОГРАДОВ ИВАН МИХАЙЛОВИЧ 08.09.1985, ГИНИЯТУЛИНА ТАТЬЯНА МИХАЙЛОВНА 04.12.1959</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">753964896</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-09-14 02:55:48</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-3998</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2016-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-09-14 02:19:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">753964896</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-09-04 00:53:16</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-3977</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">0000-00-00</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-09-04 03:38:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">753964896</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-09-04 00:53:16</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-3977</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">0000-00-00</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-09-04 03:20:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-07-24 12:31:25</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">H433OB750</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ГАГРА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">H433OB750</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">АБХАЗИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">АДЛЕР (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2006-11-16</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-07-24 12:29:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ИС УДРВС 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2023-07-29 06:08:18</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-12-21 16:31:42</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 143432, 50, НАХАБИНО, ИНСТИТУТСКАЯ, 13, 3, 16</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ГИНИЯТУЛЛИН РУСЛАН АНВЕРОВИЧ 29.03.1964</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,143432,50,,НАХАБИНО,,ИНСТИТУТСКАЯ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ГИНИЯТУЛЛИН РУСЛАН АНВЕРОВИЧ 29.03.1964</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ОСАГО 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5001161395</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2024-02-20 09:51:14Z</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">MX1H4816BPK155146</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СТРАХОВКИ</td>
+                  <td class="">ХХХ0381680420</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08982381930</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XWF0AHM75C0004211</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М887ХС77</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-08-24</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Opel ZAFIRA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XWF0AHM75C0004211</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М887ХС77</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2019-08-24</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Opel ZAFIRA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XWF0AHM75C0004211</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М887ХС77</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2018-08-24</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Opel ZAFIRA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Московская обл, Красногорский р-н, рп Нахабино, ул Институтская,13,16</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08982381930</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3935114607</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">753964896</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2017-09-14 02:55:48</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">ТУРКИШ ЭЙРЛАЙНС</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">TK-3998</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО-B) (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2016-11-24</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2017-09-14 02:20:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты lukoil.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КАРТЫ</td>
+                  <td class="">7083373259002731669</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ТЕЛЕФОН</td>
+                  <td class="">89265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНОЕ ФИО</td>
+                  <td class="">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ (ДОПОЛНИТЕЛЬНАЯ)</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08982381930</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08982381930</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Резюме на работу 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Красногорск</td>
+                </tr>
+                <tr>
+                  <td>ЯЗЫКИ</td>
+                  <td class="">Русский — Родной</td>
+                </tr>
+                <tr>
+                  <td>ВОЗРАСТ</td>
+                  <td class="">33</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ЗАРПЛАТА</td>
+                  <td class="">60000</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">Монтажник</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЗЮМЕ</td>
+                  <td class="">2021-07-10 00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ОБРАЗОВАНИЕ</td>
+                  <td class="">Высшее</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">143430КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">08982381930</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты lukoil.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КАРТЫ</td>
+                  <td class="">7083373207754724887</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ТЕЛЕФОН</td>
+                  <td class="">89265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНОЕ ФИО</td>
+                  <td class="">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ (ДОПОЛНИТЕЛЬНАЯ)</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты lukoil.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КАРТЫ</td>
+                  <td class="">7083373259002731669</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ТЕЛЕФОН</td>
+                  <td class="">89265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНОЕ ФИО</td>
+                  <td class="">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ (ДОПОЛНИТЕЛЬНАЯ)</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты lukoil.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КАРТЫ</td>
+                  <td class="">7083373207754724887</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ТЕЛЕФОН</td>
+                  <td class="">89265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНОЕ ФИО</td>
+                  <td class="">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ (ДОПОЛНИТЕЛЬНАЯ)</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКАЯ ОБЛ.,КРАСНОГОРСКИЙ Р-Н</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Международные денежные переводы 2020 (UM)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2014-07-23</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ИНСТИТУТСКАЯ 13 3 16</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">750</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ИМЯ ПОЛУЧАТЕЛЯ</td>
+                  <td class="">Honazarova Nazirahon Muminovna</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НАХАБИНСКИМ ОМ УВД КРАСНОГОРСКОГО РАЙОНА МО</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ ПОЛУЧАТЕЛЯ</td>
+                  <td class="">CF2052367</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2006-11-16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ ПОЛУЧАТЕЛЯ</td>
+                  <td class="">22.01.1978</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ ПОЛУЧАТЕЛЯ</td>
+                  <td class="">кува тум ииб</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА ПОЛУЧАТЕЛЯ</td>
+                  <td class="">2003-08-20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,143432,50,НАХАБИНО,ИНСТИТУТСКАЯ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 143432, 50, НАХАБИНО, ИНСТИТУТСКАЯ, 13, 3, 16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">143430КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">,143430,50,КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЯНА РАЙНИСА БУЛЬВАР Д.1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">УС 151011</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5040352229</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ZDСРD10В0VF003903</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">8352АТ50</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд по Москве и МО (Март - Декабрь 2016)</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ХОНДА ТРАНСАЛП ХL600V</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">09.04.2016</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1997</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">УР 615582 31.10.2012</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5051252630</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НАХАБИНО П. - ИНСТИТУТСКАЯ - 13 - 3 - 16</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">КРАСНО-БЕЛЫЙ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79060478878</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">5487АУ50</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд по Москве и МО (2017)</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ХОНДА ХR250 3Т</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">06.06.2017</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ ДВИГАТЕЛЯ</td>
+                  <td class="">28</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1997</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">25 УМ 289627 от 05.04.2011</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">50УУ 50УУ</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ПГТ НАХАБИНО ИНСТИТУТСКАЯ 13 3 16</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">ЧЕРНЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">JУАVР11Е27А104524</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">4672АО50</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд по Москве и МО 2016 год</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">034010</td>
+                </tr>
+                <tr>
+                  <td>ОБЪЕМ ДВИГАТЕЛЯ</td>
+                  <td class="">1063</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ЯМАХА ХVS1100</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">28.06.2016</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2014</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">УВ 299003 26.05.2011</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5058 882289</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">КМJWА37JВАU231416</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Н433ОВ750</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд по Москве и МО (Апрель и Май 2018)</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">А617719</td>
+                </tr>
+                <tr>
+                  <td>СТАРЫЙ ГОСНОМЕР</td>
+                  <td class="">Н433ОВ750</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ХЕНДЭ ГРАНД СТАРЕКС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">05.04.2018</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2010</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЯНА РАЙНИСА БУЛЬВАР Д.1</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">ЯНА РАЙНИСА БУЛЬВАР Д.1; ЯНА РАЙНИСА БУЛЬВАР Д.1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">НВ 827623 01.06.2011</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5028 543071</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НАХАБИНО - ИНСТИТУТСКАЯ - 13 - 3 - 16 / П НАХАБИНО - ИНСТИТУТСКАЯ - 13 - 3 - 16</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">СЕРЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">Х9FНХХЕЕDНВУ88722</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К965ХХ77</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд 2010-2018 с адресами</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ФОРД ФОКУС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">09.12.2014</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ ДВИГАТЕЛЯ</td>
+                  <td class="">145</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2011</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">УВ 299003 26.05.2011</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5058 882289</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">П НАХАБИНО - ИНСТИТУТСКАЯ - 13 - 3 - 16</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">КМJWА37JВАU231416</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Н433ОВ750</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд 2010-2018 с адресами</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">А617719</td>
+                </tr>
+                <tr>
+                  <td>СТАРЫЙ ГОСНОМЕР</td>
+                  <td class="">Н433ОВ750</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ХЕНДЭ ГРАНД СТАРЕКС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">05.04.2018</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2010</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,143432,50,НАХАБИНО,ИНСТИТУТСКАЯ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">17.03.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">МОСП по ВАШ №1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">753953/18/50061-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">УС 151011</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5040 352229</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ZDСРD10В0VF003903</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">8352АТ50</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд по Москве (Март,Апрель,Май 2016)</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ХОНДА ТРАНСАЛП ХL600V</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">09.04.2016</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1997</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,143432,50,НАХАБИНО,ИНСТИТУТСКАЯ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">19.03.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">МОСП по ВАШ №1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">753727/18/50061-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,143432,50,НАХАБИНО,ИНСТИТУТСКАЯ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">19.03.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">МОСП по ВАШ №1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">753719/18/50061-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ГИБДД Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">УС 151011</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">5040 352229</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">0 - 0 / П НАХАБИНО - ИНСТИТУТСКАЯ - 13 - 3 - 16</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ZDСРD10В0VF003903</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">8352АТ50</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ТИП БАЗЫ ДАННЫХ</td>
+                  <td class="">Гибдд 2010-2018 с адресами</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ХОНДА ТРАНСАЛП ХL600V</td>
+                </tr>
+                <tr>
+                  <td>ДАТА (НЕ УТОЧНЕНО)</td>
+                  <td class="">09.04.2016</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1997</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 53 -->
+      <div class="card source-card" id="source52">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин антон русланович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 143432, 50, НАХАБИНО, ИНСТИТУТСКАЯ, 13, 3, 16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">19.03.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">МОСП по ВАШ №1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">753727/18/50061-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 54 -->
+      <div class="card source-card" id="source53">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин антон русланович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 143432, 50, НАХАБИНО, ИНСТИТУТСКАЯ, 13, 3, 16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">17.03.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">МОСП по ВАШ №1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">753953/18/50061-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 55 -->
+      <div class="card source-card" id="source54">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин антон русланович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 143432, 50, НАХАБИНО, ИНСТИТУТСКАЯ, 13, 3, 16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">19.03.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">МОСП по ВАШ №1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">753719/18/50061-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 56 -->
+      <div class="card source-card" id="source55">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи авито 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">Категория: , Имя: Антон Г., Регион: Московская область, Город: Нахабино, Пол: М, Дата информации: Апрель 2019, Источник: ЮЛА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 57 -->
+      <div class="card source-card" id="source56">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи авито 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">Категория: Личные вещи Одежда, обувь, аксессуары, Москва Москва Антон Кроссовые мотоботинки Thor ratchet s12 Вид одежды: Мужская одежда &gt; Обувь Размер: Продам кроссовые ботинки thor ratchet размер 8, цвет чёрный. Ботинки НОВЫЕ! пришли по почте. не угадал с размером, мой 41-42,.. а ботинки где-то 40-41, мне в итоге немного жмут. Достал из коробки один ботинок, померил, немного жмёт, снял положил обратно. Продам за сколько купил. Место встречи по договорённости, возможно смогу подъехать куда надо. , Дата информации: 2014 год, Источник: Авито</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 58 -->
+      <div class="card source-card" id="source57">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Гиниятуллин Антон Русланович</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">07.05.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">143432, Россия, Московская обл., Красногорский р-н, рп. Нахабино, ул. Институтская, д. 13/3, кв. 16</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">17.02.2016</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">50017</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Красногорский РОСП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НАХАБИНСКИМ ОМ УВД КРАСНОГОРСКОГО Р-НА М</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">16.11.2006</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">28155/16/50017-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 59 -->
+      <div class="card source-card" id="source58">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НАХАБИНО П. - ИНСТИТУТСКАЯ - 13 - 3 - 16</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4607393511</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79060478878</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 60 -->
+      <div class="card source-card" id="source59">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 61 -->
+      <div class="card source-card" id="source60">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79265470873</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 62 -->
+      <div class="card source-card" id="source61">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: УЧЕТЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 63 -->
+      <div class="card source-card" id="source62">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: УЧЕТЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 64 -->
+      <div class="card source-card" id="source63">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 65 -->
+      <div class="card source-card" id="source64">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К226КК90</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">16.08.2007</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ-21043</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К226КК90 ВАЗ-21043 ЛЕГКОВОЙ АВТОМОБИЛЬ НАРУШЕНИЕ ПРАВИЛ ПОЛЬЗОВАНИЯ ВНЕШНИМИ СВЕТОВЫМИ ПРИБОРАМИ, ЗВУКОВЫМИ СИГНАЛАМИ, АВАРИЙНОЙ СИГНАЛИЗАЦИЕЙ ИЛИ ЗНАКОМ АВАРИЙНОЙ ОСТАНОВКИ Дата нарушения: 16.08.2007 Выявлено: 2 ОБ ДПС Статья КоАП: 12.20 Рег.номер: 40#40ПК063510Т69 Состояние: Вынесено постановление Протокол: 40ПК063510 Дата:16.08.2007 Постановление: 40ПК063510 Дата:16.08.2007 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Место работы: БОМР Тип владельца ТС: Физическое лицо Подразделение исполнитель: 2 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 66 -->
+      <div class="card source-card" id="source65">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЯНА РАЙНИСА БУЛЬВАР Д.1</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 67 -->
+      <div class="card source-card" id="source66">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Место работы Москва 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ID НОМЕР</td>
+                  <td class="">66700337</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ОНС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">9955556</td>
+                </tr>
+                <tr>
+                  <td>СИСТЕМНЫЙ НОМЕР</td>
+                  <td class="">56022714</td>
+                </tr>
+                <tr>
+                  <td>КПП МЕСТА РАБОТЫ</td>
+                  <td class="">773301001</td>
+                </tr>
+                <tr>
+                  <td>ИНН РАБОТОДАТЕЛЯ</td>
+                  <td class="">7733517473</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">СВЕДЕНИЯ ПО РАБОТОДАТЕЛЯМ НА ИЮЛЬ 2010 ГОДА</td>
+                </tr>
+                <tr>
+                  <td>ЮРИДИЧЕСКИЙ АДРЕС РАБОТОДАТЕЛЯ</td>
+                  <td class="">ЯНА РАЙНИСА БУЛЬВАР Д.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 68 -->
+      <div class="card source-card" id="source67">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">МЕСТА РАБОТЫ 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">ООО ОНС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 69 -->
+      <div class="card source-card" id="source68">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКАЯ ОБЛ.,КРАСНОГОРСКИЙ Р-Н</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Номер полиса 46-23 755875</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 70 -->
+      <div class="card source-card" id="source69">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКОВСКАЯ ОБЛ.,КРАСНОГОРСКИЙ Р-Н</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Номер полиса 46-14 525841</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 71 -->
+      <div class="card source-card" id="source70">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">143430,50,КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4601234166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">566-25-42</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 72 -->
+      <div class="card source-card" id="source71">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">143430,50,КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">28326024</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4601234166</td>
+                </tr>
+                <tr>
+                  <td>ГНИ ФИЗЛИЦА</td>
+                  <td class="">5024</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">542 ЗИВ</td>
+                </tr>
+                <tr>
+                  <td>ГОДОВОЙ ДОХОД</td>
+                  <td class="">8507.2</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>РАБОЧИЙ ТЕЛЕФОН</td>
+                  <td class="">566-25-42</td>
+                </tr>
+                <tr>
+                  <td>ГОД ПОЛУЧЕНИЯ ДОХОДА</td>
+                  <td class="">2001</td>
+                </tr>
+                <tr>
+                  <td>ГНИ ПО МЕСТУ ЖИТЕЛЬСТВА</td>
+                  <td class="">5024</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 73 -->
+      <div class="card source-card" id="source72">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС 2008</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КРАСНОГОРСКИЙ РАЙОН, МОСКОВСКАЯ ОБЛАСТЬ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Номер полиса: 4614 525841</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 74 -->
+      <div class="card source-card" id="source73">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водительские удостоверения Москва 2006</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НАХАБИНО П.Г.Т., ИНСТИТУТСКАЯ, 13, 3, 16</td>
+                </tr>
+                <tr>
+                  <td>ВЫВОЗ</td>
+                  <td class="">ROZ10399</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">ИНСТИТУТСКАЯ 13 3 16</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4601234166</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫГРУЗКИ</td>
+                  <td class="">09.07.2005</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ЗАГРУЗКИ</td>
+                  <td class="">08.07.2005</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВРЕМЕННОГО РАЗРЕШЕНИЯ</td>
+                  <td class="">00.00.1900</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">50РК027569</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</td>
+                  <td class="">06.07.2005</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 75 -->
+      <div class="card source-card" id="source74">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2005</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">143430КРАСНОГОРСКИЙ Р-Н,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4601234166</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 76 -->
+      <div class="card source-card" id="source75">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ГИНИЯТУЛЛИН АНТОН РУСЛАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">,143430,50,КРАСНОГОРСКИЙ Р-Н,,НАХАБИНО П,ИНСТИТУТСКАЯ УЛ,13,3,16</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ВИНОГРАДОВ ИВАН МИХАЙЛОВИЧ 08.09.1985, ГИНИЯТУЛИНА ТАТЬЯНА МИХАЙЛОВНА 04.12.1959</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">13.10.1986</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Водительские удостоверения 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Пользователи medcenter-sitimed.ru 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Водители РФ 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                ДТП 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Департамент здравоохранения 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                ИС УДРВС 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                ОСАГО 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Клиенты lukoil.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Резюме на работу 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Клиенты lukoil.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Клиенты lukoil.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Клиенты lukoil.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Международные денежные переводы 2020 (UM)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Жители Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                ГИБДД Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source52" class="nav-link " onclick="scrollToSource('source52', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source53" class="nav-link " onclick="scrollToSource('source53', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source54" class="nav-link " onclick="scrollToSource('source54', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source55" class="nav-link " onclick="scrollToSource('source55', event)">
+                Пользователи авито 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source56" class="nav-link " onclick="scrollToSource('source56', event)">
+                Пользователи авито 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source57" class="nav-link " onclick="scrollToSource('source57', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source58" class="nav-link " onclick="scrollToSource('source58', event)">
+                Абоненты 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source59" class="nav-link " onclick="scrollToSource('source59', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source60" class="nav-link " onclick="scrollToSource('source60', event)">
+                Абоненты 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source61" class="nav-link " onclick="scrollToSource('source61', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source62" class="nav-link " onclick="scrollToSource('source62', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source63" class="nav-link " onclick="scrollToSource('source63', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source64" class="nav-link " onclick="scrollToSource('source64', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source65" class="nav-link " onclick="scrollToSource('source65', event)">
+                Жители Москва 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source66" class="nav-link " onclick="scrollToSource('source66', event)">
+                Место работы Москва 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source67" class="nav-link " onclick="scrollToSource('source67', event)">
+                МЕСТА РАБОТЫ 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source68" class="nav-link " onclick="scrollToSource('source68', event)">
+                ФОМС 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source69" class="nav-link " onclick="scrollToSource('source69', event)">
+                ФОМС 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source70" class="nav-link " onclick="scrollToSource('source70', event)">
+                Жители 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source71" class="nav-link " onclick="scrollToSource('source71', event)">
+                Доходы физлиц 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source72" class="nav-link " onclick="scrollToSource('source72', event)">
+                ФОМС 2008
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source73" class="nav-link " onclick="scrollToSource('source73', event)">
+                Водительские удостоверения Москва 2006
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source74" class="nav-link " onclick="scrollToSource('source74', event)">
+                Жители Москва 2005
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source75" class="nav-link " onclick="scrollToSource('source75', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
