@@ -8,23 +8,28 @@ import time
 from bot.web_session import SauronWebSession
 
 
+# In session_pool.py
 class SessionPoolManager:
-    """Улучшенный менеджер пула сессий с поддержкой приоритетов и блокировками"""
-
     def __init__(self, credentials_list, max_sessions=50):
-        """
-        Инициализирует пул сессий
+        # Increase maximum sessions and implement dynamic scaling
+        self.max_sessions = max_sessions
+        self.min_sessions_per_mass_search = 3  # Guarantee at least 3 sessions per mass search
+        self.dynamic_scaling_enabled = True
 
-        :param credentials_list: Список кортежей (логин, пароль)
-        :param max_sessions: Максимальное количество сессий
-        """
+        # Create more session slots than credentials through rotation
+        expanded_credentials = []
+        for i in range(3):  # Triple the effective session count
+            for cred in credentials_list:
+                expanded_credentials.append((cred[0], cred[1], f"{i + 1}"))
+
+        # Initialize with expanded credentials
         self.sessions = []
         self.session_lock = asyncio.Lock()
 
-        # Приоритеты запросов
-        self.mass_search_lock = asyncio.Lock()
-        self.active_mass_searches = set()  # Множество ID массовых пробивов
-        self.mass_search_session_map = {}  # Массовый пробив -> используемые сессии
+        for i, (login, password, suffix) in enumerate(expanded_credentials):
+            session_id = f"{i + 1}_{suffix}"
+            session = SauronWebSession(login, password, session_id)
+            self.sessions.append(session)
 
         self.stats = {
             "total_searches": 0,
@@ -68,12 +73,7 @@ class SessionPoolManager:
 
     async def get_available_session(self, is_mass_search=False, mass_search_id=None, timeout=30):
         """
-        Получает доступную сессию из пула с приоритетом
-
-        :param is_mass_search: Флаг массового пробива
-        :param mass_search_id: ID массового пробива (если is_mass_search=True)
-        :param timeout: Таймаут ожидания в секундах
-        :return: Объект сессии или None при таймауте
+        Улучшенный метод получения доступной сессии с приоритетами
         """
         start_time = time.time()
 
@@ -83,6 +83,12 @@ class SessionPoolManager:
                 self.active_mass_searches.add(mass_search_id)
                 if mass_search_id not in self.mass_search_session_map:
                     self.mass_search_session_map[mass_search_id] = set()
+
+        # Для массового пробива - добавляем задержку ПЕРЕД получением сессии
+        # Это позволит одиночным запросам использовать сессии в это время
+        if is_mass_search:
+            delay = random.uniform(1.0, 4.0)  # Задержка 1-4 секунды как требуется
+            await asyncio.sleep(delay)
 
         # Пытаемся получить сессию в течение указанного таймаута
         while time.time() - start_time < timeout:
@@ -99,7 +105,7 @@ class SessionPoolManager:
                             used_sessions = [s for s in available_sessions
                                              if s.session_id in self.mass_search_session_map[mass_search_id]]
                             if used_sessions:
-                                # Предпочитаем использовать те же сессии
+                                # Предпочитаем использовать те же сессии, но с балансировкой нагрузки
                                 session = min(used_sessions, key=lambda s: s.search_count)
                                 session.is_busy = True
                                 self.mass_search_session_map[mass_search_id].add(session.session_id)
@@ -107,10 +113,14 @@ class SessionPoolManager:
                                 return session
 
                         # Если нет афинности или свободных сессий из афинного пула, выбираем новую
-                        # Используем стратегию наименьшей загрузки + случайность
-                        least_loaded = sorted(available_sessions, key=lambda s: s.search_count)[
-                                       :max(3, len(available_sessions) // 3)]
-                        session = random.choice(least_loaded)
+                        # Используем стратегию наименьшей загрузки + случайность для лучшего распределения
+                        least_loaded = sorted(available_sessions, key=lambda s: s.search_count)
+                        if len(least_loaded) > 5:
+                            # Выбираем из топ-5 наименее загруженных сессий
+                            session = random.choice(least_loaded[:5])
+                        else:
+                            session = random.choice(least_loaded)
+
                         session.is_busy = True
 
                         # Регистрируем сессию в массовом пробиве
@@ -120,8 +130,22 @@ class SessionPoolManager:
                         self.stats["mass_searches"] += 1
                         return session
                     else:
-                        # Для одиночного запроса используем наименее загруженную сессию
-                        session = min(available_sessions, key=lambda s: s.search_count)
+                        # Для одиночного запроса - приоритет над массовыми пробивами
+                        # Исключаем сессии, используемые массовыми пробивами, если есть другие свободные
+                        mass_search_sessions = set()
+                        for sessions in self.mass_search_session_map.values():
+                            mass_search_sessions.update(sessions)
+
+                        # Приоритет сессиям, не используемым массовыми пробивами
+                        free_sessions = [s for s in available_sessions if s.session_id not in mass_search_sessions]
+
+                        if free_sessions:
+                            # Если есть свободные сессии, не используемые массовыми пробивами
+                            session = min(free_sessions, key=lambda s: s.search_count)
+                        else:
+                            # Иначе используем любую доступную сессию
+                            session = min(available_sessions, key=lambda s: s.search_count)
+
                         session.is_busy = True
                         self.stats["single_searches"] += 1
                         return session
@@ -135,7 +159,7 @@ class SessionPoolManager:
                     return session
 
             # Если все сессии заняты, ждем и повторяем
-            wait_time = min(1.0, (timeout - (time.time() - start_time)) / 2)
+            wait_time = min(0.5, (timeout - (time.time() - start_time)) / 2)
             if wait_time > 0:
                 self.stats["session_wait_time"] += wait_time
                 await asyncio.sleep(wait_time)
@@ -148,21 +172,15 @@ class SessionPoolManager:
 
     async def release_session(self, session, is_mass_search=False, mass_search_id=None):
         """
-        Освобождает сессию после использования с интеллектуальным управлением
-
-        :param session: Объект сессии для освобождения
-        :param is_mass_search: Флаг массового пробива
-        :param mass_search_id: ID массового пробива
+        Оптимизированное освобождение сессии после использования
         """
         if session not in self.sessions:
             return
 
-        # Добавляем базовую задержку для массовых пробивов,
-        # это позволяет одиночным запросам получать сессии
-        if is_mass_search:
-            delay = random.uniform(1.0, 3.0)
-            await asyncio.sleep(delay)
+        # Не добавляем задержку после запроса для массовых пробивов
+        # Задержка теперь добавляется ПЕРЕД получением сессии
 
+        # Помечаем сессию как свободную
         session.is_busy = False
         session.last_activity = datetime.now()
 

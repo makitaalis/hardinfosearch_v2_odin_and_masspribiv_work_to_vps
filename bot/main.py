@@ -64,6 +64,23 @@ session_pool = None
 # Определяем учетные данные для сессий
 CREDENTIALS = [
     ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+    ("CipkaCapuchinka", "4uTStetepXK1p3vn"),
+
+
     # Добавьте другие учетные данные для других сессий
 ]
 

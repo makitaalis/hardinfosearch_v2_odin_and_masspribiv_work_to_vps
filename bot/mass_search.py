@@ -212,6 +212,11 @@ class MassSearchProcessor:
         :return: Сессия для использования
         """
         async with self.semaphore:
+            # Добавляем задержку ПЕРЕД получением сессии для равномерного распределения
+            # Это позволит одиночным запросам использовать сессии в промежутках
+            request_interval = random.uniform(self.min_request_interval, self.max_request_interval)
+            await asyncio.sleep(request_interval)
+
             # Увеличиваем счетчик ротации
             self.session_rotation_counter += 1
 
@@ -248,22 +253,13 @@ class MassSearchProcessor:
 
     async def process_query(self, query: str, user_id: int, session_pool, results_dict: Dict):
         """
-        Асинхронно обрабатывает отдельный запрос из массового пробива.
-
-        :param query: Строка запроса для поиска
-        :param user_id: ID пользователя в Telegram
-        :param session_pool: Пул сессий для запросов
-        :param results_dict: Словарь для хранения результатов {query: result}
+        Улучшенная асинхронная обработка отдельного запроса из массового пробива
         """
         query_start_time = time.time()
 
         try:
             # Отмечаем запрос как в обработке
             self.query_status[query] = 'processing'
-
-            # Создаем задержку между запросами для массового пробива
-            # Это снижает нагрузку на систему и позволяет одиночным запросам выполняться параллельно
-            request_interval = random.uniform(self.min_request_interval, self.max_request_interval)
 
             # Получаем сессию через пул с учетом массового пробива
             try:
@@ -276,8 +272,10 @@ class MassSearchProcessor:
                 return
 
             try:
-                # Запускаем поиск через сессию напрямую (не через perform_search пула)
-                # Это позволяет более тонко контролировать процесс
+                # Дополнительно форматируем запрос перед отправкой
+                formatted_query = normalize_query(query)
+
+                # Запускаем поиск через сессию напрямую
                 if not session.is_authenticated:
                     auth_success = await session.authenticate()
                     if not auth_success:
@@ -287,11 +285,8 @@ class MassSearchProcessor:
                         self.stats["failed_requests"] += 1
                         return
 
-                # Выполняем поиск
-                success, result = await session.search(query)
-
-                # Добавляем задержку после выполнения запроса
-                await asyncio.sleep(request_interval)
+                # Выполняем поиск с форматированным запросом
+                success, result = await session.search(formatted_query)
 
                 # Обрабатываем результат запроса
                 if success:
@@ -546,7 +541,13 @@ class MassSearchProcessor:
 
                 if total_unique_phones == 0:
                     result_file.write("Не найдено телефонов ни по одному запросу.\n")
-                    result_file.write("Проверьте правильность запросов и попробуйте снова.\n")
+                    result_file.write("Проверьте правильность запросов и попробуйте снова.\n\n")
+
+                    # Добавляем список запросов, по которым ничего не найдено
+                    result_file.write("Список запросов:\n")
+                    for i, query in enumerate(valid_queries, 1):
+                        result_file.write(f"{i}. {query}\n")
+
                     result_file.write("\nВозможные причины проблемы:\n")
                     result_file.write("1. Данные отсутствуют в базе\n")
                     result_file.write("2. Формат запроса неверный\n")
@@ -632,89 +633,95 @@ class MassSearchProcessor:
         return result_file_path, stats, results_dict
 
     # Методы для извлечения и форматирования телефонов
-    def is_valid_mobile_phone(self, phone_str):
-        """Проверяет, является ли строка действительным российским мобильным номером"""
-        if not phone_str:
-            return False
-
-        # Очищаем номер от всех нецифровых символов, кроме +
-        phone_clean = ''.join(c for c in str(phone_str) if c.isdigit() or c == '+')
-
-        # Убираем + в начале, если есть
-        if phone_clean.startswith('+'):
-            phone_clean = phone_clean[1:]
-
-        # Исправляем 8 на 7 в начале номера
-        if phone_clean.startswith('8') and len(phone_clean) == 11:
-            phone_clean = '7' + phone_clean[1:]
-
-        # Проверяем что это российский номер длиной 11 цифр
-        if len(phone_clean) == 11 and phone_clean.startswith('7'):
-            # Проверяем что второй символ - код мобильной сети
-            mobile_codes = ['9', '8', '7', '6', '5', '4', '3']
-            return phone_clean[1] in mobile_codes
-
-        return False
-
     def extract_phones(self, data, query_phones=None):
-        """Улучшенная функция извлечения телефонов из данных API"""
+        """
+        Enhanced version that catches more phone number formats and patterns.
+        """
         if query_phones is None:
             query_phones = set()
 
-        # Если данные строка - проверяем, является ли она телефоном
+        # Handle direct string phone numbers
         if isinstance(data, (str, int)) and str(data):
             phone_str = str(data).strip()
-
-            # Очищаем номер от лишних символов для проверки
             digits_only = ''.join(c for c in phone_str if c.isdigit())
 
-            # Проверяем длину и возможные телефонные форматы
-            if len(digits_only) >= 7 and len(digits_only) <= 15:
-                # Более гибкая проверка форматов телефонов
-                if re.match(r'^\+?[\d\s\(\)\-\.]{7,20}$', phone_str):
-                    # Проверяем, является ли это мобильным номером
-                    if self.is_valid_mobile_phone(phone_str):
-                        query_phones.add(phone_str)
-                    return query_phones
+            # More flexible length detection
+            if 10 <= len(digits_only) <= 15:
+                formatted_phone = self.format_phone_number(phone_str)
+                if formatted_phone:
+                    query_phones.add(formatted_phone)
+                return query_phones
 
-                # Дополнительно пробуем найти телефоны по количеству цифр
-                if 10 <= len(digits_only) <= 12:
-                    # Проверяем, является ли это мобильным номером
-                    if self.is_valid_mobile_phone(phone_str):
-                        query_phones.add(phone_str)
-                    return query_phones
-
-        # Если это словарь
+        # Handle dictionary data
         if isinstance(data, dict):
             for key, value in data.items():
+                # Convert key to string and uppercase for comparison
                 key_upper = str(key).upper() if isinstance(key, str) else ""
 
-                # Расширенный список ключевых слов для поиска телефонов
-                phone_keys = ["ТЕЛЕФОН", "PHONE", "МОБИЛЬНЫЙ", "MOBILE", "КОНТАКТ",
-                              "ТЕЛ", "TEL", "НОМЕР", "NUMBER", "CONTACT", "MOB",
-                              "ТЕЛЕФОНЫ", "PHONES", "TELEPHONE"]
+                # Expanded list of phone-related keys
+                phone_keys = [
+                    "ТЕЛЕФОН", "PHONE", "МОБИЛЬНЫЙ", "MOBILE", "КОНТАКТ",
+                    "ТЕЛ", "TEL", "НОМЕР", "NUMBER", "CONTACT", "MOB",
+                    "ТЕЛЕФОНЫ", "PHONES", "TELEPHONE", "РАБОЧИЙ ТЕЛЕФОН",
+                    "СОТОВЫЙ", "МОБИЛЬНЫЕ", "CELL", "CONTACT_NUMBER"
+                ]
 
-                # Проверяем, содержит ли ключ одно из ключевых слов
+                # Special handling for phone fields
                 if any(phone_key in key_upper for phone_key in phone_keys):
                     if isinstance(value, list):
                         for phone in value:
                             self.extract_phones(phone, query_phones)
                     else:
-                        self.extract_phones(value, query_phones)
+                        # Try to extract phone directly
+                        phone_value = self.extract_phone_from_value(value)
+                        if phone_value:
+                            query_phones.add(phone_value)
 
-                # Для поля ТЕЛЕФОН с вложенными структурами
-                if key_upper == "ТЕЛЕФОН" and isinstance(value, (dict, list)):
-                    self.extract_phones(value, query_phones)
-
-                # Всегда рекурсивно проверяем значения
+                # Always process values recursively
                 self.extract_phones(value, query_phones)
 
-        # Если это список
+        # Handle list data
         elif isinstance(data, list):
             for item in data:
                 self.extract_phones(item, query_phones)
 
         return query_phones
+
+    def extract_phone_from_value(self, value):
+        """
+        Extracts phone from various value formats including text with embedded phones.
+        """
+        if not value:
+            return None
+
+        value_str = str(value)
+
+        # Try to extract phone using regex patterns
+        # Various phone formats: +7XXXXXXXXXX, 8XXXXXXXXXX, etc.
+        phone_patterns = [
+            r'(?<!\d)(\+?7\d{10})(?!\d)',  # +7XXXXXXXXXX or 7XXXXXXXXXX
+            r'(?<!\d)(8\d{10})(?!\d)',  # 8XXXXXXXXXX
+            r'(?<!\d)(\d{10})(?!\d)',  # XXXXXXXXXX (10 digits)
+            r'(?<!\d)(\+?\d{1,3}[\s\-\.]?\(?\d{3,4}\)?[\s\-\.]*\d{3}[\s\-\.]*\d{2}[\s\-\.]*\d{2})(?!\d)'
+            # International format
+        ]
+
+        for pattern in phone_patterns:
+            matches = re.findall(pattern, value_str)
+            if matches:
+                for match in matches:
+                    formatted = self.format_phone_number(match)
+                    if formatted:
+                        return formatted
+
+        # Try to extract digits directly if string has right length
+        digits_only = ''.join(c for c in value_str if c.isdigit())
+        if 10 <= len(digits_only) <= 15:
+            formatted = self.format_phone_number(digits_only)
+            if formatted:
+                return formatted
+
+        return None
 
     def extract_phones_from_text(self, text):
         """
@@ -752,37 +759,44 @@ class MassSearchProcessor:
 
     def format_phone_number(self, phone_str):
         """
-        Форматирует телефонный номер в стандартный формат +7XXXXXXXXXX
-        Возвращает None если это не мобильный номер или номер в неверном формате
-
-        :param phone_str: Строка с телефонным номером
-        :return: Отформатированный телефонный номер или None
+        Improved phone formatting function that handles more variants.
         """
         if not phone_str:
             return None
 
-        # Проверяем, является ли это мобильным номером
-        if not self.is_valid_mobile_phone(phone_str):
-            return None
-
-        # Удаляем все нецифровые символы
+        # Get only digits (and keep + if it's at the beginning)
+        has_plus = str(phone_str).strip().startswith('+')
         digits_only = ''.join(c for c in str(phone_str) if c.isdigit())
 
-        # Если это 10-значный номер и начинается с кода мобильного оператора
-        if len(digits_only) == 10 and digits_only[0] in ['9', '8', '7', '6', '5', '4', '3']:
+        # Handle different phone formats
+        if len(digits_only) == 10:
+            # 10-digit number without country code (add +7)
             return f"+7{digits_only}"
+        elif len(digits_only) == 11:
+            # 11-digit number with country code 7 or 8
+            if digits_only.startswith('7') or digits_only.startswith('8'):
+                return f"+7{digits_only[1:]}"
+            else:
+                return f"+{digits_only}"  # Some other country code
+        elif len(digits_only) >= 12:
+            # International number
+            return f"+{digits_only}" if not has_plus else f"+{digits_only}"
+        elif len(digits_only) >= 8 and len(digits_only) < 10:
+            # Possible local number without area code
+            return f"+7{digits_only}" if len(digits_only) == 9 else None
 
-        # Если это 11-значный номер и начинается с 7 или 8
-        elif len(digits_only) == 11 and digits_only[0] in ['7', '8']:
-            # Заменяем 8 на 7 в начале номера
-            return f"+7{digits_only[1:]}"
-
-        # Если уже начинается с +7, но нужно очистить от лишних символов
-        elif len(digits_only) == 11 and digits_only.startswith('7'):
-            return f"+{digits_only}"
-
-        # Другие случаи считаем невалидными
         return None
+
+    def is_valid_mobile_phone(self, phone_str):
+        """
+        More permissive check for valid mobile numbers.
+        Returns True for most plausible phone formats.
+        """
+        if not phone_str:
+            return False
+
+        formatted = self.format_phone_number(phone_str)
+        return formatted is not None
 
     def format_result_for_phones(self, data):
         """
@@ -1122,10 +1136,10 @@ async def process_mass_search_queue(bot):
                     from bot.mass_search import MassSearchProcessor
 
                     processor = MassSearchProcessor(
-                        max_concurrent=3,  # Используем не более 3 одновременных запросов
-                        min_request_interval=1.0,  # Минимальный интервал между запросами
+                        max_concurrent=10,  # Используем не более 3 одновременных запросов
+                        min_request_interval=1.5,  # Минимальный интервал между запросами
                         max_request_interval=4.0,  # Максимальный интервал между запросами
-                        batch_size=10  # Обрабатываем небольшими пакетами
+                        batch_size=20  # Обрабатываем небольшими пакетами
                     )
 
                     # Добавляем обработку возможных исключений при обработке файла

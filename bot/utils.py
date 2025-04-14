@@ -135,17 +135,47 @@ async def send_extended_api_request(query: str):
 
 def validate_query(query: str):
     """
-    Проверяет запрос по регулярным выражениям PATTERNS.
-    Если формат ФИО+дата некорректен, пытаемся исправить автоматически (format_fio_and_date).
-    Возвращает (is_valid, либо_исправленный_query_или_сообщение).
+    Улучшенная проверка запроса с дополнительными проверками для ФИО+дата
     """
     # Форматируем ввод перед проверкой
     query = format_fio_and_date(query)
 
-    for _, pattern in PATTERNS.items():
+    # Проверка запроса на соответствие одному из шаблонов
+    for pattern_name, pattern in PATTERNS.items():
         if re.match(pattern, query):
             return True, query  # query уже исправлен
 
+    # Специальная проверка для ФИО + дата
+    fio_date_pattern = r"^[А-ЯЁA-Z][а-яёa-z]+(\s[А-ЯЁA-Z][а-яёa-z]+){1,2}\s\d{2}\.\d{2}\.\d{4}$"
+    if re.match(fio_date_pattern, query):
+        return True, query
+
+    # Особая обработка для потенциальных ФИО+дата с ошибками
+    words = query.strip().split()
+    if len(words) >= 3:  # Минимум: Фамилия Имя ДД.ММ.ГГГГ
+        # Проверяем наличие даты в любой части запроса
+        date_pattern = r"(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{2,4})"
+
+        for word in words:
+            match = re.match(date_pattern, word)
+            if match:
+                # Форматируем части ФИО и дату
+                fio_parts = [w.capitalize() for w in words if not re.match(date_pattern, w)]
+
+                day, month, year = match.groups()
+                day = day.zfill(2)
+                month = month.zfill(2)
+
+                if len(year) == 2:
+                    year_prefix = "20" if int(year) < 30 else "19"
+                    year = year_prefix + year
+
+                date = f"{day}.{month}.{year}"
+
+                formatted_query = " ".join(fio_parts) + " " + date
+                return True, formatted_query
+
+    # Стандартные сообщения об ошибке форматирования
     help_text = (
         "❗ Неверный формат запроса. Используйте примеры:\n\n"
         "📌 Поиск по ФИО: `Иванов Иван 01.01.2000`\n"
@@ -1776,46 +1806,86 @@ def setup_translation_db():
     """
     pass
 
+
 def format_fio_and_date(query: str) -> str:
     """
-    Приводит ФИО и дату рождения к нормальному формату:
-      - Каждое слово в ФИО -> Первая буква заглавная
-      - Дата рождения, если присутствует, -> DD.MM.YYYY
+    Улучшенная функция форматирования ФИО и даты рождения:
+    - Распознает дату в любой позиции строки
+    - Правильно форматирует компоненты даты
+    - Корректно обрабатывает двузначные годы
     """
     parts = query.strip().split()
     if len(parts) < 2:
         return query  # слишком короткая строка
 
-    # Форматируем всё, кроме последнего слова, как ФИО
-    fio = " ".join(word.capitalize() for word in parts[:-1])
+    # Ищем часть, которая похожа на дату
+    date_index = None
+    date_part = None
+    # Поддержка разных разделителей в дате (., -, /)
+    date_pattern = r"^(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{2,4})$"
 
-    # Проверяем, последняя часть – дата?
-    date_pattern = r"^(\d{1,2})\.(\d{1,2})\.(\d{4})$"
-    match = re.match(date_pattern, parts[-1])
-    if match:
-        day, month, year = match.groups()
-        formatted_date = f"{int(day):02}.{int(month):02}.{year}"
-        return f"{fio} {formatted_date}"
+    for i, part in enumerate(parts):
+        match = re.match(date_pattern, part)
+        if match:
+            date_index = i
+            day, month, year = match.groups()
 
-    return fio
+            # Добавляем ведущие нули для дня и месяца
+            day = day.zfill(2)
+            month = month.zfill(2)
+
+            # Приводим год к 4-значному формату, если он 2-значный
+            if len(year) == 2:
+                # Предполагаем, что год 20XX если < 30, иначе 19XX
+                year_prefix = "20" if int(year) < 30 else "19"
+                year = year_prefix + year
+
+            date_part = f"{day}.{month}.{year}"
+            break
+
+    # Если дата найдена, форматируем строку
+    if date_index is not None:
+        # Форматируем части ФИО (все с заглавной буквы)
+        fio_parts = [p.capitalize() for i, p in enumerate(parts) if i != date_index]
+
+        # Собираем строку с форматированной датой
+        result = " ".join(fio_parts) + " " + date_part
+        return result
+
+    # Если дата не найдена, просто форматируем как ФИО
+    return " ".join(p.capitalize() for p in parts)
 
 
 def normalize_query(query: str) -> str:
     """
     Приводит строку к формату:
-      - ФИО (каждое слово с заглавной буквы)
-      - Дата рождения (DD.MM.YYYY), если последнее слово похоже на дату.
+    - ФИО (каждое слово с заглавной буквы)
+    - Дата рождения (DD.MM.YYYY), если есть дата в любой позиции
     """
-    words = query.split()
-    if len(words) > 1:
-        # capitalize для всех, кроме последнего
-        words[:-1] = [w.capitalize() for w in words[:-1]]
-        # Последнее слово – может быть датой
-        if re.match(r"\d{1,2}\.\d{1,2}\.\d{2,4}", words[-1]):
-            date_parts = words[-1].split(".")
-            date_parts = [p.zfill(2) for p in date_parts]  # 5 -> 05
-            words[-1] = ".".join(date_parts)
-    return " ".join(words)
+    # Используем улучшенную функцию форматирования
+    formatted_query = format_fio_and_date(query)
+
+    # Дополнительная проверка для специальных случаев
+    date_pattern = r'(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{2,4})'
+    if re.search(date_pattern, formatted_query):
+        # Если есть дата в строке, применяем дополнительное форматирование
+        date_match = re.search(date_pattern, formatted_query)
+        if date_match:
+            day, month, year = date_match.groups()
+
+            # Форматируем дату
+            day = day.zfill(2)
+            month = month.zfill(2)
+            if len(year) == 2:
+                year_prefix = "20" if int(year) < 30 else "19"
+                year = year_prefix + year
+
+            formatted_date = f"{day}.{month}.{year}"
+
+            # Заменяем найденную дату на форматированную
+            formatted_query = formatted_query.replace(date_match.group(0), formatted_date)
+
+    return formatted_query
 
 
 async def test_message_sending(bot, user_id):
