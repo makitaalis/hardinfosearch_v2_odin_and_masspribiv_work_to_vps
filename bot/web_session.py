@@ -1,14 +1,29 @@
+"""
+Enhanced SauronWebSession for website automation with improved reliability,
+connection pooling, and error handling.
+
+This module handles web interactions with sauron.info including:
+- Authentication and session management
+- Search requests with retry logic
+- Connection pooling and rate limiting
+- Result parsing and structuring
+- Error handling and recovery
+"""
+
 import asyncio
 import logging
 import random
 import re
 import time
+import traceback
 from datetime import datetime, timedelta
 import json
+import hashlib
 
 import aiohttp
 from bs4 import BeautifulSoup
 
+# Diverse user agents for web requests
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36",
@@ -20,30 +35,48 @@ USER_AGENTS = [
     "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1"
 ]
 
+# Enhanced headers for better site compatibility
+COMMON_HEADERS = {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-User": "?1",
+    "DNT": "1"
+}
+
 
 class SauronWebSession:
-    """Enhanced class for web session management with improved authentication and connection pooling"""
+    """Enhanced class for web session management with improved connection handling"""
 
     BASE_URL = "https://sauron.info"
 
-    # Class-level rate limiting variables
-    # Shared across all instances to prevent hammering the server with the same credentials
-    _last_auth_time = {}  # Dictionary to track last auth time per credential
-    _auth_lock = asyncio.Lock()  # Lock to synchronize authentication attempts
+    # Class-level rate limiting and connection pooling
+    _last_auth_time = {}  # Track last auth time per credential
+    _auth_lock = asyncio.Lock()  # Synchronize authentication
     _conn_pool = None  # Shared connection pool
-    _auth_rate_limit = 1.5  # seconds between auth attempts with same credentials
+    _auth_rate_limit = 1.5  # seconds between auth attempts
     _auth_backoff_base = 2.0  # Base for exponential backoff
-    _auth_backoff_max = 30.0  # Maximum backoff time in seconds
+    _auth_backoff_max = 30.0  # Maximum backoff time
     _session_pool_stats = {"total_connections": 0, "active_connections": 0}
+
+    # Result caching system to reduce duplicate requests
+    _result_cache = {}  # {query_hash: (result, timestamp)}
+    _result_cache_ttl = 600  # Cache TTL in seconds (10 minutes)
+    _cache_lock = asyncio.Lock()
 
     @classmethod
     async def get_connector(cls):
-        """Get or create shared connection pool"""
+        """Get or create optimized shared connection pool"""
         if cls._conn_pool is None:
             # Create an optimized TCPConnector with higher connection limits
             cls._conn_pool = aiohttp.TCPConnector(
-                limit=300,  # Increased from 100 to handle more simultaneous connections
-                limit_per_host=100,  # Add host-specific limit
+                limit=300,  # Increased from 100 for better parallelism
+                limit_per_host=100,  # Limit connections per host
                 ttl_dns_cache=300,  # DNS cache time in seconds
                 use_dns_cache=True,
                 force_close=False,  # Keep connections alive
@@ -54,9 +87,12 @@ class SauronWebSession:
         return cls._conn_pool
 
     def __init__(self, login, password, session_id):
+        # Authentication information
         self.login = login
         self.password = password
         self.session_id = session_id
+
+        # Session state
         self.cookies = {}
         self.is_authenticated = False
         self.last_activity = datetime.now()
@@ -67,47 +103,86 @@ class SauronWebSession:
         self.user_agent = random.choice(USER_AGENTS)
         self.session_valid_until = None
         self.last_auth_success = None
+        self.last_request_time = 0
 
-        # Tracking for credential uniqueness
+        # Performance tracking
         self.credential_key = f"{login}:{password}"
-
-        # Statistics
         self.search_count = 0
         self.successful_searches = 0
+        self.failed_searches = 0
+        self.total_request_time = 0
+        self.requests_count = 0
+        self.avg_response_time = 0
 
-    async def _make_request(self, method, url, data=None, headers=None, json=None, allow_redirects=True, timeout=30):
-        """Optimized HTTP request handling with enhanced connection pooling"""
+        # Request history for troubleshooting
+        self.request_history = []  # Limited history of recent requests
+        self.MAX_HISTORY = 10
+
+    async def _make_request(self, method, url, data=None, headers=None, json=None,
+                          allow_redirects=True, timeout=30, retry_count=0):
+        """
+        Enhanced HTTP request with connection pooling, retry logic, and detailed logging.
+
+        Args:
+            method: HTTP method (GET, POST)
+            url: Target URL
+            data: Form data (dict)
+            headers: HTTP headers (dict)
+            json: JSON data (dict)
+            allow_redirects: Whether to follow redirects
+            timeout: Request timeout in seconds
+            retry_count: Current retry attempt
+
+        Returns:
+            tuple: (status_code, response_content)
+        """
+        # Normalize URL
         if not url.startswith("http"):
             url = f"{self.BASE_URL}/{url.lstrip('/')}"
 
-        if headers is None:
-            headers = {}
+        # Prepare headers
+        request_headers = dict(COMMON_HEADERS)
+        if headers:
+            request_headers.update(headers)
 
-        # Enhanced headers for better browser simulation
-        if "User-Agent" not in headers:
-            headers["User-Agent"] = self.user_agent
+        # Set user agent if not specified
+        if "User-Agent" not in request_headers:
+            request_headers["User-Agent"] = self.user_agent
 
-        if "Referer" not in headers and "login" not in url:
-            headers["Referer"] = f"{self.BASE_URL}/dashboard"
+        # Set referer for non-login requests
+        if "Referer" not in request_headers and "login" not in url:
+            request_headers["Referer"] = f"{self.BASE_URL}/dashboard"
 
-        # Add enhanced headers for better connection handling
-        headers["Connection"] = "keep-alive"
-        headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
-        headers["Accept-Language"] = "en-US,en;q=0.5"
-        headers["Accept-Encoding"] = "gzip, deflate, br"
-        headers["Upgrade-Insecure-Requests"] = "1"
+        # Apply rate limiting for consecutive requests
+        current_time = time.time()
+        time_since_last_request = current_time - self.last_request_time
 
-        # Add cache control for non-authentication requests
-        if "login" not in url and "authenticateUser" not in url:
-            headers["Cache-Control"] = "max-age=0"
+        # Enforce minimum delay between requests to avoid detection
+        min_request_interval = 0.5  # 500ms minimum between requests
+        if time_since_last_request < min_request_interval:
+            await asyncio.sleep(min_request_interval - time_since_last_request)
 
-        # Update last activity timestamp
+        # Update last request time
+        self.last_request_time = time.time()
         self.last_activity = datetime.now()
 
-        # Get shared connector instead of creating new ones for each request
+        # Add request to history for troubleshooting
+        request_info = {
+            "method": method,
+            "url": url,
+            "timestamp": datetime.now().isoformat(),
+            "retry": retry_count
+        }
+
+        # Keep history limited to recent requests
+        self.request_history.append(request_info)
+        if len(self.request_history) > self.MAX_HISTORY:
+            self.request_history.pop(0)
+
+        # Get shared connector for connection pooling
         connector = await self.get_connector()
 
-        # Create optimized timeout settings - more granular control
+        # Create optimized timeout settings
         timeout_obj = aiohttp.ClientTimeout(
             total=timeout,
             connect=min(10, timeout / 2),  # Connection timeout
@@ -116,12 +191,29 @@ class SauronWebSession:
         )
 
         # Retry mechanism for transient errors
-        max_retries = 3 if "login" not in url and "authenticateUser" not in url else 1
-        retry_delay = 1.0  # Base delay in seconds
+        max_retries = 3 if retry_count == 0 and "login" not in url else 1
 
+        # For non-initial retries, use the passed retry_count
+        if retry_count > 0:
+            max_retries = max(0, 3 - retry_count)
+
+        # Base delay in seconds with exponential backoff
+        retry_delay = 1.0 * (1.5 ** retry_count)
+
+        # Track request timing
+        request_start = time.time()
         last_exception = None
 
-        for attempt in range(max_retries):
+        for attempt in range(max_retries + 1):
+            current_attempt = retry_count + attempt
+
+            # Add jitter to retry delay to prevent thundering herd
+            actual_delay = retry_delay * random.uniform(0.8, 1.2) if attempt > 0 else 0
+
+            if attempt > 0:
+                logging.info(f"Retrying request to {url} (attempt {current_attempt}/{max_retries + retry_count})")
+                await asyncio.sleep(actual_delay)
+
             try:
                 # Use ClientSession with shared connector for connection pooling
                 async with aiohttp.ClientSession(
@@ -141,7 +233,7 @@ class SauronWebSession:
                                 method=method,
                                 url=url,
                                 data=data,
-                                headers=headers,
+                                headers=request_headers,
                                 json=json,
                                 allow_redirects=allow_redirects,
                                 ssl=False,  # Skip SSL verification for performance
@@ -154,9 +246,25 @@ class SauronWebSession:
                             # Get response content
                             content = await response.text()
 
+                            # Update request timing statistics
+                            request_time = time.time() - request_start
+                            self.total_request_time += request_time
+                            self.requests_count += 1
+                            self.avg_response_time = self.total_request_time / self.requests_count
+
+                            # Update request history
+                            self.request_history[-1].update({
+                                "status": response.status,
+                                "time": request_time,
+                                "content_length": len(content)
+                            })
+
                             # Check for specific error patterns that indicate need for re-authentication
                             if response.status == 403 or response.status == 401 or "авторизаци" in content.lower():
                                 self.is_authenticated = False
+
+                                # Add to history for debugging
+                                self.request_history[-1]["auth_error"] = True
 
                             # Return status and content
                             return response.status, content
@@ -168,35 +276,62 @@ class SauronWebSession:
 
             except asyncio.TimeoutError as e:
                 last_exception = e
+                self.error_count += 1
                 logging.warning(
-                    f"Session {self.session_id} timeout on attempt {attempt + 1}/{max_retries} for URL: {url}")
-                if attempt < max_retries - 1:
-                    await asyncio.sleep(retry_delay * (attempt + 1))  # Incremental backoff
+                    f"Session {self.session_id} timeout on attempt {attempt + 1}/{max_retries} for URL: {url}"
+                )
+
+                # Update request history
+                self.request_history[-1]["error"] = "timeout"
 
             except aiohttp.ClientError as e:
                 last_exception = e
+                self.error_count += 1
                 logging.warning(
-                    f"Session {self.session_id} client error on attempt {attempt + 1}/{max_retries}: {str(e)}")
-                if attempt < max_retries - 1:
-                    await asyncio.sleep(retry_delay * (attempt + 1))
+                    f"Session {self.session_id} client error on attempt {attempt + 1}/{max_retries}: {str(e)}"
+                )
+
+                # Update request history
+                self.request_history[-1]["error"] = f"client_error: {str(e)}"
 
             except Exception as e:
                 last_exception = e
-                logging.error(
-                    f"Session {self.session_id} unexpected error on attempt {attempt + 1}/{max_retries}: {str(e)}")
                 self.error_count += 1
-                if attempt < max_retries - 1:
-                    await asyncio.sleep(retry_delay * (attempt + 1))
+                logging.error(
+                    f"Session {self.session_id} unexpected error on attempt {attempt + 1}/{max_retries}: {str(e)}"
+                )
+
+                # Update request history
+                self.request_history[-1]["error"] = f"unexpected: {str(e)}"
 
         # If we exhaust all retries, raise the last exception
         logging.error(f"Session {self.session_id} request failed after {max_retries} retries for URL: {url}")
-        self.error_count += 1
-        raise last_exception or RuntimeError(f"Request failed after {max_retries} attempts")
+
+        # Include detailed session info for debugging
+        error_context = {
+            "session_id": self.session_id,
+            "is_authenticated": self.is_authenticated,
+            "auth_attempts": self.auth_attempts,
+            "error_count": self.error_count,
+            "url": url,
+            "method": method
+        }
+        logging.error(f"Request failure context: {json.dumps(error_context)}")
+
+        # Raise exception with better context
+        if last_exception:
+            raise type(last_exception)(f"{str(last_exception)} [session_id={self.session_id}, url={url}]")
+        else:
+            raise RuntimeError(f"Request failed after {max_retries} attempts [session_id={self.session_id}, url={url}]")
 
     async def authenticate(self):
-        """Enhanced authentication with rate limiting, backoff, and improved session reuse"""
+        """
+        Enhanced authentication with rate limiting, backoff, and improved session reuse.
+
+        Returns:
+            bool: Whether authentication was successful
+        """
         # Apply rate limiting for authentication to avoid hammering the server
-        # Especially important when using the same credentials across multiple sessions
         async with self._auth_lock:
             # Get current time for comparisons
             current_time = time.time()
@@ -329,7 +464,8 @@ class SauronWebSession:
                         status, content = await self._make_request("GET", redirection, timeout=15)
                         if status != 200:
                             self.consecutive_auth_failures += 1
-                            logging.error(f"Session {self.session_id}: Failed to follow redirection, status {status}")
+                            logging.error(
+                                f"Session {self.session_id}: Failed to follow redirection, status {status}")
                             return False
 
                     # Verify authentication by loading dashboard
@@ -350,7 +486,8 @@ class SauronWebSession:
                     self.session_valid_until = datetime.now() + timedelta(hours=6)
 
                     logging.info(
-                        f"Session {self.session_id}: Successfully authenticated, valid until {self.session_valid_until}")
+                        f"Session {self.session_id}: Successfully authenticated, valid until {self.session_valid_until}"
+                    )
                     return True
                 else:
                     # Authentication error
@@ -366,12 +503,33 @@ class SauronWebSession:
             self.is_busy = False
 
     async def search(self, query):
-        """Perform a search with the specified query using optimized handling"""
+        """
+        Perform a search with the specified query using optimized handling.
+
+        Args:
+            query: Search query string
+
+        Returns:
+            tuple: (success, result_or_error)
+        """
         if not self.is_authenticated:
             logging.warning(f"Session {self.session_id}: Attempting search without authentication")
             auth_success = await self.authenticate()
             if not auth_success:
                 return False, "Authentication failed before search"
+
+        # Check result cache for identical query
+        query_hash = hashlib.md5(query.encode()).hexdigest()
+
+        async with self._cache_lock:
+            if query_hash in self._result_cache:
+                result, timestamp = self._result_cache[query_hash]
+                age = (datetime.now() - timestamp).total_seconds()
+
+                # Return cached result if fresh enough
+                if age < self._result_cache_ttl:
+                    logging.info(f"Session {self.session_id}: Using cached result for query '{query[:20]}...'")
+                    return True, result
 
         self.is_busy = True
         try:
@@ -398,6 +556,7 @@ class SauronWebSession:
             )
 
             if status != 200:
+                self.failed_searches += 1
                 logging.error(f"Session {self.session_id}: Search failed with status {status}")
                 return False, f"Search error, status {status}"
 
@@ -423,7 +582,9 @@ class SauronWebSession:
                         )
 
                         if status != 200:
-                            logging.error(f"Session {self.session_id}: Failed to load results page, status {status}")
+                            self.failed_searches += 1
+                            logging.error(
+                                f"Session {self.session_id}: Failed to load results page, status {status}")
                             return False, "Failed to load results page"
 
                         # Increment successful searches counter
@@ -435,12 +596,26 @@ class SauronWebSession:
                         else:
                             logging.warning("Search results page doesn't contain 'Подробный отчет' section")
 
+                        # Cache the result
+                        async with self._cache_lock:
+                            self._result_cache[query_hash] = (result_page, datetime.now())
+
+                            # Clean up cache if it gets too large (over 100 items)
+                            if len(self._result_cache) > 100:
+                                # Remove oldest 20 items
+                                sorted_items = sorted(self._result_cache.items(),
+                                                      key=lambda x: x[1][1])  # Sort by timestamp
+                                for key, _ in sorted_items[:20]:
+                                    del self._result_cache[key]
+
                         return True, result_page
                     else:
+                        self.failed_searches += 1
                         logging.error(f"Session {self.session_id}: No redirection in search response")
                         return False, "No redirection in search response"
                 else:
                     # Search error
+                    self.failed_searches += 1
                     error_message = response_data.get('description', 'Unknown error')
                     logging.error(f"Session {self.session_id}: Search error: {error_message}")
 
@@ -452,13 +627,22 @@ class SauronWebSession:
 
                     return False, error_message
             except Exception as e:
+                self.failed_searches += 1
                 logging.error(f"Session {self.session_id}: Error parsing search response: {str(e)}")
                 return False, f"Error processing search response: {str(e)}"
         finally:
             self.is_busy = False
 
     async def parse_results(self, html_content):
-        """Parse HTML results page to extract structured data with improved handling"""
+        """
+        Parse HTML results page to extract structured data.
+
+        Args:
+            html_content: HTML string from search results page
+
+        Returns:
+            list: List of dictionaries with extracted data
+        """
         try:
             soup = BeautifulSoup(html_content, 'html.parser')
 
@@ -550,21 +734,27 @@ class SauronWebSession:
             return standardized_data
         except Exception as e:
             logging.error(f"Session {self.session_id}: Error parsing results: {str(e)}")
-            import traceback
             logging.error(traceback.format_exc())
             return []
 
     def get_stats(self):
-        """Return enhanced session statistics"""
+        """
+        Get comprehensive session statistics for diagnostics.
+
+        Returns:
+            dict: Session statistics
+        """
         return {
             "session_id": self.session_id,
             "login": self.login,
             "is_authenticated": self.is_authenticated,
             "search_count": self.search_count,
             "successful_searches": self.successful_searches,
+            "failed_searches": self.failed_searches,
             "error_count": self.error_count,
             "auth_attempts": self.auth_attempts,
             "auth_failures": self.consecutive_auth_failures,
+            "avg_response_time": round(self.avg_response_time, 3) if self.avg_response_time else None,
             "last_activity": self.last_activity.isoformat() if self.last_activity else None,
             "session_valid_until": self.session_valid_until.isoformat() if self.session_valid_until else None,
             "is_busy": self.is_busy

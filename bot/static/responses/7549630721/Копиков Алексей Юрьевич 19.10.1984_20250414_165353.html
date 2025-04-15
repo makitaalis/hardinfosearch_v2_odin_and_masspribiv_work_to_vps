@@ -1,0 +1,4149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Копиков Алексей Юрьевич 19.10.1984</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Копиков Алексей Юрьевич 19.10.1984</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">56 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ<br>
+                Копиков Алексей Юрьевич<br>
+                Копиков алексей юрьевич<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                19.10.1984<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                248009, РОССИЯ, Г. КАЛУГА, УЛ. ГРАБЦЕВСКОЕ ШОССЕ, Д. 128, КОРП. 1, КВ. 29<br>
+                Калужская обл, г Калуга, ул Грабцевское шоссе,128,29<br>
+                248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29<br>
+                248009, Россия, Калужская обл., г. Калуга, Грабцевское ш., д. 128, корп. 1, кв. 29<br>
+                ГОРОД УСТ. КАЛУГА ГРАБЦЕВСКОЕ Ш. Д. 128 КОРП. 1 КВ. 29<br>
+                248009, РОССИЯ, Калужская обл., г. КАЛУГА, шоссе. ул. ГРАБЦЕВСКОЕ, д. 128, корп. 1, кв. 29<br>
+                248009, РОССИЯ,   Г. КАЛУГА,  УЛ. ГРАБЦЕВСКОЕ ШОССЕ, Д. 128, КОРП. 1, КВ. 29<br>
+                248009, РОССИЯ, КАЛУЖСКАЯ ОБЛ.,  Г. КАЛУГА,  ГРАБЦЕВСКОЕ Ш., Д. 128, КОРП. 1, КВ. 29<br>
+                248009, РОССИЯ, КАЛУЖСКАЯ ОБЛ.,  Г. КАЛУГА,  ШОССЕ. УЛ. ГРАБЦЕВСКОЕ, Д. 128, КОРП. 1, КВ. 29<br>
+                248009, РОССИЯ, Калужская обл. , г. КАЛУГА, шоссе. ул. ГРАБЦЕВСКОЕ, д. 128, корп. 1, кв. 29<br>
+                248009, Россия, Калужская обл. , г. Калуга, Грабцевское ш. , д. 128, корп. 1, кв. 29<br>
+                КАЛУЖСКАЯ КАЛУГА ГР ШОССЕ 128 1 29<br>
+                КАЛУГА ГРАБЦЕВСКОЕ ШОССЕ 128 1 29<br>
+                КАЛУЖСКАЯ КАЛУГА ГРАБЦЕВСКОЕ ШОССЕ 128 29<br>
+                Калуга ул. Грабцевское шоссе 128 1 29 *Место рождения:Калуга<br>
+                Калуга ул. Грабцевское шоссе 128 1 29 *<br>
+                РОССИЯГ. КАЛУГАУЛ. ГРАБЦЕВСКОЕ ШОССЕД.128КОР.1КВ.29<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                40<br>
+                [29] Калукжская Область (КСРФ=40)<br>
+                Калуга и Калужская область<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79308441204<br>
+                79533387498<br>
+                8960520640<br>
+                79605206409<br>
+                7920870150<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                14275875286<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                0755552905<br>
+                2905075555<br>
+                2900127678<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                402917977539<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТ</div>
+              <div class="info-value">
+                2905 075555 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:02.12.2005 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2900 127678 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:26.01.2001;2900 127678 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:26.01.2001 (ВЫДАН)<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                АО КАЛУГАПУТЬМАШ<br>
+                АО КЗТА<br>
+                ИП Падина Юлия Владимировна (фруктовая палатка) грузчик 0 4 мес (раб телефон-домашний и сот руководителя)<br>
+                ИП Падина Юлия Владимировна (фруктовая палатка) / грузчик / 0 4 мес (раб телефон-домашний и сот руководителя)<br>
+                УЧАЩИЕСЯ ПЛ-24 (Директор: Гор.Голова Иванов В.В.)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОЛЖНОСТЬ</div>
+              <div class="info-value">
+                ФРЕЗИРОВЩИК<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                1000<br>
+                27505<br>
+                500<br>
+                1500<br>
+                28362<br>
+                26507<br>
+                150<br>
+                200406<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                27527/17/40023-ИП<br>
+                4789/21/40023-ИП<br>
+                56931/21/40023-ИП<br>
+                46886/20/40023-ИП<br>
+                59806/20/40023-ИП<br>
+                44349/20/40023-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                05.07.2020<br>
+                26.10.2017<br>
+                22.07.2020<br>
+                10.10.2020<br>
+                16.06.2021<br>
+                29.04.2019<br>
+                14.11.2017<br>
+                05.02.2018<br>
+                14.06.2016<br>
+                22.09.2014<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ 10.10.1984<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВОЗБУЖДЕНИЯ ИП</div>
+              <div class="info-value">
+                26.10.2017<br>
+                22.07.2020<br>
+                16.06.2021<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</div>
+              <div class="info-value">
+                ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области<br>
+                ОСП по Октябрьскому округу г.Калуги<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОЛГА</div>
+              <div class="info-value">
+                1500<br>
+                1000<br>
+                26507<br>
+                27505<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАИМЕНОВАНИЕ ИП</div>
+              <div class="info-value">
+                ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области<br>
+                27527/17/40023-ИП<br>
+                44349/20/40023-ИП<br>
+                46886/20/40023-ИП<br>
+                29065/19/40023-ИП<br>
+                4800/18/40023-ИП<br>
+                18698/16/40023-ИП<br>
+                33014/14/40023-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                ОСП по Октябрьскому округу г.Калуги<br>
+                ОСП по Октябрьскому округу г.Калуги УФССП России по Калужской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+                Алименты на содержание детей<br>
+                Госпошлина, присужденная судом<br>
+                Задолженность по кредитным платежам (кроме ипотеки)<br>
+                Иной штраф ОВД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПАСПОРТА</div>
+              <div class="info-value">
+                402003<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                02.12.2005<br>
+                2005-12-02<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЕЖЕМЕСЯЧНЫЙ ДОХОД</div>
+              <div class="info-value">
+                30000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАБУЛА</div>
+              <div class="info-value">
+                Мобильный телефон ; работа: срок работы грузчик ;<br>
+                08.11.2011: Доходы не подтверждены адм протокол(пьянство) СБ не рекомендует выдачу кредита ;<br>
+                КРЕДИТ=523437 Дата оформления: 9 590,00а Товар: 89605172477 Сумма: экспресс*(Мобильный телефон ); работа: срок работы грузчик ;<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА УЧЕТА</div>
+              <div class="info-value">
+                01.01.2006<br>
+                08.11.2011<br>
+                15.11.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОМАШНИЙ ТЕЛЕФОН</div>
+              <div class="info-value">
+                523953<br>
+                Тел. дом.: 523953; Тел. сот.: 89605206409; Тел. раб.: Калуга, ул Ст Разина (3я аптека); Тел.дом.:523953; Тел.сот.:89605206409; Тел.раб.:Калуга,улСтРаз<br>
+                Тел. дом.: 523953; Тел. сот.: 89605206409; Тел. раб.: Калуга, ул Ст Разина (3я аптека)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСТОЧНИК ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                РосБанк; Обнинск Сбербанк<br>
+                Русславбанк<br>
+                Обнинск / Сбербанк<br>
+                РосБанк<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                20.08.2016<br>
+                07.11.2014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОСП</div>
+              <div class="info-value">
+                40023<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСТАТОК</div>
+              <div class="info-value">
+                200406<br>
+                500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИМЕЧАНИЕ</div>
+              <div class="info-value">
+                КРЕДИТ=523437 / Дата оформления: 9 590,00а / Товар: 89605172477 / Сумма: экспресс*(Мобильный телефон /); работа: срок работы грузчик<br>
+                работа: срок работы грузчик<br>
+                КРЕДИТ=523437 / Дата оформления: 9 590,00а / Товар: 89605172477 / Сумма: экспресс*(Мобильный телефон /)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕКСТ ДАТЫ РОЖДЕНИЯ</div>
+              <div class="info-value">
+                19.10.1984<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Тип учета: УЧЕТЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП УЧЁТА</div>
+              <div class="info-value">
+                УЧЕТЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД РОЖДЕНИЯ</div>
+              <div class="info-value">
+                1984<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                ГОР. КАЛУГА ГР.ШОССЕ Д:128 К:1 КВ:29;РОССИЯ КАЛУЖСКАЯ ГОР. КАЛУГА ГР.ШОССЕ 128 1 29<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ДОКУМЕНТА</div>
+              <div class="info-value">
+                ПО 20-ТИ (45-ТИ) ЛЕТИЮ;ДРУГИЕ ПРИЧИНЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                СССР ГОР. КАЛУГА<br>
+                Калуга<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРЕДИТ</div>
+              <div class="info-value">
+                523437 / Дата оформления: 9 590,00а / Товар: 89605172477 / Сумма: экспресс<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Мобильный телефон /<br>
+                работа: срок работы грузчик<br>
+                Доходы не подтверждены адм протокол(пьянство) СБ не рекомендует выдачу кредита<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРЕДИТНАЯ ОРГАНИЗАЦИЯ</div>
+              <div class="info-value">
+                РосБанк<br>
+                Обнинск / Сбербанк<br>
+                Русславбанк<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВСЕ ПАСПОРТА</div>
+              <div class="info-value">
+                2905 075555 02.12.2005 ОВД Октябрьского округа города Калуги<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТЫ ОБРАЩЕНИЙ</div>
+              <div class="info-value">
+                08.11.2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТНОШЕНИЕ К РЕГИОНУ РФ</div>
+              <div class="info-value">
+                Калуга и Калужская область<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79308441204</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, Г. КАЛУГА, УЛ. ГРАБЦЕВСКОЕ ШОССЕ, Д. 128, КОРП. 1, КВ. 29</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ 10.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калужская обл, г Калуга, ул Грабцевское шоссе,128,29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">0755552905</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79533387498</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79533387498</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">40</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">26.10.2017</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, Россия, Калужская обл., г. Калуга, Грабцевское ш., д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">4789/21/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">22.07.2020</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, Г. КАЛУГА, УЛ. ГРАБЦЕВСКОЕ ШОССЕ, Д. 128, КОРП. 1, КВ. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79533387498</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, Россия, Калужская обл., г. Калуга, Грабцевское ш., д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">56931/21/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">16.06.2021</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">26.10.2017</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79533387498</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79533387498</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков алексей юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">27505</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, Россия, Калужская обл., г. Калуга, Грабцевское ш., д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">05.07.2020</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">46886/20/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков алексей юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">26.10.2017</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков алексей юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, Россия, Калужская обл., г. Калуга, Грабцевское ш., д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">22.07.2020</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">4789/21/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков алексей юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, Россия, Калужская обл., г. Калуга, Грабцевское ш., д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">10.10.2020</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">59806/20/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков алексей юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, Россия, Калужская обл., г. Калуга, Грабцевское ш., д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">22.07.2020</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">4789/21/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков алексей юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, Россия, Калужская обл., г. Калуга, Грабцевское ш., д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">16.06.2021</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">56931/21/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ГОРОД УСТ. КАЛУГА ГРАБЦЕВСКОЕ Ш. Д. 128 КОРП. 1 КВ. 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков алексей юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">28362</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, Калужская обл., г. КАЛУГА, шоссе. ул. ГРАБЦЕВСКОЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">29.04.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">44349/20/40023-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ,   Г. КАЛУГА,  УЛ. ГРАБЦЕВСКОЕ ШОССЕ, Д. 128, КОРП. 1, КВ. 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, КАЛУЖСКАЯ ОБЛ.,  Г. КАЛУГА,  ГРАБЦЕВСКОЕ Ш., Д. 128, КОРП. 1, КВ. 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, КАЛУЖСКАЯ ОБЛ.,  Г. КАЛУГА,  ШОССЕ. УЛ. ГРАБЦЕВСКОЕ, Д. 128, КОРП. 1, КВ. 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы физлиц 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">АО КАЛУГАПУТЬМАШ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, Г. КАЛУГА, УЛ. ГРАБЦЕВСКОЕ ШОССЕ, Д. 128, КОРП. 1, КВ. 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">26.10.2017</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по Октябрьскому округу г.Калуги</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">26.10.2017</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по Октябрьскому округу г.Калуги</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, Калужская обл. , г. КАЛУГА, шоссе. ул. ГРАБЦЕВСКОЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">29.04.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">26507</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">44349/20/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">26.10.2017</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, Россия, Калужская обл. , г. Калуга, Грабцевское ш. , д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">05.07.2020</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">27505</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по Октябрьскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">46886/20/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">26.10.2017</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Октябрьскому округу г.Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402917977539</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков алексей юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">26507</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, Калужская обл., г. КАЛУГА, шоссе. ул. ГРАБЦЕВСКОЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">14275875286</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">29.04.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Октябрьскому округу г.Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">29065/19/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">14.11.2017</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Октябрьскому округу г.Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Алименты на содержание детей</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">27527/17/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">150</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">05.02.2018</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">402003</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Октябрьскому округу г.Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Госпошлина, присужденная судом</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">02.12.2005</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">4800/18/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители РФ (ПР) 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУЖСКАЯ КАЛУГА ГР ШОССЕ 128 1 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2005-12-02</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>ДОЛЖНОСТЬ</td>
+                  <td class="">ФРЕЗИРОВЩИК</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">АО КЗТА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ЕЖЕМЕСЯЧНЫЙ ДОХОД</td>
+                  <td class="">30000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредит 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГРАБЦЕВСКОЕ ШОССЕ 128 1 29</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">[29] Калукжская Область (КСРФ=40)</td>
+                </tr>
+                <tr>
+                  <td>ФАБУЛА</td>
+                  <td class="">Мобильный телефон ; работа: срок работы грузчик ;</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">01.01.2006</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ИП Падина Юлия Владимировна (фруктовая палатка) грузчик 0 4 мес (раб телефон-домашний и сот руководителя)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">523953</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">РосБанк; Обнинск Сбербанк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">20.08.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">200406</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248009, РОССИЯ, г. КАЛУГА, ул. ГРАБЦЕВСКОЕ ШОССЕ, д. 128, корп. 1, кв. 29</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">14.06.2016</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">40023</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">200406</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">402003</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Октябрьскому округу г.Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Задолженность по кредитным платежам (кроме ипотеки)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">02.12.2005</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">18698/16/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредит 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУЖСКАЯ КАЛУГА ГРАБЦЕВСКОЕ ШОССЕ 128 29</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">[29] Калукжская Область (КСРФ=40)</td>
+                </tr>
+                <tr>
+                  <td>ФАБУЛА</td>
+                  <td class="">08.11.2011: Доходы не подтверждены адм протокол(пьянство) СБ не рекомендует выдачу кредита ;</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">08.11.2011</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">523953</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">Русславбанк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Бюро кредитных историй 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калуга ул. Грабцевское шоссе 128 1 29 *Место рождения:Калуга</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">15.11.2007</td>
+                </tr>
+                <tr>
+                  <td>ПРИМЕЧАНИЕ</td>
+                  <td class="">КРЕДИТ=523437 / Дата оформления: 9 590,00а / Товар: 89605172477 / Сумма: экспресс*(Мобильный телефон /); работа: срок работы грузчик</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ИП Падина Юлия Владимировна (фруктовая палатка) / грузчик / 0 4 мес (раб телефон-домашний и сот руководителя)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">Тел. дом.: 523953; Тел. сот.: 89605206409; Тел. раб.: Калуга, ул Ст Разина (3я аптека); Тел.дом.:523953; Тел.сот.:89605206409; Тел.раб.:Калуга,улСтРаз</td>
+                </tr>
+                <tr>
+                  <td>ТЕКСТ ДАТЫ РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредит 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калуга ул. Грабцевское шоссе 128 1 29 *</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Калуга и Калужская область</td>
+                </tr>
+                <tr>
+                  <td>ФАБУЛА</td>
+                  <td class="">КРЕДИТ=523437 Дата оформления: 9 590,00а Товар: 89605172477 Сумма: экспресс*(Мобильный телефон ); работа: срок работы грузчик ;</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">15.11.2007</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ИП Падина Юлия Владимировна (фруктовая палатка) грузчик 0 4 мес (раб телефон-домашний и сот руководителя)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">РосБанк; Обнинск Сбербанк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: УЧЕТЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1984</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">07.11.2014</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОССИЯГ. КАЛУГАУЛ. ГРАБЦЕВСКОЕ ШОССЕД.128КОР.1КВ.29</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">22.09.2014</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">40023</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Октябрьскому округу г.Калуги УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Иной штраф ОВД</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">33014/14/40023-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредиторы 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калуга ул. Грабцевское шоссе 128 1 29 *Место рождения:Калуга</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ИП Падина Юлия Владимировна (фруктовая палатка) грузчик 0 4 мес (раб телефон-домашний и сот руководителя)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">Тел. дом.: 523953; Тел. сот.: 89605206409; Тел. раб.: Калуга, ул Ст Разина (3я аптека); Тел.дом.:523953; Тел.сот.:89605206409; Тел.раб.:Калуга,улСтРаз</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУЖСКАЯ КАЛУГА ГР ШОССЕ 128 1 29</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">ГОР. КАЛУГА ГР.ШОССЕ Д:128 К:1 КВ:29;РОССИЯ КАЛУЖСКАЯ ГОР. КАЛУГА ГР.ШОССЕ 128 1 29</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">2905 075555 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:02.12.2005 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2900 127678 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:26.01.2001;2900 127678 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:26.01.2001 (ВЫДАН)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ДОКУМЕНТА</td>
+                  <td class="">ПО 20-ТИ (45-ТИ) ЛЕТИЮ;ДРУГИЕ ПРИЧИНЫ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">СССР ГОР. КАЛУГА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУЖСКАЯ КАЛУГА ГР ШОССЕ 128 1 29</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">ГОР. КАЛУГА ГР.ШОССЕ Д:128 К:1 КВ:29;РОССИЯ КАЛУЖСКАЯ ГОР. КАЛУГА ГР.ШОССЕ 128 1 29</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2900127678</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">2905 075555 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:02.12.2005 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2900 127678 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:26.01.2001;2900 127678 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ОКТЯБРЬСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:26.01.2001 (ВЫДАН)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ДОКУМЕНТА</td>
+                  <td class="">ПО 20-ТИ (45-ТИ) ЛЕТИЮ;ДРУГИЕ ПРИЧИНЫ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">СССР ГОР. КАЛУГА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГРАБЦЕВСКОЕ ШОССЕ 128 1 29</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТ</td>
+                  <td class="">523437 / Дата оформления: 9 590,00а / Товар: 89605172477 / Сумма: экспресс</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">8960520640</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">Мобильный телефон /</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ИП Падина Юлия Владимировна (фруктовая палатка) / грузчик / 0 4 мес (раб телефон-домашний и сот руководителя)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">523953</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">РосБанк</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Калуга</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">работа: срок работы грузчик</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">Обнинск / Сбербанк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА ГРАБЦЕВСКОЕ ШОССЕ 128 1 29</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТ</td>
+                  <td class="">523437 / Дата оформления: 9 590,00а / Товар: 89605172477 / Сумма: экспресс</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79605206409</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">Мобильный телефон /</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ИП Падина Юлия Владимировна (фруктовая палатка) / грузчик / 0 4 мес (раб телефон-домашний и сот руководителя)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">523953</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">РосБанк</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Калуга</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОПИКОВ АЛЕКСЕЙ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУЖСКАЯ КАЛУГА ГРАБЦЕВСКОЕ ШОССЕ 128 29</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2905075555</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">7920870150</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">Доходы не подтверждены адм протокол(пьянство) СБ не рекомендует выдачу кредита</td>
+                </tr>
+                <tr>
+                  <td>ВСЕ ПАСПОРТА</td>
+                  <td class="">2905 075555 02.12.2005 ОВД Октябрьского округа города Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДАТЫ ОБРАЩЕНИЙ</td>
+                  <td class="">08.11.2011</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">523953</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">Русславбанк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 53 -->
+      <div class="card source-card" id="source52">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Фомс сборник 2013</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калуга ул. Грабцевское шоссе 128 1 29 *Место рождения:Калуга</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ИП Падина Юлия Владимировна (фруктовая палатка) / грузчик / 0 4 мес (раб телефон-домашний и сот руководителя)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 54 -->
+      <div class="card source-card" id="source53">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные лица 2008</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">15.11.2007</td>
+                </tr>
+                <tr>
+                  <td>ПРИМЕЧАНИЕ</td>
+                  <td class="">работа: срок работы грузчик</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">Обнинск / Сбербанк</td>
+                </tr>
+                <tr>
+                  <td>ОТНОШЕНИЕ К РЕГИОНУ РФ</td>
+                  <td class="">Калуга и Калужская область</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 55 -->
+      <div class="card source-card" id="source54">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные лица 2008</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калуга ул. Грабцевское шоссе 128 1 29 *Место рождения:Калуга</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">15.11.2007</td>
+                </tr>
+                <tr>
+                  <td>ПРИМЕЧАНИЕ</td>
+                  <td class="">КРЕДИТ=523437 / Дата оформления: 9 590,00а / Товар: 89605172477 / Сумма: экспресс*(Мобильный телефон /)</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ИП Падина Юлия Владимировна (фруктовая палатка) / грузчик / 0 4 мес (раб телефон-домашний и сот руководителя)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+                <tr>
+                  <td>ДОМАШНИЙ ТЕЛЕФОН</td>
+                  <td class="">Тел. дом.: 523953; Тел. сот.: 89605206409; Тел. раб.: Калуга, ул Ст Разина (3я аптека)</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">РосБанк</td>
+                </tr>
+                <tr>
+                  <td>ОТНОШЕНИЕ К РЕГИОНУ РФ</td>
+                  <td class="">Калуга и Калужская область</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 56 -->
+      <div class="card source-card" id="source55">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Место Работы Калужская область 2003</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Копиков Алексей Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2900127678</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">УЧАЩИЕСЯ ПЛ-24 (Директор: Гор.Голова Иванов В.В.)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">19.10.1984</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                ФССП 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Жители 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Доходы физлиц 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Жители РФ (ПР) 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Антикредит 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Антикредит 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Бюро кредитных историй 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Антикредит 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                ФССП 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                Антикредиторы 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Жители Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Жители Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source52" class="nav-link " onclick="scrollToSource('source52', event)">
+                Фомс сборник 2013
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source53" class="nav-link " onclick="scrollToSource('source53', event)">
+                Криминальные лица 2008
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source54" class="nav-link " onclick="scrollToSource('source54', event)">
+                Криминальные лица 2008
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source55" class="nav-link " onclick="scrollToSource('source55', event)">
+                Место Работы Калужская область 2003
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

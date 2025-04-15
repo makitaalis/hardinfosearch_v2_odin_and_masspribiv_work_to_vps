@@ -1,0 +1,52 @@
+2025-04-15 06:59:42 | INFO | Логирование настроено. Активный лог-файл: logs/2025-04-15.log
+2025-04-15 06:59:42 | INFO | Логирование запущено. Активный лог-файл: logs/2025-04-15.log
+2025-04-15 06:59:42 | INFO | uvloop not available, using standard asyncio
+2025-04-15 06:59:42 | INFO | Database journal mode: wal
+2025-04-15 06:59:42 | INFO | Current database version: 4
+2025-04-15 06:59:42 | INFO | Database migrations completed successfully in 0.00s
+2025-04-15 06:59:42 | INFO | Current database version: 4
+2025-04-15 06:59:42 | INFO | Структура базы данных исправлена
+2025-04-15 06:59:42 | INFO | База данных инициализирована (users, active_sessions, admin_logs, cache).
+2025-04-15 06:59:42 | INFO | База данных инициализирована.
+2025-04-15 06:59:43 | INFO | Успешное соединение с Telegram API. Бот hardinfosearchbot запущен.
+2025-04-15 06:59:43 | WARNING | Credentials file credentials.txt not found, using default credentials
+2025-04-15 06:59:43 | INFO | Loaded 1 credentials for session pool
+2025-04-15 06:59:43 | INFO | Initialized session pool with 50 virtual sessions based on 1 credentials
+2025-04-15 06:59:43 | INFO | Initialized session pool with 50 max sessions
+2025-04-15 06:59:43 | WARNING | initialize_sessions method not found, skipping session initialization
+2025-04-15 06:59:43 | INFO | Session pool initialized: 0 successful, 0 failed
+2025-04-15 06:59:43 | INFO | Фоновые задачи запущены.
+2025-04-15 06:59:43 | INFO | ✅ Старый кэш (24+ часа) очищен.
+2025-04-15 06:59:43 | INFO | Session 1_1: Authentication attempt 1
+2025-04-15 06:59:43 | INFO | Created shared connection pool for web sessions
+2025-04-15 06:59:43 | INFO | Started mass search queue processor with optimized parallel processing
+2025-04-15 06:59:43 | INFO | Установлены расширенные команды для администратора (ID: 6711927957)
+2025-04-15 06:59:43 | INFO | Бот запущен. Ожидаем сообщения...
+2025-04-15 06:59:43 | INFO | Start polling
+2025-04-15 06:59:43 | INFO | Run polling for bot @hardinfosearchbot id=7287071336 - 'hardinfosearch'
+2025-04-15 06:59:43 | ERROR | Session 1_1 unexpected error on attempt 1/1: Session is closed
+2025-04-15 06:59:43 | ERROR | Session 1_1 request failed after 1 retries for URL: https://sauron.info/api/v1/user/authenticateUser
+2025-04-15 06:59:43 | ERROR | Session 1_1: Error during authentication request: Session is closed
+2025-04-15 06:59:43 | WARNING | Failed to refresh session 1_1
+2025-04-15 06:59:43 | INFO | Session 2_2: Rate limiting auth, waiting 1.46s
+2025-04-15 06:59:44 | INFO | Session 2_2: Authentication attempt 1
+2025-04-15 06:59:44 | ERROR | Session 2_2 unexpected error on attempt 1/1: Session is closed
+2025-04-15 06:59:44 | ERROR | Session 2_2 request failed after 1 retries for URL: https://sauron.info/login
+2025-04-15 06:59:44 | ERROR | Session 2_2: Error loading login page: Session is closed
+2025-04-15 06:59:44 | WARNING | Failed to refresh session 2_2
+2025-04-15 06:59:44 | INFO | Session 3_3: Rate limiting auth, waiting 1.96s
+2025-04-15 06:59:46 | INFO | Session 3_3: Authentication attempt 1
+2025-04-15 06:59:46 | ERROR | Session 3_3 unexpected error on attempt 1/1: Session is closed
+2025-04-15 06:59:46 | ERROR | Session 3_3 request failed after 1 retries for URL: https://sauron.info/login
+2025-04-15 06:59:46 | ERROR | Session 3_3: Error loading login page: Session is closed
+2025-04-15 06:59:46 | WARNING | Failed to refresh session 3_3
+2025-04-15 06:59:46 | INFO | Session 4_4: Rate limiting auth, waiting 1.95s
+2025-04-15 06:59:47 | WARNING | Received SIGINT signal
+2025-04-15 06:59:47 | INFO | Polling stopped for bot @hardinfosearchbot id=7287071336 - 'hardinfosearch'
+2025-04-15 06:59:47 | INFO | Polling stopped
+2025-04-15 07:06:39 | INFO | Логирование настроено. Активный лог-файл: logs/2025-04-15.log
+2025-04-15 07:06:39 | INFO | Логирование запущено. Активный лог-файл: logs/2025-04-15.log
+2025-04-15 07:06:39 | INFO | uvloop not available, using standard asyncio
+2025-04-15 07:10:25 | INFO | Логирование настроено. Активный лог-файл: logs/2025-04-15.log
+2025-04-15 07:10:25 | INFO | Логирование запущено. Активный лог-файл: logs/2025-04-15.log
+2025-04-15 07:10:25 | INFO | uvloop not available, using standard asyncio

@@ -1,0 +1,4296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Пужаев Вячеслав Анатольевич 24.08.1971</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Пужаев Вячеслав Анатольевич 24.08.1971</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">53 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Пужаев Вячеслав Анатольевич<br>
+                ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                24.08.1971<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                Калужская обл<br>
+                Нижегородская обл, г Арзамас<br>
+                ЛЕНИНА ПР-КТ 162 1 52<br>
+                ПАРКОВАЯ Д.18 КВ.92<br>
+                Нижегородская обл.<br>
+                Нет 607226, Нижегородская обл, Арзамас г, Советская ул, дом 72, квартира 57<br>
+                Арзамас советская д 72 кв 57<br>
+                НИЖЕГОРОДСКАЯ ОБЛАСТЬ<br>
+                АРЗАМАС ЛЕНИНА ПР-КТ 162 1 52<br>
+                АРЗАМАС ПР.ЛЕНИНА 162 1 52<br>
+                Нижегородская область<br>
+                РОССИЯ НИЖЕГОРОДСКАЯ ОБЛ АРЗАМАС Г ЛЕНИНА ПР-КТД. 162/1/ КВ. 52<br>
+                Арзамас ЛЕНИНА ПР-КТ 162 1 52<br>
+                Арзамас, ЛЕНИНА ПР-КТ 162 1 52<br>
+                Нижегородская область Арзамас Г Ленина Пр-кт 162 1 52 тел<br>
+                АРЗАМАС, АРЗАМАС Г, СОВЕТСКАЯ УЛ, д.72, кв.57.<br>
+                АРЗАМАС ул.ПР.ЛЕНИНА д.162 к.1 кв.52<br>
+                АРЗАМАС ул.ПР ЛЕНИНА д.162 к.1 кв.52<br>
+                РОССИЯ,ИРКУТСКАЯ ОБЛ.,Н-УДИНСКИЙ Р-ОН,НИЖНЕУДИНСК Г.<br>
+                РФ ИРКУТСКАЯ ОБЛ. Н-УДИНСКИЙ Р-ОН НИЖНЕУДИНСК Г.<br>
+                ПАРКОВАЯ д.18 кв.92<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                [22] Нижегородская область (КСРФ=52)<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79875551528<br>
+                79867662090<br>
+                79159450996<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                07309633767<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                2216626412<br>
+                2208229816<br>
+                XVТН737392<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</div>
+              <div class="info-value">
+                52АХ792630<br>
+                52АХ № 792630<br>
+                АВШ714544<br>
+                АВП957827<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                524304150594<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                041001<br>
+                041004<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                М651КВ40<br>
+                Р994УТ152<br>
+                С452УР52<br>
+                А243ХН152<br>
+                А869МВ152<br>
+                М673АВ52<br>
+                В146МА52<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА</div>
+              <div class="info-value">
+                1999<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                гор. Нижнеудинск Н-Удинского р-на Иркутской обл.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                Нижегородская область, г.Арзамас, ул.Советская, д.72, кв.57<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                520-010<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2016-10-13<br>
+                2008-09-09<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                Отделом УФМС России по Нижегородской области в городском округе город Арзамас и Арзамасском р-не<br>
+                Отделом УФМС России по Нижегородской обл. в гор. Арзамас<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Нижегородская область, г.Арзамас, пр-кт Ленина, д.162/1, кв.52<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">INFO_4</div>
+              <div class="info-value">
+                0168500204<br>
+                0175445096<br>
+                175445096<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">KABINA</div>
+              <div class="info-value">
+                WDB2102611A543792<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">SUMMA_2</div>
+              <div class="info-value">
+                150.00<br>
+                105.00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2020-04-13<br>
+                2022-04-13<br>
+                2022-05-25<br>
+                2020-05-25<br>
+                2019-04-13<br>
+                2023-05-25<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                5428.46 руб.<br>
+                4410.78 руб.<br>
+                5741.36<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">KOEFFICIENT</div>
+              <div class="info-value">
+                0.75<br>
+                0.90<br>
+                0.1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">STATUS_AVTO</div>
+              <div class="info-value">
+                Личная<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                ACTIVE<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                WDB2102611A543792<br>
+                VF1KM1B0H36434901<br>
+                XTH275200X0013471<br>
+                XTH311000Y0986022<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">SERIA_STRAHOVKI</div>
+              <div class="info-value">
+                ХХХ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">UPRAVLENIE_AVTO</div>
+              <div class="info-value">
+                Ограничен список лиц, допущенных к управлению (допущено: 2 чел.)<br>
+                Ограничен список лиц, допущенных к управлению (допущено: 1 чел.)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОДЕЛЬ ТС</div>
+              <div class="info-value">
+                E-Klasse<br>
+                MEGANE<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ</div>
+              <div class="info-value">
+                B<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">PERIOD_ISPOLZOVANIYA</div>
+              <div class="info-value">
+                Период использования ТС активен на запрашиваемую дату<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ 1</div>
+              <div class="info-value">
+                2019-04-14<br>
+                2021-04-14<br>
+                2021-05-26<br>
+                2019-05-26<br>
+                2018-04-14<br>
+                2022-05-26<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА И МОДЕЛЬ</div>
+              <div class="info-value">
+                Mercedes-Benz E-Klasse<br>
+                Renault MEGANE<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2019-04-14<br>
+                2021-04-14<br>
+                2021-05-26<br>
+                2019-05-26<br>
+                2018-04-14<br>
+                2022-05-26<br>
+                2021-02-10 13:18:04<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2020-04-13<br>
+                2022-04-13<br>
+                2022-05-25<br>
+                2020-05-25<br>
+                2019-04-13<br>
+                2023-05-25<br>
+                2019-11-09<br>
+                2021-02-10 13:17:15<br>
+                2020-07-03 11:40:52<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                Mercedes-Benz<br>
+                Mercedes-Benz E-Klasse<br>
+                Renault MEGANE<br>
+                Renault<br>
+                ВАЗ<br>
+                ТОЙОТА<br>
+                ГАЗ2752<br>
+                КАМАЗ53212<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВАЯ КОМПАНИЯ</div>
+              <div class="info-value">
+                АО СК Астро-Волга<br>
+                ПАО АСКО-СТРАХОВАНИЕ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВАНИЯ</div>
+              <div class="info-value">
+                2018-04-14<br>
+                2021-05-26<br>
+                2022-05-26<br>
+                2019-05-26<br>
+                2021-04-14<br>
+                2019-04-14<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                ТЮКИН МАКСИМ ОЛЕГОВИЧ 04.01.1985<br>
+                ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ 00.10.2071<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                UTC+3<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                ПАО Мобильные ТелеСистемы<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                Нижегородская область Нет<br>
+                Нижегородская область советская д 72 кв 57<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР СТРАХОВКИ</div>
+              <div class="info-value">
+                5251820825000835<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                от 01.01.0001 0:00:00<br>
+                отделом уфмс россии по нижегородской обл в гор. арзамас и арзамасском р-не<br>
+                УФМС АРЗАМАСА 520-010 09.09.2008г.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Оштрафован<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД НАРУШЕНИЯ</div>
+              <div class="info-value">
+                Нарушение правил гос.регистрации ТС всех видов Ст.19.22<br>
+                Превышение установленной скорости от 10 до 20 км/ч Ст.12.9 ч.1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАЗМЕР ШТРАФА</div>
+              <div class="info-value">
+                100<br>
+                50<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАРУШЕНИЯ</div>
+              <div class="info-value">
+                16.07.2010 16:00<br>
+                12.09.2006 19:15<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС НАРУШЕНИЯ</div>
+              <div class="info-value">
+                АРЗАМАС АРЗАМАС Г ЛЕНИНА УЛ 108Б<br>
+                КУЛЕБАКСКИЙ МАЯКОВСКОГО МАЯКОВСКОГО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУБЪЕКТ НАРУШЕНИЯ</div>
+              <div class="info-value">
+                Иное лицо не уч.д.д.<br>
+                Вод. инд. автом.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПРИНЯТИЯ РЕШЕНИЯ</div>
+              <div class="info-value">
+                16.07.2010<br>
+                12.09.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ПРИНЯВШИЙ РЕШЕНИЕ</div>
+              <div class="info-value">
+                АРЗАМАС<br>
+                КУЛЕБАКСКИЙ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СОСТОЯНИЕ ПОСТАНОВЛЕНИЯ</div>
+              <div class="info-value">
+                Исполнено 16.07.2010<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП АДМИНИСТРАТИВНОГО МАТЕРИАЛА</div>
+              <div class="info-value">
+                ПОСТАНОВЛЕНИЕ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАБУЛА</div>
+              <div class="info-value">
+                Зарплатный клиент. Карта№:5469420011973693 Кредитный Лимит:60000(Стандарт) Банк:42 ОСБ:368 Предприятие:ООО ЭЛЬСТЕР ГАЗЭЛЕКТРОНИКА ИНН:5243013811 ;<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА УЧЕТА</div>
+              <div class="info-value">
+                08.08.2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСТОЧНИК ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                (1481) Сбербанк России<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ПОЛИСА</div>
+              <div class="info-value">
+                52593343585<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                17.12.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Иркутская обл.<br>
+                НИЖЕГОРОДСКАЯ ОБЛ.<br>
+                ИРКУТСКАЯ ОБЛАСТЬ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИМЕЧАНИЕ</div>
+              <div class="info-value">
+                Зарплатный клиент. Карта№:5469420011973693 Кредитный Лимит:60000(Стандарт) Банк:42 ОСБ:368 Предприятие:ООО ЭЛЬСТЕР ГАЗЭЛЕКТРОНИКА ИНН:5243013811<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕКСТ ДАТЫ РОЖДЕНИЯ</div>
+              <div class="info-value">
+                24.08.1971<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Нарушение ПДД пешеходом ст. 12.29 ч.1<br>
+                Нарушение правил гос. регистрации ТС всех видов ст. 19.22<br>
+                Номер полиса: 4621 426201<br>
+                Превышение установленной скорости от 10 до 20 км/ч Ст.12.9 ч.1<br>
+                Управление ТС в состоянии опьянения Ст.12.8 ч.1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПТС</div>
+              <div class="info-value">
+                52ЕН833444<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ</div>
+              <div class="info-value">
+                серо-белый<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАЦИЯ</div>
+              <div class="info-value">
+                регистрация снятых с учета<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ ТС</div>
+              <div class="info-value">
+                B<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР КУЗОВА</div>
+              <div class="info-value">
+                275200X0050132<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                40630С №X3271638 объем 2300 л<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВОЙ ПОЛИС</div>
+              <div class="info-value">
+                ВВВ 0525094010<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ О ТРАНСПОРТНОМ СРЕДСТВЕ</div>
+              <div class="info-value">
+                ТС: категория B, марка ГАЗ 3110, 2000г.в., цвет Сине-зеленый, собственник ФЛ; Тех. операция: по договору с сохранением рег.знаков, дата 22.07.2015г.; прежний гос.№А869МВ152; Основание собственности ДОГОВОР, СОВЕРШЕННЫЙ от 20.07.2015г. на сумму 35000р.; Двигатель: марка 40620D, №Y3079986, объем 2280., мощность 96.0/130.6.; разр. max масса 1790кг., масса без нагрузки 1400кг., кузов №311000Y0394688; Св-во о регистрации серия 52 32 №932933, выдано 22.07.2015г.; Паспорт ТС серия 52 ЕХ №048271 выдан 30.10.2000г.; Полис ОСАГО: серия ЕЕЕ №0706733990, с 20.07.2015г. по 19.07.2016г., на сумму 4402р.; особые отметки: 52ТН865461,94;<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА</div>
+              <div class="info-value">
+                09.04.2001<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">07309633767</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2216626412</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79875551528</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Нижнеудинск Н-Удинского р-на Иркутской обл.</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Нижегородская область, г.Арзамас, ул.Советская, д.72, кв.57</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">520-010</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2016-10-13</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по Нижегородской области в городском округе город Арзамас и Арзамасском р-не</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">07309633767</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2208229816</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор. Нижнеудинск Н-Удинского р-на Иркутской обл.</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Нижегородская область, г.Арзамас, пр-кт Ленина, д.162/1, кв.52</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">520-010</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2008-09-09</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по Нижегородской обл. в гор. Арзамас</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">0168500204</td>
+                </tr>
+                <tr>
+                  <td>KABINA</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">150.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2020-04-13</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калужская обл</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">5428.46 руб.</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">0.75</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ХХХ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Ограничен список лиц, допущенных к управлению (допущено: 2 чел.)</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М651КВ40</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">E-Klasse</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2019-04-14</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">Mercedes-Benz E-Klasse</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2019-04-14</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-04-13</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Mercedes-Benz</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">АО СК Астро-Волга</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">0168500204</td>
+                </tr>
+                <tr>
+                  <td>KABINA</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">150.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2022-04-13</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калужская обл</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">5428.46 руб.</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">0.75</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ХХХ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Ограничен список лиц, допущенных к управлению (допущено: 2 чел.)</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М651КВ40</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">E-Klasse</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2021-04-14</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">Mercedes-Benz E-Klasse</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-04-14</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2022-04-13</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Mercedes-Benz</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">АО СК Астро-Волга</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М651КВ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2018-04-14</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Mercedes-Benz E-Klasse</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">VF1KM1B0H36434901</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р994УТ152</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-05-26</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault MEGANE</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">VF1KM1B0H36434901</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р994УТ152</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2022-05-26</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault MEGANE</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">VF1KM1B0H36434901</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р994УТ152</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2019-05-26</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault MEGANE</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">0175445096</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">105.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2022-05-25</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нижегородская обл, г Арзамас</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">4410.78 руб.</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">0.90</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">VF1KM1B0H36434901</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ХХХ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Ограничен список лиц, допущенных к управлению (допущено: 1 чел.)</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р994УТ152</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">MEGANE</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2021-05-26</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">Renault MEGANE</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-05-26</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2022-05-25</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">ПАО АСКО-СТРАХОВАНИЕ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">0175445096</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">105.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2020-05-25</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нижегородская обл, г Арзамас</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">4410.78 руб.</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">0.90</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">VF1KM1B0H36434901</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ХХХ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Ограничен список лиц, допущенных к управлению (допущено: 1 чел.)</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р994УТ152</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">MEGANE</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2019-05-26</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">Renault MEGANE</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2019-05-26</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-05-25</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">ПАО АСКО-СТРАХОВАНИЕ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">0168500204</td>
+                </tr>
+                <tr>
+                  <td>KABINA</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">150.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2019-04-13</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Калужская обл</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">5428.46 руб.</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">0.75</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ХХХ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Ограничен список лиц, допущенных к управлению (допущено: 2 чел.)</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М651КВ40</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">E-Klasse</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2018-04-14</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">Mercedes-Benz E-Klasse</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2018-04-14</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2019-04-13</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Mercedes-Benz</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">АО СК Астро-Волга</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М651КВ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-04-14</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Mercedes-Benz E-Klasse</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">175445096</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">105.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2023-05-25</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нижегородская обл, г Арзамас</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">5741.36</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">0.1</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">VF1KM1B0H36434901</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ХХХ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Ограничен список лиц, допущенных к управлению (допущено: 1 чел.)</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Р994УТ152</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">MEGANE</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2022-05-26</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">Renault MEGANE</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2022-05-26</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2023-05-25</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Renault</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">ПАО АСКО-СТРАХОВАНИЕ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ТЮКИН МАКСИМ ОЛЕГОВИЧ 04.01.1985</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ПАРКОВАЯ Д.18 КВ.92</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ 00.10.2071</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WDB2102611A543792</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М651КВ40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2019-04-14</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Mercedes-Benz E-Klasse</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты ВТБ 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нижегородская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79867662090</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Сбербанк 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нижегородская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79875551528</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">UTC+3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ПАО Мобильные ТелеСистемы</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2019-11-09</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты gemotest.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нет 607226, Нижегородская обл, Арзамас г, Советская ул, дом 72, квартира 57</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">Нижегородская область Нет</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2208229816</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79867662090</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-02-10 13:18:04</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СТРАХОВКИ</td>
+                  <td class="">5251820825000835</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-02-10 13:17:15</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">от 01.01.0001 0:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты gemotest.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Арзамас советская д 72 кв 57</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">Нижегородская область советская д 72 кв 57</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2216626412</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-02-10 13:18:04</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СТРАХОВКИ</td>
+                  <td class="">5251820825000835</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-07-03 11:40:52</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">отделом уфмс россии по нижегородской обл в гор. арзамас и арзамасском р-не</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты ВТБ 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нижегородская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79867662090</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79867662090</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛАСТЬ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79875551528</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">07309633767</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты krasnoeibeloe.ru 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79875551528</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">АРЗАМАС ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ВИД ВЗЫСКАНИЯ</td>
+                  <td class="">Оштрафован</td>
+                </tr>
+                <tr>
+                  <td>ВИД НАРУШЕНИЯ</td>
+                  <td class="">Нарушение правил гос.регистрации ТС всех видов Ст.19.22</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>РАЗМЕР ШТРАФА</td>
+                  <td class="">100</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">16.07.2010 16:00</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС НАРУШЕНИЯ</td>
+                  <td class="">АРЗАМАС АРЗАМАС Г ЛЕНИНА УЛ 108Б</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ</td>
+                </tr>
+                <tr>
+                  <td>СУБЪЕКТ НАРУШЕНИЯ</td>
+                  <td class="">Иное лицо не уч.д.д.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПРИНЯТИЯ РЕШЕНИЯ</td>
+                  <td class="">16.07.2010</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ПРИНЯВШИЙ РЕШЕНИЕ</td>
+                  <td class="">АРЗАМАС</td>
+                </tr>
+                <tr>
+                  <td>СОСТОЯНИЕ ПОСТАНОВЛЕНИЯ</td>
+                  <td class="">Исполнено 16.07.2010</td>
+                </tr>
+                <tr>
+                  <td>ТИП АДМИНИСТРАТИВНОГО МАТЕРИАЛА</td>
+                  <td class="">ПОСТАНОВЛЕНИЕ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">АРЗАМАС ПР.ЛЕНИНА 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">С452УР52</td>
+                </tr>
+                <tr>
+                  <td>ВИД ВЗЫСКАНИЯ</td>
+                  <td class="">Оштрафован</td>
+                </tr>
+                <tr>
+                  <td>ВИД НАРУШЕНИЯ</td>
+                  <td class="">Превышение установленной скорости от 10 до 20 км/ч Ст.12.9 ч.1</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>РАЗМЕР ШТРАФА</td>
+                  <td class="">50</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">12.09.2006 19:15</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС НАРУШЕНИЯ</td>
+                  <td class="">КУЛЕБАКСКИЙ МАЯКОВСКОГО МАЯКОВСКОГО</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ТОЙОТА</td>
+                </tr>
+                <tr>
+                  <td>СУБЪЕКТ НАРУШЕНИЯ</td>
+                  <td class="">Вод. инд. автом.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПРИНЯТИЯ РЕШЕНИЯ</td>
+                  <td class="">12.09.2006</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ПРИНЯВШИЙ РЕШЕНИЕ</td>
+                  <td class="">КУЛЕБАКСКИЙ</td>
+                </tr>
+                <tr>
+                  <td>ТИП АДМИНИСТРАТИВНОГО МАТЕРИАЛА</td>
+                  <td class="">ПОСТАНОВЛЕНИЕ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредит 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">[22] Нижегородская область (КСРФ=52)</td>
+                </tr>
+                <tr>
+                  <td>ФАБУЛА</td>
+                  <td class="">Зарплатный клиент. Карта№:5469420011973693 Кредитный Лимит:60000(Стандарт) Банк:42 ОСБ:368 Предприятие:ООО ЭЛЬСТЕР ГАЗЭЛЕКТРОНИКА ИНН:5243013811 ;</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2208229816</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79875551528</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">08.08.2011</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">(1481) Сбербанк России</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС РОССИИ 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нижегородская область</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">52593343585</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ИНФОРМАЦИИ</td>
+                  <td class="">17.12.2008</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Иркутская обл.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Бюро кредитных историй 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2208229816</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79875551528</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">08.08.2011</td>
+                </tr>
+                <tr>
+                  <td>ПРИМЕЧАНИЕ</td>
+                  <td class="">Зарплатный клиент. Карта№:5469420011973693 Кредитный Лимит:60000(Стандарт) Банк:42 ОСБ:368 Предприятие:ООО ЭЛЬСТЕР ГАЗЭЛЕКТРОНИКА ИНН:5243013811</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ТЕКСТ ДАТЫ РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОССИЯ НИЖЕГОРОДСКАЯ ОБЛ АРЗАМАС Г ЛЕНИНА ПР-КТД. 162/1/ КВ. 52</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79159450996</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2208229816</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79875551528</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2013</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Арзамас ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Нарушение ПДД пешеходом ст. 12.29 ч.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Арзамас, ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Нарушение ПДД пешеходом ст. 12.29 ч.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Арзамас ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Нарушение ПДД пешеходом ст. 12.29 ч.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Арзамас, ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Нарушение правил гос. регистрации ТС всех видов ст. 19.22</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Арзамас, ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Нарушение ПДД пешеходом ст. 12.29 ч.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Арзамас ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Нарушение правил гос. регистрации ТС всех видов ст. 19.22</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Арзамас ЛЕНИНА ПР-КТ 162 1 52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛ.</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Нарушение ПДД пешеходом ст. 12.29 ч.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили России 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">52ЕН833444</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ</td>
+                  <td class="">серо-белый</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Нижегородская область Арзамас Г Ленина Пр-кт 162 1 52 тел</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XTH275200X0013471</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">регистрация снятых с учета</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">А243ХН152</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА</td>
+                  <td class="">1999</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ ТС</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">275200X0050132</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">40630С №X3271638 объем 2300 л</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ ПОЛИС</td>
+                  <td class="">ВВВ 0525094010</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ГАЗ2752</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС 2008</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НИЖЕГОРОДСКАЯ ОБЛАСТЬ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Номер полиса: 4621 426201</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Нижний Новгород 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">АРЗАМАС, АРЗАМАС Г, СОВЕТСКАЯ УЛ, д.72, кв.57.</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">XTH311000Y0986022</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2208229816</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79875551528</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">А869МВ152</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">УФМС АРЗАМАСА 520-010 09.09.2008г.</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ИРКУТСКАЯ ОБЛАСТЬ</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ О ТРАНСПОРТНОМ СРЕДСТВЕ</td>
+                  <td class="">ТС: категория B, марка ГАЗ 3110, 2000г.в., цвет Сине-зеленый, собственник ФЛ; Тех. операция: по договору с сохранением рег.знаков, дата 22.07.2015г.; прежний гос.№А869МВ152; Основание собственности ДОГОВОР, СОВЕРШЕННЫЙ от 20.07.2015г. на сумму 35000р.; Двигатель: марка 40620D, №Y3079986, объем 2280., мощность 96.0/130.6.; разр. max масса 1790кг., масса без нагрузки 1400кг., кузов №311000Y0394688; Св-во о регистрации серия 52 32 №932933, выдано 22.07.2015г.; Паспорт ТС серия 52 ЕХ №048271 выдан 30.10.2000г.; Полис ОСАГО: серия ЕЕЕ №0706733990, с 20.07.2015г. по 19.07.2016г., на сумму 4402р.; особые отметки: 52ТН865461,94;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2006</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">АРЗАМАС ул.ПР.ЛЕНИНА д.162 к.1 кв.52</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">С452УР52</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">041001</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ТОЙОТА</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Превышение установленной скорости от 10 до 20 км/ч Ст.12.9 ч.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 2006</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">АРЗАМАС ул.ПР ЛЕНИНА д.162 к.1 кв.52</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М673АВ52</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">041004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">КАМАЗ53212</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Управление ТС в состоянии опьянения Ст.12.8 ч.1</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">52АХ792630</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ПДД НН 2006</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">АРЗАМАС ул.ПР ЛЕНИНА д.162 к.1 кв.52</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">М673АВ52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">КАМАЗ53212</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">52АХ № 792630</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ПДД НН 2006</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">АРЗАМАС ул.ПР.ЛЕНИНА д.162 к.1 кв.52</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">С452УР52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ТОЙОТА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Нижний Новгород 2003</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОССИЯ,ИРКУТСКАЯ ОБЛ.,Н-УДИНСКИЙ Р-ОН,НИЖНЕУДИНСК Г.</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">XVТН737392</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА</td>
+                  <td class="">09.04.2001</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Нижний Новгород 2003</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">524304150594</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Пужаев Вячеслав Анатольевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РФ ИРКУТСКАЯ ОБЛ. Н-УДИНСКИЙ Р-ОН НИЖНЕУДИНСК Г.</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">XVТН737392</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 1999</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ПАРКОВАЯ д.18 кв.92</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">В146МА52</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">АВШ714544</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 53 -->
+      <div class="card source-card" id="source52">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушители ПДД Нижний Новгород 1999</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ПУЖАЕВ ВЯЧЕСЛАВ АНАТОЛЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ПАРКОВАЯ д.18 кв.92</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">24.08.1971</td>
+                </tr>
+                <tr>
+                  <td>ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td>
+                  <td class="">АВП957827</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Клиенты ВТБ 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Клиенты Сбербанк 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Клиенты gemotest.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Клиенты gemotest.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Клиенты ВТБ 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Абоненты 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Клиенты krasnoeibeloe.ru 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Нарушители ПДД Нижний Новгород 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Нарушители ПДД Нижний Новгород 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Антикредит 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                ФОМС РОССИИ 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Бюро кредитных историй 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Абоненты 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Абоненты 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Нарушители ПДД Нижний Новгород 2013
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Нарушители ПДД Нижний Новгород 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Нарушители ПДД Нижний Новгород 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Нарушители ПДД Нижний Новгород 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Нарушители ПДД Нижний Новгород 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Нарушители ПДД Нижний Новгород 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Нарушители ПДД Нижний Новгород 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Нарушители ПДД Нижний Новгород 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Автомобили России 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                ФОМС 2008
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Автомобили Нижний Новгород 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                Нарушители ПДД Нижний Новгород 2006
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Нарушители ПДД Нижний Новгород 2006
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                ПДД НН 2006
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                ПДД НН 2006
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Жители Нижний Новгород 2003
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Жители Нижний Новгород 2003
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                Нарушители ПДД Нижний Новгород 1999
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source52" class="nav-link " onclick="scrollToSource('source52', event)">
+                Нарушители ПДД Нижний Новгород 1999
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

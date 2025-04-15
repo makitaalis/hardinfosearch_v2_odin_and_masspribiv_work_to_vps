@@ -1,0 +1,5121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Зимин Михаил Юрьевич 23.04.1978</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Зимин Михаил Юрьевич 23.04.1978</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">60 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Зимин Михаил Юрьевич<br>
+                ЗИМИН МИХАИЛ ЮРЬЕВИЧ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                23.04.1978<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                Волгоградская обл, г Волгоград<br>
+                Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ 1 7<br>
+                Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ Д.1 КВ.7<br>
+                Волгоградская обл.<br>
+                643, 400087, 34, ВОЛГОГРАД Г, ИМ ТКАЧЕВА УЛ, 7Б, 259<br>
+                ВОЛГОГРАД ЦЕНТРАЛЬНЫЙ ТКАЧЕВА 7Б ДОМ. КВ.259<br>
+                Волгоград Ткачева 7/259<br>
+                400087, Россия, Волгоградская обл., г. Волгоград, ул. им. Пархоменко, д. 2а, машино-место 19<br>
+                400087, РОССИЯ, ВОЛГОГРАДСКАЯ ОБЛ.,  Г. ВОЛГОГРАД,  УЛ. ИМ. ПАРХОМЕНКО, Д. 2А,  МАШИНО-МЕСТО 19<br>
+                400087, Россия, Волгоградская обл. , г. Волгоград, ул. им Ткачева, д. 7Б, кв. 259<br>
+                г.Когалым ул.Ленинградская 1 7<br>
+                643, 400087, 34, Волгоград г, им Ткачева ул, 7Б, 259<br>
+                ТЮМЕНСКАЯ ОБЛАСТЬ,625000,ТЮМЕНСКАЯ ОБЛАСТЬ,ОБЛ,Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ Д.1,КВ.7<br>
+                ВОЛГОГРАДСКАЯ ВОЛГОГРАД 7 Б 259<br>
+                400087 Россия г. Волгоград ул. им Ткачева 7 корп. Б кв. 259<br>
+                г.Когалым ул.Ленинградская 1-кв.7<br>
+                г.Когалым, ул.Ленинградская, 1- кв.7<br>
+                г.Когалым ул.Ленинградская д.1 кв.7<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79093888844<br>
+                7<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                860805357620<br>
+                8608048498<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                6701533838<br>
+                751836094<br>
+                732462116<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                11362694042<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ООО ФИРМА КОНКОРД<br>
+                ТПП КОГАЛЫМНЕФТЕГАЗ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                122332/22/34043-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                19.05.2020<br>
+                14.11.2017<br>
+                06.02.2015<br>
+                24.07.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                1500<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                Е333АК134<br>
+                В443РО134<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                паспорт гражданина Российской Федерации<br>
+                Паспорт гражданина Российской Федерации<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                Волгоградская обл., г. Камышин<br>
+                г. Камышин, Волгоградской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                Россия, Волгоградская обл., г. Волгоград, ул. им. Ткачева, дом 7б, кв. 259<br>
+                Россия, Волгоградская обл., г. Волгоград, ул. им. Ткачева, д 7 &quot;Б&quot;, кв. 259<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                862-004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2002-04-11<br>
+                11.04.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                Когалымский ГОВД УВД  Ханты-Мансийского Автономного Округа<br>
+                Когалымским Городским отделом внутренних дел  УВД  Ханты-Мансийского Автономного Округа Тюменской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2022-08-17 09:08:22<br>
+                2018-08-17 07:18:02<br>
+                2018-08-26 20:37:16<br>
+                2015-06-14 13:18:23<br>
+                2019-05-04 14:04:54<br>
+                2019-04-24 09:55:54<br>
+                2022-08-23 13:37:03<br>
+                06.12.2014<br>
+                25.06.2014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЕРЕВОЗЧИК</div>
+              <div class="info-value">
+                АЗУР ЭЙР<br>
+                АЭРОФЛОТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР РЕЙСА</div>
+              <div class="info-value">
+                ZF-8873<br>
+                SU-2014<br>
+                ZF-3002<br>
+                385<br>
+                386<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЫЕЗД<br>
+                ВЪЕЗД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ПРИБЫТИЯ</div>
+              <div class="info-value">
+                АНТАЛЬЯ<br>
+                РИМ<br>
+                ПРАГА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                АВИАЦИОННЫЙ ТРАНСПОРТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ПРИБЫТИЯ</div>
+              <div class="info-value">
+                ТУРЦИЯ<br>
+                ИТАЛИЯ<br>
+                ЧЕХИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                МОСКВА (ВНУКОВО)<br>
+                ШЕРЕМЕТЬЕВО-D (АВИА)<br>
+                ШЕРЕМЕТЬЕВО-Е (АВИА)<br>
+                ШЕРЕМЕТЬЕВО-B (АВИА)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2015-07-08<br>
+                0000-00-00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                2022-08-17 11:05:00<br>
+                2018-08-17 08:50:00<br>
+                2018-08-26 20:00:00<br>
+                2015-06-14 15:26:00<br>
+                2019-05-04 13:41:00<br>
+                2019-05-04 13:50:00<br>
+                2019-04-24 13:00:00<br>
+                2022-08-23 12:56:00<br>
+                2022-08-23 13:05:00<br>
+                2022-08-17 11:21:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЛИЦЕНЗИИ</div>
+              <div class="info-value">
+                SU-2402<br>
+                SU-2345<br>
+                VPBUM<br>
+                SU-2011<br>
+                SU-2018<br>
+                73073<br>
+                73034<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                ДРЕЗДЕН<br>
+                ПРАГА<br>
+                АНТАЛЬЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                ГЕРМАНИЯ<br>
+                ЧЕХИЯ<br>
+                ТУРЦИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                X4XWX394700K75297<br>
+                WV1ZZZ2HZGH004667<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВАНИЯ</div>
+              <div class="info-value">
+                2019-08-08<br>
+                2021-08-08<br>
+                2021-10-06<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                BMW X3<br>
+                Volkswagen Amarok<br>
+                BMW<br>
+                Volkswagen<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">INFO_4</div>
+              <div class="info-value">
+                7003216272<br>
+                7006327077<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">KABINA</div>
+              <div class="info-value">
+                X4XWX394700K75297<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">SUMMA_2</div>
+              <div class="info-value">
+                184.00<br>
+                180.00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2022-08-07<br>
+                2020-08-07<br>
+                2022-10-05<br>
+                02.09.2015<br>
+                04.09.2015<br>
+                07.02.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                18900.85 руб.<br>
+                16202.70 руб.<br>
+                6016.75 руб.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">KOEFFICIENT</div>
+              <div class="info-value">
+                1.00<br>
+                3.54<br>
+                0.70<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">STATUS_AVTO</div>
+              <div class="info-value">
+                Личная<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                ACTIVE<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">SERIA_STRAHOVKI</div>
+              <div class="info-value">
+                ТТТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">UPRAVLENIE_AVTO</div>
+              <div class="info-value">
+                Не ограничен список лиц, допущенных к управлению<br>
+                Ограничен список лиц, допущенных к управлению (допущено: 4 чел.)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОДЕЛЬ ТС</div>
+              <div class="info-value">
+                X3<br>
+                Amarok<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ</div>
+              <div class="info-value">
+                B<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">PERIOD_ISPOLZOVANIYA</div>
+              <div class="info-value">
+                Период использования ТС активен на запрашиваемую дату<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ 1</div>
+              <div class="info-value">
+                2021-08-08<br>
+                2019-08-08<br>
+                2021-10-06<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА И МОДЕЛЬ</div>
+              <div class="info-value">
+                BMW X3<br>
+                Volkswagen Amarok<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2021-08-08<br>
+                2019-08-08<br>
+                2021-10-06<br>
+                2021-08-29 10:11:27<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2022-08-07<br>
+                2020-08-07<br>
+                2022-10-05<br>
+                2019-12-17<br>
+                2021-08-29 10:09:16<br>
+                26.02.2009<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВАЯ КОМПАНИЯ</div>
+              <div class="info-value">
+                ПАО СК Росгосстрах<br>
+                АО МАКС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                ЗИМИНА ОЛЬГА ВИКТОРОВНА 06.02.1977, ЗИМИН АНДРЕЙ МИХАЙЛОВИЧ 06.12.1998, МОЛЧАН ВИКТОР ЕФИМОВИЧ 29.05.1948, ЗИМИНА АННА МИХАЙЛОВНА 24.02.2004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЧАСОВОЙ ПОЯС</div>
+              <div class="info-value">
+                UTC+4<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАТОР СВЯЗИ</div>
+              <div class="info-value">
+                ПАО Вымпел-Коммуникации<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР КАРТЫ</div>
+              <div class="info-value">
+                7083373205000724537<br>
+                7083373258001678798<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОП. ТЕЛЕФОН</div>
+              <div class="info-value">
+                89093888844<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНОЕ ФИО</div>
+              <div class="info-value">
+                ЗИМИН МИХАИЛ ЮРЬЕВИЧ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                Москва Солдатский пер-к 4/43<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                Когалымским городским ОВД УВД Ханты- Мансийского автономного округа Тюменской обл.<br>
+                КОГАЛЫМСКИМ ГОРОДСКИМ ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ УВД ХАНТЫ-МАНСИЙСКОГО АВТОНОМНОГО ОКРУГА ТЮМЕНСКОЙ ОБЛАСТИ<br>
+                862004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОЛГА</div>
+              <div class="info-value">
+                1365<br>
+                343<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАИМЕНОВАНИЕ ИП</div>
+              <div class="info-value">
+                Центральный районный отдел судебных приставов города Волгограда Главного управления Федеральной службы судебных приставов по Волгоградской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВОЗБУЖДЕНИЯ ИП</div>
+              <div class="info-value">
+                09.08.2022<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</div>
+              <div class="info-value">
+                Центральный районный отдел судебных приставов города Волгограда<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                98593/20/34043-ИП<br>
+                67254/17/34043-ИП<br>
+                43789/15/34043-ИП<br>
+                44234/15/34043-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПАСПОРТА</div>
+              <div class="info-value">
+                862004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                Центральный районный отдел судебных приставов города Волгограда<br>
+                Центральный РОСП г.Волгограда УФССП по Волгоградской обл.<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Штраф ГИБДД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН МЕНЕДЖЕРА</div>
+              <div class="info-value">
+                7<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РАБОТЫ</div>
+              <div class="info-value">
+                117588,МОСКВА,ЦО,УЛ.ЯСНОГОРСКАЯ Д.5,КОР.1,<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                ТЮМЕНСКАЯ ОБЛАСТЬ,625000,ТЮМЕНСКАЯ ОБЛАСТЬ,ОБЛ,Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ Д.1,КВ.7<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                7<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИФНС</div>
+              <div class="info-value">
+                МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ №11 ПО ВОЛГОГРАДСКОЙ ОБЛАСТИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОКВЭД</div>
+              <div class="info-value">
+                40.10.11<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОП. ОКВЭД</div>
+              <div class="info-value">
+                40.10.4<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КПП ЮР.ЛИЦА</div>
+              <div class="info-value">
+                346101001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР В ФСС</div>
+              <div class="info-value">
+                340803064234011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС ЮР.ЛИЦА</div>
+              <div class="info-value">
+                400029, ОБЛАСТЬ ВОЛГОГРАДСКАЯ, ГОРОД ВОЛГОГРАД, УЛИЦА ИМ МОЦАРТА, ДОМ 17<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ЛИКВИДАЦИИ</div>
+              <div class="info-value">
+                30.12.1899<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОГРН ЮР.ЛИЦА</div>
+              <div class="info-value">
+                26.02.2009<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА МОДИФИКАЦИИ</div>
+              <div class="info-value">
+                14.04.2016 12:16:07<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ПФР</div>
+              <div class="info-value">
+                ГОСУДАРСТВЕННОЕ УЧРЕЖДЕНИЕ - УПРАВЛЕНИЕ ПЕНСИОННОГО ФОНДА РОССИЙСКОЙ ФЕДЕРАЦИИ ПО КРАСНОАРМЕЙСКОМУ РАЙОНУ Г.ВОЛГОГРАДА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ФСС</div>
+              <div class="info-value">
+                ФИЛИАЛ 1 ГОСУДАРСТВЕННОГО УЧРЕЖДЕНИЯ - ВОЛГОГРАДСКОГО РЕГИОНАЛЬНОГО ОТДЕЛЕНИЯ ФОНДА СОЦИАЛЬНОГО СТРАХОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР В ПФР ЮР.ЛИЦА</div>
+              <div class="info-value">
+                044043103487<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД РЕГИОНА ЮР.ЛИЦА</div>
+              <div class="info-value">
+                34<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН ЮРИДИЧЕСКОГО ЛИЦА</div>
+              <div class="info-value">
+                3435098928<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ В ПФР</div>
+              <div class="info-value">
+                18.03.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ В ФСС</div>
+              <div class="info-value">
+                28.09.2011<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОГРН ЮРИДИЧЕСКОГО ЛИЦА</div>
+              <div class="info-value">
+                1093435000845<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЛНОЕ НАЗВАНИЕ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ ЛУКОЙЛ-ВОЛГОГРАДЭНЕРГО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРАТКОЕ НАЗВАНИЕ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ООО ЛУКОЙЛ-ВОЛГОГРАДЭНЕРГО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН РЕГИСТРАЦИИ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ ПО ДЗЕРЖИНСКОМУ РАЙОНУ Г. ВОЛГОГРАДА, 400094, ВОЛГОГРАДСКАЯ ОБЛ., Г.ВОЛГОГРАД, УЛ.51-Я ГВАРДЕЙСКАЯ, 38<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФОРМА СОБСТВЕННОСТИ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ОБЩЕСТВА С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСТАНОВКИ НА УЧЕТ В ИФНС</div>
+              <div class="info-value">
+                15.03.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАЦИЯ</div>
+              <div class="info-value">
+                ПБ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВРЕМЯ РЕЙСА</div>
+              <div class="info-value">
+                12:20<br>
+                15:10<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АВИАКОМПАНИЯ</div>
+              <div class="info-value">
+                ЮТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ДОКУМЕНТА</div>
+              <div class="info-value">
+                ПС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОПЕРАЦИИ</div>
+              <div class="info-value">
+                06.12.2014<br>
+                20.06.2014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОПЕРАТОРА</div>
+              <div class="info-value">
+                ПШ7ГСТ<br>
+                НП92ФШ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АЭРОПОРТ ВЫЛЕТА</div>
+              <div class="info-value">
+                ВНК<br>
+                ВГГ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АЭРОПОРТ ПРИЛЕТА</div>
+              <div class="info-value">
+                ВГГ<br>
+                ВНК<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОСП</div>
+              <div class="info-value">
+                34043<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСТАТОК</div>
+              <div class="info-value">
+                1500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">БАЗА</div>
+              <div class="info-value">
+                2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД СЧЕТА</div>
+              <div class="info-value">
+                4272131<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФНС 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">860805357620</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">Волгоградская обл., г. Камышин</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Россия, Волгоградская обл., г. Волгоград, ул. им. Ткачева, дом 7б, кв. 259</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">862-004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2002-04-11</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Когалымский ГОВД УВД  Ханты-Мансийского Автономного Округа</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">Волгоградская обл., г. Камышин</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">862-004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2002-04-11</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Когалымским Городским отделом внутренних дел  УВД  Ханты-Мансийского Автономного Округа Тюменской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">г. Камышин, Волгоградской области</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">Россия, Волгоградская обл., г. Волгоград, ул. им. Ткачева, д 7 &quot;Б&quot;, кв. 259</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">862-004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2002-04-11</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Когалымским Городским отделом внутренних дел  УВД  Ханты-Мансийского Автономного Округа Тюменской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2022-08-17 09:08:22</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">ZF-8873</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2022-08-17 11:05:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-08-17 07:18:02</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЭРОФЛОТ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">РИМ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SU-2402</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ИТАЛИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ШЕРЕМЕТЬЕВО-D (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-08-17 08:50:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-08-26 20:37:16</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЭРОФЛОТ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SU-2345</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ДРЕЗДЕН</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ШЕРЕМЕТЬЕВО-D (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ГЕРМАНИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-08-26 20:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-08-17 07:18:02</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЭРОФЛОТ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">РИМ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SU-2402</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ИТАЛИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ШЕРЕМЕТЬЕВО-D (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">0000-00-00</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-08-17 08:50:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">732462116</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2015-06-14 13:18:23</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЭРОФЛОТ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">SU-2014</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ПРАГА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">VPBUM</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЧЕХИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ШЕРЕМЕТЬЕВО-Е (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">0000-00-00</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2015-06-14 15:26:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-04 14:04:54</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЭРОФЛОТ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SU-2011</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ПРАГА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ШЕРЕМЕТЬЕВО-Е (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЧЕХИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-04 13:41:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-05-04 14:04:54</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЭРОФЛОТ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SU-2011</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">ПРАГА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ШЕРЕМЕТЬЕВО-Е (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ЧЕХИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-05-04 13:50:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2019-04-24 09:55:54</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЭРОФЛОТ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ПРАГА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">SU-2018</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ЧЕХИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ШЕРЕМЕТЬЕВО-B (АВИА)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2019-04-24 13:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2022-08-23 13:37:03</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">ZF-3002</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">73073</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2022-08-23 12:56:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2022-08-23 13:37:03</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">ZF-3002</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2022-08-23 13:05:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">751836094</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2022-08-17 09:08:22</td>
+                </tr>
+                <tr>
+                  <td>ПЕРЕВОЗЧИК</td>
+                  <td class="">АЗУР ЭЙР</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">ZF-8873</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">АНТАЛЬЯ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">73034</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВИАЦИОННЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">ТУРЦИЯ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">МОСКВА (ВНУКОВО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2015-07-08</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2022-08-17 11:21:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">860805357620</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X4XWX394700K75297</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е333АК134</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2019-08-08</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">BMW X3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X4XWX394700K75297</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е333АК134</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-08-08</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">BMW X3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WV1ZZZ2HZGH004667</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">В443РО134</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВАНИЯ</td>
+                  <td class="">2021-10-06</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Volkswagen Amarok</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">7003216272</td>
+                </tr>
+                <tr>
+                  <td>KABINA</td>
+                  <td class="">X4XWX394700K75297</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">184.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2022-08-07</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Волгоградская обл, г Волгоград</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">18900.85 руб.</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">1.00</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X4XWX394700K75297</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ТТТ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Не ограничен список лиц, допущенных к управлению</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е333АК134</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">X3</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2021-08-08</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">BMW X3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-08-08</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2022-08-07</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">BMW</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">ПАО СК Росгосстрах</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">7003216272</td>
+                </tr>
+                <tr>
+                  <td>KABINA</td>
+                  <td class="">X4XWX394700K75297</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">184.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2020-08-07</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Волгоградская обл, г Волгоград</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">16202.70 руб.</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">3.54</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X4XWX394700K75297</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ТТТ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Не ограничен список лиц, допущенных к управлению</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е333АК134</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">X3</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2019-08-08</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">BMW X3</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2019-08-08</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-08-07</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">BMW</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">ПАО СК Росгосстрах</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">РСА 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>INFO_4</td>
+                  <td class="">7006327077</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>SUMMA_2</td>
+                  <td class="">180.00</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2022-10-05</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Волгоградская обл, г Волгоград</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">6016.75 руб.</td>
+                </tr>
+                <tr>
+                  <td>KOEFFICIENT</td>
+                  <td class="">0.70</td>
+                </tr>
+                <tr>
+                  <td>STATUS_AVTO</td>
+                  <td class="">Личная</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">ACTIVE</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">WV1ZZZ2HZGH004667</td>
+                </tr>
+                <tr>
+                  <td>SERIA_STRAHOVKI</td>
+                  <td class="">ТТТ</td>
+                </tr>
+                <tr>
+                  <td>UPRAVLENIE_AVTO</td>
+                  <td class="">Ограничен список лиц, допущенных к управлению (допущено: 4 чел.)</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">В443РО134</td>
+                </tr>
+                <tr>
+                  <td>МОДЕЛЬ ТС</td>
+                  <td class="">Amarok</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>PERIOD_ISPOLZOVANIYA</td>
+                  <td class="">Период использования ТС активен на запрашиваемую дату</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ 1</td>
+                  <td class="">2021-10-06</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>МАРКА И МОДЕЛЬ</td>
+                  <td class="">Volkswagen Amarok</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-10-06</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2022-10-05</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">Volkswagen</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">АО МАКС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ 1 7</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ЗИМИНА ОЛЬГА ВИКТОРОВНА 06.02.1977, ЗИМИН АНДРЕЙ МИХАЙЛОВИЧ 06.12.1998, МОЛЧАН ВИКТОР ЕФИМОВИЧ 29.05.1948, ЗИМИНА АННА МИХАЙЛОВНА 24.02.2004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ Д.1 КВ.7</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ЗИМИНА ОЛЬГА ВИКТОРОВНА 06.02.1977, ЗИМИН АНДРЕЙ МИХАЙЛОВИЧ 06.12.1998, МОЛЧАН ВИКТОР ЕФИМОВИЧ 29.05.1948, ЗИМИНА АННА МИХАЙЛОВНА 24.02.2004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Сбербанк 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Волгоградская обл.</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>ЧАСОВОЙ ПОЯС</td>
+                  <td class="">UTC+4</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАТОР СВЯЗИ</td>
+                  <td class="">ПАО Вымпел-Коммуникации</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2019-12-17</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 400087, 34, ВОЛГОГРАД Г, ИМ ТКАЧЕВА УЛ, 7Б, 259</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты lukoil.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ВОЛГОГРАД ЦЕНТРАЛЬНЫЙ ТКАЧЕВА 7Б ДОМ. КВ.259</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КАРТЫ</td>
+                  <td class="">7083373205000724537</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ТЕЛЕФОН</td>
+                  <td class="">89093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНОЕ ФИО</td>
+                  <td class="">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты gemotest.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Волгоград Ткачева 7/259</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">Москва Солдатский пер-к 4/43</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2021-08-29 10:11:27</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-08-29 10:09:16</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">Когалымским городским ОВД УВД Ханты- Мансийского автономного округа Тюменской обл.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">400087, Россия, Волгоградская обл., г. Волгоград, ул. им. Пархоменко, д. 2а, машино-место 19</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">122332/22/34043-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1365</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">Центральный районный отдел судебных приставов города Волгограда Главного управления Федеральной службы судебных приставов по Волгоградской области</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">09.08.2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">860805357620</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты lukoil.ru 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ВОЛГОГРАД ЦЕНТРАЛЬНЫЙ ТКАЧЕВА 7Б ДОМ. КВ.259</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79093888844</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КАРТЫ</td>
+                  <td class="">7083373258001678798</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ТЕЛЕФОН</td>
+                  <td class="">89093888844</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНОЕ ФИО</td>
+                  <td class="">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 400087, 34, ВОЛГОГРАД Г, ИМ ТКАЧЕВА УЛ, 7Б, 259</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">8608048498</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ 1 7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ 1 7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ Д.1 КВ.7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">400087, РОССИЯ, ВОЛГОГРАДСКАЯ ОБЛ.,  Г. ВОЛГОГРАД,  УЛ. ИМ. ПАРХОМЕНКО, Д. 2А,  МАШИНО-МЕСТО 19</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">400087, Россия, Волгоградская обл. , г. Волгоград, ул. им Ткачева, д. 7Б, кв. 259</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">19.05.2020</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">343</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Центральный районный отдел судебных приставов города Волгограда</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">98593/20/34043-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г.Когалым ул.Ленинградская 1 7</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2018</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 400087, 34, Волгоград г, им Ткачева ул, 7Б, 259</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">14.11.2017</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">862004</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Центральный районный отдел судебных приставов города Волгограда</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">КОГАЛЫМСКИМ ГОРОДСКИМ ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ УВД ХАНТЫ-МАНСИЙСКОГО АВТОНОМНОГО ОКРУГА ТЮМЕНСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">11.04.2002</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">67254/17/34043-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ФИРМА КОНКОРД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН МЕНЕДЖЕРА</td>
+                  <td class="">7</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РАБОТЫ</td>
+                  <td class="">117588,МОСКВА,ЦО,УЛ.ЯСНОГОРСКАЯ Д.5,КОР.1,</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ТЮМЕНСКАЯ ОБЛАСТЬ,625000,ТЮМЕНСКАЯ ОБЛАСТЬ,ОБЛ,Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ Д.1,КВ.7</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Доходы 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">ТЮМЕНСКАЯ ОБЛАСТЬ,625000,ТЮМЕНСКАЯ ОБЛАСТЬ,ОБЛ,Г.КОГАЛЫМ УЛ.ЛЕНИНГРАДСКАЯ Д.1,КВ.7</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН РЕГИСТРАЦИИ</td>
+                  <td class="">7</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Придприниматели 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">860805357620</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ИФНС</td>
+                  <td class="">МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ №11 ПО ВОЛГОГРАДСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ВОЛГОГРАДСКАЯ ВОЛГОГРАД 7 Б 259</td>
+                </tr>
+                <tr>
+                  <td>ОКВЭД</td>
+                  <td class="">40.10.11</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">11362694042</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ОКВЭД</td>
+                  <td class="">40.10.4</td>
+                </tr>
+                <tr>
+                  <td>КПП ЮР.ЛИЦА</td>
+                  <td class="">346101001</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР В ФСС</td>
+                  <td class="">340803064234011</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС ЮР.ЛИЦА</td>
+                  <td class="">400029, ОБЛАСТЬ ВОЛГОГРАДСКАЯ, ГОРОД ВОЛГОГРАД, УЛИЦА ИМ МОЦАРТА, ДОМ 17</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ЛИКВИДАЦИИ</td>
+                  <td class="">30.12.1899</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОГРН ЮР.ЛИЦА</td>
+                  <td class="">26.02.2009</td>
+                </tr>
+                <tr>
+                  <td>ДАТА МОДИФИКАЦИИ</td>
+                  <td class="">14.04.2016 12:16:07</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">26.02.2009</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ПФР</td>
+                  <td class="">ГОСУДАРСТВЕННОЕ УЧРЕЖДЕНИЕ - УПРАВЛЕНИЕ ПЕНСИОННОГО ФОНДА РОССИЙСКОЙ ФЕДЕРАЦИИ ПО КРАСНОАРМЕЙСКОМУ РАЙОНУ Г.ВОЛГОГРАДА</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ФСС</td>
+                  <td class="">ФИЛИАЛ 1 ГОСУДАРСТВЕННОГО УЧРЕЖДЕНИЯ - ВОЛГОГРАДСКОГО РЕГИОНАЛЬНОГО ОТДЕЛЕНИЯ ФОНДА СОЦИАЛЬНОГО СТРАХОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР В ПФР ЮР.ЛИЦА</td>
+                  <td class="">044043103487</td>
+                </tr>
+                <tr>
+                  <td>КОД РЕГИОНА ЮР.ЛИЦА</td>
+                  <td class="">34</td>
+                </tr>
+                <tr>
+                  <td>ИНН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">3435098928</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ПФР</td>
+                  <td class="">18.03.2016</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ФСС</td>
+                  <td class="">28.09.2011</td>
+                </tr>
+                <tr>
+                  <td>ОГРН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">1093435000845</td>
+                </tr>
+                <tr>
+                  <td>ПОЛНОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ ЛУКОЙЛ-ВОЛГОГРАДЭНЕРГО</td>
+                </tr>
+                <tr>
+                  <td>КРАТКОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ООО ЛУКОЙЛ-ВОЛГОГРАДЭНЕРГО</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН РЕГИСТРАЦИИ ЮР.ЛИЦА</td>
+                  <td class="">ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ ПО ДЗЕРЖИНСКОМУ РАЙОНУ Г. ВОЛГОГРАДА, 400094, ВОЛГОГРАДСКАЯ ОБЛ., Г.ВОЛГОГРАД, УЛ.51-Я ГВАРДЕЙСКАЯ, 38</td>
+                </tr>
+                <tr>
+                  <td>ФОРМА СОБСТВЕННОСТИ ЮР.ЛИЦА</td>
+                  <td class="">ОБЩЕСТВА С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСТАНОВКИ НА УЧЕТ В ИФНС</td>
+                  <td class="">15.03.2016</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Авиaперелеты Сирена 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">ПБ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">06.12.2014</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ РЕЙСА</td>
+                  <td class="">12:20</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">385</td>
+                </tr>
+                <tr>
+                  <td>АВИАКОМПАНИЯ</td>
+                  <td class="">ЮТ</td>
+                </tr>
+                <tr>
+                  <td>ВИД ДОКУМЕНТА</td>
+                  <td class="">ПС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОПЕРАЦИИ</td>
+                  <td class="">06.12.2014</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>КОД ОПЕРАТОРА</td>
+                  <td class="">ПШ7ГСТ</td>
+                </tr>
+                <tr>
+                  <td>АЭРОПОРТ ВЫЛЕТА</td>
+                  <td class="">ВНК</td>
+                </tr>
+                <tr>
+                  <td>АЭРОПОРТ ПРИЛЕТА</td>
+                  <td class="">ВГГ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Авиaперелеты Сирена 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">ПБ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">25.06.2014</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ РЕЙСА</td>
+                  <td class="">15:10</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">386</td>
+                </tr>
+                <tr>
+                  <td>АВИАКОМПАНИЯ</td>
+                  <td class="">ЮТ</td>
+                </tr>
+                <tr>
+                  <td>ВИД ДОКУМЕНТА</td>
+                  <td class="">ПС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОПЕРАЦИИ</td>
+                  <td class="">20.06.2014</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>КОД ОПЕРАТОРА</td>
+                  <td class="">НП92ФШ</td>
+                </tr>
+                <tr>
+                  <td>АЭРОПОРТ ВЫЛЕТА</td>
+                  <td class="">ВГГ</td>
+                </tr>
+                <tr>
+                  <td>АЭРОПОРТ ПРИЛЕТА</td>
+                  <td class="">ВНК</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 53 -->
+      <div class="card source-card" id="source52">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">02.09.2015</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">400087 Россия г. Волгоград ул. им Ткачева 7 корп. Б кв. 259</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">06.02.2015</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">34043</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Центральный РОСП г.Волгограда УФССП по Волгоградской обл.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">862004</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">11.04.2002</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">43789/15/34043-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 54 -->
+      <div class="card source-card" id="source53">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">04.09.2015</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">400087 Россия г. Волгоград ул. им Ткачева 7 корп. Б кв. 259</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">24.07.2015</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">34043</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6701533838</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Центральный РОСП г.Волгограда УФССП по Волгоградской обл.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">862004</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">11.04.2002</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">44234/15/34043-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 55 -->
+      <div class="card source-card" id="source54">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Зимин Михаил Юрьевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">07.02.2015</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">400087 Россия г. Волгоград ул. им Ткачева 7 корп. Б кв. 259</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">06.02.2015</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">34043</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Центральный РОСП г.Волгограда УФССП по Волгоградской обл.</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">43789/15/34043-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 56 -->
+      <div class="card source-card" id="source55">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Тюменская область 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>БАЗА</td>
+                  <td class="">2007</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г.Когалым ул.Ленинградская 1-кв.7</td>
+                </tr>
+                <tr>
+                  <td>КОД СЧЕТА</td>
+                  <td class="">4272131</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 57 -->
+      <div class="card source-card" id="source56">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Тюменская область 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>БАЗА</td>
+                  <td class="">2007</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г.Когалым, ул.Ленинградская, 1- кв.7</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 58 -->
+      <div class="card source-card" id="source57">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Место работы Тюменская область 2009</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г.Когалым ул.Ленинградская 1 7</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ТПП КОГАЛЫМНЕФТЕГАЗ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 59 -->
+      <div class="card source-card" id="source58">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г.Когалым ул.Ленинградская 1 7</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ЗИМИНА ОЛЬГА ВИКТОРОВНА 06.02.1977, ЗИМИН АНДРЕЙ МИХАЙЛОВИЧ 06.12.1998, МОЛЧАН ВИКТОР ЕФИМОВИЧ 29.05.1948, ЗИМИНА АННА МИХАЙЛОВНА 24.02.2004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 60 -->
+      <div class="card source-card" id="source59">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЗИМИН МИХАИЛ ЮРЬЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г.Когалым ул.Ленинградская д.1 кв.7</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ЗИМИНА ОЛЬГА ВИКТОРОВНА 06.02.1977, ЗИМИН АНДРЕЙ МИХАЙЛОВИЧ 06.12.1998, МОЛЧАН ВИКТОР ЕФИМОВИЧ 29.05.1948, ЗИМИНА АННА МИХАЙЛОВНА 24.02.2004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">23.04.1978</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                ФНС 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                РСА 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Клиенты Сбербанк 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Клиенты lukoil.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Клиенты gemotest.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Клиенты lukoil.ru 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                ФССП 2018
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                Доходы 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Придприниматели 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Авиaперелеты Сирена 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                Авиaперелеты Сирена 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source52" class="nav-link " onclick="scrollToSource('source52', event)">
+                ФССП 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source53" class="nav-link " onclick="scrollToSource('source53', event)">
+                ФССП 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source54" class="nav-link " onclick="scrollToSource('source54', event)">
+                ФССП 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source55" class="nav-link " onclick="scrollToSource('source55', event)">
+                Жители Тюменская область 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source56" class="nav-link " onclick="scrollToSource('source56', event)">
+                Жители Тюменская область 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source57" class="nav-link " onclick="scrollToSource('source57', event)">
+                Место работы Тюменская область 2009
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source58" class="nav-link " onclick="scrollToSource('source58', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source59" class="nav-link " onclick="scrollToSource('source59', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,5073 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Конов Егор Сергеевич 10.02.1987</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Конов Егор Сергеевич 10.02.1987</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">69 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Конов Егор Сергеевич<br>
+                КОНОВ ЕГОР СЕРГЕЕВИЧ<br>
+                Конов егор сергеевич<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                10.02.1987<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                обл. Калужская, г. Калуга, ул. Ромодановские Дворики,39,35<br>
+                обл Калужская, г Калуга, ул Ромодановские Дворики,39,35<br>
+                248033, КАЛУЖСКАЯ ОБЛ, КАЛУГА Г, РОМОДАНОВСКИЕ ДВОРИКИ Д, Д 39, КВ 35<br>
+                643,248033,40,,КАЛУГА,,РОМОДАНОВСКИЕ ДВОРИКИ,39,,35<br>
+                248033, Россия, Калужская обл., г. Калуга, ул. Ромодановские Дворики, д. 39, кв. 35<br>
+                Г КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ ?УЛИЦА .39 35<br>
+                г. калуга, ул. ромодановские дворики, д. 39, кв. 35<br>
+                643,248033,40,КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ,39,35<br>
+                643,248033,40,КАЛУГА Г.,РОМОДАНОВСКИЕ ДВОРИКИ,39,35<br>
+                643,248033,40,РОМОДАНОВСКИЕ ДВОРИКИ Д,39,35<br>
+                643,248033,40,Г КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ УЛ.,39,35<br>
+                РОССИЯ,Г. КАЛУГА,УЛ. РОМАДАНОВСКИЕ ДВОРИКИ,Д.39-35,<br>
+                643,248000,40,КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ,39,35<br>
+                643,248033,40,,Г КАЛУГА,,РОМОДАНОВСКИЕ ДВОРИКИ УЛ.,39,,35<br>
+                643, 248033, 40, КАЛУГА Г, РОМОДАНОВСКИЕ ДВОРИКИ УЛ, 39, 35<br>
+                643,248000,40,,Калуга г.,,Ромодановские Дворики ул.,39,,35<br>
+                643, 248000, 40, Калуга г. , Ромодановские Дворики ул. , 39, 35<br>
+                643, 248033, 40, КАЛУГА Г. , РОМОДАНОВСКИЕ ДВОРИКИ, 39, 35<br>
+                643,248033,40,Ромодановские Дворики д,39,35<br>
+                КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35<br>
+                ул. Ромодановские дворики 39-35<br>
+                ул. Ромодановские дворики 39-35; ул. Луначарского 4-8<br>
+                248033, РОССИЯ, г. КАЛУГА, ул. РОМОДАНОВСКИЕ ДВОРИКИ, д. 39, кв. 35<br>
+                РОССИЯ Г. КАЛУГА УЛ. РОМОДАНОВСКИЕ ДВОРИКИ Д. 39 КВ. 35<br>
+                643 248000 40 Калуга г Ромодановские Дворики ул 39 35<br>
+                ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35<br>
+                КАЛУЖСКАЯ ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35<br>
+                РОМОДАНОВСКИЕ ДВОРИКИ 39 35; ЛУНАЧАРСКОГО 4 8<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                Калуга и Калужская область; [29] Калукжская Область (КСРФ=40)<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                79056433242<br>
+                79208901690<br>
+                74842763212<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                13980552082<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                1963322906<br>
+                756004109<br>
+                2906196332<br>
+                2904923316<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                402709827701<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТ</div>
+              <div class="info-value">
+                2904 923316 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ЛЕНИНСКОГО ОКРУГА Г.КАЛУГИ ДАТА ВЫДАЧИ:02.03.2004 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 319657 ВЫДАН:РОМОД СС Г КАЛУГА ДАТА ВЫДАЧИ:13.02.1987;2906 196332 КЕМ ВЫДАН:ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В ЛЕНИНСКОМ ОКРУГЕ ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:23.05.2007 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2904 923316 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ЛЕНИНСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:02.03.2004<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ЗАО КЗОЦМ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                1415<br>
+                20218<br>
+                500<br>
+                1000<br>
+                5000<br>
+                1500<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                27.09.2021<br>
+                15.05.2021<br>
+                09.09.2019<br>
+                16.10.2019<br>
+                04.12.2018<br>
+                24.08.2019<br>
+                20.08.2019<br>
+                07.08.2019<br>
+                03.09.2019<br>
+                02.08.2019<br>
+                26.11.2018<br>
+                27.07.2019<br>
+                01.08.2016<br>
+                18.11.2014<br>
+                22.05.2014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                74668/21/40021-ИП<br>
+                65460/21/40021-ИП<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                O630PK40<br>
+                К178КС40<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                Работает<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕЙТИНГ</div>
+              <div class="info-value">
+                0.98<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СЕГМЕНТ</div>
+              <div class="info-value">
+                Мало заказов<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС EMAIL</div>
+              <div class="info-value">
+                Не подтвержден<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АВТОМОБИЛЬ</div>
+              <div class="info-value">
+                Volkswagen Polo белый O630PK40<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">БАЗА (НАЛОГ)</div>
+              <div class="info-value">
+                Максим Калуга<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАЧАЛА</div>
+              <div class="info-value">
+                2019-08-21 08:21:41<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ПАСПОРТА</div>
+              <div class="info-value">
+                РФ (10 цифр)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФИО (ВОДИТЕЛЬ)</div>
+              <div class="info-value">
+                Ибрагимова Екатерина Игоревна<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2025-01-23 08:32:11<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОТОБРАЖЕНИЯ</div>
+              <div class="info-value">
+                Своя организация<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЛАСС АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                Средний класс<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРВОГО ВХОДА</div>
+              <div class="info-value">
+                2019-08-21 08:21:41<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСТОЧНИК (ВОДИТЕЛЬ)</div>
+              <div class="info-value">
+                Затрудняется сказать<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">БАЗОВАЯ ОРГАНИЗАЦИЯ</div>
+              <div class="info-value">
+                Максим Калуга<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФО ПО ДИСПЕТЧЕРИЗАЦИИ</div>
+              <div class="info-value">
+                ПР УведЗаказ УведМежгор Грузчик Автопомощь КиП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                2018-11-17 00:27:55<br>
+                2018-01-10 03:53:35<br>
+                2018-11-19 22:51:34<br>
+                2018-04-07 05:34:14<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ОПЕРАЦИИ</div>
+              <div class="info-value">
+                ВЫЕЗД<br>
+                ВЪЕЗД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ПРИБЫТИЯ</div>
+              <div class="info-value">
+                КИШИНЕВ<br>
+                ВИННИЦА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЛИЦЕНЗИИ</div>
+              <div class="info-value">
+                65<br>
+                Х077ОО77<br>
+                AI2641BO<br>
+                АВ5599АВ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ТРАНСПОРТА</div>
+              <div class="info-value">
+                ЖЕЛЕЗНОДОРОЖНЫЙ СОСТАВ<br>
+                АВТОМОБИЛЬНЫЙ ТРАНСПОРТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ПРИБЫТИЯ</div>
+              <div class="info-value">
+                МОЛДОВА<br>
+                УКРАИНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОГРАНИЧНЫЙ ПУНКТ</div>
+              <div class="info-value">
+                СУЗЕМКИ (Ж.Д.)<br>
+                ПОГАР (АВТО)<br>
+                ТРОЕБОРТНОЕ (АВТО)<br>
+                НОВЫЕ ЮРКОВИЧИ (АВТО)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                2017-09-18<br>
+                2017-09-10<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ВЫДАЧИ ДОКУМЕНТА</div>
+              <div class="info-value">
+                РОССИЯ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</div>
+              <div class="info-value">
+                2018-11-16 23:55:00<br>
+                2018-01-10 03:11:00<br>
+                2018-11-19 22:48:00<br>
+                2018-04-07 05:29:00<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОРОД ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                КИЕВ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАНА ОТПРАВЛЕНИЯ</div>
+              <div class="info-value">
+                УКРАИНА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОНЫ</div>
+              <div class="info-value">
+                74842763212<br>
+                79208901690<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТС</div>
+              <div class="info-value">
+                40EP876827<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА</div>
+              <div class="info-value">
+                2016-01-19 00:45:46<br>
+                22.09.2016<br>
+                17.12.2014<br>
+                15.07.2014<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                X9L212300D0480064<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР СТРАХОВКИ</div>
+              <div class="info-value">
+                ЕЕЕ0363313347<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                КОНОВА ГАЛИНА ВЛАДИМИРОВНА 20.01.1959<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                ОСП по Ленинскому округу г. Калуги УФССП России по Калужской области<br>
+                154946/19/40053-ИП<br>
+                31691/20/40053-ИП<br>
+                545/20/40053-ИП<br>
+                132371/19/40053-СД<br>
+                165853/20/40053-ИП<br>
+                147670/19/40053-ИП<br>
+                62173/19/40021-ИП<br>
+                136535/19/40053-ИП<br>
+                152337/19/40053-ИП<br>
+                132373/19/40053-ИП<br>
+                132371/19/40053-ИП<br>
+                27583/19/40053-ИП<br>
+                124715/19/40053-ИП<br>
+                127539/16/40021-ИП<br>
+                549894/14/40021-ИП<br>
+                57567/14/21/40<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                отделом уфмс россии по калужской области вленинском округе города калуги<br>
+                ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В ЛЕНИНСКОМ ОКРУГЕ ГОРОДА КАЛУГИ<br>
+                ОУФМС РОССИИ по Калужской области в Ленинском округе города Калуги<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                23.05.2007<br>
+                2007-05-23<br>
+                02.03.2004<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОЛГА</div>
+              <div class="info-value">
+                500<br>
+                6000<br>
+                2500<br>
+                3500<br>
+                1000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</div>
+              <div class="info-value">
+                ОСП по ВАШ в гор. Калуге<br>
+                ОСП по ВАШ по г. Калуге УФССП России по Калужской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                ОСП по ВАШ в гор. Калуге<br>
+                ОСП по Ленинскому округу г. Калуги<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+                Штраф ГИБДД<br>
+                Взыскание налогов и сборов включая пени<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФАБУЛА</div>
+              <div class="info-value">
+                КРЕДИТ=Сумма:110 000*(долг ЖКХ); 30.05.2007: долг ЖКХ ;<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА УЧЕТА</div>
+              <div class="info-value">
+                30.05.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСТОЧНИК ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                Сбербанк<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИМЕЧАНИЕ</div>
+              <div class="info-value">
+                КРЕДИТ=Сумма:110 000*(долг ЖКХ)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕКСТ ДАТЫ РОЖДЕНИЯ</div>
+              <div class="info-value">
+                10.02.1987<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОСП</div>
+              <div class="info-value">
+                40021<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСТАТОК</div>
+              <div class="info-value">
+                500<br>
+                7030<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПАСПОРТА</div>
+              <div class="info-value">
+                402001<br>
+                400001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП УЧЁТА</div>
+              <div class="info-value">
+                УЧЕТЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД РОЖДЕНИЯ</div>
+              <div class="info-value">
+                1987<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Тип учета: УЧЕТЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                КАЛУГА Д:39 К: КВ:35;ГОР.КАЛУГА УЛ. РОМОДАНОВСКИЕ ДВОРИКИ Д:39 КВ:35<br>
+                РОССИЯ КАЛУЖСКАЯ ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ Д.39 КВ.35 (Данные от: 27.07.2007); РОССИЯ КАЛУЖСКАЯ ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ Д.39 КВ.35 (Данные от: 28.07.2010)<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ДОКУМЕНТА</div>
+              <div class="info-value">
+                ОБМЕН ПАСПОРТА СССР;ПО 20-ТИ (45-ТИ) ЛЕТИЮ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                ЛЕНИНСКИЙ ДЕР. РОМОДАНОВСКИЕ ДВОРИКИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА</div>
+              <div class="info-value">
+                7030<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАРУШЕНИЯ</div>
+              <div class="info-value">
+                15.10.2008<br>
+                24.12.2008<br>
+                14.03.2009<br>
+                30.06.2012<br>
+                29.02.2012<br>
+                09.02.2009<br>
+                10.06.2009<br>
+                21.08.2011<br>
+                07.06.2009<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                БМВ-3205<br>
+                990<br>
+                27<br>
+                БМВ 320<br>
+                27 320<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</div>
+              <div class="info-value">
+                Рег. знак: К178КС40 БМВ-3205 ЛЕГКОВОЙ АВТОМОБИЛЬ ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 20 ДО 40 КМ/Ч Дата нарушения: 15.10.2008 Выявлено: 1 ОБ ДПС Статья КоАП: 12.9.2 Рег.номер: 40#40ПК169576Т69 Состояние: Вынесено постановление Протокол: 40ПК169576 Дата:15.10.2008 Постановление: 40ПК169576 Дата:15.10.2008 Наказание: Штраф Штраф: 300 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: К178КС40 Марка: 990 УПРАВЛЕНИЕ ТС ПРИ НАЛИЧИИ НЕИСПРАВНОСТЕЙ ПРИ ЭКСПЛУАТАЦИЯ ТС ЗАПРЕЩЕНА, ЗА ИСКЛЮЧЕНИЕМ НЕИСПРАВНОСТЕЙ ТОРМОЗНОЙ СИСТЕМЫ, РУЛЕВОГО УПРАВЛЕНИЯ ИЛИ СЦЕПНОГО УСТРОЙСТВА Дата нарушения: 24.12.2008 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.5.1 Рег.номер: 40#52408R40ПК0212359 Состояние: Вынесено постановление Постановление: 40ПК0212359 Дата:24.12.2008 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 1 (ПРИКАЗ МВД № 346-93) №:40ЕР876827 Подразделение исполнитель: 2 ОБ ДПС<br>
+                Рег. знак: К178КС40 Марка: 27 ЛЕГКОВОЙ АВТОМОБИЛЬ ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 20 ДО 40 КМ/Ч Дата нарушения: 14.03.2009 Выявлено: 1 ОБ ДПС Статья КоАП: 12.9.2 Рег.номер: 40#510940ПК0235792 Состояние: Вынесено постановление Протокол: 40ПК0235792 Дата:14.03.2009 Постановление: 40ПК0235792 Дата:14.03.2009 Наказание: Штраф Штраф: 300 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 1 (ПРИКАЗ МВД № 346-93) №:40ЕР876827 Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                Рег. знак: К178КС40 Марка: БМВ 320 Легковой автомобиль ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТРАНСПОРТНОГО СРЕДСТВА НА ВЕЛИЧИНУ ОТ 20 ДО 40 КИЛОМЕТРОВ В ЧАС Статья КоАП: 12.9.2 Дата нарушения: 30.06.2012 Выявлено: 1 ОБ ДПС Место нарушения: КАЛУГА БОР 8 Рег.номер: 40#201206302369771500 Состояние: Вынесено постановление Постановление: 40АП746453 Дата:30.06.2012 Кем вынесено постановление: СТ.ИНСПЕКТР ОБДПС:МАСТЮШКИН АЛЕКСЕЙ АЛЕКСЕЕВИЧ Наказание: ШТРАФ Размер наказания: 300 Дата оплаты: Исполнение: Не исполнено Категория: ВОДИТЕЛЬ Место работы: не сообщает Гражданство: РОССИЯ Водительское удостоверение образец № 1 (приказ МВД № 346-93) №:40ЕР876827 Тип владельца ТС: Физическое лицо<br>
+                Рег. знак: К178КС40 Марка: БМВ 320 Легковой автомобиль НЕВЫПОЛНЕНИЕ ТРЕБОВАНИЯ ПРАВИЛ ДОРОЖНОГО ДВИЖЕНИЯ УСТУПИТЬ ДОРОГУ ПЕШЕХОДАМ, ВЕЛОСИПЕДИСТАМ ИЛИ ИНЫМ УЧАСТНИКАМ ДОРОЖНОГО ДВИЖЕНИЯ (ЗА ИСКЛЮЧЕНИЕМ ВОДИТЕЛЕЙ ТРАНСПОРТНЫХ СРЕДСТВ), ПОЛЬЗУЮЩИМСЯ ПРЕИМУЩЕСТВОМ В ДВИЖЕНИИ Статья КоАП: 12.18 Дата нарушения: 29.02.2012 Выявлено: 1 ОБ ДПС Место нарушения: СТ.ТОРГ 5 Рег.номер: 40#201202294024122577 Состояние: Вынесено постановление Постановление: 40АП616960 Дата:29.02.2012 Кем вынесено постановление: СТ.ИНСПЕКТОР ОБ ДПС:БАРКОВ ДМИТРИЙ ВИКТОРОВИЧ Наказание: ШТРАФ Размер наказания: 1000 Дата оплаты: Исполнение: Не исполнено Категория: ВОДИТЕЛЬ Гражданство: РОССИЯ Водительское удостоверение образец № 1 (приказ МВД № 346-93) №:40ЕР876827 Тип владельца ТС: Физическое лицо Примечание: яковский<br>
+                Рег. знак: К178КС40 Марка: 27 ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 20 ДО 40 КМ/Ч Дата нарушения: 09.02.2009 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.9.2 Рег.номер: 40#5240940АА838971 Состояние: Вынесено постановление Протокол: 40АА838971 Дата:09.02.2009 Постановление: 40АП365916 Дата:09.02.2009 Наказание: Штраф Штраф: 300 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 2 (ПРИКАЗ МВД № 460-92) №:40ЕР876827 Подразделение исполнитель: 2 ОБ ДПС<br>
+                Рег. знак: К178КС40 Марка: 27 НАРУШЕНИЕ ПРАВИЛ ПОЛЬЗОВАНИЯ ВНЕШНИМИ СВЕТОВЫМИ ПРИБОРАМИ, ЗВУКОВЫМИ СИГНАЛАМИ, АВАРИЙНОЙ СИГНАЛИЗАЦИЕЙ ИЛИ ЗНАКОМ АВАРИЙНОЙ ОСТАНОВКИ Дата нарушения: 10.06.2009 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.20 Рег.номер: 40#52409R40ПК0308556 Состояние: Вынесено постановление Постановление: 40ПК0308556 Дата:10.06.2009 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 2 (ПРИКАЗ МВД № 460-92) №:40ЕР876827 Подразделение исполнитель: 2 ОБ ДПС<br>
+                Рег. знак: К178КС40 Марка: 27 Легковой автомобиль ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТРАНСПОРТНОГО СРЕДСТВА НА ВЕЛИЧИНУ ОТ 40 ДО 60 КИЛОМЕТРОВ В ЧАС Статья КоАП: 12.9.3 Дата нарушения: 21.08.2011 Выявлено: 4 рота 2 ОБ ДПС Место нарушения: 37КМ ОКРУЖНОЙ АД КАЛУГИ Рег.номер: 40#201108213434635395 Состояние: Вынесено постановление Постановление: 40АП799108 Дата:21.08.2011 Наказание: ШТРАФ Размер наказания: 1000 Дата оплаты: Исполнение: Не исполнено Категория: ВОДИТЕЛЬ Тип владельца ТС: Физическое лицо Подразделение исполнитель: 4 рота 2 ОБ ДПС<br>
+                Рег. знак: К178КС40 Марка: 27 320 ЛЕГКОВОЙ АВТОМОБИЛЬ УПРАВЛЕНИЕ ТС ПРИ НАЛИЧИИ НЕИСПРАВНОСТЕЙ ПРИ ЭКСПЛУАТАЦИЯ ТС ЗАПРЕЩЕНА, ЗА ИСКЛЮЧЕНИЕМ НЕИСПРАВНОСТЕЙ ТОРМОЗНОЙ СИСТЕМЫ, РУЛЕВОГО УПРАВЛЕНИЯ ИЛИ СЦЕПНОГО УСТРОЙСТВА Дата нарушения: 07.06.2009 Выявлено: 1 ОБ ДПС Статья КоАП: 12.5.1 Рег.номер: 40#510940ПК0142433 Состояние: Вынесено постановление Протокол: 40ПК0142433 Дата:07.06.2009 Постановление: 40ПК0142433 Дата:07.06.2009 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 1 (ПРИКАЗ МВД № 346-93) №:40ЕР876827 Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+                ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 10 ДО 20 КМ/Ч Дата нарушения: 24.12.2008 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.9.1 Рег.номер: 40#52408R40ПК0212358 Состояние: Вынесено постановление Постановление: 40ПК0212358 Дата:24.12.2008 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 2 (ПРИКАЗ МВД № 460-92) №:40ЕР876827 Подразделение исполнитель: 2 ОБ ДПС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРЕДИТ</div>
+              <div class="info-value">
+                Сумма:110 000; Сумма: 110000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                долг ЖКХ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВСЕ ПАСПОРТА</div>
+              <div class="info-value">
+                2906 196332<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТЫ ОБРАЩЕНИЙ</div>
+              <div class="info-value">
+                30.05.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРЕДИТНАЯ ОРГАНИЗАЦИЯ</div>
+              <div class="info-value">
+                Сбербанк<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТНОШЕНИЕ К РЕГИОНУ РФ</div>
+              <div class="info-value">
+                Калуга и Калужская область<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водители taxsee.com 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Работает</td>
+                </tr>
+                <tr>
+                  <td>РЕЙТИНГ</td>
+                  <td class="">0.98</td>
+                </tr>
+                <tr>
+                  <td>СЕГМЕНТ</td>
+                  <td class="">Мало заказов</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79056433242</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">O630PK40</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС EMAIL</td>
+                  <td class="">Не подтвержден</td>
+                </tr>
+                <tr>
+                  <td>АВТОМОБИЛЬ</td>
+                  <td class="">Volkswagen Polo белый O630PK40</td>
+                </tr>
+                <tr>
+                  <td>БАЗА (НАЛОГ)</td>
+                  <td class="">Максим Калуга</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАЧАЛА</td>
+                  <td class="">2019-08-21 08:21:41</td>
+                </tr>
+                <tr>
+                  <td>ТИП ПАСПОРТА</td>
+                  <td class="">РФ (10 цифр)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ФИО (ВОДИТЕЛЬ)</td>
+                  <td class="">Ибрагимова Екатерина Игоревна</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2025-01-23 08:32:11</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОТОБРАЖЕНИЯ</td>
+                  <td class="">Своя организация</td>
+                </tr>
+                <tr>
+                  <td>КЛАСС АВТОМОБИЛЯ</td>
+                  <td class="">Средний класс</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРВОГО ВХОДА</td>
+                  <td class="">2019-08-21 08:21:41</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК (ВОДИТЕЛЬ)</td>
+                  <td class="">Затрудняется сказать</td>
+                </tr>
+                <tr>
+                  <td>БАЗОВАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">Максим Калуга</td>
+                </tr>
+                <tr>
+                  <td>ИНФО ПО ДИСПЕТЧЕРИЗАЦИИ</td>
+                  <td class="">ПР УведЗаказ УведМежгор Грузчик Автопомощь КиП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208901690</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">обл. Калужская, г. Калуга, ул. Ромодановские Дворики,39,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">1963322906</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208901690</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">обл Калужская, г Калуга, ул Ромодановские Дворики,39,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">1963322906</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208901690</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">756004109</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-11-17 00:27:55</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">КИШИНЕВ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">65</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">ЖЕЛЕЗНОДОРОЖНЫЙ СОСТАВ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">МОЛДОВА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">СУЗЕМКИ (Ж.Д.)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2017-09-18</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-11-16 23:55:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">756004109</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-01-10 03:53:35</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">Х077ОО77</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ПОГАР (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2017-09-18</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-01-10 03:11:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">756004109</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-11-19 22:51:34</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЪЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">AI2641BO</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ОТПРАВЛЕНИЯ</td>
+                  <td class="">КИЕВ</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">ТРОЕБОРТНОЕ (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ОТПРАВЛЕНИЯ</td>
+                  <td class="">УКРАИНА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2017-09-18</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-11-19 22:48:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пересечение границы 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">756004109</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">2018-04-07 05:34:14</td>
+                </tr>
+                <tr>
+                  <td>ТИП ОПЕРАЦИИ</td>
+                  <td class="">ВЫЕЗД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ГОРОД ПРИБЫТИЯ</td>
+                  <td class="">ВИННИЦА</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЛИЦЕНЗИИ</td>
+                  <td class="">АВ5599АВ</td>
+                </tr>
+                <tr>
+                  <td>ТИП ТРАНСПОРТА</td>
+                  <td class="">АВТОМОБИЛЬНЫЙ ТРАНСПОРТ</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ПРИБЫТИЯ</td>
+                  <td class="">УКРАИНА</td>
+                </tr>
+                <tr>
+                  <td>ПОГРАНИЧНЫЙ ПУНКТ</td>
+                  <td class="">НОВЫЕ ЮРКОВИЧИ (АВТО)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">2017-09-10</td>
+                </tr>
+                <tr>
+                  <td>СТРАНА ВЫДАЧИ ДОКУМЕНТА</td>
+                  <td class="">РОССИЯ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРЕСЕЧЕНИЯ ГРАНИЦЫ</td>
+                  <td class="">2018-04-07 05:29:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208901690</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">74842763212</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ОСАГО 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">40EP876827</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">2016-01-19 00:45:46</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248033, КАЛУЖСКАЯ ОБЛ, КАЛУГА Г, РОМОДАНОВСКИЕ ДВОРИКИ Д, Д 39, КВ 35</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">X9L212300D0480064</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СТРАХОВКИ</td>
+                  <td class="">ЕЕЕ0363313347</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,,КАЛУГА,,РОМОДАНОВСКИЕ ДВОРИКИ,39,,35</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">КОНОВА ГАЛИНА ВЛАДИМИРОВНА 20.01.1959</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Клиенты Альфа банк 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">74842763212</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОНЫ</td>
+                  <td class="">79208901690</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,,КАЛУГА,,РОМОДАНОВСКИЕ ДВОРИКИ,39,,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208901690</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208901690</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402709827701</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1415</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248033, Россия, Калужская обл., г. Калуга, ул. Ромодановские Дворики, д. 39, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">27.09.2021</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">74668/21/40021-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Ленинскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ ?УЛИЦА .39 35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. калуга, ул. ромодановские дворики, д. 39, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79208901690</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">отделом уфмс россии по калужской области вленинском округе города калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">23.05.2007</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402709827701</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">20218</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248033, Россия, Калужская обл., г. Калуга, ул. Ромодановские Дворики, д. 39, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">15.05.2021</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">65460/21/40021-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП по Ленинскому округу г. Калуги УФССП России по Калужской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ,39,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,КАЛУГА Г.,РОМОДАНОВСКИЕ ДВОРИКИ,39,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402709827701</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,РОМОДАНОВСКИЕ ДВОРИКИ Д,39,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,Г КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ УЛ.,39,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402709827701</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОССИЯ,Г. КАЛУГА,УЛ. РОМАДАНОВСКИЕ ДВОРИКИ,Д.39-35,</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248000,40,КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ,39,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,,Г КАЛУГА,,РОМОДАНОВСКИЕ ДВОРИКИ УЛ.,39,,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">09.09.2019</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">154946/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248033, 40, КАЛУГА Г, РОМОДАНОВСКИЕ ДВОРИКИ УЛ, 39, 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">16.10.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">6000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">31691/20/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248033, 40, КАЛУГА Г, РОМОДАНОВСКИЕ ДВОРИКИ УЛ, 39, 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">16.10.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">6000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ по г. Калуге УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">31691/20/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248000,40,,Калуга г.,,Ромодановские Дворики ул.,39,,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">2500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">545/20/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248000, 40, Калуга г. , Ромодановские Дворики ул. , 39, 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">04.12.2018</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">3500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">545/20/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402709827701</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643, 248033, 40, КАЛУГА Г. , РОМОДАНОВСКИЕ ДВОРИКИ, 39, 35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ по г. Калуге УФССП России по Калужской области</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">132371/19/40053-СД</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,,КАЛУГА,,РОМОДАНОВСКИЕ ДВОРИКИ,39,,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">165853/20/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,Г КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ УЛ.,39,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">24.08.2019</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">147670/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,Г КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ УЛ.,39,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">09.09.2019</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">154946/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402709827701</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОССИЯ,Г. КАЛУГА,УЛ. РОМАДАНОВСКИЕ ДВОРИКИ,Д.39-35,</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">20.08.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Ленинскому округу г. Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">62173/19/40021-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">402709827701</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,Ромодановские Дворики д,39,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">07.08.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">136535/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248000,40,КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ,39,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">03.09.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">152337/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">5000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,КАЛУГА Г.,РОМОДАНОВСКИЕ ДВОРИКИ,39,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">02.08.2019</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">132373/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">5000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,КАЛУГА Г.,РОМОДАНОВСКИЕ ДВОРИКИ,39,35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">02.08.2019</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">132371/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248033,40,КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ,39,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">26.11.2018</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">27583/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов егор сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">1500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,248000,40,КАЛУГА,РОМОДАНОВСКИЕ ДВОРИКИ,39,35</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13980552082</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">27.07.2019</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по ВАШ в гор. Калуге</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">124715/19/40053-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители РФ (ПР) 2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В ЛЕНИНСКОМ ОКРУГЕ ГОРОДА КАЛУГИ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2007-05-23</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредит 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ул. Ромодановские дворики 39-35</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">Калуга и Калужская область; [29] Калукжская Область (КСРФ=40)</td>
+                </tr>
+                <tr>
+                  <td>ФАБУЛА</td>
+                  <td class="">КРЕДИТ=Сумма:110 000*(долг ЖКХ); 30.05.2007: долг ЖКХ ;</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">30.05.2007</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАО КЗОЦМ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">Сбербанк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Бюро кредитных историй 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ул. Ромодановские дворики 39-35; ул. Луначарского 4-8</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">30.05.2007</td>
+                </tr>
+                <tr>
+                  <td>ПРИМЕЧАНИЕ</td>
+                  <td class="">КРЕДИТ=Сумма:110 000*(долг ЖКХ)</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАО КЗОЦМ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ТЕКСТ ДАТЫ РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 46 -->
+      <div class="card source-card" id="source45">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">22.09.2016</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">248033, РОССИЯ, г. КАЛУГА, ул. РОМОДАНОВСКИЕ ДВОРИКИ, д. 39, кв. 35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">01.08.2016</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">40021</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2904923316</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">402001</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Ленинскому округу г. Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">02.03.2004</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">127539/16/40021-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 47 -->
+      <div class="card source-card" id="source46">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 48 -->
+      <div class="card source-card" id="source47">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: УЧЕТЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 49 -->
+      <div class="card source-card" id="source48">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">17.12.2014</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОССИЯ Г. КАЛУГА УЛ. РОМОДАНОВСКИЕ ДВОРИКИ Д. 39 КВ. 35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">18.11.2014</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">40021</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">500</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Ленинскому округу г. Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Штраф ГИБДД</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">549894/14/40021-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 50 -->
+      <div class="card source-card" id="source49">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">КАЛУГА Д:39 К: КВ:35;ГОР.КАЛУГА УЛ. РОМОДАНОВСКИЕ ДВОРИКИ Д:39 КВ:35</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">2904 923316 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ЛЕНИНСКОГО ОКРУГА Г.КАЛУГИ ДАТА ВЫДАЧИ:02.03.2004 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 319657 ВЫДАН:РОМОД СС Г КАЛУГА ДАТА ВЫДАЧИ:13.02.1987;2906 196332 КЕМ ВЫДАН:ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В ЛЕНИНСКОМ ОКРУГЕ ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:23.05.2007 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2904 923316 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ЛЕНИНСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:02.03.2004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ДОКУМЕНТА</td>
+                  <td class="">ОБМЕН ПАСПОРТА СССР;ПО 20-ТИ (45-ТИ) ЛЕТИЮ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЕНИНСКИЙ ДЕР. РОМОДАНОВСКИЕ ДВОРИКИ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 51 -->
+      <div class="card source-card" id="source50">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Антикредиторы 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ул. Ромодановские дворики 39-35; ул. Луначарского 4-8</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАО КЗОЦМ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 52 -->
+      <div class="card source-card" id="source51">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА</td>
+                  <td class="">15.07.2014</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643 248000 40 Калуга г Ромодановские Дворики ул 39 35</td>
+                </tr>
+                <tr>
+                  <td>СУММА</td>
+                  <td class="">7030</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">22.05.2014</td>
+                </tr>
+                <tr>
+                  <td>КОД ОСП</td>
+                  <td class="">40021</td>
+                </tr>
+                <tr>
+                  <td>ОСТАТОК</td>
+                  <td class="">7030</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>КОД ПАСПОРТА</td>
+                  <td class="">400001</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">ОСП по Ленинскому округу г. Калуги</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОУФМС РОССИИ по Калужской области в Ленинском округе города Калуги</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Взыскание налогов и сборов включая пени</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">23.05.2007</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">57567/14/21/40</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 53 -->
+      <div class="card source-card" id="source52">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">КАЛУГА Д:39 К: КВ:35;ГОР.КАЛУГА УЛ. РОМОДАНОВСКИЕ ДВОРИКИ Д:39 КВ:35</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2904923316</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">2904 923316 КЕМ ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ЛЕНИНСКОГО ОКРУГА Г.КАЛУГИ ДАТА ВЫДАЧИ:02.03.2004 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 319657 ВЫДАН:РОМОД СС Г КАЛУГА ДАТА ВЫДАЧИ:13.02.1987;2906 196332 КЕМ ВЫДАН:ОТДЕЛОМ УФМС РОССИИ ПО КАЛУЖСКОЙ ОБЛАСТИ В ЛЕНИНСКОМ ОКРУГЕ ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:23.05.2007 (ВЫДАН);ПРЕЖНИЙ: ПАСПОРТ 2904 923316 ВЫДАН:ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ЛЕНИНСКОГО ОКРУГА ГОРОДА КАЛУГИ ДАТА ВЫДАЧИ:02.03.2004</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ДОКУМЕНТА</td>
+                  <td class="">ОБМЕН ПАСПОРТА СССР;ПО 20-ТИ (45-ТИ) ЛЕТИЮ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЕНИНСКИЙ ДЕР. РОМОДАНОВСКИЕ ДВОРИКИ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 54 -->
+      <div class="card source-card" id="source53">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">15.10.2008</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">БМВ-3205</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 БМВ-3205 ЛЕГКОВОЙ АВТОМОБИЛЬ ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 20 ДО 40 КМ/Ч Дата нарушения: 15.10.2008 Выявлено: 1 ОБ ДПС Статья КоАП: 12.9.2 Рег.номер: 40#40ПК169576Т69 Состояние: Вынесено постановление Протокол: 40ПК169576 Дата:15.10.2008 Постановление: 40ПК169576 Дата:15.10.2008 Наказание: Штраф Штраф: 300 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 55 -->
+      <div class="card source-card" id="source54">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">24.12.2008</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">990</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 Марка: 990 УПРАВЛЕНИЕ ТС ПРИ НАЛИЧИИ НЕИСПРАВНОСТЕЙ ПРИ ЭКСПЛУАТАЦИЯ ТС ЗАПРЕЩЕНА, ЗА ИСКЛЮЧЕНИЕМ НЕИСПРАВНОСТЕЙ ТОРМОЗНОЙ СИСТЕМЫ, РУЛЕВОГО УПРАВЛЕНИЯ ИЛИ СЦЕПНОГО УСТРОЙСТВА Дата нарушения: 24.12.2008 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.5.1 Рег.номер: 40#52408R40ПК0212359 Состояние: Вынесено постановление Постановление: 40ПК0212359 Дата:24.12.2008 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 1 (ПРИКАЗ МВД № 346-93) №:40ЕР876827 Подразделение исполнитель: 2 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 56 -->
+      <div class="card source-card" id="source55">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">14.03.2009</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">27</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 Марка: 27 ЛЕГКОВОЙ АВТОМОБИЛЬ ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 20 ДО 40 КМ/Ч Дата нарушения: 14.03.2009 Выявлено: 1 ОБ ДПС Статья КоАП: 12.9.2 Рег.номер: 40#510940ПК0235792 Состояние: Вынесено постановление Протокол: 40ПК0235792 Дата:14.03.2009 Постановление: 40ПК0235792 Дата:14.03.2009 Наказание: Штраф Штраф: 300 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 1 (ПРИКАЗ МВД № 346-93) №:40ЕР876827 Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 57 -->
+      <div class="card source-card" id="source56">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">30.06.2012</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">БМВ 320</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 Марка: БМВ 320 Легковой автомобиль ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТРАНСПОРТНОГО СРЕДСТВА НА ВЕЛИЧИНУ ОТ 20 ДО 40 КИЛОМЕТРОВ В ЧАС Статья КоАП: 12.9.2 Дата нарушения: 30.06.2012 Выявлено: 1 ОБ ДПС Место нарушения: КАЛУГА БОР 8 Рег.номер: 40#201206302369771500 Состояние: Вынесено постановление Постановление: 40АП746453 Дата:30.06.2012 Кем вынесено постановление: СТ.ИНСПЕКТР ОБДПС:МАСТЮШКИН АЛЕКСЕЙ АЛЕКСЕЕВИЧ Наказание: ШТРАФ Размер наказания: 300 Дата оплаты: Исполнение: Не исполнено Категория: ВОДИТЕЛЬ Место работы: не сообщает Гражданство: РОССИЯ Водительское удостоверение образец № 1 (приказ МВД № 346-93) №:40ЕР876827 Тип владельца ТС: Физическое лицо</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 58 -->
+      <div class="card source-card" id="source57">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">29.02.2012</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">БМВ 320</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 Марка: БМВ 320 Легковой автомобиль НЕВЫПОЛНЕНИЕ ТРЕБОВАНИЯ ПРАВИЛ ДОРОЖНОГО ДВИЖЕНИЯ УСТУПИТЬ ДОРОГУ ПЕШЕХОДАМ, ВЕЛОСИПЕДИСТАМ ИЛИ ИНЫМ УЧАСТНИКАМ ДОРОЖНОГО ДВИЖЕНИЯ (ЗА ИСКЛЮЧЕНИЕМ ВОДИТЕЛЕЙ ТРАНСПОРТНЫХ СРЕДСТВ), ПОЛЬЗУЮЩИМСЯ ПРЕИМУЩЕСТВОМ В ДВИЖЕНИИ Статья КоАП: 12.18 Дата нарушения: 29.02.2012 Выявлено: 1 ОБ ДПС Место нарушения: СТ.ТОРГ 5 Рег.номер: 40#201202294024122577 Состояние: Вынесено постановление Постановление: 40АП616960 Дата:29.02.2012 Кем вынесено постановление: СТ.ИНСПЕКТОР ОБ ДПС:БАРКОВ ДМИТРИЙ ВИКТОРОВИЧ Наказание: ШТРАФ Размер наказания: 1000 Дата оплаты: Исполнение: Не исполнено Категория: ВОДИТЕЛЬ Гражданство: РОССИЯ Водительское удостоверение образец № 1 (приказ МВД № 346-93) №:40ЕР876827 Тип владельца ТС: Физическое лицо Примечание: яковский</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 59 -->
+      <div class="card source-card" id="source58">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">09.02.2009</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">27</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 Марка: 27 ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 20 ДО 40 КМ/Ч Дата нарушения: 09.02.2009 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.9.2 Рег.номер: 40#5240940АА838971 Состояние: Вынесено постановление Протокол: 40АА838971 Дата:09.02.2009 Постановление: 40АП365916 Дата:09.02.2009 Наказание: Штраф Штраф: 300 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 2 (ПРИКАЗ МВД № 460-92) №:40ЕР876827 Подразделение исполнитель: 2 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 60 -->
+      <div class="card source-card" id="source59">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">10.06.2009</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">27</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 Марка: 27 НАРУШЕНИЕ ПРАВИЛ ПОЛЬЗОВАНИЯ ВНЕШНИМИ СВЕТОВЫМИ ПРИБОРАМИ, ЗВУКОВЫМИ СИГНАЛАМИ, АВАРИЙНОЙ СИГНАЛИЗАЦИЕЙ ИЛИ ЗНАКОМ АВАРИЙНОЙ ОСТАНОВКИ Дата нарушения: 10.06.2009 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.20 Рег.номер: 40#52409R40ПК0308556 Состояние: Вынесено постановление Постановление: 40ПК0308556 Дата:10.06.2009 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 2 (ПРИКАЗ МВД № 460-92) №:40ЕР876827 Подразделение исполнитель: 2 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 61 -->
+      <div class="card source-card" id="source60">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">21.08.2011</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">27</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 Марка: 27 Легковой автомобиль ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТРАНСПОРТНОГО СРЕДСТВА НА ВЕЛИЧИНУ ОТ 40 ДО 60 КИЛОМЕТРОВ В ЧАС Статья КоАП: 12.9.3 Дата нарушения: 21.08.2011 Выявлено: 4 рота 2 ОБ ДПС Место нарушения: 37КМ ОКРУЖНОЙ АД КАЛУГИ Рег.номер: 40#201108213434635395 Состояние: Вынесено постановление Постановление: 40АП799108 Дата:21.08.2011 Наказание: ШТРАФ Размер наказания: 1000 Дата оплаты: Исполнение: Не исполнено Категория: ВОДИТЕЛЬ Тип владельца ТС: Физическое лицо Подразделение исполнитель: 4 рота 2 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 62 -->
+      <div class="card source-card" id="source61">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К178КС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">07.06.2009</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">27 320</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: К178КС40 Марка: 27 320 ЛЕГКОВОЙ АВТОМОБИЛЬ УПРАВЛЕНИЕ ТС ПРИ НАЛИЧИИ НЕИСПРАВНОСТЕЙ ПРИ ЭКСПЛУАТАЦИЯ ТС ЗАПРЕЩЕНА, ЗА ИСКЛЮЧЕНИЕМ НЕИСПРАВНОСТЕЙ ТОРМОЗНОЙ СИСТЕМЫ, РУЛЕВОГО УПРАВЛЕНИЯ ИЛИ СЦЕПНОГО УСТРОЙСТВА Дата нарушения: 07.06.2009 Выявлено: 1 ОБ ДПС Статья КоАП: 12.5.1 Рег.номер: 40#510940ПК0142433 Состояние: Вынесено постановление Протокол: 40ПК0142433 Дата:07.06.2009 Постановление: 40ПК0142433 Дата:07.06.2009 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 1 (ПРИКАЗ МВД № 346-93) №:40ЕР876827 Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 63 -->
+      <div class="card source-card" id="source62">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">КАЛУЖСКАЯ ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">РОССИЯ КАЛУЖСКАЯ ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ Д.39 КВ.35 (Данные от: 27.07.2007); РОССИЯ КАЛУЖСКАЯ ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ Д.39 КВ.35 (Данные от: 28.07.2010)</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">ЛЕНИНСКИЙ ДЕР. РОМОДАНОВСКИЕ ДВОРИКИ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 64 -->
+      <div class="card source-card" id="source63">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНСКИЙ КАЛУГА РОМОДАНОВСКИЕ ДВОРИКИ 39 35</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">24.12.2008</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">ПРЕВЫШЕНИЕ УСТАНОВЛЕННОЙ СКОРОСТИ ДВИЖЕНИЯ ТС НА ВЕЛИЧИНУ ОТ 10 ДО 20 КМ/Ч Дата нарушения: 24.12.2008 Выявлено: 4 рота 2 ОБ ДПС Статья КоАП: 12.9.1 Рег.номер: 40#52408R40ПК0212358 Состояние: Вынесено постановление Постановление: 40ПК0212358 Дата:24.12.2008 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ ОБРАЗЕЦ № 2 (ПРИКАЗ МВД № 460-92) №:40ЕР876827 Подразделение исполнитель: 2 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 65 -->
+      <div class="card source-card" id="source64">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Отказники по кредитам Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">РОМОДАНОВСКИЕ ДВОРИКИ 39 35; ЛУНАЧАРСКОГО 4 8</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТ</td>
+                  <td class="">Сумма:110 000; Сумма: 110000</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">долг ЖКХ</td>
+                </tr>
+                <tr>
+                  <td>ВСЕ ПАСПОРТА</td>
+                  <td class="">2906 196332</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАО КЗОЦМ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДАТЫ ОБРАЩЕНИЙ</td>
+                  <td class="">30.05.2007</td>
+                </tr>
+                <tr>
+                  <td>КРЕДИТНАЯ ОРГАНИЗАЦИЯ</td>
+                  <td class="">Сбербанк</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 66 -->
+      <div class="card source-card" id="source65">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 67 -->
+      <div class="card source-card" id="source66">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КОНОВ ЕГОР СЕРГЕЕВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: УЧЕТЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 68 -->
+      <div class="card source-card" id="source67">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Фомс сборник 2013</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ул. Ромодановские дворики 39-35; ул. Луначарского 4-8</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАО КЗОЦМ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 69 -->
+      <div class="card source-card" id="source68">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные лица 2008</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Конов Егор Сергеевич</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ул. Ромодановские дворики 39-35; ул. Луначарского 4-8</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">2906196332</td>
+                </tr>
+                <tr>
+                  <td>ДАТА УЧЕТА</td>
+                  <td class="">30.05.2007</td>
+                </tr>
+                <tr>
+                  <td>ПРИМЕЧАНИЕ</td>
+                  <td class="">КРЕДИТ=Сумма:110 000*(долг ЖКХ)</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАО КЗОЦМ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">10.02.1987</td>
+                </tr>
+                <tr>
+                  <td>ИСТОЧНИК ИНФОРМАЦИИ</td>
+                  <td class="">Сбербанк</td>
+                </tr>
+                <tr>
+                  <td>ОТНОШЕНИЕ К РЕГИОНУ РФ</td>
+                  <td class="">Калуга и Калужская область</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Водители taxsee.com 2025
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Пересечение границы 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                ОСАГО 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Клиенты Альфа банк 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                Жители 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Жители РФ (ПР) 2017
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Антикредит 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Бюро кредитных историй 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source45" class="nav-link " onclick="scrollToSource('source45', event)">
+                ФССП 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source46" class="nav-link " onclick="scrollToSource('source46', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source47" class="nav-link " onclick="scrollToSource('source47', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source48" class="nav-link " onclick="scrollToSource('source48', event)">
+                ФССП 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source49" class="nav-link " onclick="scrollToSource('source49', event)">
+                Жители Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source50" class="nav-link " onclick="scrollToSource('source50', event)">
+                Антикредиторы 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source51" class="nav-link " onclick="scrollToSource('source51', event)">
+                ФССП 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source52" class="nav-link " onclick="scrollToSource('source52', event)">
+                Жители Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source53" class="nav-link " onclick="scrollToSource('source53', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source54" class="nav-link " onclick="scrollToSource('source54', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source55" class="nav-link " onclick="scrollToSource('source55', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source56" class="nav-link " onclick="scrollToSource('source56', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source57" class="nav-link " onclick="scrollToSource('source57', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source58" class="nav-link " onclick="scrollToSource('source58', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source59" class="nav-link " onclick="scrollToSource('source59', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source60" class="nav-link " onclick="scrollToSource('source60', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source61" class="nav-link " onclick="scrollToSource('source61', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source62" class="nav-link " onclick="scrollToSource('source62', event)">
+                Жители Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source63" class="nav-link " onclick="scrollToSource('source63', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source64" class="nav-link " onclick="scrollToSource('source64', event)">
+                Отказники по кредитам Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source65" class="nav-link " onclick="scrollToSource('source65', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source66" class="nav-link " onclick="scrollToSource('source66', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source67" class="nav-link " onclick="scrollToSource('source67', event)">
+                Фомс сборник 2013
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source68" class="nav-link " onclick="scrollToSource('source68', event)">
+                Криминальные лица 2008
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

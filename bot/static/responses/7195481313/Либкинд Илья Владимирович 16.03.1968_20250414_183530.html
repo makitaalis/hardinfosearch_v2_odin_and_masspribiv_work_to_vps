@@ -1,0 +1,3886 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Либкинд Илья Владимирович 16.03.1968</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Либкинд Илья Владимирович 16.03.1968</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">45 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="профессиональная_информация">Профессиональная информация</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Либкинд Илья Владимирович<br>
+                ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ<br>
+                Либкинд илья владимирович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                16.03.1968<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                ЛЕНИНГРАДСКОЕ ШОССЕ Д.112/1 КОРП.4 КВ.979<br>
+                117461, Россия, г. Москва, Балаклавский пр-кт, д. 42, кв. 54<br>
+                ЮЗАО Зюзино город Москва, Балаклавский проспект, дом 42 кв. 54<br>
+                1, 1378<br>
+                г. москва, ул. балаклавский проспект, д. 42, кв. 54<br>
+                г. москва г, пр-т балаклавский, д. 42, кв. 54<br>
+                Москва, Зюзино, пр-кт. Балаклавский, д. 42, кв. 54<br>
+                Москва, Левобережный, ш. Ленинградское, д. 112, корп. 4, кв. 979<br>
+                117461, РОССИЯ, Г. МОСКВА,    БАЛАКЛАВСКИЙ ПР-КТ, Д. 42,  КВ. 54<br>
+                117461, Россия, г. Москва, , Балаклавский пр-кт, д. 42, кв. 54<br>
+                МОСКВА 42 54<br>
+                МОСКВА БАЛАКЛАВСКИЙ 42 54<br>
+                ПРОСП БАЛАКЛАВСКИЙ Д 42 КВ 54<br>
+                Ленинградское шоссе д.112/1 корп.4 кв.979<br>
+                УЛ БОЛЬШАЯ МОЛЧАНОВКА Д 23/38 СТР 1<br>
+                МОСКВА МОСКВА БАЛАКЛАВСКИЙ ПР-Т 42-54<br>
+                БАЛАКЛАВСКИЙ ПР-Т д. 42кв. 54<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН</div>
+              <div class="info-value">
+                77<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ПОЧТА</div>
+              <div class="info-value">
+                [email protected]<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                7499609755<br>
+                79037216507<br>
+                79065071027<br>
+                79620960792<br>
+                74954575060<br>
+                74954577049<br>
+                4954577049<br>
+                4954575060<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                13678102367<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                4513083110<br>
+                4506623717<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                772791536342<br>
+                7727573550<br>
+                7704202895<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="профессиональная_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РАБОТЫ</div>
+              <div class="info-value">
+                ЗАКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО ПОЖАРНАЯ МИКРОЭЛЕКТРОНИКА<br>
+                ООО ТУРМАЛИН-ЭНЕРГОСВЯЗЬ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                5000<br>
+                300<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                126352/21/77032-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                12.01.2021<br>
+                27.05.2019<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                В396УС40<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                город Москва<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОНТАКТНЫЙ АДРЕС</div>
+              <div class="info-value">
+                г.Москва, просп.Балаклавский, д.42, кв.54<br>
+                г.Москва, пр-т Балаклавский, д.42, кв.54<br>
+                117461, Москва г, г. Москва, пр-кт. Балаклавский, д. 42, кв. 54<br>
+                г.Москва, Балаклавский пр-т, д.42, кв.54<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                770-116<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2013-04-18<br>
+                25.12.2003<br>
+                18.04.2013<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                Отделом УФМС России по гор. Москве по району Зюзино<br>
+                отделом УФМС России по гор. Москве по району Зюзино<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                Паспорт гражданина Российской Федерации<br>
+                паспорт гражданина РФ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                ЧИНКОВА МАРИЯ АЛЕКСАНДРОВНА 12.09.1966<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПРИЧИНА</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВОЗБУЖДЕНИЯ ИП</div>
+              <div class="info-value">
+                12.01.2021<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</div>
+              <div class="info-value">
+                Зюзинский ОСП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИСТРАЦИЯ</div>
+              <div class="info-value">
+                MOS_REGISTERED<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                город Москва<br>
+                Г. МОСКВА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС 2</div>
+              <div class="info-value">
+                1000008 12801 Ленинградское д. 112 корп. 4 кв. 979<br>
+                МОСКВА, БАЛАКЛАВСКИЙ ПР-Т 42-54; БАЛАКЛАВСКИЙ ПР-Т Д.42 КВ.54; Ленинградское шоссе д.112/1 корп.4 кв.979<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ЗАГС</div>
+              <div class="info-value">
+                ОТДЕЛ УФМС РОССИИ ПО ГОР. МОСКВЕ ПО РАЙОНУ ЗЮЗИНО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОБНОВЛЕНИЯ</div>
+              <div class="info-value">
+                2023-07-31 02:13:13<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                2020-12-20 18:33:35<br>
+                2021-11-25<br>
+                2020-02-03<br>
+                14.09.2007<br>
+                01.07.2015<br>
+                21.04.2006<br>
+                20.07.1999<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                ОТДЕЛ УФМС РОССИИ ПО ГОР. МОСКВЕ ПО РАЙОНУ ЗЮЗИНО<br>
+                овд района зюзино г.москвы<br>
+                оуфмс рф по г. москве по р-ну зюзино<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                1000008 1378 Балаклавский д. 42 кв. 54<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ЗАГС (АКТА/СВИДЕТЕЛЬСТВА)</div>
+              <div class="info-value">
+                4513083110<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СУММА ДОЛГА</div>
+              <div class="info-value">
+                5000<br>
+                300<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАИМЕНОВАНИЕ ИП</div>
+              <div class="info-value">
+                Зюзинский ОСП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЭТАЖ</div>
+              <div class="info-value">
+                8<br>
+                5<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ПРАВА</div>
+              <div class="info-value">
+                Собственность<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПЛОЩАДЬ (КВ.М)</div>
+              <div class="info-value">
+                38.5<br>
+                39.9<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР КВАРТИРЫ</div>
+              <div class="info-value">
+                54<br>
+                979<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАДАСТРОВЫЙ НОМЕР</div>
+              <div class="info-value">
+                77:06:0005014:1267<br>
+                77:09:0001006:4782<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАЗНАЧЕНИЕ ОБЪЕКТА</div>
+              <div class="info-value">
+                Квартира<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НАИМЕНОВАНИЕ ОБЪЕКТА</div>
+              <div class="info-value">
+                Жилые помещения<br>
+                Квартира<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИСТРАЦИОННЫЙ НОМЕР ПРАВА</div>
+              <div class="info-value">
+                77:06:0005014:1267-77/072/2021-1<br>
+                77:09:0001006:4782-77/009/2020-1<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">УНИКАЛЬНЫЙ НОМЕР ОБЪЕКТА (УНОМ)</div>
+              <div class="info-value">
+                1378<br>
+                12801<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                Зюзинский ОСП<br>
+                90586/19/77032-ИП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ОСП</div>
+              <div class="info-value">
+                Зюзинский ОСП<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОСНОВАНИЕ ВЗЫСКАНИЯ</div>
+              <div class="info-value">
+                Причина отсутствует<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Дата рейса: 29.04.2018; Откуда: Внуково Москва Россия; Куда: Грабцево Калуга Россия; Номер рейса: 136; Авиакомпания: ЮТЭЙР авиакомпания UTA UT РОССИЯ ЮТЭ; Дата рейса: 18.04.2018; Откуда: Грабцево Калуга Россия; Куда: Внуково Москва Россия; Номер рейс<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАЦИЯ</div>
+              <div class="info-value">
+                ПБ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕЙСА</div>
+              <div class="info-value">
+                22.01.2016<br>
+                31.03.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВРЕМЯ РЕЙСА</div>
+              <div class="info-value">
+                20:25<br>
+                07:30<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР РЕЙСА</div>
+              <div class="info-value">
+                140<br>
+                276<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АВИАКОМПАНИЯ</div>
+              <div class="info-value">
+                РГ<br>
+                ДР<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ДОКУМЕНТА</div>
+              <div class="info-value">
+                ПС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОПЕРАЦИИ</div>
+              <div class="info-value">
+                15.01.2016<br>
+                30.03.2016<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ОПЕРАТОРА</div>
+              <div class="info-value">
+                СЦ9ЖГЦ<br>
+                Т6Л176<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АЭРОПОРТ ВЫЛЕТА</div>
+              <div class="info-value">
+                ИЖВ<br>
+                КИО<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АЭРОПОРТ ПРИЛЕТА</div>
+              <div class="info-value">
+                ДМД<br>
+                ВНК<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИФНС</div>
+              <div class="info-value">
+                МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 7 ПО КАЛУЖСКОЙ ОБЛАСТИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОКВЭД</div>
+              <div class="info-value">
+                32.10.51<br>
+                51.70<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОП. ОКВЭД</div>
+              <div class="info-value">
+                31.61<br>
+                32.10<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КПП ЮР.ЛИЦА</div>
+              <div class="info-value">
+                402901001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР В ФСС</div>
+              <div class="info-value">
+                400029071540001<br>
+                400048235340001<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС ЮР.ЛИЦА</div>
+              <div class="info-value">
+                248009, ОБЛАСТЬ КАЛУЖСКАЯ, ГОРОД КАЛУГА, УЛИЦА ГРАБЦЕВСКОЕ ШОССЕ, 43<br>
+                248009, ОБЛАСТЬ КАЛУЖСКАЯ, ГОРОД КАЛУГА, УЛИЦА ГРАБЦЕВСКОЕ ШОССЕ, ДОМ 43, КОРПУС 2<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ЛИКВИДАЦИИ</div>
+              <div class="info-value">
+                30.12.1899<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ОГРН ЮР.ЛИЦА</div>
+              <div class="info-value">
+                14.09.2007<br>
+                01.07.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА МОДИФИКАЦИИ</div>
+              <div class="info-value">
+                14.04.2016 12:16:07<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ПФР</div>
+              <div class="info-value">
+                УПРАВЛЕНИЕ ПЕНСИОННОГО ФОНДА РОССИЙСКОЙ ФЕДЕРАЦИИ ПО Г.КАЛУГА<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОДРАЗДЕЛЕНИЕ ФСС</div>
+              <div class="info-value">
+                ГОСУДАРСТВЕННОЕ УЧРЕЖДЕНИЕ - КАЛУЖСКОЕ РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ ФОНДА СОЦИАЛЬНОГО СТРАХОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР В ПФР ЮР.ЛИЦА</div>
+              <div class="info-value">
+                050026051082<br>
+                050026069193<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД РЕГИОНА ЮР.ЛИЦА</div>
+              <div class="info-value">
+                40<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН ЮРИДИЧЕСКОГО ЛИЦА</div>
+              <div class="info-value">
+                4029036399<br>
+                4029052753<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ В ПФР</div>
+              <div class="info-value">
+                19.09.2007<br>
+                08.07.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ В ФСС</div>
+              <div class="info-value">
+                18.09.2007<br>
+                06.07.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОГРН ЮРИДИЧЕСКОГО ЛИЦА</div>
+              <div class="info-value">
+                1074029002222<br>
+                1154029001180<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПОЛНОЕ НАЗВАНИЕ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ЗАКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО ФД<br>
+                ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ КОРУНДПЛЮС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КРАТКОЕ НАЗВАНИЕ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ЗАО ФД<br>
+                ООО КОРУНДПЛЮС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН РЕГИСТРАЦИИ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ ПО ЛЕНИНСКОМУ ОКРУГУ Г. КАЛУГИ, 248600,Г КАЛУГА,ПЕР ВОСКРЕСЕНСКИЙ,28,,,,,,<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ФОРМА СОБСТВЕННОСТИ ЮР.ЛИЦА</div>
+              <div class="info-value">
+                НЕПУБЛИЧНЫЕ АКЦИОНЕРНЫЕ ОБЩЕСТВА<br>
+                ОБЩЕСТВА С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСТАНОВКИ НА УЧЕТ В ИФНС</div>
+              <div class="info-value">
+                14.09.2007<br>
+                01.07.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП УЧЁТА</div>
+              <div class="info-value">
+                УЧЕТЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД РОЖДЕНИЯ</div>
+              <div class="info-value">
+                1968<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</div>
+              <div class="info-value">
+                Тип учета: УЧЕТЫ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗАННЫЕ ЛИЦА ПО АДРЕСУ</div>
+              <div class="info-value">
+                ЧИНКОВА МАРИЯ АЛЕКСАНДРОВНА 12.09.1966; ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ 16.03.1968<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОЛИЧЕСТВО ЗАРЕГИСТРИРОВАННЫХ ПО АДРЕСУ</div>
+              <div class="info-value">
+                2<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА НАРУШЕНИЯ</div>
+              <div class="info-value">
+                09.12.2007<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                ГАЗ-31105<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</div>
+              <div class="info-value">
+                Рег. знак: В396УС40 ГАЗ-31105 ЛЕГКОВОЙ АВТОМОБИЛЬ НЕСОБЛЮДЕНИЕ ТРЕБОВАНИЙ, ПРЕДПИСАННЫХ ДОРОЖНЫМИ ЗНАКАМИ ИЛИ РАЗМЕТКОЙ ПРОЕЗЖЕЙ ЧАСТИ ДОРОГИ Дата нарушения: 09.12.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.16 Рег.номер: 40#40АА667714Т71 Состояние: Вынесено постановление Протокол: 40АА667714 Дата:09.12.2007 Постановление: 40АП233373 Дата:09.12.2007 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОГРН</div>
+              <div class="info-value">
+                1067746516188<br>
+                1037739212279<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОКПО</div>
+              <div class="info-value">
+                95201072<br>
+                18957810<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">DOPOLNITELNAYA_INFO</div>
+              <div class="info-value">
+                Требует подтверждения<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">REGISTRATSIONNIY_NOMER</div>
+              <div class="info-value">
+                1358587<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕЕСТРОВЫЙ НОМЕР MCHID</div>
+              <div class="info-value">
+                12253067/1A04-2A04-3A04-4A04-5A04-6A97<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ССЫЛКА НА ОДНОКЛАССНИКИ</div>
+              <div class="info-value">
+                625 / Москва; (МИРЭА) Московский государственный институт радиотехники, электроники и автоматики (технический университет) / Москва; ОАО Восход - КРЛЗ / Калуга<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">7499609755</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">город Москва</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">г.Москва, просп.Балаклавский, д.42, кв.54</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">770-116</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2013-04-18</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по гор. Москве по району Зюзино</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПОЧТА</td>
+                  <td class="">[email protected]</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">7499609755</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">город Москва</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">г.Москва, пр-т Балаклавский, д.42, кв.54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2013-04-18</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по гор. Москве по району Зюзино</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">город Москва</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">117461, Москва г, г. Москва, пр-кт. Балаклавский, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2013-04-18</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по гор. Москве по району Зюзино</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79037216507</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">город Москва</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">г.Москва, Балаклавский пр-т, д.42, кв.54</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">770-116</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2013-04-18</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">отделом УФМС России по гор. Москве по району Зюзино</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>КОНТАКТНЫЙ АДРЕС</td>
+                  <td class="">г.Москва, просп.Балаклавский, д.42, кв.54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2013-04-18</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">Отделом УФМС России по гор. Москве по району Зюзино</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНГРАДСКОЕ ШОССЕ Д.112/1 КОРП.4 КВ.979</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ЧИНКОВА МАРИЯ АЛЕКСАНДРОВНА 12.09.1966</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772791536342</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">5000</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">117461, Россия, г. Москва, Балаклавский пр-кт, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН</td>
+                  <td class="">77</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ПРИЧИНА</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">126352/21/77032-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">12.01.2021</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Зюзинский ОСП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Департамент здравоохранения 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЮЗАО Зюзино город Москва, Балаклавский проспект, дом 42 кв. 54</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>РЕГИСТРАЦИЯ</td>
+                  <td class="">MOS_REGISTERED</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">город Москва</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ИС УДРВС 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">1, 1378</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">1000008 12801 Ленинградское д. 112 корп. 4 кв. 979</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ЗАГС</td>
+                  <td class="">ОТДЕЛ УФМС РОССИИ ПО ГОР. МОСКВЕ ПО РАЙОНУ ЗЮЗИНО</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОБНОВЛЕНИЯ</td>
+                  <td class="">2023-07-31 02:13:13</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-12-20 18:33:35</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">ОТДЕЛ УФМС РОССИИ ПО ГОР. МОСКВЕ ПО РАЙОНУ ЗЮЗИНО</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">1000008 1378 Балаклавский д. 42 кв. 54</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ЗАГС (АКТА/СВИДЕТЕЛЬСТВА)</td>
+                  <td class="">4513083110</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772791536342</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">117461, Россия, г. Москва, Балаклавский пр-кт, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">126352/21/77032-ИП</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">5000</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ИП</td>
+                  <td class="">Зюзинский ОСП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВОЗБУЖДЕНИЯ ИП</td>
+                  <td class="">12.01.2021</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. москва, ул. балаклавский проспект, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4506623717</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79065071027</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">овд района зюзино г.москвы</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">25.12.2003</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Абоненты Билайн 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">г. москва г, пр-т балаклавский, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79620960792</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">оуфмс рф по г. москве по р-ну зюзино</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">18.04.2013</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Недвижимость 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>ЭТАЖ</td>
+                  <td class="">8</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва, Зюзино, пр-кт. Балаклавский, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ТИП ПРАВА</td>
+                  <td class="">Собственность</td>
+                </tr>
+                <tr>
+                  <td>ПЛОЩАДЬ (КВ.М)</td>
+                  <td class="">38.5</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КВАРТИРЫ</td>
+                  <td class="">54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2021-11-25</td>
+                </tr>
+                <tr>
+                  <td>КАДАСТРОВЫЙ НОМЕР</td>
+                  <td class="">77:06:0005014:1267</td>
+                </tr>
+                <tr>
+                  <td>НАЗНАЧЕНИЕ ОБЪЕКТА</td>
+                  <td class="">Квартира</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ОБЪЕКТА</td>
+                  <td class="">Жилые помещения</td>
+                </tr>
+                <tr>
+                  <td>РЕГИСТРАЦИОННЫЙ НОМЕР ПРАВА</td>
+                  <td class="">77:06:0005014:1267-77/072/2021-1</td>
+                </tr>
+                <tr>
+                  <td>УНИКАЛЬНЫЙ НОМЕР ОБЪЕКТА (УНОМ)</td>
+                  <td class="">1378</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Недвижимость 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>ЭТАЖ</td>
+                  <td class="">5</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Москва, Левобережный, ш. Ленинградское, д. 112, корп. 4, кв. 979</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ТИП ПРАВА</td>
+                  <td class="">Собственность</td>
+                </tr>
+                <tr>
+                  <td>ПЛОЩАДЬ (КВ.М)</td>
+                  <td class="">39.9</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КВАРТИРЫ</td>
+                  <td class="">979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">2020-02-03</td>
+                </tr>
+                <tr>
+                  <td>КАДАСТРОВЫЙ НОМЕР</td>
+                  <td class="">77:09:0001006:4782</td>
+                </tr>
+                <tr>
+                  <td>НАЗНАЧЕНИЕ ОБЪЕКТА</td>
+                  <td class="">Квартира</td>
+                </tr>
+                <tr>
+                  <td>НАИМЕНОВАНИЕ ОБЪЕКТА</td>
+                  <td class="">Квартира</td>
+                </tr>
+                <tr>
+                  <td>РЕГИСТРАЦИОННЫЙ НОМЕР ПРАВА</td>
+                  <td class="">77:09:0001006:4782-77/009/2020-1</td>
+                </tr>
+                <tr>
+                  <td>УНИКАЛЬНЫЙ НОМЕР ОБЪЕКТА (УНОМ)</td>
+                  <td class="">12801</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772791536342</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд илья владимирович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">117461, Россия, г. Москва, Балаклавский пр-кт, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">12.01.2021</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4506623717</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">126352/21/77032-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">Зюзинский ОСП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772791536342</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">117461, РОССИЯ, Г. МОСКВА,    БАЛАКЛАВСКИЙ ПР-КТ, Д. 42,  КВ. 54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНГРАДСКОЕ ШОССЕ Д.112/1 КОРП.4 КВ.979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">117461, Россия, г. Москва, , Балаклавский пр-кт, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">27.05.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4506623717</td>
+                </tr>
+                <tr>
+                  <td>СУММА ДОЛГА</td>
+                  <td class="">300</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ОТДЕЛ СУДЕБНЫХ ПРИСТАВОВ</td>
+                  <td class="">Зюзинский ОСП</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">90586/19/77032-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">117461, РОССИЯ, Г. МОСКВА,    БАЛАКЛАВСКИЙ ПР-КТ, Д. 42,  КВ. 54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд илья владимирович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">300</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">117461, Россия, г. Москва, Балаклавский пр-кт, д. 42, кв. 54</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">27.05.2019</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4506623717</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ОСП</td>
+                  <td class="">Зюзинский ОСП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ОСНОВАНИЕ ВЗЫСКАНИЯ</td>
+                  <td class="">Причина отсутствует</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">90586/19/77032-ИП</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНГРАДСКОЕ ШОССЕ Д.112/1 КОРП.4 КВ.979</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">МОСКВА, БАЛАКЛАВСКИЙ ПР-Т 42-54; БАЛАКЛАВСКИЙ ПР-Т Д.42 КВ.54; Ленинградское шоссе д.112/1 корп.4 кв.979</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">74954575060</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Г. МОСКВА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНГРАДСКОЕ ШОССЕ Д.112/1 КОРП.4 КВ.979</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС 2</td>
+                  <td class="">МОСКВА, БАЛАКЛАВСКИЙ ПР-Т 42-54; БАЛАКЛАВСКИЙ ПР-Т Д.42 КВ.54; Ленинградское шоссе д.112/1 корп.4 кв.979</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">74954577049</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Г. МОСКВА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Авиаперелеты Сирена 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ</td>
+                  <td class="">Дата рейса: 29.04.2018; Откуда: Внуково Москва Россия; Куда: Грабцево Калуга Россия; Номер рейса: 136; Авиакомпания: ЮТЭЙР авиакомпания UTA UT РОССИЯ ЮТЭ; Дата рейса: 18.04.2018; Откуда: Грабцево Калуга Россия; Куда: Внуково Москва Россия; Номер рейс</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Авиaперелеты Сирена 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">ПБ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">22.01.2016</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ РЕЙСА</td>
+                  <td class="">20:25</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">140</td>
+                </tr>
+                <tr>
+                  <td>АВИАКОМПАНИЯ</td>
+                  <td class="">РГ</td>
+                </tr>
+                <tr>
+                  <td>ВИД ДОКУМЕНТА</td>
+                  <td class="">ПС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОПЕРАЦИИ</td>
+                  <td class="">15.01.2016</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>КОД ОПЕРАТОРА</td>
+                  <td class="">СЦ9ЖГЦ</td>
+                </tr>
+                <tr>
+                  <td>АЭРОПОРТ ВЫЛЕТА</td>
+                  <td class="">ИЖВ</td>
+                </tr>
+                <tr>
+                  <td>АЭРОПОРТ ПРИЛЕТА</td>
+                  <td class="">ДМД</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Придприниматели 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772791536342</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ИФНС</td>
+                  <td class="">МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 7 ПО КАЛУЖСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКВА 42 54</td>
+                </tr>
+                <tr>
+                  <td>ОКВЭД</td>
+                  <td class="">32.10.51</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ОКВЭД</td>
+                  <td class="">31.61</td>
+                </tr>
+                <tr>
+                  <td>КПП ЮР.ЛИЦА</td>
+                  <td class="">402901001</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР В ФСС</td>
+                  <td class="">400029071540001</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС ЮР.ЛИЦА</td>
+                  <td class="">248009, ОБЛАСТЬ КАЛУЖСКАЯ, ГОРОД КАЛУГА, УЛИЦА ГРАБЦЕВСКОЕ ШОССЕ, 43</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ЛИКВИДАЦИИ</td>
+                  <td class="">30.12.1899</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОГРН ЮР.ЛИЦА</td>
+                  <td class="">14.09.2007</td>
+                </tr>
+                <tr>
+                  <td>ДАТА МОДИФИКАЦИИ</td>
+                  <td class="">14.04.2016 12:16:07</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">14.09.2007</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ПФР</td>
+                  <td class="">УПРАВЛЕНИЕ ПЕНСИОННОГО ФОНДА РОССИЙСКОЙ ФЕДЕРАЦИИ ПО Г.КАЛУГА</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ФСС</td>
+                  <td class="">ГОСУДАРСТВЕННОЕ УЧРЕЖДЕНИЕ - КАЛУЖСКОЕ РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ ФОНДА СОЦИАЛЬНОГО СТРАХОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР В ПФР ЮР.ЛИЦА</td>
+                  <td class="">050026051082</td>
+                </tr>
+                <tr>
+                  <td>КОД РЕГИОНА ЮР.ЛИЦА</td>
+                  <td class="">40</td>
+                </tr>
+                <tr>
+                  <td>ИНН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">4029036399</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ПФР</td>
+                  <td class="">19.09.2007</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ФСС</td>
+                  <td class="">18.09.2007</td>
+                </tr>
+                <tr>
+                  <td>ОГРН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">1074029002222</td>
+                </tr>
+                <tr>
+                  <td>ПОЛНОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ЗАКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО ФД</td>
+                </tr>
+                <tr>
+                  <td>КРАТКОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ЗАО ФД</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН РЕГИСТРАЦИИ ЮР.ЛИЦА</td>
+                  <td class="">ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ ПО ЛЕНИНСКОМУ ОКРУГУ Г. КАЛУГИ, 248600,Г КАЛУГА,ПЕР ВОСКРЕСЕНСКИЙ,28,,,,,,</td>
+                </tr>
+                <tr>
+                  <td>ФОРМА СОБСТВЕННОСТИ ЮР.ЛИЦА</td>
+                  <td class="">НЕПУБЛИЧНЫЕ АКЦИОНЕРНЫЕ ОБЩЕСТВА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСТАНОВКИ НА УЧЕТ В ИФНС</td>
+                  <td class="">14.09.2007</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Авиaперелеты Сирена 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Либкинд Илья Владимирович</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">4513083110</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">ПБ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕЙСА</td>
+                  <td class="">31.03.2016</td>
+                </tr>
+                <tr>
+                  <td>ВРЕМЯ РЕЙСА</td>
+                  <td class="">07:30</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР РЕЙСА</td>
+                  <td class="">276</td>
+                </tr>
+                <tr>
+                  <td>АВИАКОМПАНИЯ</td>
+                  <td class="">ДР</td>
+                </tr>
+                <tr>
+                  <td>ВИД ДОКУМЕНТА</td>
+                  <td class="">ПС</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОПЕРАЦИИ</td>
+                  <td class="">30.03.2016</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>КОД ОПЕРАТОРА</td>
+                  <td class="">Т6Л176</td>
+                </tr>
+                <tr>
+                  <td>АЭРОПОРТ ВЫЛЕТА</td>
+                  <td class="">КИО</td>
+                </tr>
+                <tr>
+                  <td>АЭРОПОРТ ПРИЛЕТА</td>
+                  <td class="">ВНК</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 28 -->
+      <div class="card source-card" id="source27">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Придприниматели 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">772791536342</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ИФНС</td>
+                  <td class="">МЕЖРАЙОННАЯ ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ № 7 ПО КАЛУЖСКОЙ ОБЛАСТИ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКВА БАЛАКЛАВСКИЙ 42 54</td>
+                </tr>
+                <tr>
+                  <td>ОКВЭД</td>
+                  <td class="">51.70</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">13678102367</td>
+                </tr>
+                <tr>
+                  <td>ДОП. ОКВЭД</td>
+                  <td class="">32.10</td>
+                </tr>
+                <tr>
+                  <td>КПП ЮР.ЛИЦА</td>
+                  <td class="">402901001</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР В ФСС</td>
+                  <td class="">400048235340001</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС ЮР.ЛИЦА</td>
+                  <td class="">248009, ОБЛАСТЬ КАЛУЖСКАЯ, ГОРОД КАЛУГА, УЛИЦА ГРАБЦЕВСКОЕ ШОССЕ, ДОМ 43, КОРПУС 2</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ЛИКВИДАЦИИ</td>
+                  <td class="">30.12.1899</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ОГРН ЮР.ЛИЦА</td>
+                  <td class="">01.07.2015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА МОДИФИКАЦИИ</td>
+                  <td class="">14.04.2016 12:16:07</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">01.07.2015</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ПФР</td>
+                  <td class="">УПРАВЛЕНИЕ ПЕНСИОННОГО ФОНДА РОССИЙСКОЙ ФЕДЕРАЦИИ ПО Г.КАЛУГА</td>
+                </tr>
+                <tr>
+                  <td>ПОДРАЗДЕЛЕНИЕ ФСС</td>
+                  <td class="">ГОСУДАРСТВЕННОЕ УЧРЕЖДЕНИЕ - КАЛУЖСКОЕ РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ ФОНДА СОЦИАЛЬНОГО СТРАХОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР В ПФР ЮР.ЛИЦА</td>
+                  <td class="">050026069193</td>
+                </tr>
+                <tr>
+                  <td>КОД РЕГИОНА ЮР.ЛИЦА</td>
+                  <td class="">40</td>
+                </tr>
+                <tr>
+                  <td>ИНН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">4029052753</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ПФР</td>
+                  <td class="">08.07.2015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ В ФСС</td>
+                  <td class="">06.07.2015</td>
+                </tr>
+                <tr>
+                  <td>ОГРН ЮРИДИЧЕСКОГО ЛИЦА</td>
+                  <td class="">1154029001180</td>
+                </tr>
+                <tr>
+                  <td>ПОЛНОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ КОРУНДПЛЮС</td>
+                </tr>
+                <tr>
+                  <td>КРАТКОЕ НАЗВАНИЕ ЮР.ЛИЦА</td>
+                  <td class="">ООО КОРУНДПЛЮС</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН РЕГИСТРАЦИИ ЮР.ЛИЦА</td>
+                  <td class="">ИНСПЕКЦИЯ ФЕДЕРАЛЬНОЙ НАЛОГОВОЙ СЛУЖБЫ ПО ЛЕНИНСКОМУ ОКРУГУ Г. КАЛУГИ, 248600,Г КАЛУГА,ПЕР ВОСКРЕСЕНСКИЙ,28,,,,,,</td>
+                </tr>
+                <tr>
+                  <td>ФОРМА СОБСТВЕННОСТИ ЮР.ЛИЦА</td>
+                  <td class="">ОБЩЕСТВА С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСТАНОВКИ НА УЧЕТ В ИФНС</td>
+                  <td class="">01.07.2015</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 29 -->
+      <div class="card source-card" id="source28">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 30 -->
+      <div class="card source-card" id="source29">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: УЧЕТЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 31 -->
+      <div class="card source-card" id="source30">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 32 -->
+      <div class="card source-card" id="source31">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Связь по адресу 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ЛЕНИНГРАДСКОЕ ШОССЕ Д.112/1 КОРП.4 КВ.979</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗАННЫЕ ЛИЦА ПО АДРЕСУ</td>
+                  <td class="">ЧИНКОВА МАРИЯ АЛЕКСАНДРОВНА 12.09.1966; ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ 16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>КОЛИЧЕСТВО ЗАРЕГИСТРИРОВАННЫХ ПО АДРЕСУ</td>
+                  <td class="">2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 33 -->
+      <div class="card source-card" id="source32">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</td>
+                  <td class="">Тип учета: УЧЕТЫ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 34 -->
+      <div class="card source-card" id="source33">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 35 -->
+      <div class="card source-card" id="source34">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Криминальные Лица 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ТИП УЧЁТА</td>
+                  <td class="">УЧЕТЫ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 36 -->
+      <div class="card source-card" id="source35">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Нарушение ПДД Калуга 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">В396УС40</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА НАРУШЕНИЯ</td>
+                  <td class="">09.12.2007</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ГАЗ-31105</td>
+                </tr>
+                <tr>
+                  <td>ИНФОРМАЦИЯ ПО НАРУШЕНИЮ</td>
+                  <td class="">Рег. знак: В396УС40 ГАЗ-31105 ЛЕГКОВОЙ АВТОМОБИЛЬ НЕСОБЛЮДЕНИЕ ТРЕБОВАНИЙ, ПРЕДПИСАННЫХ ДОРОЖНЫМИ ЗНАКАМИ ИЛИ РАЗМЕТКОЙ ПРОЕЗЖЕЙ ЧАСТИ ДОРОГИ Дата нарушения: 09.12.2007 Выявлено: 1 ОБ ДПС Статья КоАП: 12.16 Рег.номер: 40#40АА667714Т71 Состояние: Вынесено постановление Протокол: 40АА667714 Дата:09.12.2007 Постановление: 40АП233373 Дата:09.12.2007 Наказание: Штраф Штраф: 100 Дата оплаты: Исполнение: Не исполнено Категория: Водитель Тип владельца ТС: Физическое лицо Подразделение исполнитель: 1 ОБ ДПС</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 37 -->
+      <div class="card source-card" id="source36">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Афилированные ЮЛ 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">7727573550</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ОГРН</td>
+                  <td class="">1067746516188</td>
+                </tr>
+                <tr>
+                  <td>ОКПО</td>
+                  <td class="">95201072</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">ПРОСП БАЛАКЛАВСКИЙ Д 42 КВ 54</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ЗАКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО ПОЖАРНАЯ МИКРОЭЛЕКТРОНИКА</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">21.04.2006</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 38 -->
+      <div class="card source-card" id="source37">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ленинградское шоссе д.112/1 корп.4 кв.979</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">4954577049</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Г. МОСКВА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 39 -->
+      <div class="card source-card" id="source38">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ленинградское шоссе д.112/1 корп.4 кв.979</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">4954575060</td>
+                </tr>
+                <tr>
+                  <td>ГОД РОЖДЕНИЯ</td>
+                  <td class="">1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Г. МОСКВА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 40 -->
+      <div class="card source-card" id="source39">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Афилированные ЮЛ 2012</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">7704202895</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ОГРН</td>
+                  <td class="">1037739212279</td>
+                </tr>
+                <tr>
+                  <td>ОКПО</td>
+                  <td class="">18957810</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">УЛ БОЛЬШАЯ МОЛЧАНОВКА Д 23/38 СТР 1</td>
+                </tr>
+                <tr>
+                  <td>DOPOLNITELNAYA_INFO</td>
+                  <td class="">Требует подтверждения</td>
+                </tr>
+                <tr>
+                  <td>REGISTRATSIONNIY_NOMER</td>
+                  <td class="">1358587</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РАБОТЫ</td>
+                  <td class="">ООО ТУРМАЛИН-ЭНЕРГОСВЯЗЬ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">20.07.1999</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 41 -->
+      <div class="card source-card" id="source40">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пользователи OK.ru 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>РЕЕСТРОВЫЙ НОМЕР MCHID</td>
+                  <td class="">12253067/1A04-2A04-3A04-4A04-5A04-6A97</td>
+                </tr>
+                <tr>
+                  <td>ССЫЛКА НА ОДНОКЛАССНИКИ</td>
+                  <td class="">625 / Москва; (МИРЭА) Московский государственный институт радиотехники, электроники и автоматики (технический университет) / Москва; ОАО Восход - КРЛЗ / Калуга</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 42 -->
+      <div class="card source-card" id="source41">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водители Москва 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">МОСКВА МОСКВА БАЛАКЛАВСКИЙ ПР-Т 42-54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 43 -->
+      <div class="card source-card" id="source42">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Водители Москва 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">БАЛАКЛАВСКИЙ ПР-Т д. 42кв. 54</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">Г. МОСКВА</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 44 -->
+      <div class="card source-card" id="source43">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Москва 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 45 -->
+      <div class="card source-card" id="source44">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">ЛИБКИНД ИЛЬЯ ВЛАДИМИРОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Ленинградское шоссе д.112/1 корп.4 кв.979</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ЧИНКОВА МАРИЯ АЛЕКСАНДРОВНА 12.09.1966</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">16.03.1968</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                ФССП 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                Департамент здравоохранения 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                ИС УДРВС 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                ФССП 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                Абоненты Билайн 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                Недвижимость 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Недвижимость 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                ФССП 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                ФССП 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Жители Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Жители Москва 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Авиаперелеты Сирена 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Авиaперелеты Сирена 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Придприниматели 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Авиaперелеты Сирена 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source27" class="nav-link " onclick="scrollToSource('source27', event)">
+                Придприниматели 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source28" class="nav-link " onclick="scrollToSource('source28', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source29" class="nav-link " onclick="scrollToSource('source29', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source30" class="nav-link " onclick="scrollToSource('source30', event)">
+                Криминальные Лица 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source31" class="nav-link " onclick="scrollToSource('source31', event)">
+                Связь по адресу 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source32" class="nav-link " onclick="scrollToSource('source32', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source33" class="nav-link " onclick="scrollToSource('source33', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source34" class="nav-link " onclick="scrollToSource('source34', event)">
+                Криминальные Лица 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source35" class="nav-link " onclick="scrollToSource('source35', event)">
+                Нарушение ПДД Калуга 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source36" class="nav-link " onclick="scrollToSource('source36', event)">
+                Афилированные ЮЛ 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source37" class="nav-link " onclick="scrollToSource('source37', event)">
+                Жители Москва 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source38" class="nav-link " onclick="scrollToSource('source38', event)">
+                Жители Москва 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source39" class="nav-link " onclick="scrollToSource('source39', event)">
+                Афилированные ЮЛ 2012
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source40" class="nav-link " onclick="scrollToSource('source40', event)">
+                Пользователи OK.ru 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source41" class="nav-link " onclick="scrollToSource('source41', event)">
+                Водители Москва 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source42" class="nav-link " onclick="scrollToSource('source42', event)">
+                Водители Москва 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source43" class="nav-link " onclick="scrollToSource('source43', event)">
+                Жители Москва 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source44" class="nav-link " onclick="scrollToSource('source44', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3025 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Крыгин Сергей Иванович 17.10.1954</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1d24">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Цветовая схема (темная) */
+    --color-primary: #3498db;
+    --color-primary-light: #214559;
+    --color-secondary: #6c7a89;
+    --color-accent: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+
+    /* Текст */
+    --color-text: #ecf0f1;
+    --color-text-secondary: #bdc3c7;
+    --color-text-light: #7f8c8d;
+
+    /* Фоны */
+    --color-bg: #101214;
+    --color-bg-paper: #1a1d24;
+    --color-bg-card: #23272e;
+    --color-bg-section: #1e222a;
+
+    /* Границы */
+    --color-border: #2c3e50;
+    --color-border-light: #34495e;
+
+    /* Размеры */
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --tab-height: 40px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  }
+
+  /* Сброс стилей */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Утилиты */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-2 {
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .py-2 {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .mb-4 {
+    margin-bottom: calc(var(--spacing-unit) * 4);
+  }
+
+  /* Заголовок страницы */
+  .page-header {
+    background-color: var(--color-bg-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-bg-section);
+    border-color: var(--color-text-secondary);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  /* Основной layout */
+  .main-layout {
+    display: flex;
+    margin-top: calc(var(--spacing-unit) * 3);
+  }
+
+  .main-content {
+    flex: 1;
+    margin-right: calc(var(--spacing-unit) * 3);
+  }
+
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 8);
+    height: calc(100vh - var(--spacing-unit) * 12);
+    overflow-y: auto;
+  }
+
+  /* Карточка */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--color-bg-section);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  /* Сводная информация */
+  .summary-card .card-body {
+    padding: 0;
+  }
+
+  .summary-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-section);
+  }
+
+  .summary-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .summary-tabs::-webkit-scrollbar-track {
+    background-color: var(--color-bg-section);
+  }
+
+  .tab {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--color-text);
+    background-color: var(--color-bg-section);
+  }
+
+  .tab-content {
+    display: none;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+
+  .info-value {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  /* Источники данных */
+  .source-card {
+    transition: all 0.2s;
+  }
+
+  .source-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .source-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .source-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .source-icon {
+    font-size: 1.125rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .source-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .source-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .source-body {
+    max-height: none; /* Всегда показываем источники */
+    overflow: visible;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table tr {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .data-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td {
+    padding: calc(var(--spacing-unit)) 0;
+    font-size: 0.875rem;
+    vertical-align: top;
+  }
+
+  .data-table td:first-child {
+    width: 30%;
+    color: var(--color-text-secondary);
+    padding-right: calc(var(--spacing-unit) * 2);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Сайдбар */
+  .sidebar-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .sidebar-title {
+    padding: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-body {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-item {
+    margin-bottom: 1px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: calc(var(--spacing-unit));
+    font-size: 0.75rem;
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-bg-section);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+
+    .main-content {
+      margin-right: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+      margin-top: calc(var(--spacing-unit) * 2);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-actions {
+      margin-top: calc(var(--spacing-unit) * 2);
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .data-table td {
+      display: block;
+      width: 100% !important;
+    }
+
+    .data-table td:first-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Печать */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .page-header {
+      position: static;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-actions, .sidebar {
+      display: none !important;
+    }
+
+    .card, .source-card {
+      break-inside: avoid;
+      box-shadow: none;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .card-header {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .data-table td {
+      color: black !important;
+    }
+
+    .data-table td:first-child {
+      color: #555 !important;
+    }
+
+    .highlight {
+      color: #2980b9 !important;
+    }
+
+    /* Убедимся, что все вкладки видны */
+    .tab-content {
+      display: block !important;
+      page-break-inside: avoid;
+      border-top: 1px dashed #ddd;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      border: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- Заголовок страницы -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">Крыгин Сергей Иванович 17.10.1954</h1>
+        <p class="page-subtitle">Результаты поиска <span class="badge">27 источников</span></p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()">
+          <span>Печать</span>
+        </button>
+        <button class="btn btn-primary" onclick="savePDF()">
+          <span>Сохранить PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="container">
+  <div class="main-layout">
+    <div class="main-content">
+      <!-- Сводная информация -->
+      <div class="card summary-card mb-4">
+        <div class="card-header">
+          <h2 class="card-title">Сводная информация</h2>
+        </div>
+
+        <div class="summary-tabs">
+          <div class="tab active" data-tab="личные_данные">Личные данные</div>
+          <div class="tab " data-tab="контакты">Контакты</div>
+          <div class="tab " data-tab="документы">Документы</div>
+          <div class="tab " data-tab="финансовая_информация">Финансовая информация</div>
+          <div class="tab " data-tab="информация_об_автомобиле">Информация об автомобиле</div>
+          <div class="tab " data-tab="другие_данные">Другие данные</div>
+        </div>
+
+        <div id="личные_данные" class="tab-content active">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">
+                Крыгин Сергей Иванович<br>
+                КРЫГИН СЕРГЕЙ ИВАНОВИЧ<br>
+                Крыгин сергей иванович<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РОЖДЕНИЯ</div>
+              <div class="info-value">
+                17.10.1954<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС</div>
+              <div class="info-value">
+                НОВОКУЙБЫШЕВСК , СВЕРДЛОВА УЛ Д. 18 КВ. 36<br>
+                Самарская обл, г Новокуйбышевск, ул Свердлова,17,101<br>
+                643,446218,63,НОВОКУЙБЫШЕВСК Г,СВЕРДЛОВА УЛ,18,36<br>
+                НОВОКУЙБЫШЕВСК  СВЕРДЛОВА УЛ Д. 18 КВ. 36<br>
+                Самарская область<br>
+                НОВОКУЙБЫШЕВСК СВЕРДЛОВА УЛ д.18 кв.36<br>
+                СВЕРДЛОВА УЛ д.18 кв.36<br>
+                НОВОКУЙБЫШЕВСК , СВЕРДЛОВА УЛ д. 18 кв. 36<br>
+                Самарская область Новокуйбышевск г Новокуйбышевск г Свердлова ул 18 36<br>
+                Самарская область Г.новокуйбышев<br>
+                Самарская область Новокуйбышевск г Новокуйбышевск г Свердлова 18 36<br>
+                Г.НОВОКУЙБЫШЕВ СВЕРДЛОВА 18 36<br>
+                Г.НОВОКУЙБЫШЕВ НОВОКУЙБЫШЕВСКИЙ р-н СВЕРДЛОВА 18 36<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="контакты" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ТЕЛЕФОН</div>
+              <div class="info-value">
+                89277081580<br>
+                79270074925<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="документы" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">СНИЛС</div>
+              <div class="info-value">
+                01053517494<br>
+                1053517494<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПАСПОРТ</div>
+              <div class="info-value">
+                3602665015<br>
+                6650153602<br>
+                362665015<br>
+                01ЕР599442<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИНН</div>
+              <div class="info-value">
+                6330000553<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТ</div>
+              <div class="info-value">
+                Паспорт гражданина РФ<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="финансовая_информация" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ДОЛГ</div>
+              <div class="info-value">
+                800<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИП</div>
+              <div class="info-value">
+                27.12.2020<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ИП</div>
+              <div class="info-value">
+                58889/21/63017-ИП<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="информация_об_автомобиле" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">ГОС НОМЕР</div>
+              <div class="info-value">
+                К751НА163<br>
+                Е972ВВ63<br>
+                Х183ОС63<br>
+                Е972ВВ6<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА</div>
+              <div class="info-value">
+                2007<br>
+                1997<br>
+                2002<br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="другие_данные" class="tab-content ">
+          <div class="personal-info">
+            <div class="info-group">
+              <div class="info-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">
+                гор.Чапаевск Куйбышевкой области<br>
+                гор.Чапаевск Куйбышевской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                Самарская область, г.Новокуйбышевск, ул.Свердлова, д.18, кв.36<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ПОДРАЗДЕЛЕНИЯ</div>
+              <div class="info-value">
+                632-018<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВЫДАЧИ ПАСПОРТА</div>
+              <div class="info-value">
+                2002-12-25<br>
+                25.12.2002<br>
+                04.06.1976<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОРГАН, ВЫДАВШИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                ОВД города Новокуйбышевска Самарской области<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СВЯЗЬ С ЛИЦОМ</div>
+              <div class="info-value">
+                БЕЛОГУРОВА ИННА СЕРГЕЕВНА 02.11.1981, ЛАБИНЦЕВА ЮЛИЯ СЕРГЕЕВНА 23.08.1983, КРЫГИНА НИНА ИВАНОВНА 21.10.1951<br>
+                ЛАБИНЦЕВА ЮЛИЯ СЕРГЕЕВНА 23.08.1983, КРЫГИНА НИНА ИВАНОВНА 21.10.1951, БЕЛОГУРОВА ИННА СЕРГЕЕВНА 02.11.1981<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</div>
+              <div class="info-value">
+                ОСП г. Новокуйбышевска<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ПОЛИСА</div>
+              <div class="info-value">
+                ЮЛ154543<br>
+                6349540832000451<br>
+                ТР10540<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП ДОКУМЕНТА</div>
+              <div class="info-value">
+                Паспорт гражданина Российской Федерации<br>
+                Паспорт<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                13.03.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕГО РЕДАКТИРОВАНИЯ ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                29.08.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КОД ЛПУ ПМСП</div>
+              <div class="info-value">
+                3102<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВОЙ ПОЛИС</div>
+              <div class="info-value">
+                0111 5405937<br>
+                ААА0141790385<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВНЕСЕНИЯ ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                20.03.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ИЗМЕНЕНИЯ ИНФОРМАЦИИ</div>
+              <div class="info-value">
+                20.03.2015<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТАТУС</div>
+              <div class="info-value">
+                Работающий<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОЛИСА</div>
+              <div class="info-value">
+                13.03.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЕНП (ЕДИНЫЙ НОМЕР ПОЛИСА)</div>
+              <div class="info-value">
+                6349540832000451<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПОСЛЕДНЕЙ МОДИФИКАЦИИ</div>
+              <div class="info-value">
+                29.08.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ВВОДА</div>
+              <div class="info-value">
+                13.03.2006<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА КОРРЕКЦИИ</div>
+              <div class="info-value">
+                29.08.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ИДЕНТИФИКАЦИОННЫЙ НОМЕР (EIN)</div>
+              <div class="info-value">
+                6301954106704429<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ПТС</div>
+              <div class="info-value">
+                78ТР500508<br>
+                63КВ352813<br>
+                63КМ029730<br>
+                63МВ987816<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ</div>
+              <div class="info-value">
+                синий<br>
+                белый<br>
+                серебристо-голубой<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">VIN НОМЕР</div>
+              <div class="info-value">
+                JМВSRСS3А7U015344<br>
+                ХТА210600V3847005<br>
+                ХТА21099023197940<br>
+                ХТА210610V3847005<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПТС</div>
+              <div class="info-value">
+                23.03.2007<br>
+                23.03.2002<br>
+                04.03.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОПЕРАЦИЯ</div>
+              <div class="info-value">
+                регистрация, снятых с учета<br>
+                снятие с учета в связи с отчуждением<br>
+                В КОММАГ<br>
+                ПЕРВИЧ УЧЕТ ЛАМТ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТИП КУЗОВА</div>
+              <div class="info-value">
+                легковой<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ ТС</div>
+              <div class="info-value">
+                В<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР КУЗОВА</div>
+              <div class="info-value">
+                JМВSRСS3А7U015344<br>
+                3847005<br>
+                3197940<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦЕНЫ НА УСЛУГИ</div>
+              <div class="info-value">
+                100000<br>
+                136000<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД ТРАНСПОРТА</div>
+              <div class="info-value">
+                легковые-прочие<br>
+                ЛЕГКОВОЙ ЛИЧН<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                4G18НУ9450<br>
+                4626055<br>
+                3325622<br>
+                4626055 2106<br>
+                3325622 2111<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                19.04.2008<br>
+                23.03.2002<br>
+                25.01.2008<br>
+                30.03.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАРКА АВТОМОБИЛЯ</div>
+              <div class="info-value">
+                МИТСУБИСИЛАНСЕР1.6<br>
+                ВАЗ2106<br>
+                ВАЗ21099<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КЕМ ВЫДАН ПАСПОРТ</div>
+              <div class="info-value">
+                НКБШ ГОВД<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТРАХОВАЯ КОМПАНИЯ</div>
+              <div class="info-value">
+                РОСГОССТРАХ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСЯЦ ПРОХОЖДЕНИЯ ТО</div>
+              <div class="info-value">
+                4<br>
+                5<br>
+                6<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СРОК ДЕЙСТВИЯ ПОЛИСА</div>
+              <div class="info-value">
+                15.04.2009<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА СТРАХОВОГО ПОЛИСА</div>
+              <div class="info-value">
+                16.04.2008<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ПЕРВОЙ РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                17.04.2007<br>
+                30.03.2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</div>
+              <div class="info-value">
+                63СМ260007<br>
+                63ВА286574<br>
+                63КС091822<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТРАНЗИТНЫЙ НОМЕР</div>
+              <div class="info-value">
+                ХА630301<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РЕГИОН СЛЕДОВАНИЯ</div>
+              <div class="info-value">
+                ВОРОНЕЖ<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">РАЙОН</div>
+              <div class="info-value">
+                УЧЕТ ИЗ ОБЛСОБЕС<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ЦВЕТ ТС</div>
+              <div class="info-value">
+                БЕЛЫЙ<br>
+                СЕРЕБРИСТО-ГОЛУБОЙ 625<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ВИД АМТС</div>
+              <div class="info-value">
+                6<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МЕСЯЦ ТО</div>
+              <div class="info-value">
+                3<br>
+                4<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">КАТЕГОРИЯ</div>
+              <div class="info-value">
+                В<br>
+                B<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">НОМЕР СЕРИИ</div>
+              <div class="info-value">
+                972В<br>
+                183О<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕХНИЧЕСКИЙ ТАЛОН</div>
+              <div class="info-value">
+                63МВ987816<br>
+                63АВ353191<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДОКУМЕНТ-ОСНОВАНИЕ</div>
+              <div class="info-value">
+                01 63ВА5540741136 13/05/97<br>
+                01 63ЕР6068681136 28/03/02<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ГОД ВЫПУСКА (ДОКУМЕНТЫ)</div>
+              <div class="info-value">
+                1997<br>
+                2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ДАТА ТЕХНИЧЕСКОГО ОСМОТРА</div>
+              <div class="info-value">
+                2001<br>
+                2002<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">СТС</div>
+              <div class="info-value">
+                63ВА286574<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МОЩНОСТЬ</div>
+              <div class="info-value">
+                54.8<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ОБЪЕМ ДВИГАТЕЛЯ</div>
+              <div class="info-value">
+                1568<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАССА БЕЗ НАГРУЗКИ</div>
+              <div class="info-value">
+                1045<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">МАКСИМАЛЬНАЯ МАССА</div>
+              <div class="info-value">
+                1445<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">ТЕХНИЧЕСКИЙ ПАСПОРТ</div>
+              <div class="info-value">
+                63ВР375315<br>
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="info-label">АДРЕС МЕСТА РЕГИСТРАЦИИ</div>
+              <div class="info-value">
+                КУЙБЫШЕВСКАЯ ОБЛАСТЬ ЧАПАЕВСК<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Источники данных -->
+      <h2 class="card-title mb-2">Источники данных</h2>
+      
+      <!-- Источник 1 -->
+      <div class="card source-card" id="source0">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">89277081580</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор.Чапаевск Куйбышевкой области</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Самарская область, г.Новокуйбышевск, ул.Свердлова, д.18, кв.36</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">632-018</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2002-12-25</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">ОВД города Новокуйбышевска Самарской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 2 -->
+      <div class="card source-card" id="source1">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Росреестр 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>МЕСТО РОЖДЕНИЯ</td>
+                  <td class="">гор.Чапаевск Куйбышевской области</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС РЕГИСТРАЦИИ</td>
+                  <td class="">Самарская область, г.Новокуйбышевск, ул.Свердлова, д.18, кв.36</td>
+                </tr>
+                <tr>
+                  <td>КОД ПОДРАЗДЕЛЕНИЯ</td>
+                  <td class="">632-018</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">2002-12-25</td>
+                </tr>
+                <tr>
+                  <td>ОРГАН, ВЫДАВШИЙ ПАСПОРТ</td>
+                  <td class="">ОВД города Новокуйбышевска Самарской области</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 3 -->
+      <div class="card source-card" id="source2">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , СВЕРДЛОВА УЛ Д. 18 КВ. 36</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">БЕЛОГУРОВА ИННА СЕРГЕЕВНА 02.11.1981, ЛАБИНЦЕВА ЮЛИЯ СЕРГЕЕВНА 23.08.1983, КРЫГИНА НИНА ИВАНОВНА 21.10.1951</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 4 -->
+      <div class="card source-card" id="source3">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу 2023</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , СВЕРДЛОВА УЛ Д. 18 КВ. 36</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ЛАБИНЦЕВА ЮЛИЯ СЕРГЕЕВНА 23.08.1983, КРЫГИНА НИНА ИВАНОВНА 21.10.1951, БЕЛОГУРОВА ИННА СЕРГЕЕВНА 02.11.1981</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 5 -->
+      <div class="card source-card" id="source4">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79270074925</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 6 -->
+      <div class="card source-card" id="source5">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2023 (EK)</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская обл, г Новокуйбышевск, ул Свердлова,17,101</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">6650153602</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79270074925</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 7 -->
+      <div class="card source-card" id="source6">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Налогоплательщик 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , СВЕРДЛОВА УЛ Д. 18 КВ. 36</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ТЕЛЕФОН</td>
+                  <td class="">79270074925</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 8 -->
+      <div class="card source-card" id="source7">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФССП 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин сергей иванович</td>
+                </tr>
+                <tr>
+                  <td>ДОЛГ</td>
+                  <td class="">800</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">643,446218,63,НОВОКУЙБЫШЕВСК Г,СВЕРДЛОВА УЛ,18,36</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИП</td>
+                  <td class="">27.12.2020</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ИП</td>
+                  <td class="">58889/21/63017-ИП</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ИСПОЛНИТЕЛЬНОЕ ПРОИЗВОДСТВО</td>
+                  <td class="">ОСП г. Новокуйбышевска</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 9 -->
+      <div class="card source-card" id="source8">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК  СВЕРДЛОВА УЛ Д. 18 КВ. 36</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 10 -->
+      <div class="card source-card" id="source9">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители России 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 11 -->
+      <div class="card source-card" id="source10">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 12 -->
+      <div class="card source-card" id="source11">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС РОССИИ 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская область</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ЮЛ154543</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт гражданина Российской Федерации</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА ИНФОРМАЦИИ</td>
+                  <td class="">13.03.2006</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕГО РЕДАКТИРОВАНИЯ ИНФОРМАЦИИ</td>
+                  <td class="">29.08.2008</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 13 -->
+      <div class="card source-card" id="source12">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Самарская область 2015</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">01053517494</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>КОД ЛПУ ПМСП</td>
+                  <td class="">3102</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">6349540832000451</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ ПОЛИС</td>
+                  <td class="">0111 5405937</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВНЕСЕНИЯ ИНФОРМАЦИИ</td>
+                  <td class="">20.03.2015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ИЗМЕНЕНИЯ ИНФОРМАЦИИ</td>
+                  <td class="">20.03.2015</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 14 -->
+      <div class="card source-card" id="source13">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Фомс Самара 2014</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">6330000553</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК СВЕРДЛОВА УЛ д.18 кв.36</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Работающий</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">362665015</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ТР10540</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 15 -->
+      <div class="card source-card" id="source14">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Самара 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">СВЕРДЛОВА УЛ д.18 кв.36</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">1053517494</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">Паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОЛИСА</td>
+                  <td class="">13.03.2006</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ЮЛ154543</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ЕНП (ЕДИНЫЙ НОМЕР ПОЛИСА)</td>
+                  <td class="">6349540832000451</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПОСЛЕДНЕЙ МОДИФИКАЦИИ</td>
+                  <td class="">29.08.2008</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 16 -->
+      <div class="card source-card" id="source15">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Медстрахование Самара 2011</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК СВЕРДЛОВА УЛ д.18 кв.36</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ</td>
+                  <td class="">Паспорт гражданина РФ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВВОДА</td>
+                  <td class="">13.03.2006</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ЮЛ154543</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ДАТА КОРРЕКЦИИ</td>
+                  <td class="">29.08.2008</td>
+                </tr>
+                <tr>
+                  <td>ЕНП (ЕДИНЫЙ НОМЕР ПОЛИСА)</td>
+                  <td class="">6349540832000451</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 17 -->
+      <div class="card source-card" id="source16">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Жители Самара 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , СВЕРДЛОВА УЛ д. 18 кв. 36</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ЮЛ154543</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт</td>
+                </tr>
+                <tr>
+                  <td>ИДЕНТИФИКАЦИОННЫЙ НОМЕР (EIN)</td>
+                  <td class="">6301954106704429</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 18 -->
+      <div class="card source-card" id="source17">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили России 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">78ТР500508</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ</td>
+                  <td class="">синий</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская область Новокуйбышевск г Новокуйбышевск г Свердлова ул 18 36</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">JМВSRСS3А7U015344</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">23.03.2007</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">регистрация, снятых с учета</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">К751НА163</td>
+                </tr>
+                <tr>
+                  <td>ТИП КУЗОВА</td>
+                  <td class="">легковой</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА</td>
+                  <td class="">2007</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ ТС</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">JМВSRСS3А7U015344</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ЦЕНЫ НА УСЛУГИ</td>
+                  <td class="">100000</td>
+                </tr>
+                <tr>
+                  <td>ВИД ТРАНСПОРТА</td>
+                  <td class="">легковые-прочие</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">4G18НУ9450</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВОЙ ПОЛИС</td>
+                  <td class="">ААА0141790385</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">19.04.2008</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">МИТСУБИСИЛАНСЕР1.6</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НКБШ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>СТРАХОВАЯ КОМПАНИЯ</td>
+                  <td class="">РОСГОССТРАХ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">25.12.2002</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ПРОХОЖДЕНИЯ ТО</td>
+                  <td class="">4</td>
+                </tr>
+                <tr>
+                  <td>СРОК ДЕЙСТВИЯ ПОЛИСА</td>
+                  <td class="">15.04.2009</td>
+                </tr>
+                <tr>
+                  <td>ДАТА СТРАХОВОГО ПОЛИСА</td>
+                  <td class="">16.04.2008</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРВОЙ РЕГИСТРАЦИИ</td>
+                  <td class="">17.04.2007</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63СМ260007</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 19 -->
+      <div class="card source-card" id="source18">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">ФОМС Самара 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , СВЕРДЛОВА УЛ д. 18 кв. 36</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 20 -->
+      <div class="card source-card" id="source19">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили России 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63КВ352813</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ</td>
+                  <td class="">белый</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская область Г.новокуйбышев</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА210600V3847005</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">01ЕР599442</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">23.03.2002</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">снятие с учета в связи с отчуждением</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е972ВВ63</td>
+                </tr>
+                <tr>
+                  <td>ТИП КУЗОВА</td>
+                  <td class="">легковой</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА</td>
+                  <td class="">1997</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ ТС</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">3847005</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ВИД ТРАНСПОРТА</td>
+                  <td class="">легковые-прочие</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">4626055</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">23.03.2002</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ2106</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НКБШ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">04.06.1976</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ПРОХОЖДЕНИЯ ТО</td>
+                  <td class="">5</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63ВА286574</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 21 -->
+      <div class="card source-card" id="source20">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили России 2010</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63КМ029730</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ</td>
+                  <td class="">серебристо-голубой</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Самарская область Новокуйбышевск г Новокуйбышевск г Свердлова 18 36</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА21099023197940</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">3602665015</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">04.03.2002</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">снятие с учета в связи с отчуждением</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Х183ОС63</td>
+                </tr>
+                <tr>
+                  <td>ТИП КУЗОВА</td>
+                  <td class="">легковой</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА</td>
+                  <td class="">2002</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ ТС</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">3197940</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ЦЕНЫ НА УСЛУГИ</td>
+                  <td class="">136000</td>
+                </tr>
+                <tr>
+                  <td>ВИД ТРАНСПОРТА</td>
+                  <td class="">легковые-прочие</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">3325622</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">25.01.2008</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ21099</td>
+                </tr>
+                <tr>
+                  <td>ТРАНЗИТНЫЙ НОМЕР</td>
+                  <td class="">ХА630301</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НКБШ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>РЕГИОН СЛЕДОВАНИЯ</td>
+                  <td class="">ВОРОНЕЖ</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">25.12.2002</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ПРОХОЖДЕНИЯ ТО</td>
+                  <td class="">6</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПЕРВОЙ РЕГИСТРАЦИИ</td>
+                  <td class="">30.03.2002</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63КС091822</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 22 -->
+      <div class="card source-card" id="source21">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Самара 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63КВ352813</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.НОВОКУЙБЫШЕВ СВЕРДЛОВА 18 36</td>
+                </tr>
+                <tr>
+                  <td>РАЙОН</td>
+                  <td class="">УЧЕТ ИЗ ОБЛСОБЕС</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">БЕЛЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА210600V3847005</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">01ЕР599442</td>
+                </tr>
+                <tr>
+                  <td>ВИД АМТС</td>
+                  <td class="">6</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">23.03.2002</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ТО</td>
+                  <td class="">3</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">В КОММАГ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е972ВВ6</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СЕРИИ</td>
+                  <td class="">972В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">3847005</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">4626055 2106</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">23.03.2002</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ2106</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НКБШ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ТАЛОН</td>
+                  <td class="">63МВ987816</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ-ОСНОВАНИЕ</td>
+                  <td class="">01 63ВА5540741136 13/05/97</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">04.06.1976</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1997</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ТЕХНИЧЕСКОГО ОСМОТРА</td>
+                  <td class="">2001</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63ВА286574</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 23 -->
+      <div class="card source-card" id="source22">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Самара 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63МВ987816</td>
+                </tr>
+                <tr>
+                  <td>СТС</td>
+                  <td class="">63ВА286574</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.НОВОКУЙБЫШЕВ НОВОКУЙБЫШЕВСКИЙ р-н СВЕРДЛОВА 18 36</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">БЕЛЫЙ</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА210610V3847005</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">01ЕР599442</td>
+                </tr>
+                <tr>
+                  <td>МОЩНОСТЬ</td>
+                  <td class="">54.8</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">ПЕРВИЧ УЧЕТ ЛАМТ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Е972ВВ63</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">B</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">3847005</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ВИД ТРАНСПОРТА</td>
+                  <td class="">ЛЕГКОВОЙ ЛИЧН</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">4626055</td>
+                </tr>
+                <tr>
+                  <td>ОБЪЕМ ДВИГАТЕЛЯ</td>
+                  <td class="">1568</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ2106</td>
+                </tr>
+                <tr>
+                  <td>МАССА БЕЗ НАГРУЗКИ</td>
+                  <td class="">1045</td>
+                </tr>
+                <tr>
+                  <td>МАКСИМАЛЬНАЯ МАССА</td>
+                  <td class="">1445</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ</td>
+                  <td class="">63ВР375315</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">1997</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 24 -->
+      <div class="card source-card" id="source23">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Автомобили Самара 2007</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ПТС</td>
+                  <td class="">63КМ029730</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">Крыгин Сергей Иванович</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">Г.НОВОКУЙБЫШЕВ СВЕРДЛОВА 18 36</td>
+                </tr>
+                <tr>
+                  <td>РАЙОН</td>
+                  <td class="">УЧЕТ ИЗ ОБЛСОБЕС</td>
+                </tr>
+                <tr>
+                  <td>ЦВЕТ ТС</td>
+                  <td class="">СЕРЕБРИСТО-ГОЛУБОЙ 625</td>
+                </tr>
+                <tr>
+                  <td>VIN НОМЕР</td>
+                  <td class="">ХТА21099023197940</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">01ЕР599442</td>
+                </tr>
+                <tr>
+                  <td>ВИД АМТС</td>
+                  <td class="">6</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ПТС</td>
+                  <td class="">04.03.2002</td>
+                </tr>
+                <tr>
+                  <td>МЕСЯЦ ТО</td>
+                  <td class="">4</td>
+                </tr>
+                <tr>
+                  <td>ОПЕРАЦИЯ</td>
+                  <td class="">ПЕРВИЧ УЧЕТ ЛАМТ</td>
+                </tr>
+                <tr>
+                  <td>ГОС НОМЕР</td>
+                  <td class="">Х183ОС63</td>
+                </tr>
+                <tr>
+                  <td>КАТЕГОРИЯ</td>
+                  <td class="">В</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР СЕРИИ</td>
+                  <td class="">183О</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР КУЗОВА</td>
+                  <td class="">3197940</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ДВИГАТЕЛЯ</td>
+                  <td class="">3325622 2111</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РЕГИСТРАЦИИ</td>
+                  <td class="">30.03.2002</td>
+                </tr>
+                <tr>
+                  <td>МАРКА АВТОМОБИЛЯ</td>
+                  <td class="">ВАЗ21099</td>
+                </tr>
+                <tr>
+                  <td>КЕМ ВЫДАН ПАСПОРТ</td>
+                  <td class="">НКБШ ГОВД</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ТАЛОН</td>
+                  <td class="">63АВ353191</td>
+                </tr>
+                <tr>
+                  <td>ДОКУМЕНТ-ОСНОВАНИЕ</td>
+                  <td class="">01 63ЕР6068681136 28/03/02</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ВЫДАЧИ ПАСПОРТА</td>
+                  <td class="">04.06.1976</td>
+                </tr>
+                <tr>
+                  <td>ГОД ВЫПУСКА (ДОКУМЕНТЫ)</td>
+                  <td class="">2002</td>
+                </tr>
+                <tr>
+                  <td>ДАТА ТЕХНИЧЕСКОГО ОСМОТРА</td>
+                  <td class="">2002</td>
+                </tr>
+                <tr>
+                  <td>ТЕХНИЧЕСКИЙ ПАСПОРТ (ДУБЛИРУЮЩИЙ)</td>
+                  <td class="">63КС091822</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 25 -->
+      <div class="card source-card" id="source24">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Фомс Самара 2005</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ИНН</td>
+                  <td class="">6330000553</td>
+                </tr>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК СВЕРДЛОВА УЛ д.18 кв.36</td>
+                </tr>
+                <tr>
+                  <td>СТАТУС</td>
+                  <td class="">Работающий</td>
+                </tr>
+                <tr>
+                  <td>ПАСПОРТ</td>
+                  <td class="">362665015</td>
+                </tr>
+                <tr>
+                  <td>НОМЕР ПОЛИСА</td>
+                  <td class="">ТР10540</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>ТИП ДОКУМЕНТА</td>
+                  <td class="">Паспорт</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 26 -->
+      <div class="card source-card" id="source25">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Пенсионеры Самара 2004</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>СНИЛС</td>
+                  <td class="">1053517494</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС МЕСТА РЕГИСТРАЦИИ</td>
+                  <td class="">КУЙБЫШЕВСКАЯ ОБЛАСТЬ ЧАПАЕВСК</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Источник 27 -->
+      <div class="card source-card" id="source26">
+        <div class="card-header source-header">
+          <div class="source-title">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">Возможные связи по адресу</div>
+            </div>
+          </div>
+        </div>
+        <div class="source-body">
+          <div class="card-body">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>ФИО</td>
+                  <td class="highlight">КРЫГИН СЕРГЕЙ ИВАНОВИЧ</td>
+                </tr>
+                <tr>
+                  <td>АДРЕС</td>
+                  <td class="">НОВОКУЙБЫШЕВСК , СВЕРДЛОВА УЛ д. 18 кв. 36</td>
+                </tr>
+                <tr>
+                  <td>СВЯЗЬ С ЛИЦОМ</td>
+                  <td class="">ЛАБИНЦЕВА ЮЛИЯ СЕРГЕЕВНА 23.08.1983, КРЫГИНА НИНА ИВАНОВНА 21.10.1951, БЕЛОГУРОВА ИННА СЕРГЕЕВНА 02.11.1981</td>
+                </tr>
+                <tr>
+                  <td>ДАТА РОЖДЕНИЯ</td>
+                  <td class="">17.10.1954</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Навигация по источникам</div>
+        <div class="sidebar-body">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#source0" class="nav-link active" onclick="scrollToSource('source0', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source1" class="nav-link " onclick="scrollToSource('source1', event)">
+                Росреестр 2024
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source2" class="nav-link " onclick="scrollToSource('source2', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source3" class="nav-link " onclick="scrollToSource('source3', event)">
+                Возможные связи по адресу 2023
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source4" class="nav-link " onclick="scrollToSource('source4', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source5" class="nav-link " onclick="scrollToSource('source5', event)">
+                Жители России 2023 (EK)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source6" class="nav-link " onclick="scrollToSource('source6', event)">
+                Налогоплательщик 2022
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source7" class="nav-link " onclick="scrollToSource('source7', event)">
+                ФССП 2021
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source8" class="nav-link " onclick="scrollToSource('source8', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source9" class="nav-link " onclick="scrollToSource('source9', event)">
+                Жители России 2020
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source10" class="nav-link " onclick="scrollToSource('source10', event)">
+                Жители 2019
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source11" class="nav-link " onclick="scrollToSource('source11', event)">
+                ФОМС РОССИИ 2016
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source12" class="nav-link " onclick="scrollToSource('source12', event)">
+                ФОМС Самарская область 2015
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source13" class="nav-link " onclick="scrollToSource('source13', event)">
+                Фомс Самара 2014
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source14" class="nav-link " onclick="scrollToSource('source14', event)">
+                ФОМС Самара 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source15" class="nav-link " onclick="scrollToSource('source15', event)">
+                Медстрахование Самара 2011
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source16" class="nav-link " onclick="scrollToSource('source16', event)">
+                Жители Самара 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source17" class="nav-link " onclick="scrollToSource('source17', event)">
+                Автомобили России 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source18" class="nav-link " onclick="scrollToSource('source18', event)">
+                ФОМС Самара 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source19" class="nav-link " onclick="scrollToSource('source19', event)">
+                Автомобили России 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source20" class="nav-link " onclick="scrollToSource('source20', event)">
+                Автомобили России 2010
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source21" class="nav-link " onclick="scrollToSource('source21', event)">
+                Автомобили Самара 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source22" class="nav-link " onclick="scrollToSource('source22', event)">
+                Автомобили Самара 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source23" class="nav-link " onclick="scrollToSource('source23', event)">
+                Автомобили Самара 2007
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source24" class="nav-link " onclick="scrollToSource('source24', event)">
+                Фомс Самара 2005
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source25" class="nav-link " onclick="scrollToSource('source25', event)">
+                Пенсионеры Самара 2004
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#source26" class="nav-link " onclick="scrollToSource('source26', event)">
+                Возможные связи по адресу
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Переключение вкладок в сводной информации
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Деактивируем все вкладки и контенты
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Активируем выбранную вкладку и контент
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Прокрутка к источнику
+  function scrollToSource(id, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const sourceCard = document.getElementById(id);
+
+    // Активируем выбранную ссылку
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+
+    // Прокручиваем к источнику с плавной анимацией
+    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    return false;
+  }
+
+  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
+  function savePDF() {
+    // В базовой версии просто переходим к печати
+    window.print();
+
+    // Для реальной генерации PDF потребуется дополнительная библиотека
+    // Например, использовать window.jspdf, если она будет подключена
+  }
+
+  // Установка активного источника при загрузке страницы
+  window.addEventListener('load', function() {
+    // Если в URL есть якорь, прокручиваем к нему
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      if (document.getElementById(id)) {
+        scrollToSource(id);
+      }
+    }
+  });
+
+  // Обработка якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href').substring(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToSource(id);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
