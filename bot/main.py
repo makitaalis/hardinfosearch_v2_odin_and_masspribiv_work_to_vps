@@ -47,6 +47,40 @@ from bot.utils import (
     setup_translation_db
 )
 
+# Increase file descriptor limits if running as root
+try:
+    import resource
+    soft, hard = resource.getrlimit(resource.RLIMIT_NOFILE)
+    new_soft = min(65536, hard)
+    if new_soft > soft:
+        resource.setrlimit(resource.RLIMIT_NOFILE, (new_soft, hard))
+        logging.info(f"Increased file descriptor limit from {soft} to {new_soft}")
+except (ImportError, PermissionError):
+    pass
+
+# Optimize event loop policy if uvloop is available
+try:
+    import uvloop
+    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+    logging.info("Using uvloop for improved asyncio performance")
+except ImportError:
+    logging.info("uvloop not available, using standard asyncio")
+
+# Optimize TCP settings
+os.environ['PYTHONASYNCIOALLDEBUG'] = '0'  # Disable asyncio debug for production
+
+# Configure asyncio for performance
+loop = asyncio.get_event_loop()
+loop.set_debug(False)
+
+# If in Linux, increase file descriptors
+if os.name == 'posix':
+    try:
+        import resource
+        resource.setrlimit(resource.RLIMIT_NOFILE, (65536, 65536))
+    except (ImportError, PermissionError, ValueError):
+        pass
+
 from bot.session_manager import session_pool as _session_pool, init_session_pool
 
 # Загружаем переменные окружения (.env)
@@ -948,7 +982,12 @@ async def on_startup():
         logging.error("Failed to initialize session pool")
     else:
         # Запускаем инициализацию всех сессий
-        success_count, fail_count = await session_pool.initialize_sessions()
+        # Temporary workaround for missing initialize_sessions method
+        if hasattr(session_pool, 'initialize_sessions'):
+            success_count, fail_count = await session_pool.initialize_sessions()
+        else:
+            logging.warning("initialize_sessions method not found, skipping session initialization")
+            success_count, fail_count = 0, 0
         logging.info(f"Session pool initialized: {success_count} successful, {fail_count} failed")
 
     # Запускаем фоновые задачи

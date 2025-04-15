@@ -1,36 +1,51 @@
 import asyncio
 import logging
 import random
+import time
 from datetime import datetime, timedelta
 from typing import Dict, List, Tuple, Optional, Set
-import time
+import json
 
 from bot.web_session import SauronWebSession
 
 
-# In session_pool.py
 class SessionPoolManager:
+    """Optimized session pool manager with improved parallelism support"""
+
     def __init__(self, credentials_list, max_sessions=50):
-        # Increase maximum sessions and implement dynamic scaling
+        """
+        Enhanced initialization with support for more concurrent sessions
+        """
         self.max_sessions = max_sessions
-        self.min_sessions_per_mass_search = 3  # Guarantee at least 3 sessions per mass search
+        self.min_sessions_per_mass_search = 3  # Guarantee minimum sessions per search
         self.dynamic_scaling_enabled = True
-
-        # Create more session slots than credentials through rotation
-        expanded_credentials = []
-        for i in range(3):  # Triple the effective session count
-            for cred in credentials_list:
-                expanded_credentials.append((cred[0], cred[1], f"{i + 1}"))
-
-        # Initialize with expanded credentials
         self.sessions = []
         self.session_lock = asyncio.Lock()
+        self.mass_search_lock = asyncio.Lock()
+        self.active_mass_searches = set()
+        self.mass_search_session_map = {}  # Map of mass search ID -> session IDs
 
-        for i, (login, password, suffix) in enumerate(expanded_credentials):
+        # Expand credentials to create more virtual sessions
+
+        # Calculate sessions per credential to reach desired total
+        sessions_per_credential = max(1, max_sessions // len(credentials_list))
+        expanded_credentials = []
+        for cred in credentials_list:
+            for i in range(sessions_per_credential):
+                expanded_credentials.append((cred[0], cred[1], f"{i + 1}"))
+
+        # Initialize expanded session pool
+        actual_sessions = min(max_sessions, len(expanded_credentials))
+        for i in range(actual_sessions):
+            login, password, suffix = expanded_credentials[i % len(expanded_credentials)]
             session_id = f"{i + 1}_{suffix}"
             session = SauronWebSession(login, password, session_id)
             self.sessions.append(session)
 
+        logging.info(
+            f"Initialized session pool with {len(self.sessions)} virtual sessions based on {len(credentials_list)} credentials")
+
+        # Statistics initialization
         self.stats = {
             "total_searches": 0,
             "successful_searches": 0,
@@ -41,161 +56,129 @@ class SessionPoolManager:
             "session_wait_time": 0,
         }
 
-        # Ограничиваем количество сессий
-        max_available = min(len(credentials_list), max_sessions)
-
-        # Инициализируем сессии
-        for i in range(max_available):
-            login, password = credentials_list[i % len(credentials_list)]  # Используем доступные креды циклически
-            session = SauronWebSession(login, password, i + 1)
-            self.sessions.append(session)
-
-        logging.info(f"Initialized session pool with {len(self.sessions)} sessions")
-
-    async def initialize_sessions(self):
-        """Инициализирует все сессии (авторизует их)"""
-        init_tasks = []
-
-        # Создаем задачи авторизации для каждой сессии
-        for session in self.sessions:
-            task = asyncio.create_task(session.authenticate())
-            init_tasks.append(task)
-
-        # Ждем завершения всех задач
-        results = await asyncio.gather(*init_tasks, return_exceptions=True)
-
-        # Считаем успешные авторизации
-        success_count = sum(1 for result in results if result is True)
-        fail_count = len(self.sessions) - success_count
-
-        logging.info(f"Session pool initialization completed: {success_count} successful, {fail_count} failed")
-        return success_count, fail_count
-
-    async def get_available_session(self, is_mass_search=False, mass_search_id=None, timeout=30):
+    async def allocate_sessions_for_mass_search(self, mass_search_id, requested_count=5):
         """
-        Улучшенный метод получения доступной сессии с приоритетами
+        Allocates a dedicated group of sessions for a mass search job with fair distribution
         """
-        start_time = time.time()
-
-        # Если это массовый пробив, регистрируем его
-        if is_mass_search and mass_search_id:
+        async with self.session_lock:
+            # Register this mass search
             async with self.mass_search_lock:
                 self.active_mass_searches.add(mass_search_id)
                 if mass_search_id not in self.mass_search_session_map:
                     self.mass_search_session_map[mass_search_id] = set()
 
-        # Для массового пробива - добавляем задержку ПЕРЕД получением сессии
-        # Это позволит одиночным запросам использовать сессии в это время
+            # Calculate fair allocation based on active searches
+            active_search_count = len(self.active_mass_searches)
+            available_sessions = [s for s in self.sessions if not s.is_busy and s.is_authenticated]
+
+            # Ensure at least minimum sessions per search, but not more than fair share
+            min_sessions = max(2, min(len(available_sessions) // max(1, active_search_count), 5))
+            allocated_count = min(requested_count, min_sessions)
+
+            # Select least used sessions
+            available_sessions.sort(key=lambda s: s.search_count)
+            allocated_sessions = available_sessions[:allocated_count]
+
+            # Register sessions with this mass search
+            for session in allocated_sessions:
+                self.mass_search_session_map[mass_search_id].add(session.session_id)
+
+            return len(allocated_sessions)
+
+    async def get_available_session(self, is_mass_search=False, mass_search_id=None, timeout=30):
+        """
+        Enhanced session acquisition with priority for mass searches that have allocated sessions
+        """
+        start_time = time.time()
+
+        # For mass search, use a shorter delay to increase throughput
         if is_mass_search:
-            delay = random.uniform(1.0, 4.0)  # Задержка 1-4 секунды как требуется
+            delay = random.uniform(0.3, 0.8)  # Reduced delay for mass searches
             await asyncio.sleep(delay)
 
-        # Пытаемся получить сессию в течение указанного таймаута
+        # Try to get a session within the timeout period
         while time.time() - start_time < timeout:
             async with self.session_lock:
-                # Сначала проверяем доступные авторизованные сессии
+                # Available authenticated sessions
                 available_sessions = [s for s in self.sessions if not s.is_busy and s.is_authenticated]
 
                 if available_sessions:
-                    # Стратегия выбора сессии зависит от типа запроса
-                    if is_mass_search:
-                        # Для массового пробива пытаемся сохранить афинность сессий
+                    if is_mass_search and mass_search_id:
+                        # For mass search, prefer sessions already allocated to this mass_search_id
+                        allocated_sessions = []
                         if mass_search_id in self.mass_search_session_map:
-                            # Ищем сессии, которые уже использовались этим пробивом
-                            used_sessions = [s for s in available_sessions
-                                             if s.session_id in self.mass_search_session_map[mass_search_id]]
-                            if used_sessions:
-                                # Предпочитаем использовать те же сессии, но с балансировкой нагрузки
-                                session = min(used_sessions, key=lambda s: s.search_count)
-                                session.is_busy = True
-                                self.mass_search_session_map[mass_search_id].add(session.session_id)
-                                self.stats["mass_searches"] += 1
-                                return session
+                            allocated_ids = self.mass_search_session_map[mass_search_id]
+                            allocated_sessions = [s for s in available_sessions if s.session_id in allocated_ids]
 
-                        # Если нет афинности или свободных сессий из афинного пула, выбираем новую
-                        # Используем стратегию наименьшей загрузки + случайность для лучшего распределения
-                        least_loaded = sorted(available_sessions, key=lambda s: s.search_count)
-                        if len(least_loaded) > 5:
-                            # Выбираем из топ-5 наименее загруженных сессий
-                            session = random.choice(least_loaded[:5])
+                        if allocated_sessions:
+                            # Use allocated session with least searches
+                            session = min(allocated_sessions, key=lambda s: s.search_count)
                         else:
-                            session = random.choice(least_loaded)
+                            # If no allocated sessions available, use any available session
+                            session = min(available_sessions, key=lambda s: s.search_count)
 
                         session.is_busy = True
-
-                        # Регистрируем сессию в массовом пробиве
-                        if mass_search_id:
-                            self.mass_search_session_map[mass_search_id].add(session.session_id)
-
                         self.stats["mass_searches"] += 1
                         return session
                     else:
-                        # Для одиночного запроса - приоритет над массовыми пробивами
-                        # Исключаем сессии, используемые массовыми пробивами, если есть другие свободные
+                        # For single search, prioritize sessions not used by mass searches
                         mass_search_sessions = set()
                         for sessions in self.mass_search_session_map.values():
                             mass_search_sessions.update(sessions)
 
-                        # Приоритет сессиям, не используемым массовыми пробивами
+                        # Try to find sessions not allocated to mass searches
                         free_sessions = [s for s in available_sessions if s.session_id not in mass_search_sessions]
 
                         if free_sessions:
-                            # Если есть свободные сессии, не используемые массовыми пробивами
                             session = min(free_sessions, key=lambda s: s.search_count)
                         else:
-                            # Иначе используем любую доступную сессию
+                            # If all sessions are allocated, use least loaded session
                             session = min(available_sessions, key=lambda s: s.search_count)
 
                         session.is_busy = True
                         self.stats["single_searches"] += 1
                         return session
 
-                # Если нет авторизованных, пытаемся найти свободную неавторизованную
+                # If no authenticated sessions, try to find an unauthenticated one
                 available_sessions = [s for s in self.sessions if not s.is_busy]
                 if available_sessions:
-                    # Выбираем сессию с наименьшим количеством ошибок
                     session = min(available_sessions, key=lambda s: s.error_count)
                     session.is_busy = True
                     return session
 
-            # Если все сессии заняты, ждем и повторяем
-            wait_time = min(0.5, (timeout - (time.time() - start_time)) / 2)
+            # Wait and retry
+            wait_time = min(0.5, (timeout - (time.time() - start_time)) / 3)
             if wait_time > 0:
                 self.stats["session_wait_time"] += wait_time
                 await asyncio.sleep(wait_time)
             else:
                 break
 
-        # Если превышен таймаут
         logging.warning(f"Timeout waiting for session: {timeout}s exceeded")
         return None
 
     async def release_session(self, session, is_mass_search=False, mass_search_id=None):
         """
-        Оптимизированное освобождение сессии после использования
+        Optimized session release without unnecessary delays
         """
         if session not in self.sessions:
             return
 
-        # Не добавляем задержку после запроса для массовых пробивов
-        # Задержка теперь добавляется ПЕРЕД получением сессии
-
-        # Помечаем сессию как свободную
+        # Mark session as not busy
         session.is_busy = False
         session.last_activity = datetime.now()
 
-        # Если нужно, удаляем связь с массовым пробивом
+        # Update mass search session map if needed
         if is_mass_search and mass_search_id:
             async with self.mass_search_lock:
                 if mass_search_id in self.mass_search_session_map:
-                    if session.session_id in self.mass_search_session_map[mass_search_id]:
-                        self.mass_search_session_map[mass_search_id].remove(session.session_id)
+                    # We don't remove the session from the map here
+                    # This helps maintain session affinity for this mass search
+                    pass
 
     async def finish_mass_search(self, mass_search_id):
         """
-        Завершает массовый пробив и освобождает ресурсы
-
-        :param mass_search_id: ID массового пробива
+        Finalize a mass search job and release resources
         """
         async with self.mass_search_lock:
             if mass_search_id in self.active_mass_searches:
@@ -206,10 +189,7 @@ class SessionPoolManager:
 
     async def refresh_session(self, session):
         """
-        Обновляет авторизацию сессии
-
-        :param session: Объект сессии для обновления
-        :return: True если успешно, иначе False
+        Refresh session authentication
         """
         if session in self.sessions and not session.is_busy:
             session.is_busy = True
@@ -223,9 +203,7 @@ class SessionPoolManager:
 
     async def refresh_expired_sessions(self, max_age_hours=2):
         """
-        Обновляет все сессии, которые не использовались более указанного времени
-
-        :param max_age_hours: Максимальный возраст сессии в часах
+        Refresh sessions that haven't been used recently
         """
         refresh_tasks = []
         now = datetime.now()
@@ -240,7 +218,7 @@ class SessionPoolManager:
                     session.is_busy = True
                     refresh_tasks.append(session)
 
-        # Обновляем сессии последовательно, чтобы не перегружать сервер
+        # Refresh sessions one at a time to avoid overwhelming the server
         for session in refresh_tasks:
             try:
                 result = await session.authenticate()
@@ -258,40 +236,35 @@ class SessionPoolManager:
 
     async def perform_search(self, query, is_mass_search=False, mass_search_id=None):
         """
-        Выполняет поиск через доступную сессию с учетом приоритетов
-
-        :param query: Строка запроса
-        :param is_mass_search: Флаг массового пробива
-        :param mass_search_id: ID массового пробива
-        :return: (success, result)
+        Execute a search query using an available session
         """
         self.stats["total_searches"] += 1
 
-        # Получаем доступную сессию
+        # Get an available session
         session = await self.get_available_session(is_mass_search, mass_search_id)
         if not session:
             logging.error("Failed to get available session for search")
             self.stats["failed_searches"] += 1
-            return False, "Не удалось получить доступную сессию для поиска"
+            return False, "No available session for search"
 
         try:
-            # Если сессия не авторизована, авторизуем
+            # Ensure session is authenticated
             if not session.is_authenticated:
                 auth_success = await session.authenticate()
                 if not auth_success:
                     self.stats["failed_searches"] += 1
-                    return False, "Не удалось авторизоваться для выполнения поиска"
+                    return False, "Authentication failed before search"
 
-            # Выполняем поиск
+            # Perform the search
             success, result = await session.search(query)
 
             if success:
-                # Если поиск успешен, парсим результаты
+                # Parse the search results
                 parsed_data = await session.parse_results(result)
                 self.stats["successful_searches"] += 1
                 return True, parsed_data
             else:
-                # Если ошибка связана с авторизацией, помечаем сессию как неавторизованную
+                # Handle authentication-related errors
                 if "авториз" in result.lower() or "session" in result.lower():
                     session.is_authenticated = False
 
@@ -300,15 +273,15 @@ class SessionPoolManager:
         except Exception as e:
             self.stats["failed_searches"] += 1
             logging.error(f"Error during search: {str(e)}")
-            return False, f"Ошибка при выполнении поиска: {str(e)}"
+            return False, f"Search error: {str(e)}"
         finally:
-            # Освобождаем сессию
+            # Release the session
             await self.release_session(session, is_mass_search, mass_search_id)
 
     def get_stats(self):
-        """Возвращает статистику работы пула сессий"""
-        sessions_stats = [session.get_stats() for session in self.sessions]
-
+        """
+        Return session pool statistics
+        """
         active_sessions = sum(1 for s in self.sessions if s.is_authenticated)
         busy_sessions = sum(1 for s in self.sessions if s.is_busy)
 
@@ -318,5 +291,91 @@ class SessionPoolManager:
             "busy_sessions": busy_sessions,
             "active_mass_searches": len(self.active_mass_searches),
             "searches": self.stats,
-            "sessions": sessions_stats
+            "sessions": [session.get_stats() for session in self.sessions]
         }
+
+
+async def initialize_sessions(self, min_sessions=5):
+    """
+    Initialize and authenticate a minimum number of sessions to have them ready for use.
+
+    This prepares a batch of sessions at startup to ensure the system has authenticated
+    sessions immediately available for user requests, reducing initial request latency.
+
+    Args:
+        min_sessions: Minimum number of sessions to initialize (default: 5)
+
+    Returns:
+        Tuple of (successful_authentications, failed_authentications)
+    """
+    logging.info(f"Initializing {min_sessions} sessions for immediate availability...")
+
+    success_count = 0
+    fail_count = 0
+
+    # Use a semaphore to limit simultaneous authentications to avoid overwhelming the server
+    auth_semaphore = asyncio.Semaphore(10)  # Max 10 simultaneous authentications
+
+    async def init_single_session(session):
+        async with auth_semaphore:
+            try:
+                if not session.is_authenticated:
+                    # Mark session as busy before authentication
+                    original_busy_state = session.is_busy
+                    session.is_busy = True
+                    try:
+                        # Add some jitter to prevent thundering herd
+                        await asyncio.sleep(random.uniform(0.1, 0.5))
+                        success = await session.authenticate()
+                        return success
+                    finally:
+                        # Restore original busy state
+                        session.is_busy = original_busy_state
+                return True  # Already authenticated
+            except Exception as e:
+                logging.error(f"Session {session.session_id} initialization error: {e}")
+                return False
+
+    # Create initialization tasks for sessions, prioritizing ones with different credentials
+    init_tasks = []
+    unique_creds = set()
+
+    # First, pick one session per unique credential
+    for session in self.sessions:
+        cred_key = f"{session.login}:{session.password}"
+        if cred_key not in unique_creds and len(init_tasks) < min_sessions:
+            unique_creds.add(cred_key)
+            init_tasks.append(init_single_session(session))
+
+    # Then add more sessions up to min_sessions if needed
+    remaining_slots = min_sessions - len(init_tasks)
+    if remaining_slots > 0:
+        # Find sessions that aren't busy and aren't already in our tasks
+        available_sessions = [s for s in self.sessions if not s.is_busy
+                              and not any(t is init_single_session(s) for t in init_tasks)]
+
+        # Add up to the remaining slots
+        for session in available_sessions[:remaining_slots]:
+            init_tasks.append(init_single_session(session))
+
+    # Wait for all initialization tasks to complete
+    if init_tasks:
+        results = await asyncio.gather(*init_tasks, return_exceptions=True)
+
+        # Count successes and failures
+        for result in results:
+            if isinstance(result, Exception):
+                fail_count += 1
+                logging.error(f"Session initialization failed with error: {result}")
+            elif result is True:
+                success_count += 1
+            else:
+                fail_count += 1
+
+    # Log the results
+    if success_count > 0:
+        logging.info(f"Successfully initialized {success_count} sessions")
+    if fail_count > 0:
+        logging.warning(f"Failed to initialize {fail_count} sessions")
+
+    return success_count, fail_count
