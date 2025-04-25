@@ -5,6 +5,7 @@ import logging
 import os
 import re
 import time
+import traceback
 from datetime import datetime
 
 import requests
@@ -832,17 +833,16 @@ def translate_database_entry(database_entry: str) -> str:
 
 async def save_response_as_html(user_id: int, query: str, api_response) -> str:
     """
-    Генерирует HTML-файл в темном табличном профессиональном интерфейсе,
-    выводя всю информацию из api_response.
+    Generates an enhanced HTML file with a professional dark interface,
+    displaying all information from api_response with improved navigation.
 
-    :param user_id: для сохранения в /static/responses/<user_id>
-    :param query: например, 'Балабанов Алексей Олегович'
-    :param api_response: список словарей. Каждый словарь должен содержать ключ "database"
-                        + либо "fields" (список кортежей), либо просто произвольные ключи.
-    :return: Путь к созданному HTML-файлу или None в случае ошибки
+    :param user_id: for saving in /static/responses/<user_id>
+    :param query: search query text
+    :param api_response: list of dictionaries with search results
+    :return: Path to created HTML file or None on error
     """
     try:
-        # Категории для сводной информации
+        # Categories for summary information
         CATEGORIES = {
             "Личные данные": ["ФИО", "ДАТА РОЖДЕНИЯ", "РЕГИОН", "АДРЕС", "КОД ИЗБИРАТЕЛЯ", "КАТЕГОРИЯ ЛИЦА"],
             "Контакты": ["ТЕЛЕФОН", "ТЕЛЕФОН ДОМАШНИЙ", "СВЯЗЬ", "ПОЧТА"],
@@ -853,94 +853,82 @@ async def save_response_as_html(user_id: int, query: str, api_response) -> str:
             "Информация об автомобиле": ["ГОС НОМЕР", "МОДЕЛЬ АВТО", "ГОД ВЫПУСКА", "VIN", "ЦВЕТ АВТО"]
         }
 
-        # Стандартизированный путь для всех HTML-отчетов
-        base_dir = "static"  # Устанавливаем единую базовую директорию
+        # Standardized path for all HTML reports
+        base_dir = "static"
         user_dir = os.path.join(base_dir, "responses", str(user_id))
 
-        # Создаем директории с обработкой ошибок
+        # Create directories with error handling
         try:
             os.makedirs(user_dir, exist_ok=True)
         except PermissionError:
-            logging.error(f"❌ Нет прав на создание директории: {user_dir}")
+            logging.error(f"❌ No permission to create directory: {user_dir}")
             return None
         except Exception as e:
-            logging.error(f"❌ Ошибка при создании директории {user_dir}: {e}")
+            logging.error(f"❌ Error creating directory {user_dir}: {e}")
             return None
 
-        # Проверяем права на запись в директорию
+        # Verify write permissions
         if not os.access(os.path.dirname(user_dir), os.W_OK):
-            logging.error(f"❌ Нет прав на запись в директорию: {os.path.dirname(user_dir)}")
+            logging.error(f"❌ No write permission for directory: {os.path.dirname(user_dir)}")
             return None
 
+        # Create filename with timestamp
         safe_query = query.replace("/", "_").replace("\\", "_")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{safe_query}_{timestamp}.html"
         file_path = os.path.join(user_dir, file_name)
 
-        # Собираем все уникальные данные для сводной информации
+        # Collect all unique data for summary information
         summary_data = {}
         for category, fields in CATEGORIES.items():
             summary_data[category] = {}
 
-        # Проходим по всем записям для сбора уникальных данных
+        # Process all records to collect unique data
         for record in api_response:
             if not isinstance(record, dict):
                 continue
 
-            # Обрабатываем поля, если они представлены в виде списка кортежей
-            if "fields" in record and isinstance(record["fields"], list):
-                for key, value in record["fields"]:
-                    key = key.upper()  # Стандартизируем ключи к верхнему регистру
+            # Process fields provided as key-value pairs
+            for key, value in record.items():
+                if key == "database":
+                    continue
 
-                    # Определяем категорию для поля
-                    for category, fields in CATEGORIES.items():
-                        if key in fields:
-                            if key not in summary_data[category]:
-                                summary_data[category][key] = []
-                            if value not in summary_data[category][key]:
-                                summary_data[category][key].append(value)
-            else:
-                # Обрабатываем поля, если они представлены напрямую как ключи словаря
-                for key, value in record.items():
-                    if key == "database":
-                        continue
+                key = key.upper()  # Standardize keys to uppercase
 
-                    key = key.upper()  # Стандартизируем ключи к верхнему регистру
+                # Determine category for the field
+                found_category = False
+                for category, fields in CATEGORIES.items():
+                    if key in fields:
+                        if key not in summary_data[category]:
+                            summary_data[category][key] = []
 
-                    # Определяем категорию для поля
-                    found_category = False
-                    for category, fields in CATEGORIES.items():
-                        if key in fields:
-                            if key not in summary_data[category]:
-                                summary_data[category][key] = []
-
-                            # Обработка списков и строк
-                            if isinstance(value, list):
-                                for v in value:
-                                    if v not in summary_data[category][key]:
-                                        summary_data[category][key].append(v)
-                            else:
-                                if value not in summary_data[category][key]:
-                                    summary_data[category][key].append(value)
-                            found_category = True
-                            break
-
-                    # Если категория не найдена, добавляем в "Другие данные"
-                    if not found_category:
-                        if "Другие данные" not in summary_data:
-                            summary_data["Другие данные"] = {}
-                        if key not in summary_data["Другие данные"]:
-                            summary_data["Другие данные"][key] = []
-
+                        # Handle lists and scalar values
                         if isinstance(value, list):
                             for v in value:
-                                if v not in summary_data["Другие данные"][key]:
-                                    summary_data["Другие данные"][key].append(v)
+                                if v not in summary_data[category][key]:
+                                    summary_data[category][key].append(v)
                         else:
-                            if value not in summary_data["Другие данные"][key]:
-                                summary_data["Другие данные"][key].append(value)
+                            if value not in summary_data[category][key]:
+                                summary_data[category][key].append(value)
+                        found_category = True
+                        break
 
-        # Определяем первую непустую категорию для активной вкладки
+                # If category not found, add to "Другие данные"
+                if not found_category:
+                    if "Другие данные" not in summary_data:
+                        summary_data["Другие данные"] = {}
+                    if key not in summary_data["Другие данные"]:
+                        summary_data["Другие данные"][key] = []
+
+                    if isinstance(value, list):
+                        for v in value:
+                            if v not in summary_data["Другие данные"][key]:
+                                summary_data["Другие данные"][key].append(v)
+                    else:
+                        if value not in summary_data["Другие данные"][key]:
+                            summary_data["Другие данные"][key].append(value)
+
+        # Find first non-empty category for active tab
         active_category = None
         for category, data in summary_data.items():
             if data:
@@ -950,664 +938,811 @@ async def save_response_as_html(user_id: int, query: str, api_response) -> str:
         if not active_category:
             active_category = list(CATEGORIES.keys())[0]
 
-        # Генерируем HTML-код
+        # Generate HTML content
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(f"""<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>{html_escape.escape(query)}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1a1d24">
+    <meta charset="UTF-8">
+    <title>{html_escape.escape(query)}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1d24">
+    <style>
+        :root {{
+            /* Color scheme (dark) */
+            --color-primary: #3498db;
+            --color-primary-light: #214559;
+            --color-secondary: #6c7a89;
+            --color-accent: #e74c3c;
+            --color-success: #2ecc71;
+            --color-warning: #f39c12;
+            --color-danger: #e74c3c;
+            --color-info: #3498db;
+
+            /* Text */
+            --color-text: #ecf0f1;
+            --color-text-secondary: #bdc3c7;
+            --color-text-light: #7f8c8d;
+
+            /* Backgrounds */
+            --color-bg: #101214;
+            --color-bg-paper: #1a1d24;
+            --color-bg-card: #23272e;
+            --color-bg-section: #1e222a;
+            --color-bg-hover: #2a2f3a;
+            --color-bg-active: #2c3e50;
+
+            /* Borders */
+            --color-border: #2c3e50;
+            --color-border-light: #34495e;
+
+            /* Sizes */
+            --spacing-unit: 8px;
+            --border-radius: 4px;
+            --tab-height: 40px;
+            --header-height: 60px;
+            --sidebar-width: 260px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+
+            /* Animations */
+            --transition-speed: 0.2s;
+        }}
+
+        /* Reset styles */
+        *, *::before, *::after {{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }}
+
+        html {{
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }}
+
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.5;
+            padding-bottom: 2rem;
+            overflow-x: hidden;
+        }}
+
+        a {{
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }}
+
+        a:hover {{
+            text-decoration: none;
+            color: #5dade2;
+        }}
+
+        /* Utilities */
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }}
+
+        .flex {{
+            display: flex;
+        }}
+
+        .flex-col {{
+            flex-direction: column;
+        }}
+
+        .items-center {{
+            align-items: center;
+        }}
+
+        .justify-between {{
+            justify-content: space-between;
+        }}
+
+        .gap-2 {{
+            gap: calc(var(--spacing-unit) * 2);
+        }}
+
+        .py-2 {{
+            padding-top: calc(var(--spacing-unit) * 2);
+            padding-bottom: calc(var(--spacing-unit) * 2);
+        }}
+
+        .mb-2 {{
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }}
+
+        .mb-4 {{
+            margin-bottom: calc(var(--spacing-unit) * 4);
+        }}
+
+        /* Page header */
+        .page-header {{
+            background-color: var(--color-bg-paper);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: var(--shadow-sm);
+            height: var(--header-height);
+        }}
+
+        .header-content {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: calc(var(--spacing-unit) * 1.5) 0;
+        }}
+
+        .page-title {{
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-text);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 70vw;
+        }}
+
+        .page-subtitle {{
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            margin-top: 4px;
+        }}
+
+        .badge {{
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 1rem;
+            margin-left: 0.5rem;
+        }}
+
+        .header-actions {{
+            display: flex;
+            gap: calc(var(--spacing-unit));
+        }}
+
+        .btn {{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 1px solid transparent;
+            user-select: none;
+        }}
+
+        .btn-outline {{
+            background-color: transparent;
+            border-color: var(--color-border);
+            color: var(--color-text-secondary);
+        }}
+
+        .btn-outline:hover {{
+            background-color: var(--color-bg-section);
+            border-color: var(--color-text-secondary);
+        }}
+
+        .btn-primary {{
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }}
+
+        .btn-primary:hover {{
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }}
+
+        /* Main layout */
+        .main-layout {{
+            display: flex;
+            padding-top: calc(var(--spacing-unit) * 3);
+        }}
+
+        .main-content {{
+            flex: 1;
+            margin-right: 0;
+            padding-left: calc(var(--sidebar-width) + var(--spacing-unit) * 3);
+            transition: padding-left var(--transition-speed) ease;
+            width: 100%;
+        }}
+
+        .sidebar {{
+            width: var(--sidebar-width);
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            bottom: 0;
+            padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+            overflow-y: auto;
+            background-color: var(--color-bg-paper);
+            border-right: 1px solid var(--color-border);
+            z-index: 5;
+            transition: transform var(--transition-speed) ease;
+        }}
+
+        /* Card */
+        .card {{
+            background-color: var(--color-bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            overflow: hidden;
+            transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+        }}
+
+        .card:target {{
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }}
+
+        .card-header {{
+            padding: calc(var(--spacing-unit) * 2);
+            background-color: var(--color-bg-section);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }}
+
+        .card-title {{
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }}
+
+        .card-body {{
+            padding: calc(var(--spacing-unit) * 2);
+        }}
+
+        /* Summary card */
+        .summary-card .card-body {{
+            padding: 0;
+        }}
+
+        .summary-tabs {{
+            display: flex;
+            border-bottom: 1px solid var(--color-border);
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-border) var(--color-bg-section);
+        }}
+
+        .summary-tabs::-webkit-scrollbar {{
+            height: 6px;
+        }}
+
+        .summary-tabs::-webkit-scrollbar-thumb {{
+            background-color: var(--color-border);
+            border-radius: 3px;
+        }}
+
+        .summary-tabs::-webkit-scrollbar-track {{
+            background-color: var(--color-bg-section);
+        }}
+
+        .tab {{
+            padding: 0 calc(var(--spacing-unit) * 2);
+            height: var(--tab-height);
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all var(--transition-speed);
+            white-space: nowrap;
+            color: var(--color-text-secondary);
+        }}
+
+        .tab.active {{
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+            background-color: var(--color-bg-active);
+        }}
+
+        .tab:hover:not(.active) {{
+            color: var(--color-text);
+            background-color: var(--color-bg-hover);
+        }}
+
+        .tab-content {{
+            display: none;
+            padding: calc(var(--spacing-unit) * 2);
+        }}
+
+        .tab-content.active {{
+            display: block;
+        }}
+
+        .personal-info {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+        }}
+
+        .info-group {{
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }}
+
+        .info-label {{
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--color-text-light);
+            margin-bottom: calc(var(--spacing-unit) / 2);
+        }}
+
+        .info-value {{
+            font-size: 0.875rem;
+            word-break: break-word;
+        }}
+
+        /* Source cards */
+        .source-card {{
+            transition: all var(--transition-speed);
+            scroll-margin-top: calc(var(--header-height) + var(--spacing-unit) * 2);
+        }}
+
+        .source-card:hover {{
+            box-shadow: var(--shadow-md);
+        }}
+
+        .source-card:target {{
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }}
+
+        .source-card:target::before {{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: var(--color-primary);
+        }}
+
+        .source-header {{
+            cursor: pointer;
+            user-select: none;
+        }}
+
+        .source-title {{
+            display: flex;
+            align-items: center;
+            gap: calc(var(--spacing-unit));
+        }}
+
+        .source-icon {{
+            font-size: 1.125rem;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform var(--transition-speed) ease;
+        }}
+
+        .source-card:target .source-icon {{
+            transform: scale(1.1);
+        }}
+
+        .source-name {{
+            font-size: 0.9rem;
+            font-weight: 600;
+        }}
+
+        .source-date {{
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+        }}
+
+        .source-body {{
+            max-height: none;
+            overflow: visible;
+        }}
+
+        .data-table {{
+            width: 100%;
+            border-collapse: collapse;
+        }}
+
+        .data-table tr {{
+            border-bottom: 1px solid var(--color-border-light);
+        }}
+
+        .data-table tr:last-child {{
+            border-bottom: none;
+        }}
+
+        .data-table td {{
+            padding: calc(var(--spacing-unit)) 0;
+            font-size: 0.875rem;
+            vertical-align: top;
+        }}
+
+        .data-table td:first-child {{
+            width: 30%;
+            color: var(--color-text-secondary);
+            padding-right: calc(var(--spacing-unit) * 2);
+            font-weight: 500;
+        }}
+
+        .highlight {{
+            color: var(--color-primary);
+            font-weight: 600;
+        }}
+
+        /* Sidebar */
+        .sidebar-title {{
+            padding: calc(var(--spacing-unit));
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: calc(var(--spacing-unit));
+            color: var(--color-text);
+        }}
+
+        .nav-list {{
+            list-style: none;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }}
+
+        .nav-item {{
+            margin-bottom: 1px;
+        }}
+
+        .nav-link {{
+            display: flex;
+            align-items: center;
+            padding: calc(var(--spacing-unit) * 1.2);
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            border-radius: var(--border-radius);
+            transition: all var(--transition-speed);
+            border-left: 3px solid transparent;
+        }}
+
+        .nav-link:hover {{
+            background-color: var(--color-bg-hover);
+            color: var(--color-text);
+            text-decoration: none;
+        }}
+
+        .nav-link.active {{
+            background-color: var(--color-bg-active);
+            color: var(--color-primary);
+            font-weight: 500;
+            border-left-color: var(--color-primary);
+        }}
+
+        .nav-icon {{
+            margin-right: 8px;
+            opacity: 0.7;
+        }}
+
+        .nav-link.active .nav-icon {{
+            opacity: 1;
+        }}
+
+        .source-tag {{
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.125rem 0.5rem;
+            border-radius: 1rem;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            margin-left: 0.25rem;
+        }}
+
+        .sidebar-toggle {{
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            color: white;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-md);
+            z-index: 100;
+            cursor: pointer;
+        }}
+
+        @keyframes pulse {{
+            0% {{ transform: scale(1); }}
+            50% {{ transform: scale(1.05); }}
+            100% {{ transform: scale(1); }}
+        }}
+
+        .source-card:target .card-header {{
+            animation: pulse 1s ease-in-out;
+        }}
+
+        /* Responsive */
+        @media (max-width: 992px) {{
+            .main-content {{
+                padding-left: 0;
+            }}
+
+            .sidebar {{
+                transform: translateX(-100%);
+            }}
+
+            .sidebar.active {{
+                transform: translateX(0);
+            }}
+
+            .sidebar-toggle {{
+                display: flex;
+            }}
+
+            body.sidebar-open .main-content {{
+                opacity: 0.5;
+                pointer-events: none;
+            }}
+        }}
+
+        @media (max-width: 768px) {{
+            .header-content {{
+                flex-direction: column;
+                align-items: flex-start;
+                padding: calc(var(--spacing-unit));
+            }}
+
+            .header-actions {{
+                margin-top: calc(var(--spacing-unit));
+                width: 100%;
+                justify-content: flex-end;
+            }}
+
+            .sidebar {{
+                width: 85%;
+            }}
+
+            .data-table td {{
+                display: block;
+                width: 100% !important;
+            }}
+
+            .data-table td:first-child {{
+                padding-bottom: 0;
+                border-bottom: none;
+            }}
+
+            .personal-info {{
+                grid-template-columns: 1fr;
+            }}
+
+            .page-header {{
+                height: auto;
+            }}
+        }}
+
+        /* Print */
+        @media print {{
+            body {{
+                background: white;
+                color: black;
+            }}
+
+            .page-header {{
+                position: static;
+                box-shadow: none;
+                background-color: white;
+                color: black;
+                border-bottom: 1px solid #ddd;
+            }}
+
+            .header-actions, .sidebar, .sidebar-toggle {{
+                display: none !important;
+            }}
+
+            .main-content {{
+                padding-left: 0;
+            }}
+
+            .card, .source-card {{
+                break-inside: avoid;
+                box-shadow: none;
+                background-color: white;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }}
+
+            .card-header {{
+                background-color: #f5f5f5;
+                color: black;
+            }}
+
+            .data-table td {{
+                color: black !important;
+            }}
+
+            .data-table td:first-child {{
+                color: #555 !important;
+            }}
+
+            .highlight {{
+                color: #2980b9 !important;
+            }}
+
+            /* Show all tabs when printing */
+            .tab-content {{
+                display: block !important;
+                page-break-inside: avoid;
+                border-top: 1px dashed #ddd;
+                padding-top: 1rem;
+                margin-top: 0.5rem;
+            }}
+
+            .tab {{
+                display: none;
+            }}
+
+            .tab.active {{
+                display: block;
+                border: none;
+                padding: 0;
+                margin: 1rem 0 0.5rem;
+                font-weight: bold;
+                font-size: 1.1rem;
+            }}
+        }}
+    </style>
 </head>
 <body>
-
-<style>
-  :root {{
-    /* Цветовая схема (темная) */
-    --color-primary: #3498db;
-    --color-primary-light: #214559;
-    --color-secondary: #6c7a89;
-    --color-accent: #e74c3c;
-    --color-success: #2ecc71;
-    --color-warning: #f39c12;
-    --color-danger: #e74c3c;
-    --color-info: #3498db;
-
-    /* Текст */
-    --color-text: #ecf0f1;
-    --color-text-secondary: #bdc3c7;
-    --color-text-light: #7f8c8d;
-
-    /* Фоны */
-    --color-bg: #101214;
-    --color-bg-paper: #1a1d24;
-    --color-bg-card: #23272e;
-    --color-bg-section: #1e222a;
-
-    /* Границы */
-    --color-border: #2c3e50;
-    --color-border-light: #34495e;
-
-    /* Размеры */
-    --spacing-unit: 8px;
-    --border-radius: 4px;
-    --tab-height: 40px;
-
-    /* Тени */
-    --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.2);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
-  }}
-
-  /* Сброс стилей */
-  *, *::before, *::after {{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }}
-
-  html {{
-    font-size: 16px;
-    scroll-behavior: smooth;
-  }}
-
-  body {{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    line-height: 1.5;
-    padding-bottom: 2rem;
-  }}
-
-  a {{
-    color: var(--color-primary);
-    text-decoration: none;
-  }}
-
-  a:hover {{
-    text-decoration: underline;
-  }}
-
-  /* Утилиты */
-  .container {{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-unit);
-  }}
-
-  .flex {{
-    display: flex;
-  }}
-
-  .flex-col {{
-    flex-direction: column;
-  }}
-
-  .items-center {{
-    align-items: center;
-  }}
-
-  .justify-between {{
-    justify-content: space-between;
-  }}
-
-  .gap-2 {{
-    gap: calc(var(--spacing-unit) * 2);
-  }}
-
-  .py-2 {{
-    padding-top: calc(var(--spacing-unit) * 2);
-    padding-bottom: calc(var(--spacing-unit) * 2);
-  }}
-
-  .mb-2 {{
-    margin-bottom: calc(var(--spacing-unit) * 2);
-  }}
-
-  .mb-4 {{
-    margin-bottom: calc(var(--spacing-unit) * 4);
-  }}
-
-  /* Заголовок страницы */
-  .page-header {{
-    background-color: var(--color-bg-paper);
-    border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: var(--shadow-sm);
-  }}
-
-  .header-content {{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: calc(var(--spacing-unit) * 2) 0;
-  }}
-
-  .page-title {{
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }}
-
-  .page-subtitle {{
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    margin-top: 4px;
-  }}
-
-  .badge {{
-    background-color: var(--color-primary-light);
-    color: var(--color-primary);
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
-    border-radius: 1rem;
-    margin-left: 0.5rem;
-  }}
-
-  .header-actions {{
-    display: flex;
-    gap: calc(var(--spacing-unit));
-  }}
-
-  .btn {{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: all 0.15s ease;
-    border: 1px solid transparent;
-  }}
-
-  .btn-outline {{
-    background-color: transparent;
-    border-color: var(--color-border);
-    color: var(--color-text-secondary);
-  }}
-
-  .btn-outline:hover {{
-    background-color: var(--color-bg-section);
-    border-color: var(--color-text-secondary);
-  }}
-
-  .btn-primary {{
-    background-color: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
-  }}
-
-  .btn-primary:hover {{
-    background-color: #2980b9;
-    border-color: #2980b9;
-  }}
-
-  /* Основной layout */
-  .main-layout {{
-    display: flex;
-    margin-top: calc(var(--spacing-unit) * 3);
-  }}
-
-  .main-content {{
-    flex: 1;
-    margin-right: calc(var(--spacing-unit) * 3);
-  }}
-
-  .sidebar {{
-    width: 280px;
-    position: sticky;
-    top: calc(var(--spacing-unit) * 8);
-    height: calc(100vh - var(--spacing-unit) * 12);
-    overflow-y: auto;
-  }}
-
-  /* Карточка */
-  .card {{
-    background-color: var(--color-bg-card);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-border);
-    margin-bottom: calc(var(--spacing-unit) * 3);
-    overflow: hidden;
-  }}
-
-  .card-header {{
-    padding: calc(var(--spacing-unit) * 2);
-    background-color: var(--color-bg-section);
-    border-bottom: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }}
-
-  .card-title {{
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }}
-
-  .card-body {{
-    padding: calc(var(--spacing-unit) * 2);
-  }}
-
-  /* Сводная информация */
-  .summary-card .card-body {{
-    padding: 0;
-  }}
-
-  .summary-tabs {{
-    display: flex;
-    border-bottom: 1px solid var(--color-border);
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-border) var(--color-bg-section);
-  }}
-
-  .summary-tabs::-webkit-scrollbar {{
-    height: 6px;
-  }}
-
-  .summary-tabs::-webkit-scrollbar-thumb {{
-    background-color: var(--color-border);
-    border-radius: 3px;
-  }}
-
-  .summary-tabs::-webkit-scrollbar-track {{
-    background-color: var(--color-bg-section);
-  }}
-
-  .tab {{
-    padding: 0 calc(var(--spacing-unit) * 2);
-    height: var(--tab-height);
-    display: flex;
-    align-items: center;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }}
-
-  .tab.active {{
-    color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
-  }}
-
-  .tab:hover:not(.active) {{
-    color: var(--color-text);
-    background-color: var(--color-bg-section);
-  }}
-
-  .tab-content {{
-    display: none;
-    padding: calc(var(--spacing-unit) * 2);
-  }}
-
-  .tab-content.active {{
-    display: block;
-  }}
-
-  .personal-info {{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: calc(var(--spacing-unit) * 2);
-  }}
-
-  .info-group {{
-    margin-bottom: calc(var(--spacing-unit) * 2);
-  }}
-
-  .info-label {{
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--color-text-light);
-    margin-bottom: calc(var(--spacing-unit) / 2);
-  }}
-
-  .info-value {{
-    font-size: 0.875rem;
-    word-break: break-word;
-  }}
-
-  /* Источники данных */
-  .source-card {{
-    transition: all 0.2s;
-  }}
-
-  .source-card:hover {{
-    box-shadow: var(--shadow-md);
-  }}
-
-  .source-header {{
-    cursor: pointer;
-    user-select: none;
-  }}
-
-  .source-title {{
-    display: flex;
-    align-items: center;
-    gap: calc(var(--spacing-unit));
-  }}
-
-  .source-icon {{
-    font-size: 1.125rem;
-    background-color: var(--color-primary-light);
-    color: var(--color-primary);
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }}
-
-  .source-name {{
-    font-size: 0.875rem;
-    font-weight: 600;
-  }}
-
-  .source-date {{
-    font-size: 0.75rem;
-    color: var(--color-text-light);
-  }}
-
-  .source-body {{
-    max-height: none; /* Всегда показываем источники */
-    overflow: visible;
-  }}
-
-  .data-table {{
-    width: 100%;
-    border-collapse: collapse;
-  }}
-
-  .data-table tr {{
-    border-bottom: 1px solid var(--color-border-light);
-  }}
-
-  .data-table tr:last-child {{
-    border-bottom: none;
-  }}
-
-  .data-table td {{
-    padding: calc(var(--spacing-unit)) 0;
-    font-size: 0.875rem;
-    vertical-align: top;
-  }}
-
-  .data-table td:first-child {{
-    width: 30%;
-    color: var(--color-text-secondary);
-    padding-right: calc(var(--spacing-unit) * 2);
-    font-weight: 500;
-  }}
-
-  .highlight {{
-    color: var(--color-primary);
-    font-weight: 600;
-  }}
-
-  /* Сайдбар */
-  .sidebar-card {{
-    background-color: var(--color-bg-card);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-border);
-    overflow: hidden;
-  }}
-
-  .sidebar-title {{
-    padding: calc(var(--spacing-unit) * 1.5);
-    font-size: 0.875rem;
-    font-weight: 600;
-    border-bottom: 1px solid var(--color-border);
-  }}
-
-  .sidebar-body {{
-    padding: calc(var(--spacing-unit));
-  }}
-
-  .nav-list {{
-    list-style: none;
-  }}
-
-  .nav-item {{
-    margin-bottom: 1px;
-  }}
-
-  .nav-link {{
-    display: block;
-    padding: calc(var(--spacing-unit));
-    font-size: 0.75rem;
-    color: var(--color-text);
-    border-radius: var(--border-radius);
-    transition: all 0.15s;
-  }}
-
-  .nav-link:hover {{
-    background-color: var(--color-bg-section);
-    text-decoration: none;
-  }}
-
-  .nav-link.active {{
-    background-color: var(--color-primary-light);
-    color: var(--color-primary);
-    font-weight: 500;
-  }}
-
-  .source-tag {{
-    display: inline-block;
-    font-size: 0.75rem;
-    padding: 0.125rem 0.5rem;
-    border-radius: 1rem;
-    background-color: var(--color-primary-light);
-    color: var(--color-primary);
-    margin-left: 0.25rem;
-  }}
-
-  /* Responsive */
-  @media (max-width: 768px) {{
-    .main-layout {{
-      flex-direction: column;
-    }}
-
-    .main-content {{
-      margin-right: 0;
-    }}
-
-    .sidebar {{
-      width: 100%;
-      position: static;
-      height: auto;
-      margin-top: calc(var(--spacing-unit) * 2);
-    }}
-
-    .header-content {{
-      flex-direction: column;
-      align-items: flex-start;
-    }}
-
-    .header-actions {{
-      margin-top: calc(var(--spacing-unit) * 2);
-      width: 100%;
-      justify-content: flex-end;
-    }}
-
-    .data-table td {{
-      display: block;
-      width: 100% !important;
-    }}
-
-    .data-table td:first-child {{
-      padding-bottom: 0;
-    }}
-  }}
-
-  /* Печать */
-  @media print {{
-    body {{
-      background: white;
-      color: black;
-    }}
-
-    .page-header {{
-      position: static;
-      box-shadow: none;
-      background-color: white;
-      color: black;
-      border-bottom: 1px solid #ddd;
-    }}
-
-    .header-actions, .sidebar {{
-      display: none !important;
-    }}
-
-    .card, .source-card {{
-      break-inside: avoid;
-      box-shadow: none;
-      background-color: white;
-      border: 1px solid #ddd;
-    }}
-
-    .card-header {{
-      background-color: #f5f5f5;
-      color: black;
-    }}
-
-    .data-table td {{
-      color: black !important;
-    }}
-
-    .data-table td:first-child {{
-      color: #555 !important;
-    }}
-
-    .highlight {{
-      color: #2980b9 !important;
-    }}
-
-    /* Убедимся, что все вкладки видны */
-    .tab-content {{
-      display: block !important;
-      page-break-inside: avoid;
-      border-top: 1px dashed #ddd;
-      padding-top: 1rem;
-      margin-top: 0.5rem;
-    }}
-
-    .tab {{
-      display: none;
-    }}
-
-    .tab.active {{
-      display: block;
-      border: none;
-      padding: 0;
-      margin: 1rem 0 0.5rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }}
-  }}
-</style>
-
-<!-- Заголовок страницы -->
-<header class="page-header">
-  <div class="container">
-    <div class="header-content">
-      <div>
-        <h1 class="page-title">{html_escape.escape(query)}</h1>
-        <p class="page-subtitle">Результаты поиска <span class="badge">{len(api_response)} источников</span></p>
-      </div>
-      <div class="header-actions">
-        <button class="btn btn-outline" onclick="window.print()">
-          <span>Печать</span>
-        </button>
-        <button class="btn btn-primary" onclick="savePDF()">
-          <span>Сохранить PDF</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Основной контент -->
-<main class="container">
-  <div class="main-layout">
-    <div class="main-content">
-      <!-- Сводная информация -->
-      <div class="card summary-card mb-4">
-        <div class="card-header">
-          <h2 class="card-title">Сводная информация</h2>
+    <!-- Page header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1 class="page-title">{html_escape.escape(query)}</h1>
+                    <p class="page-subtitle">Результаты поиска <span class="badge">{len(api_response)} источников</span></p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-outline" onclick="window.print()">
+                        <span>Печать</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="savePDF()">
+                        <span>Сохранить PDF</span>
+                    </button>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="summary-tabs">
+    <!-- Main layout with sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-title">
+            <span>Навигация по источникам</span>
+        </div>
+        <ul class="nav-list">
 """)
 
-            # Генерируем вкладки для сводной информации
+            # Generate navigation links for each source
+            for i, record in enumerate(api_response):
+                if not isinstance(record, dict):
+                    continue
+
+                db_name = record.get("database", "Неизвестная база")
+                source_id = f"source{i}"
+                active_class = "active" if i == 0 else ""
+
+                f.write(f"""            <li class="nav-item">
+                <a href="#{source_id}" class="nav-link {active_class}" onclick="scrollToSource('{source_id}')">
+                    <span class="nav-icon">📊</span>
+                    <span>{html_escape.escape(db_name)}</span>
+                </a>
+            </li>
+""")
+
+            f.write("""        </ul>
+    </div>
+
+    <!-- Toggle sidebar button (mobile) -->
+    <div class="sidebar-toggle" id="sidebar-toggle">
+        <span>≡</span>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Summary information -->
+            <div class="card summary-card mb-4">
+                <div class="card-header">
+                    <h2 class="card-title">Сводная информация</h2>
+                </div>
+
+                <div class="summary-tabs">
+""")
+
+            # Generate tabs for summary information
             for i, category in enumerate(summary_data.keys()):
-                if summary_data[category]:  # Только если есть данные
+                if summary_data[category]:  # Only show tabs with data
                     is_active = category == active_category
                     active_class = "active" if is_active else ""
-                    f.write(
-                        f"""          <div class="tab {active_class}" data-tab="{category.lower().replace(' ', '_')}">{category}</div>\n""")
+                    category_id = category.lower().replace(' ', '_')
 
-            f.write("""        </div>
+                    f.write(f"""                    <div class="tab {active_class}" data-tab="{category_id}">{category}</div>
+""")
+
+            f.write("""                </div>
 
 """)
 
-            # Генерируем содержимое вкладок
+            # Generate tab content for each category
             for category, data in summary_data.items():
-                if not data:  # Пропускаем пустые категории
+                if not data:  # Skip empty categories
                     continue
 
                 is_active = category == active_category
                 active_class = "active" if is_active else ""
                 category_id = category.lower().replace(' ', '_')
 
-                f.write(f"""        <div id="{category_id}" class="tab-content {active_class}">
-          <div class="personal-info">
+                f.write(f"""                <div id="{category_id}" class="tab-content {active_class}">
+                    <div class="personal-info">
 """)
 
-                # Выводим поля в категории
+                # Show fields in this category
                 for field, values in data.items():
                     if not values:
                         continue
 
-                    f.write(f"""            <div class="info-group">
-              <div class="info-label">{html_escape.escape(field)}</div>
-              <div class="info-value">
+                    f.write(f"""                        <div class="info-group">
+                            <div class="info-label">{html_escape.escape(field)}</div>
+                            <div class="info-value">
 """)
 
-                    # Выводим значения поля
+                    # Show values for this field
                     for value in values:
                         if value:
                             safe_value = html_escape.escape(str(value))
-                            f.write(f"""                {safe_value}<br>
+                            f.write(f"""                                {safe_value}<br>
 """)
 
-                    f.write("""              </div>
-            </div>
+                    f.write("""                            </div>
+                        </div>
 """)
 
-                f.write("""          </div>
-        </div>
+                f.write("""                    </div>
+                </div>
 """)
 
-            f.write("""      </div>
+            f.write("""            </div>
 
-      <!-- Источники данных -->
-      <h2 class="card-title mb-2">Источники данных</h2>
+            <!-- Sources heading -->
+            <h2 class="card-title mb-2">Источники данных</h2>
 """)
 
-            # Генерируем карточки для каждого источника
+            # Generate cards for each data source
             for i, record in enumerate(api_response):
                 if not isinstance(record, dict):
                     continue
@@ -1615,178 +1750,183 @@ async def save_response_as_html(user_id: int, query: str, api_response) -> str:
                 db_name = record.get("database", "Неизвестная база")
                 source_id = f"source{i}"
 
-                f.write(f"""      
-      <!-- Источник {i + 1} -->
-      <div class="card source-card" id="{source_id}">
-        <div class="card-header source-header">
-          <div class="source-title">
-            <div class="source-icon">📊</div>
-            <div>
-              <div class="source-name">{html_escape.escape(db_name)}</div>
-            </div>
-          </div>
-        </div>
-        <div class="source-body">
-          <div class="card-body">
-            <table class="data-table">
-              <tbody>
+                f.write(f"""            <!-- Source {i + 1} -->
+            <div class="card source-card" id="{source_id}">
+                <div class="card-header source-header">
+                    <div class="source-title">
+                        <div class="source-icon">📊</div>
+                        <div>
+                            <div class="source-name">{html_escape.escape(db_name)}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="source-body">
+                    <div class="card-body">
+                        <table class="data-table">
+                            <tbody>
 """)
 
-                # Выводим поля источника
-                if "fields" in record and isinstance(record["fields"], list):
-                    for key, value in record["fields"]:
-                        if key and value:
-                            key_safe = html_escape.escape(str(key).upper())
+                # Show fields for this source
+                for key, value in record.items():
+                    if key == "database":
+                        continue
+
+                    if key and value:
+                        key_safe = html_escape.escape(str(key).upper())
+
+                        # Handle lists as values
+                        if isinstance(value, list):
+                            val_safe = "<br>".join([html_escape.escape(str(v)) for v in value if v])
+                        else:
                             val_safe = html_escape.escape(str(value))
 
-                            # Выделяем ФИО жирным
-                            highlight_class = "highlight" if key.upper() == "ФИО" else ""
+                        # Apply highlight for important fields
+                        highlight_class = "highlight" if key.upper() in ["ФИО", "ТЕЛЕФОН", "ПОЧТА"] else ""
 
-                            f.write(f"""                <tr>
-                  <td>{key_safe}</td>
-                  <td class="{highlight_class}">{val_safe}</td>
-                </tr>
-""")
-                else:
-                    for key, value in record.items():
-                        if key == "database":
-                            continue
-
-                        if key and value:
-                            key_safe = html_escape.escape(str(key).upper())
-
-                            # Обработка списков
-                            if isinstance(value, list):
-                                val_safe = "<br>".join([html_escape.escape(str(v)) for v in value if v])
-                            else:
-                                val_safe = html_escape.escape(str(value))
-
-                            # Выделяем ФИО жирным
-                            highlight_class = "highlight" if key.upper() == "ФИО" else ""
-
-                            f.write(f"""                <tr>
-                  <td>{key_safe}</td>
-                  <td class="{highlight_class}">{val_safe}</td>
-                </tr>
+                        f.write(f"""                                <tr>
+                                    <td>{key_safe}</td>
+                                    <td class="{highlight_class}">{val_safe}</td>
+                                </tr>
 """)
 
-                f.write("""              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+                f.write("""                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 """)
 
-            # Боковое меню
-            f.write("""    </div>
-
-    <div class="sidebar">
-      <div class="sidebar-card">
-        <div class="sidebar-title">Навигация по источникам</div>
-        <div class="sidebar-body">
-          <ul class="nav-list">
-""")
-
-            # Генерируем навигацию по источникам
-            for i, record in enumerate(api_response):
-                if not isinstance(record, dict):
-                    continue
-
-                db_name = record.get("database", "Неизвестная база")
-                source_id = f"source{i}"
-
-                # Первый источник по умолчанию активный
-                active_class = "active" if i == 0 else ""
-
-                f.write(f"""            <li class="nav-item">
-              <a href="#{source_id}" class="nav-link {active_class}" onclick="scrollToSource('{source_id}', event)">
-                {html_escape.escape(db_name)}
-              </a>
-            </li>
-""")
-
-            f.write("""          </ul>
-        </div>
-      </div>
+            # Close container and main-content divs
+            f.write("""        </div>
     </div>
-  </div>
-</main>
 
-<script>
-  // Переключение вкладок в сводной информации
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-      // Деактивируем все вкладки и контенты
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Deactivate all tabs and contents
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
-      // Активируем выбранную вкладку и контент
-      this.classList.add('active');
-      document.getElementById(this.dataset.tab).classList.add('active');
-    });
-  });
+                // Activate selected tab and content
+                this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
 
-  // Прокрутка к источнику
-  function scrollToSource(id, event) {
-    if (event) {
-      event.preventDefault();
-    }
+        // Smooth scrolling to source
+        function scrollToSource(id) {
+            const sourceCard = document.getElementById(id);
+            if (!sourceCard) return;
 
-    const sourceCard = document.getElementById(id);
+            // Set all nav links inactive
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
 
-    // Активируем выбранную ссылку
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.remove('active');
-    });
-    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+            // Activate the clicked link
+            document.querySelector(`a[href="#${id}"]`).classList.add('active');
 
-    // Прокручиваем к источнику с плавной анимацией
-    sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Scroll to the source with smooth animation
+            sourceCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    return false;
-  }
+            // Add highlight effect
+            sourceCard.classList.add('highlight-effect');
+            setTimeout(() => {
+                sourceCard.classList.remove('highlight-effect');
+            }, 2000);
 
-  // Функция для сохранения в PDF (потребуется дополнительная библиотека)
-  function savePDF() {
-    // В базовой версии просто переходим к печати
-    window.print();
+            // Close sidebar on mobile after navigation
+            if (window.innerWidth < 992) {
+                toggleSidebar(false);
+            }
 
-    // Для реальной генерации PDF потребуется дополнительная библиотека
-    // Например, использовать window.jspdf, если она будет подключена
-  }
+            return false;
+        }
 
-  // Установка активного источника при загрузке страницы
-  window.addEventListener('load', function() {
-    // Если в URL есть якорь, прокручиваем к нему
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      if (document.getElementById(id)) {
-        scrollToSource(id);
-      }
-    }
-  });
+        // Mobile sidebar toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const body = document.body;
 
-  // Обработка якорных ссылок
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const id = this.getAttribute('href').substring(1);
-      if (document.getElementById(id)) {
-        e.preventDefault();
-        scrollToSource(id);
-      }
-    });
-  });
-</script>
+        function toggleSidebar(show) {
+            if (show === undefined) {
+                sidebar.classList.toggle('active');
+                body.classList.toggle('sidebar-open');
+            } else if (show) {
+                sidebar.classList.add('active');
+                body.classList.add('sidebar-open');
+            } else {
+                sidebar.classList.remove('active');
+                body.classList.remove('sidebar-open');
+            }
+        }
 
+        sidebarToggle.addEventListener('click', () => toggleSidebar());
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 992 && 
+                !sidebar.contains(e.target) && 
+                !sidebarToggle.contains(e.target) && 
+                sidebar.classList.contains('active')) {
+                toggleSidebar(false);
+            }
+        });
+
+        // PDF saving function
+        function savePDF() {
+            // In the basic version, just trigger print
+            window.print();
+        }
+
+        // Handle active source navigation
+        window.addEventListener('load', function() {
+            // If URL has hash, scroll to it
+            if (window.location.hash) {
+                const id = window.location.hash.substring(1);
+                if (document.getElementById(id)) {
+                    setTimeout(() => {
+                        scrollToSource(id);
+                    }, 100);
+                }
+            }
+        });
+
+        // Process anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const id = this.getAttribute('href').substring(1);
+                if (document.getElementById(id)) {
+                    e.preventDefault();
+                    scrollToSource(id);
+                }
+            });
+        });
+
+        // Auto-resize sidebar based on screen size
+        function handleResize() {
+            if (window.innerWidth >= 992) {
+                sidebar.classList.remove('active');
+                body.classList.remove('sidebar-open');
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        // Initialize
+        handleResize();
+    </script>
 </body>
 </html>
 """)
 
-        logging.info(f"✅ HTML-отчет сохранен: {file_path}")
+        logging.info(f"✅ Enhanced HTML report saved: {file_path}")
         return file_path
 
     except Exception as e:
-        logging.error(f"❌ Ошибка при сохранении HTML-файла: {e}")
+        logging.error(f"❌ Error saving HTML file: {e}")
+        logging.error(traceback.format_exc())
         return None
 
 
