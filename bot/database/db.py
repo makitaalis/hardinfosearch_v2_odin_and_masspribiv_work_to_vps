@@ -1142,6 +1142,7 @@ def refund_balance(user_id: int):
     return True, f"Средства возвращены из-за пустого ответа. Ваш новый баланс: ${new_balance:.2f}"
 
 
+# В db.py проверить, что функция НЕ объявлена как async
 def mass_refund_balance(user_id, queries_count):
     """
     Возвращает средства пользователю после неудачного массового пробива
@@ -1278,7 +1279,7 @@ def log_mass_search_start(user_id: int, file_path: str, valid_lines: int, total_
         if conn:
             conn.close()
 
-def update_mass_search_status(log_id: int, status: str, results_file: str = None, phones_found: int = None):
+def update_mass_search_status(log_id: int, status: str, results_file: str = None, phones_found: int = None, error_message: str = None):
     """
     Обновляет статус массового пробива
 
@@ -1286,6 +1287,7 @@ def update_mass_search_status(log_id: int, status: str, results_file: str = None
     :param status: Новый статус ('processing', 'completed', 'failed')
     :param results_file: Путь к файлу результатов (если есть)
     :param phones_found: Количество найденных телефонов (если есть)
+    :param error_message: Сообщение об ошибке (если есть)
     """
     try:
         conn = sqlite3.connect(DB_PATH)
@@ -1296,6 +1298,8 @@ def update_mass_search_status(log_id: int, status: str, results_file: str = None
             update_dict["results_file"] = results_file
         if phones_found is not None:
             update_dict["phones_found"] = phones_found
+        if error_message is not None:
+            update_dict["error_message"] = error_message
         if status in ('completed', 'failed'):
             update_dict["end_time"] = "datetime('now')"
 
@@ -1319,7 +1323,6 @@ def update_mass_search_status(log_id: int, status: str, results_file: str = None
     finally:
         if conn:
             conn.close()
-
 
 def get_mass_search_stats():
     """

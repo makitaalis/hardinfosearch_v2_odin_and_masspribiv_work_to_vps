@@ -1179,13 +1179,12 @@ async def process_mass_search_queue(bot):
                     await mass_search_queue.remove_item(user_id, success=False)
                     continue
 
-                # Create a unique ID for this mass search process
+                # Create unique process ID
                 process_id = f"mass_{int(time.time())}_{random.randint(1000, 9999)}"
                 log_id = None
 
                 try:
-                    # Acquire resources
-                    active_user_searches[user_id] += 1
+                    # Mark as processing and acquire semaphore
                     await mass_search_semaphore.acquire()
 
                     # Log in database
@@ -1193,184 +1192,101 @@ async def process_mass_search_queue(bot):
                     if log_id:
                         update_mass_search_status(log_id, "processing")
 
-                    # Send initial progress message
+                    # Send initial status message
                     status_message = await bot.send_message(
                         user_id,
-                        f"🔄 <b>Starting mass search (ID: {process_id})</b>\n\n"
+                        f"🔄 <b>Starting mass search</b>\n\n"
                         f"File contains {valid_lines} queries\n"
                         f"Cost: ${total_cost:.2f}\n\n"
-                        f"<code>[░░░░░░░░░░░░░░░░░░░░] 0%</code>\n\n"
+                        f"<code>[--------------------] 0%</code>\n\n"
                         f"⏳ <i>Please wait...</i>",
                         parse_mode="HTML"
                     )
 
-                    # Allocate dedicated sessions for this mass search
-                    if session_pool:
-                        allocated_sessions = await session_pool.allocate_sessions_for_mass_search(
-                            process_id,
-                            requested_count=min(10, max(2, valid_lines // 20))  # Adaptive session count
-                        )
-                        logging.info(f"Allocated {allocated_sessions} sessions for mass search {process_id}")
-
-                    # Create optimized processor with adaptive settings
+                    # Process file
                     processor = MassSearchProcessor(
-                        max_concurrent=min(20, max(5, 100 // (active_users or 1))),  # Adaptive concurrency
-                        min_request_interval=0.2,  # Even faster processing
-                        max_request_interval=1.0,  # Lower upper bound
-                        batch_size=min(30, max(10, valid_lines // 4))  # Adaptive batch size
+                        max_concurrent=max_concurrent,  # Use same value as semaphore
+                        min_request_interval=0.5,  # Reasonable delay
+                        max_request_interval=1.5,  # Slightly higher
+                        batch_size=10  # Smaller batch size
                     )
 
-                    # Process file with comprehensive error handling
-                    try:
-                        result_file_path, stats, results_dict = await processor.process_file(
-                            file_path,
-                            user_id,
-                            session_pool,
-                            bot,
-                            status_message.message_id,
-                            process_id=process_id  # Pass ID for resource tracking
-                        )
+                    result_file_path, stats, results_dict = await processor.process_file(
+                        file_path,
+                        user_id,
+                        session_pool,
+                        bot,
+                        status_message.message_id,
+                        process_id=process_id
+                    )
 
-                        # Update processing statistics
-                        processing_time = time.time() - process_start_time
-                        processing_stats["total_processed"] += 1
-                        processing_stats["successful"] += 1
-                        processing_stats["total_processing_time"] += processing_time
-                        processing_stats["avg_processing_time"] = (
-                                processing_stats["total_processing_time"] /
-                                processing_stats["total_processed"]
-                        )
-
-                        # Log success
-                        phones_found = stats.get('phones_found', 0)
-                        logging.info(
-                            f"Mass search completed for user {user_id}: "
-                            f"found {phones_found} phones in {processing_time:.2f}s"
-                        )
-
-                        # Update database
-                        if log_id:
-                            update_mass_search_status(
-                                log_id,
-                                "completed",
-                                results_file=result_file_path,
-                                phones_found=stats.get('phones_found', 0),
-                                error_message=None
-                            )
-
-                        # Final progress update
-                        await bot.edit_message_text(
-                            chat_id=user_id,
-                            message_id=status_message.message_id,
-                            text=f"✅ <b>Mass search completed!</b>\n\n"
-                                 f"📊 <b>Statistics:</b>\n"
-                                 f"• Total lines: {stats['total_lines']}\n"
-                                 f"• Valid queries: {stats['valid_lines']}\n"
-                                 f"• Phones found: {stats['phones_found']}\n"
-                                 f"• Processing time: {stats['processing_time']:.2f} sec\n\n"
-                                 f"<code>[{'█' * 20}] 100%</code>",
-                            parse_mode="HTML"
-                        )
-
-                        # Send results file if available
-                        if result_file_path and os.path.exists(result_file_path) and os.path.getsize(
-                                result_file_path) > 0:
-                            # Choose message based on results
-                            if stats.get("phones_found", 0) > 0:
-                                result_message = f"📎 Results are in the file below:"
-                            else:
-                                result_message = f"📎 Query verification report in the file below:"
-
-                            # Send message and file
-                            await bot.send_message(user_id, result_message, parse_mode="HTML")
-                            await bot.send_document(user_id, FSInputFile(result_file_path))
-                        else:
-                            # Report file creation issues
-                            await bot.send_message(
-                                user_id,
-                                "⚠️ Could not create results file. Please contact support."
-                            )
-
-                            if log_id:
-                                update_mass_search_status(log_id, "failed",
-                                                          error_message="Results file creation failed")
-
-                    except Exception as file_error:
-                        # Comprehensive error handling
-                        processing_stats["failed"] += 1
-                        error_traceback = traceback.format_exc()
-                        logging.error(
-                            f"Error processing file for user {user_id}: {file_error}\n{error_traceback}"
-                        )
-
-                        # Refund user
-                        refund_success, refund_message = await mass_refund_balance(user_id, valid_lines)
-
-                        # Update database status
-                        if log_id:
-                            update_mass_search_status(
-                                log_id,
-                                "failed",
-                                error_message=f"{str(file_error)[:200]}"
-                            )
-
-                        # Notify user with helpful error message
-                        error_message = str(file_error)
-                        if len(error_message) > 100:
-                            error_message = error_message[:100] + "..."
-
-                        await bot.send_message(
-                            user_id,
-                            f"❌ <b>Error processing your file:</b>\n{error_message}\n\n"
-                            f"{refund_message}\n\n"
-                            f"If this problem persists, please contact support.",
-                            parse_mode="HTML"
-                        )
-
-                except asyncio.CancelledError:
-                    # Handle task cancellation
-                    logging.warning(f"Mass search task for user {user_id} was cancelled")
-                    processing_stats["failed"] += 1
+                    # Log success
+                    phones_found = stats.get('phones_found', 0)
+                    logging.info(f"Mass search completed for user {user_id}: found {phones_found} phones")
 
                     # Update database
                     if log_id:
-                        update_mass_search_status(log_id, "failed", error_message="Task cancelled")
+                        update_mass_search_status(
+                            log_id,
+                            "completed",
+                            results_file=result_file_path,
+                            phones_found=stats.get('phones_found', 0)
+                        )
 
-                    # Refund and notify user
-                    refund_success, refund_message = await mass_refund_balance(user_id, valid_lines)
-                    await bot.send_message(
-                        user_id,
-                        "❌ Task was cancelled. Funds have been returned to your balance."
+                    # Update status message with results
+                    await bot.edit_message_text(
+                        chat_id=user_id,
+                        message_id=status_message.message_id,
+                        text=f"✅ <b>Mass search completed!</b>\n\n"
+                             f"📊 <b>Statistics:</b>\n"
+                             f"• Total lines: {stats['total_lines']}\n"
+                             f"• Valid queries: {stats['valid_lines']}\n"
+                             f"• Phones found: {stats['phones_found']}\n"
+                             f"• Processing time: {stats['processing_time']:.2f} sec\n\n"
+                             f"<code>[{'█' * 20}] 100%</code>",
+                        parse_mode="HTML"
                     )
+
+                    # Send results file
+                    if result_file_path and os.path.exists(result_file_path) and os.path.getsize(result_file_path) > 0:
+                        if stats.get("phones_found", 0) > 0:
+                            result_message = f"📎 Results file with phone numbers:"
+                        else:
+                            result_message = f"📎 Query verification report:"
+
+                        await bot.send_message(user_id, result_message)
+                        await bot.send_document(user_id, FSInputFile(result_file_path))
+                    else:
+                        await bot.send_message(user_id, "⚠️ Could not create results file.")
 
                 except Exception as e:
-                    # Handle other unexpected errors
-                    processing_stats["failed"] += 1
-                    error_traceback = traceback.format_exc()
-                    logging.error(
-                        f"Unexpected error in mass search for user {user_id}: {e}\n{error_traceback}"
-                    )
+                    # Handle errors
+                    error_message = str(e)
+                    logging.error(f"Error processing mass search for user {user_id}: {error_message}")
 
-                    # Update database
+                    # Update database if log exists
                     if log_id:
-                        update_mass_search_status(log_id, "failed", error_message=f"Unexpected error: {str(e)[:200]}")
+                        update_mass_search_status(
+                            log_id,
+                            "failed",
+                            error_message=error_message[:200]
+                        )
 
-                    # Refund and notify user
-                    refund_success, refund_message = await mass_refund_balance(user_id, valid_lines)
+                    # Refund user - ВАЖНОЕ ИСПРАВЛЕНИЕ: убрать await перед mass_refund_balance
+                    refund_success, refund_message = mass_refund_balance(user_id, valid_lines)
+
+                    # Notify user
                     await bot.send_message(
                         user_id,
-                        f"❌ <b>An unexpected error occurred:</b>\n{str(e)}\n\n{refund_message}",
+                        f"❌ <b>Error processing your file:</b>\n\n"
+                        f"An error occurred during processing. {refund_message}\n\n"
+                        f"Please try again later or contact support.",
                         parse_mode="HTML"
                     )
 
                 finally:
-                    # Always release resources
-                    active_user_searches[user_id] = max(0, active_user_searches[user_id] - 1)
+                    # Release resources
                     mass_search_semaphore.release()
-
-                    # Release allocated sessions
-                    if session_pool:
-                        await session_pool.finish_mass_search(process_id)
 
                     # Remove from queue
                     await mass_search_queue.remove_item(user_id)
@@ -1381,11 +1297,7 @@ async def process_mass_search_queue(bot):
                         f"Queue stats: processing={queue_status['processing']}, waiting={queue_status['waiting']}"
                     )
 
-            # Check queue every second
-            await asyncio.sleep(1)
-
         except Exception as e:
-            # Handle errors in the queue processing loop
-            error_traceback = traceback.format_exc()
-            logging.error(f"Error in mass search queue processor: {e}\n{error_traceback}")
-            await asyncio.sleep(5)  # Wait longer on errors
+            # Log error and continue processing
+            logging.error(f"Error in mass search queue processor: {e}", exc_info=True)
+            await asyncio.sleep(5)  # Wait longer on unexpected errors
