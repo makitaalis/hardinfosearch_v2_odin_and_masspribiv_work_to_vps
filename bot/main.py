@@ -28,6 +28,9 @@ from bot.handlers import router as handlers_router
 from bot.mass_search import mass_search_router, process_mass_search_queue
 from bot.admin_handlers import admin_router  # New module for admin handlers
 
+from bot.database.db_pool import get_pool, close_pool
+from bot.database.database_config import is_postgres_configured
+
 # Optimize event loop policy if uvloop is available
 try:
     import uvloop
