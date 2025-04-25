@@ -261,7 +261,10 @@ async def error_handler(event: ErrorEvent):
 
 # Startup function
 async def on_startup():
-    """Initialize resources when bot starts"""
+    """
+    Initialize resources when bot starts.
+    Improved to handle the case where session initialization completely fails.
+    """
     started_at = time.monotonic()
 
     # Test connection to Telegram API
@@ -286,25 +289,65 @@ async def on_startup():
     credentials = load_credentials()
     logging.info(f"Loaded {len(credentials)} credentials for session pool")
 
-    session_pool = init_session_pool(credentials, max_sessions=50)
-    if session_pool is None:
-        logging.error("Failed to initialize session pool")
-    else:
-        # Initialize sessions
-        if hasattr(session_pool, 'initialize_sessions'):
-            success_count, fail_count = await session_pool.initialize_sessions()
-            logging.info(f"Session pool initialized: {success_count} successful, {fail_count} failed")
+    # Create session pool but continue even if it fails
+    try:
+        session_pool = init_session_pool(credentials, max_sessions=50)
+        if session_pool is None:
+            logging.error("Failed to initialize session pool, continuing without it")
         else:
-            logging.warning("initialize_sessions method not found, skipping initialization")
+            # Initialize sessions with proper error handling
+            if hasattr(session_pool, 'initialize_sessions'):
+                try:
+                    # Try to initialize sessions but with a timeout
+                    init_task = asyncio.create_task(session_pool.initialize_sessions(min_sessions=5))
+                    try:
+                        # Wait for initialization with a timeout
+                        success_count, fail_count = await asyncio.wait_for(init_task, timeout=60)
+                        logging.info(f"Session pool initialized: {success_count} successful, {fail_count} failed")
+
+                        if success_count == 0 and fail_count > 0:
+                            logging.warning("No sessions initialized successfully, service may be unavailable")
+                            # Don't exit - we'll try to reinitialize sessions later
+                    except asyncio.TimeoutError:
+                        # Cancel the task if it takes too long
+                        init_task.cancel()
+                        logging.error("Session initialization timed out after 60 seconds")
+                except Exception as init_error:
+                    logging.error(f"Error during session initialization: {init_error}")
+            else:
+                logging.warning("initialize_sessions method not found, skipping initialization")
+    except Exception as e:
+        logging.error(f"Error creating session pool: {e}")
+        session_pool = None  # Ensure it's set to None if initialization fails
 
     # Register bot commands
     await register_bot_commands()
 
-    # Start background tasks
-    asyncio.create_task(clear_cache_daily())
-    asyncio.create_task(notify_admin_about_zero_balance())
-    asyncio.create_task(refresh_expired_sessions())
-    asyncio.create_task(process_mass_search_queue(bot))
+    # Start background tasks with proper error handling
+
+    # Background task 1: Clear cache daily
+    try:
+        asyncio.create_task(clear_cache_daily())
+    except Exception as e:
+        logging.error(f"Failed to start clear_cache_daily task: {e}")
+
+    # Background task 2: Admin notifications
+    try:
+        asyncio.create_task(notify_admin_about_zero_balance())
+    except Exception as e:
+        logging.error(f"Failed to start notify_admin task: {e}")
+
+    # Background task 3: Session refresh - retry initialization if initial setup failed
+    try:
+        asyncio.create_task(refresh_sessions_with_retry())
+    except Exception as e:
+        logging.error(f"Failed to start session refresh task: {e}")
+
+    # Background task 4: Mass search queue
+    try:
+        asyncio.create_task(process_mass_search_queue(bot))
+    except Exception as e:
+        logging.error(f"Failed to start process_mass_search_queue task: {e}")
 
     # Register graceful shutdown handlers
     register_shutdown_handlers()
@@ -316,15 +359,78 @@ async def on_startup():
     # Notify admin about bot startup
     if ADMIN_ID:
         try:
+            session_count = 0
+            if session_pool and hasattr(session_pool, 'get_stats'):
+                try:
+                    stats = session_pool.get_stats()
+                    if isinstance(stats, dict) and 'active_sessions' in stats:
+                        session_count = stats['active_sessions']
+                except Exception as stats_error:
+                    logging.error(f"Error getting session stats: {stats_error}")
+
             await bot.send_message(
                 ADMIN_ID,
                 f"✅ Bot started successfully\n"
-                f"Session pool: {session_pool.get_stats()['active_sessions'] if session_pool else 0} active sessions\n"
+                f"Session pool: {session_count} active sessions\n"
                 f"Startup time: {elapsed:.2f} seconds"
             )
         except Exception as e:
             logging.error(f"Failed to notify admin about startup: {e}")
 
+
+async def refresh_sessions_with_retry():
+    """
+    New background task that periodically tries to refresh sessions
+    and reinitialize them if no sessions are active.
+    """
+    global session_pool
+
+    while True:
+        try:
+            # Wait before first attempt to give the system time to stabilize
+            await asyncio.sleep(60)  # 1 minute initial delay
+
+            if session_pool is None:
+                logging.warning("Session pool is None, cannot refresh sessions")
+                await asyncio.sleep(120)  # Wait 2 minutes before retrying
+                continue
+
+            # Check if we have any authenticated sessions
+            authenticated_count = 0
+            try:
+                if hasattr(session_pool, 'get_stats'):
+                    stats = session_pool.get_stats()
+                    if isinstance(stats, dict) and 'active_sessions' in stats:
+                        authenticated_count = stats['active_sessions']
+            except Exception as e:
+                logging.error(f"Error getting session stats: {e}")
+
+            # If no authenticated sessions, try to initialize some
+            if authenticated_count == 0:
+                logging.warning("No authenticated sessions found, attempting to initialize some")
+
+                if hasattr(session_pool, 'initialize_sessions'):
+                    try:
+                        # Try to initialize with a timeout
+                        init_task = asyncio.create_task(session_pool.initialize_sessions(min_sessions=5))
+                        success_count, fail_count = await asyncio.wait_for(init_task, timeout=60)
+                        logging.info(f"Session reinitialization: {success_count} successful, {fail_count} failed")
+                    except (asyncio.TimeoutError, Exception) as e:
+                        logging.error(f"Session reinitialization failed: {e}")
+
+            # Refresh existing sessions
+            if hasattr(session_pool, 'refresh_expired_sessions'):
+                try:
+                    await session_pool.refresh_expired_sessions()
+                    logging.info("Refreshed expired sessions")
+                except Exception as e:
+                    logging.error(f"Error refreshing sessions: {e}")
+
+        except Exception as e:
+            logging.error(f"Error in refresh_sessions_with_retry: {e}")
+
+        # Wait 15 minutes before next check
+        await asyncio.sleep(900)
 
 # Main function
 async def main():

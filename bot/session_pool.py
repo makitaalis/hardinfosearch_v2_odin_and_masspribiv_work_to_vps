@@ -499,6 +499,7 @@ class SessionPoolManager:
     async def initialize_sessions(self, min_sessions=5):
         """
         Initialize and authenticate a minimum number of sessions on startup.
+        Improved to handle failures gracefully and avoid deadlocks.
 
         Args:
             min_sessions: Minimum number of sessions to initialize
@@ -511,8 +512,8 @@ class SessionPoolManager:
         success_count = 0
         fail_count = 0
 
-        # Use a semaphore to limit simultaneous authentications
-        auth_semaphore = asyncio.Semaphore(10)  # Max 10 simultaneous authentications
+        # Use a semaphore to limit simultaneous authentications but allow for some concurrency
+        auth_semaphore = asyncio.Semaphore(5)  # Reduced from 10 to 5 for more stability
 
         async def init_single_session(session):
             async with auth_semaphore:
@@ -523,9 +524,12 @@ class SessionPoolManager:
                         session.is_busy = True
                         try:
                             # Add some jitter to prevent thundering herd
-                            await asyncio.sleep(random.uniform(0.1, 0.5))
+                            await asyncio.sleep(random.uniform(0.5, 1.5))  # Increased delay
                             success = await session.authenticate()
                             return success
+                        except Exception as e:
+                            logging.error(f"Session {session.session_id} authentication error: {e}")
+                            return False
                         finally:
                             # Restore original busy state
                             session.is_busy = original_busy_state
@@ -543,33 +547,64 @@ class SessionPoolManager:
             cred_key = f"{session.login}:{session.password}"
             if cred_key not in unique_creds and len(init_tasks) < min_sessions:
                 unique_creds.add(cred_key)
-                init_tasks.append(init_single_session(session))
+                init_tasks.append(asyncio.create_task(init_single_session(session)))
 
         # Then add more sessions up to min_sessions if needed
         remaining_slots = min_sessions - len(init_tasks)
         if remaining_slots > 0:
             # Find sessions that aren't busy and aren't already in our tasks
-            remaining_sessions = [s for s in self.sessions if not s.is_busy
-                                  and not any(t.get_coro().__self__ is s for t in init_tasks
-                                              if hasattr(t, 'get_coro'))]
+            remaining_sessions = []
+            for s in self.sessions:
+                if s.is_busy:
+                    continue
+
+                # Skip sessions that are already being initialized
+                already_initializing = False
+                for task in init_tasks:
+                    # Can't directly compare coroutine objects, so we use a different approach
+                    if hasattr(task, '_coro') and id(s) == id(getattr(task._coro, '__self__', None)):
+                        already_initializing = True
+                        break
+
+                if not already_initializing:
+                    remaining_sessions.append(s)
 
             # Add up to the remaining slots
             for session in remaining_sessions[:remaining_slots]:
-                init_tasks.append(init_single_session(session))
+                init_tasks.append(asyncio.create_task(init_single_session(session)))
 
-        # Wait for all initialization tasks to complete
+        # Wait for all initialization tasks to complete with a timeout
         if init_tasks:
-            results = await asyncio.gather(*init_tasks, return_exceptions=True)
+            try:
+                # Add a timeout to prevent hanging if some tasks get stuck
+                done, pending = await asyncio.wait(init_tasks, timeout=60)
 
-            # Count successes and failures
-            for result in results:
-                if isinstance(result, Exception):
+                # Cancel any pending tasks
+                for task in pending:
+                    task.cancel()
                     fail_count += 1
-                    logging.error(f"Session initialization failed with error: {result}")
-                elif result is True:
-                    success_count += 1
-                else:
-                    fail_count += 1
+
+                # Process completed tasks
+                results = []
+                for task in done:
+                    try:
+                        results.append(task.result())
+                    except Exception as e:
+                        logging.error(f"Task error: {e}")
+                        results.append(False)
+
+                # Count successes and failures
+                success_count = sum(1 for r in results if r is True)
+                fail_count = len(results) - success_count + len(pending)
+            except Exception as e:
+                logging.error(f"Error waiting for initialization tasks: {e}")
+                # Try to cancel all tasks
+                for task in init_tasks:
+                    try:
+                        if not task.done():
+                            task.cancel()
+                    except Exception:
+                        pass
 
         # Log the results
         if success_count > 0:

@@ -267,23 +267,9 @@ async def cb_logout(callback: CallbackQuery):
 @router.message(lambda message: message.text is not None and not message.text.startswith('/'))
 async def universal_message_handler(message: Message, state: FSMContext):
     """
-    Обрабатывает входящие сообщения:
-    1. Проверка авторизации.
-    2. Если не авторизован – попытка считать их как логин+пароль.
-    3. Проверка кэша, если запрос валиден.
-    4. Списание средств, запрос к сайту, отправка HTML-отчёта.
-    5. Возврат средств, если API вернуло None или ошибку.
+    Обрабатывает входящие сообщения с улучшенной обработкой ошибок и режимом отказоустойчивости.
     """
-
-    from bot.config import ADMIN_ID
-    from bot.database.db import refund_balance
-    from bot.analytics import log_request
-    from bot.session_manager import session_pool
-    import time
-    import json
-    import os
-
-    # Проверяем, находится ли пользователь в каком-то состоянии
+    # Check if user is in a state (like waiting for file upload)
     current_state = await state.get_state()
     if current_state:
         return
@@ -291,9 +277,9 @@ async def universal_message_handler(message: Message, state: FSMContext):
     user_id = message.from_user.id
     query_text = message.text.strip()
 
-    # 1. Проверка авторизации
+    # 1. Authentication check
     if not check_active_session(user_id):
-        # Пытаемся распознать формат "логин пароль"
+        # Try to recognize login/password format
         parts = query_text.split(maxsplit=1)
         if len(parts) == 2:
             login, password = parts
@@ -322,7 +308,7 @@ async def universal_message_handler(message: Message, state: FSMContext):
             )
         return
 
-    # 2. Проверяем формат запроса
+    # 2. Query validation
     query_text = normalize_query(query_text)
     valid, formatted_text = validate_query(query_text)
     if not valid:
@@ -330,118 +316,123 @@ async def universal_message_handler(message: Message, state: FSMContext):
         return
     query_text = formatted_text
 
-    # 3. Проверка кэша
-    cached_found, cached_response, cache_source = get_best_cached_response(user_id, query_text)
-    if cached_found:
-        # Форматируем ответ из кэша без HTML-тегов для удобного чтения
-        formatted_text = format_api_response(cached_response, use_html=False)
-        await message.answer(
-            f"💾 Результат из кэша ({cache_source}):\n\n{formatted_text}"
-        )
-
-        # Получаем HTML-файл из кэша или генерируем его
-        html_path = await save_response_as_html(user_id, query_text, cached_response)
-        if html_path and os.path.exists(html_path):
-            await message.answer_document(FSInputFile(html_path))
-
-        return
-
-    # 4. Проверяем баланс перед отправкой запроса
-    logging.info(f"🚀 Попытка списания баланса для user_id={user_id}")
-    success, balance_message = deduct_balance(user_id)
-    logging.info(f"🎯 Результат списания: {success}, {balance_message}")
-    if not success:
-        await message.answer(balance_message)
-        return
-
-    # 5. Отправляем запрос через веб-интерфейс вместо API
-    start_time = time.time()
-
-    # Информируем пользователя о начале поиска
-    status_message = await message.answer("🔍 Выполняю поиск, пожалуйста, подождите...")
-
-    # Проверяем наличие пула сессий
-    if session_pool is None:
-        logging.error("Пул сессий не инициализирован при обработке запроса")
-        await status_message.edit_text("Ошибка: система веб-поиска не инициализирована")
-        # Возвращаем средства
-        refund_success, refund_message = refund_balance(user_id)
-        return
-
-    # Проверяем состояние пула сессий
-    pool_stats = session_pool.get_stats()
-    logging.info(f"Статистика пула сессий: активных {pool_stats['active_sessions']} из {pool_stats['total_sessions']}")
-
-    # Отправляем запрос через веб-интерфейс
-    from bot.utils import send_web_request
-    success, api_response = await send_web_request(query_text)
-    execution_time = time.time() - start_time
-
-    # Логируем запрос
+    # 3. Process search request using the unified handler
+    # This function contains all the search logic with fallback handling
     try:
-        response_size = len(json.dumps(api_response).encode('utf-8')) if api_response else 0
-    except:
-        response_size = 0
+        from bot.utils import handle_search_request
+        await handle_search_request(message, query_text, state)
+    except Exception as e:
+        # Catch-all exception handler to prevent bot crashes
+        logging.error(f"Error in handle_search_request: {e}", exc_info=True)
 
-    log_request(
-        user_id=user_id,
-        query=query_text,
-        request_type='web',
-        source='web',
-        success=(success and api_response is not None),
-        execution_time=execution_time,
-        response_size=response_size
-    )
-
-    # Удаляем сообщение о статусе
-    await status_message.delete()
-
-    # Проверяем результат и возвращаем средства при необходимости
-    if not success or api_response is None or (isinstance(api_response, list) and len(api_response) == 0):
-        refund_success, refund_message = refund_balance(user_id)
-        logging.info(f"💰 Результат возврата средств: {refund_success}, {refund_message}")
-
+        # Send error message to user
         await message.answer(
-            "ℹ <b>Информация в базах не найдена.</b>\n\n"
-            "📌 <i>Обратите внимание:</i> Введенные данные могут отличаться от записей в базе. "
-            "Рекомендуем проверить корректность запроса и попробовать снова.\n\n"
-            f"💰 {refund_message}",
+            "⚠️ <b>Произошла ошибка при обработке запроса</b>\n\n"
+            "Пожалуйста, попробуйте снова позже или обратитесь в поддержку.",
             parse_mode="HTML"
         )
+
+        # Return balance in case of error
+        try:
+            refund_success, refund_message = refund_balance(user_id)
+            if refund_success:
+                await message.answer(f"💰 {refund_message}")
+        except Exception as refund_error:
+            logging.error(f"Error refunding balance: {refund_error}")
+
+
+# Also update the extended_search command handler to use fallback mechanism
+@router.message(Command("extended_search"))
+async def cmd_extended_search(message: Message):
+    """
+    Обработчик команды /extended_search [запрос] с улучшенной обработкой ошибок.
+    """
+    user_id = message.from_user.id
+    if not check_active_session(user_id):
+        await message.answer("Вы не вошли в систему. Сначала введите логин и пароль.")
         return
 
-    # 6. Форматируем и отправляем результат
+    parts = message.text.strip().split(" ", 1)
+    if len(parts) < 2:
+        await message.answer("Использование: /extended_search [запрос]")
+        return
+
+    query = parts[1].strip()
+
+    # Check if web service is available
     try:
-        filtered_response = filter_unique_data(api_response)
+        from bot.utils import check_web_service_available
+        web_available = await check_web_service_available()
 
-        # Форматируем результат БЕЗ HTML-тегов для удобного чтения в чате
-        formatted_text = format_api_response(filtered_response, use_html=False)
-        await message.answer(formatted_text)
+        if not web_available:
+            await message.answer(
+                "⚠️ <b>Расширенный поиск временно недоступен</b>\n\n"
+                "Извините за неудобства, но в настоящее время наш поисковый сервис недоступен. "
+                "Попробуйте использовать обычный поиск или повторите попытку позже.",
+                parse_mode="HTML"
+            )
+            return
     except Exception as e:
-        logging.error(f"❌ Ошибка при форматировании ответа: {str(e)}")
-        await message.answer("⚠ Ошибка при обработке данных.")
+        logging.error(f"Error checking web service availability: {e}")
+        # Continue anyway - we'll check again when sending the request
 
-        # Возвращаем средства при ошибке обработки
+    # Add prefix to distinguish extended search in cache
+    cache_key = "extended__" + query
+
+    # Check cache
+    cached_found, cached_response, cache_source = get_best_cached_response(user_id, cache_key)
+    if cached_found:
+        formatted_text = format_api_response(cached_response)
+        await message.answer(
+            f"💾 Результат из кэша ({cache_source}):\n\n{formatted_text}",
+            parse_mode="Markdown"
+        )
+
+        # Get HTML-file from cache or generate it
+        html_path = await save_response_as_html(user_id, cache_key, cached_response)
+        if html_path and os.path.exists(html_path):
+            await message.answer_document(FSInputFile(html_path))
+        return
+
+    # Deduct balance
+    success, response_text = deduct_balance(user_id)
+    if not success:
+        await message.answer(response_text)
+        return
+
+    # Start search
+    status_message = await message.answer("🔍 Выполняю расширенный поиск, пожалуйста, подождите...")
+
+    # Check session pool
+    from bot.session_manager import session_pool
+    if session_pool is None:
+        await status_message.edit_text("Ошибка: система веб-поиска не инициализирована")
         refund_success, refund_message = refund_balance(user_id)
-        await message.answer(f"💰 {refund_message}")
+        await message.answer(refund_message)
         return
 
-    # 7. Сохраняем в кэш
-    try:
-        save_response_to_cache(user_id, query_text, api_response)
-    except Exception as e:
-        logging.error(f"❌ Ошибка при сохранении в кэш: {str(e)}")
+    # Use extended search
+    success, api_resp = await send_web_request(query, session_pool)
 
-    # 8. Генерация HTML и отправка файла
-    logging.info(f"📄 Генерация HTML-отчета для user_id={user_id}, query={query_text}")
-    html_path = await save_response_as_html(user_id, query_text, api_response)
-    if html_path and os.path.exists(html_path) and os.path.getsize(html_path) > 0:
-        await message.answer_document(document=FSInputFile(html_path))
+    # Remove status message
+    await status_message.delete()
+
+    if not success:
+        # Refund on error
+        refund_success, refund_message = refund_balance(user_id)
+        await message.answer(f"{api_resp}\n\n{refund_message}")
+        return
+
+    # Save to cache
+    save_response_to_cache(user_id, cache_key, api_resp)
+
+    # Format and send response
+    formatted_response = format_api_response(api_resp)
+    await message.answer(formatted_response, parse_mode="Markdown")
+
+    # Generate HTML
+    html_path = await save_response_as_html(user_id, cache_key, api_resp)
+    if html_path and os.path.exists(html_path):
+        await message.answer_document(FSInputFile(html_path))
     else:
-        logging.error(f"❌ Ошибка: HTML-файл {html_path} не создан или пуст.")
         await message.answer("⚠ Ошибка при создании HTML-файла.")
-
-    # 9. Проверяем баланс пользователя и отправляем предупреждение, если он низкий
-    low_balance, warning_message = check_low_balance(user_id)
-    if low_balance:
-        await message.answer(warning_message)

@@ -1,5 +1,6 @@
 import asyncio
 import html as html_escape
+import json
 import logging
 import os
 import re
@@ -9,6 +10,9 @@ from datetime import datetime
 import requests
 from aiogram.types import FSInputFile
 
+from bot.analytics import log_request
+from bot.database.db import check_low_balance, save_response_to_cache, refund_balance, get_best_cached_response, \
+    deduct_balance
 
 # Убираем циклический импорт
 # НЕ использовать: from bot.utils import send_web_request
@@ -18,6 +22,11 @@ LAST_REQUEST_TIME = 0
 MIN_REQUEST_INTERVAL = 0.5  # секунды между запросами
 
 API_BASE_URL = "https://infosearch54321.xyz"
+
+# Global flag to indicate whether the web service is available
+WEB_SERVICE_AVAILABLE = False
+LAST_SERVICE_CHECK = 0
+SERVICE_CHECK_INTERVAL = 300  # 5 minutes
 
 # Загружаем токен для доступа к API из переменных окружения (файл .env)
 API_TOKEN = os.getenv("API_TOKEN")
@@ -42,7 +51,7 @@ DATABASE_TRANSLATIONS = {}
 
 async def send_web_request(query: str, session_pool_instance=None):
     """
-    Отправляет запрос через веб-интерфейс Sauron
+    Significantly improved web request function that gracefully handles authentication and session failures.
 
     :param query: Строка запроса
     :param session_pool_instance: Экземпляр пула сессий для выполнения запроса
@@ -50,30 +59,88 @@ async def send_web_request(query: str, session_pool_instance=None):
     """
     logging.info(f"Web request for query: {query}")
 
-    # Проверяем, что пул сессий инициализирован
+    # Get session pool
     if session_pool_instance is None:
-        # Пытаемся получить глобальный пул сессий
-        from bot.session_manager import session_pool
-        session_pool_instance = session_pool
+        # Try to get global session pool
+        try:
+            from bot.session_manager import session_pool
+            session_pool_instance = session_pool
+        except Exception as e:
+            logging.error(f"Error importing session pool: {e}")
+            return False, "Ошибка: не удалось получить доступ к пулу сессий"
 
     if session_pool_instance is None:
-        logging.error("Ошибка: пул сессий не инициализирован при выполнении запроса")
+        logging.error("Session pool is not initialized")
         return False, "Ошибка: система веб-поиска не инициализирована"
 
-    # Нормализуем запрос
+    # Normalize query
     normalized_query = normalize_query(query)
 
-    # Выполняем поиск через пул сессий
-    success, result = await session_pool_instance.perform_search(normalized_query)
+    # Try up to 3 times with different sessions
+    max_attempts = 3
+    last_error = None
 
-    # Логируем результат
-    if success:
-        logging.info(
-            f"Web request succeeded for query: {query}, found {len(result) if isinstance(result, list) else 0} records")
-    else:
-        logging.error(f"Web request failed for query: {query}, error: {result}")
+    for attempt in range(max_attempts):
+        try:
+            # If not the first attempt, add some delay
+            if attempt > 0:
+                delay = 1.0 * (attempt + 1)
+                logging.info(f"Retrying web request (attempt {attempt + 1}/{max_attempts}), waiting {delay:.1f}s")
+                await asyncio.sleep(delay)
 
-    return success, result
+            # Try to use perform_search
+            try:
+                success, result = await session_pool_instance.perform_search(normalized_query)
+
+                if success:
+                    logging.info(f"Web request succeeded for query: {query}")
+                    return True, result
+                else:
+                    logging.warning(f"Web request attempt {attempt + 1} failed: {result}")
+                    last_error = result
+            except AttributeError as e:
+                # If perform_search is missing, try a direct approach
+                logging.warning(f"perform_search not available in session pool: {e}")
+                last_error = "Метод perform_search недоступен"
+
+                # Try an alternative approach - get and use a session directly
+                try:
+                    session = None
+                    session = await session_pool_instance.get_available_session(timeout=20)
+
+                    if session and hasattr(session, 'search'):
+                        # Ensure the session is authenticated
+                        if not session.is_authenticated:
+                            auth_success = await session.authenticate()
+                            if not auth_success:
+                                logging.error("Session authentication failed")
+                                continue
+
+                        # Now try to search
+                        success, result = await session.search(normalized_query)
+
+                        if success:
+                            logging.info(f"Direct search succeeded for query: {query}")
+                            return True, result
+                        else:
+                            logging.warning(f"Direct search failed: {result}")
+                            last_error = result
+                    else:
+                        logging.error("Got invalid session object or session without search method")
+                        last_error = "Недопустимый объект сессии"
+                finally:
+                    # Release the session if we got one
+                    if session and hasattr(session_pool_instance, 'release_session'):
+                        await session_pool_instance.release_session(session)
+
+        except Exception as e:
+            logging.error(f"Web request exception on attempt {attempt + 1}: {e}")
+            last_error = str(e)
+
+    # If we get here, all attempts failed
+    error_message = last_error if last_error else "Неизвестная ошибка"
+    logging.error(f"Web request failed after {max_attempts} attempts: {error_message}")
+    return False, f"Ошибка поиска: {error_message}"
 
 
 async def send_api_request(query: str):
@@ -2038,3 +2105,184 @@ def sorted_items_by_category(category, items):
     else:
         # Для остальных категорий - просто алфавитная сортировка
         return sorted(items)
+
+
+async def check_web_service_available():
+    """
+    Check if the web service is available by trying to authenticate a session.
+    Updates the global WEB_SERVICE_AVAILABLE flag.
+    """
+    global WEB_SERVICE_AVAILABLE, LAST_SERVICE_CHECK
+
+    # Don't check too frequently
+    current_time = time.time()
+    if current_time - LAST_SERVICE_CHECK < SERVICE_CHECK_INTERVAL:
+        return WEB_SERVICE_AVAILABLE
+
+    LAST_SERVICE_CHECK = current_time
+
+    # Try to get the session pool
+    try:
+        from bot.session_manager import session_pool
+        if not session_pool:
+            logging.warning("Session pool is not initialized, web service considered unavailable")
+            WEB_SERVICE_AVAILABLE = False
+            return False
+
+        # Try to get an authenticated session
+        stats = None
+        if hasattr(session_pool, 'get_stats'):
+            stats = session_pool.get_stats()
+
+        if stats and isinstance(stats, dict) and stats.get('active_sessions', 0) > 0:
+            logging.info("Web service available: found active sessions")
+            WEB_SERVICE_AVAILABLE = True
+            return True
+
+        # Try to authenticate a session
+        if hasattr(session_pool, 'initialize_sessions'):
+            try:
+                success_count, _ = await asyncio.wait_for(
+                    session_pool.initialize_sessions(min_sessions=1),
+                    timeout=30
+                )
+
+                if success_count > 0:
+                    logging.info("Web service available: successfully authenticated a session")
+                    WEB_SERVICE_AVAILABLE = True
+                    return True
+                else:
+                    logging.warning("Web service unavailable: failed to authenticate any sessions")
+                    WEB_SERVICE_AVAILABLE = False
+                    return False
+            except (asyncio.TimeoutError, Exception) as e:
+                logging.error(f"Web service check failed: {e}")
+                WEB_SERVICE_AVAILABLE = False
+                return False
+        else:
+            logging.warning("Cannot check web service: initialize_sessions method not found")
+            WEB_SERVICE_AVAILABLE = False
+            return False
+    except Exception as e:
+        logging.error(f"Error checking web service availability: {e}")
+        WEB_SERVICE_AVAILABLE = False
+        return False
+
+
+async def handle_search_request(message, query_text, state):
+    """
+    Unified handler for search requests with fallback handling.
+    To be used in universal_message_handler.
+    """
+    user_id = message.from_user.id
+
+    # Check if web service is available
+    web_available = await check_web_service_available()
+
+    if not web_available:
+        # FALLBACK MODE: Inform the user about service unavailability
+        await message.answer(
+            "⚠️ <b>Сервис временно недоступен</b>\n\n"
+            "Извините за неудобства, но в настоящее время наш поисковый сервис недоступен. "
+            "Наши технические специалисты уже работают над решением проблемы.\n\n"
+            "Пожалуйста, попробуйте снова через некоторое время.",
+            parse_mode="HTML"
+        )
+        return
+
+    # Normal flow - check cache
+    cached_found, cached_response, cache_source = get_best_cached_response(user_id, query_text)
+    if cached_found:
+        # Format and send cached response
+        formatted_text = format_api_response(cached_response, use_html=False)
+        await message.answer(
+            f"💾 Результат из кэша ({cache_source}):\n\n{formatted_text}"
+        )
+
+        # Get HTML-file from cache or generate it
+        html_path = await save_response_as_html(user_id, query_text, cached_response)
+        if html_path and os.path.exists(html_path):
+            await message.answer_document(FSInputFile(html_path))
+        return
+
+    # Deduct balance
+    logging.info(f"🚀 Попытка списания баланса для user_id={user_id}")
+    success, balance_message = deduct_balance(user_id)
+    logging.info(f"🎯 Результат списания: {success}, {balance_message}")
+    if not success:
+        await message.answer(balance_message)
+        return
+
+    # Show loading message
+    status_message = await message.answer("🔍 Выполняю поиск, пожалуйста, подождите...")
+
+    # Send request with improved error handling
+    from bot.session_manager import session_pool
+    if session_pool is None:
+        logging.error("Session pool is not initialized during search request")
+        await status_message.edit_text("Ошибка: система поиска не инициализирована")
+        refund_success, refund_message = refund_balance(user_id)
+        return
+
+    # Perform search with retry
+    start_time = time.time()
+    success, api_response = await send_web_request(query_text, session_pool)
+    execution_time = time.time() - start_time
+
+    # Log request
+    log_request(
+        user_id=user_id,
+        query=query_text,
+        request_type='web',
+        source='web',
+        success=success and api_response is not None,
+        execution_time=execution_time,
+        response_size=len(json.dumps(api_response).encode('utf-8')) if api_response else 0
+    )
+
+    # Remove loading message
+    await status_message.delete()
+
+    # Handle response
+    if not success or not api_response or (isinstance(api_response, list) and len(api_response) == 0):
+        # Refund and inform user
+        refund_success, refund_message = refund_balance(user_id)
+        await message.answer(
+            "ℹ <b>Информация в базах не найдена.</b>\n\n"
+            "📌 <i>Обратите внимание:</i> Введенные данные могут отличаться от записей в базе. "
+            "Рекомендуем проверить корректность запроса и попробовать снова.\n\n"
+            f"💰 {refund_message}",
+            parse_mode="HTML"
+        )
+        return
+
+    # Format and send results
+    try:
+        filtered_response = filter_unique_data(api_response)
+        formatted_text = format_api_response(filtered_response, use_html=False)
+        await message.answer(formatted_text)
+    except Exception as e:
+        logging.error(f"❌ Ошибка при форматировании ответа: {str(e)}")
+        await message.answer("⚠ Ошибка при обработке данных.")
+        refund_success, refund_message = refund_balance(user_id)
+        await message.answer(f"💰 {refund_message}")
+        return
+
+    # Save to cache
+    try:
+        save_response_to_cache(user_id, query_text, api_response)
+    except Exception as e:
+        logging.error(f"❌ Ошибка при сохранении в кэш: {str(e)}")
+
+    # Generate and send HTML report
+    html_path = await save_response_as_html(user_id, query_text, api_response)
+    if html_path and os.path.exists(html_path) and os.path.getsize(html_path) > 0:
+        await message.answer_document(document=FSInputFile(html_path))
+    else:
+        logging.error(f"❌ Ошибка: HTML-файл {html_path} не создан или пуст.")
+        await message.answer("⚠ Ошибка при создании HTML-файла.")
+
+    # Check balance warning
+    low_balance, warning_message = check_low_balance(user_id)
+    if low_balance:
+        await message.answer(warning_message)
