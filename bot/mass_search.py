@@ -366,17 +366,18 @@ class MassSearchProcessor:
     async def process_file(self, file_path: str, user_id: int, session_pool, bot=None, status_message_id=None,
                            process_id=None):
         """
-        Optimized method for processing file with search queries.
+        Оптимизированный метод для обработки файла с поисковыми запросами.
+        Модифицированный для фильтрации только российских мобильных номеров.
 
-        :param file_path: Path to the uploaded file
-        :param user_id: User's Telegram ID
-        :param session_pool: Session pool for requests
-        :param bot: Bot instance for status updates
-        :param status_message_id: Status message ID
-        :param process_id: Optional process ID for tracking
-        :return: (path to result file, statistics dict, results dict)
+        :param file_path: Путь к загруженному файлу
+        :param user_id: ID пользователя в Telegram
+        :param session_pool: Пул сессий для запросов
+        :param bot: Экземпляр бота для обновления статуса
+        :param status_message_id: ID сообщения со статусом
+        :param process_id: Опциональный ID процесса для отслеживания
+        :return: (путь к файлу результатов, словарь статистики, словарь результатов)
         """
-        # Save parameters for progress updates
+        # Сохраняем параметры для обновления прогресса
         self.bot = bot
         self.user_id = user_id
         self.status_message_id = status_message_id
@@ -410,7 +411,7 @@ class MassSearchProcessor:
             "request_times": []
         }
 
-        # Verify data integrity before processing
+        # Проверка целостности данных перед обработкой
         if not os.path.exists(file_path) or os.path.getsize(file_path) == 0:
             logging.error(f"File {file_path} doesn't exist or is empty")
             stats["errors"] += 1
@@ -418,9 +419,9 @@ class MassSearchProcessor:
 
         start_time = time.time()
         valid_queries = []
-        results_dict = {}  # Dictionary to store all results: {query: result}
+        results_dict = {}  # Словарь для хранения всех результатов: {query: результат}
 
-        # 1. Read and validate file
+        # 1. Чтение и валидация файла
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 lines = f.readlines()
@@ -428,7 +429,7 @@ class MassSearchProcessor:
             stats["total_lines"] = len(lines)
             logging.info(f"Reading file {file_path}: found {len(lines)} lines")
 
-            # Validate and normalize lines
+            # Валидация и нормализация строк
             from bot.utils import normalize_query, validate_query
 
             for line in lines:
@@ -436,7 +437,7 @@ class MassSearchProcessor:
                 if not line:
                     continue
 
-                # Normalize query
+                # Нормализуем запрос
                 normalized_query = normalize_query(line)
                 valid, _ = validate_query(normalized_query)
 
@@ -453,22 +454,22 @@ class MassSearchProcessor:
             logging.warning(f"No valid queries found in file {file_path}")
             return None, stats, {}
 
-        # 2. Sort and remove duplicates for optimization
+        # 2. Сортировка и удаление дубликатов для оптимизации
         valid_queries = sorted(list(set(valid_queries)))
         self.total_queries = len(valid_queries)
         logging.info(f"Unique valid queries: {len(valid_queries)}")
 
-        # 3. Create results file
+        # 3. Создание файла для результатов
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         result_file_path = f"static/responses/{user_id}/mass_search_result_{timestamp}.txt"
         result_full_data_path = f"static/responses/{user_id}/mass_search_full_data_{timestamp}.json"
         os.makedirs(os.path.dirname(result_file_path), exist_ok=True)
 
-        # 4. Split queries into batches and process
-        cache_hit_queries = []  # Queries already in cache
-        cache_miss_queries = []  # Queries not in cache
+        # 4. Разделение запросов на пакеты и их обработка
+        cache_hit_queries = []  # Запросы, уже имеющиеся в кэше
+        cache_miss_queries = []  # Запросы, отсутствующие в кэше
 
-        # 4.1 Check cache for all queries
+        # 4.1 Проверка кэша для всех запросов
         from bot.database.db import get_cached_response
 
         for query in valid_queries:
@@ -495,28 +496,28 @@ class MassSearchProcessor:
 
         logging.info(f"Found in cache: {stats['cached_queries']}, require API request: {stats['api_queries']}")
 
-        # Update status message
+        # Обновление сообщения о статусе
         if bot and status_message_id:
             await self.update_progress_message()
 
-        # 4.2 Efficiently process API requests for items not in cache
+        # 4.2 Эффективная обработка API-запросов для элементов, отсутствующих в кэше
         if cache_miss_queries:
-            # First try to allocate dedicated sessions for this mass search
+            # Сначала попытаемся выделить специальные сессии для этого массового поиска
             allocated_sessions = await session_pool.allocate_sessions_for_mass_search(
                 self.mass_search_id,
                 requested_count=min(10, len(cache_miss_queries) // 10 + 1)
             )
 
-            # Adjust concurrent jobs based on available sessions
+            # Настройка параллельных заданий на основе доступных сессий
             effective_concurrent = min(self.max_concurrent, max(5, allocated_sessions * 2))
             self.semaphore = asyncio.Semaphore(effective_concurrent)
 
-            # Calculate optimal batch size based on query count
+            # Расчет оптимального размера пакета на основе количества запросов
             optimal_batch_size = min(self.batch_size, max(5, len(cache_miss_queries) // 5))
             logging.info(
                 f"Processing {len(cache_miss_queries)} queries in batches of {optimal_batch_size} with {effective_concurrent} concurrent slots")
 
-            # Process in batches using the batch processor
+            # Обработка по пакетам
             for i in range(0, len(cache_miss_queries), optimal_batch_size):
                 batch_queries = cache_miss_queries[i:i + optimal_batch_size]
                 batch_num = i // optimal_batch_size + 1
@@ -524,17 +525,17 @@ class MassSearchProcessor:
 
                 logging.info(f"Processing batch {batch_num}/{total_batches}: {len(batch_queries)} queries")
 
-                # Process this batch with concurrent execution
+                # Обработка пакета с параллельным выполнением
                 await self.process_query_batch(batch_queries, user_id, session_pool, results_dict)
 
-                # Give the system a small break between batches
+                # Небольшая пауза между пакетами
                 await asyncio.sleep(0.5)
 
-                # Update status message
+                # Обновление сообщения о статусе
                 await self.update_progress_message()
 
-        # 5. Process results and group phones by queries
-        # 5.1. Extract phones from results
+        # 5. Обработка результатов и группировка телефонов по запросам
+        # 5.1. Извлечение телефонов из результатов
         query_phones_dict = defaultdict(set)
         total_raw_phones = 0
 
@@ -546,7 +547,7 @@ class MassSearchProcessor:
                 query_phones_dict[query].update(phones)
                 logging.debug(f"Found {len(phones)} phones for query '{query}'")
             elif result and isinstance(result, list) and len(result) > 0:
-                # If phones not found with standard method, try text method
+                # Если телефоны не найдены стандартным методом, попробуем через текст
                 formatted_text = self.format_result_for_phones(result)
                 text_phones = self.extract_phones_from_text(formatted_text)
 
@@ -555,93 +556,95 @@ class MassSearchProcessor:
                     query_phones_dict[query].update(text_phones)
                     logging.debug(f"Found {len(text_phones)} phones through text for '{query}'")
 
-        # 6. Write results to files
-        # 6.1 Main file with phones
+        # 6. Запись результатов в файлы
+        # 6.1 Основной файл с телефонами
         has_results = False
-
-        # Count unique phones
-        total_unique_phones = 0
-        for query, phones in query_phones_dict.items():
-            total_unique_phones += len(phones)
-
-        # Calculate duplicates
-        duplicate_phones = total_raw_phones - total_unique_phones
+        russian_mobile_count = 0  # Счетчик российских мобильных номеров
 
         try:
             with open(result_file_path, 'w', encoding='utf-8') as result_file:
-                # Write file header
+                # Заголовок файла
                 result_file.write(f"РЕЗУЛЬТАТЫ МАССОВОГО ПРОБИВА ОТ {timestamp}\n")
                 result_file.write(f"Всего запросов: {len(valid_queries)}\n")
-                result_file.write(f"Найдено телефонов: {total_unique_phones}\n")
-                if duplicate_phones > 0:
-                    result_file.write(f"Найдено дубликатов: {duplicate_phones}\n")
+
+                # Подсчет российских мобильных номеров
+                for query, phones in query_phones_dict.items():
+                    for phone in phones:
+                        if phone and isinstance(phone, str) and phone.startswith('+79'):
+                            russian_mobile_count += 1
+
+                result_file.write(f"Найдено российских мобильных номеров: {russian_mobile_count}\n")
                 result_file.write(f"====================================\n\n")
 
-                if total_unique_phones == 0:
-                    result_file.write("Не найдено телефонов ни по одному запросу.\n")
+                if russian_mobile_count == 0:
+                    result_file.write("Не найдено российских мобильных номеров ни по одному запросу.\n")
                     result_file.write("Проверьте правильность запросов и попробуйте снова.\n\n")
 
-                    # Add list of queries with no results
+                    # Добавляем список запросов без результатов
                     result_file.write("Список запросов:\n")
                     for i, query in enumerate(valid_queries, 1):
                         result_file.write(f"{i}. {query}\n")
 
-                    result_file.write("\nВозможные причины проблемы:\n")
+                    result_file.write("\nВозможные причины отсутствия результатов:\n")
                     result_file.write("1. Данные отсутствуют в базе\n")
                     result_file.write("2. Формат запроса неверный\n")
-                    result_file.write("3. Технические проблемы с API\n")
+                    result_file.write("3. У найденных пользователей нет российских мобильных номеров\n")
                 else:
                     has_results = True
-                    # Sort queries for easier reading
+                    # Сортируем запросы для удобства чтения
                     sorted_queries = sorted(query_phones_dict.keys())
 
                     for query in sorted_queries:
-                        # Get all phones for this query
+                        # Получаем все телефоны для этого запроса
                         all_phones = sorted(query_phones_dict[query])
 
-                        # Filter only mobile phones
-                        mobile_phones = []
+                        # Фильтруем только российские мобильные номера
+                        russian_mobiles = []
                         for phone in all_phones:
-                            if self.is_valid_mobile_phone(phone):
-                                # Format phone to standard format
-                                formatted_phone = self.format_phone_number(phone)
-                                if formatted_phone and formatted_phone not in mobile_phones:
-                                    mobile_phones.append(formatted_phone)
+                            if phone and isinstance(phone, str) and phone.startswith('+79'):
+                                russian_mobiles.append(phone)
 
-                        # If mobile phones found - display them
-                        if mobile_phones:
-                            # Write name/query
+                        # Если найдены российские мобильные - выводим их
+                        if russian_mobiles:
+                            # Записываем запрос/ФИО
                             result_file.write(f"{query}\n")
 
-                            # Write only mobile phones with indent
-                            for phone in mobile_phones:
+                            # Записываем только российские мобильные с отступом
+                            for phone in russian_mobiles:
                                 result_file.write(f" {phone}\n")
 
-                            # Empty line between different queries for better readability
+                            # Пустая строка между разными запросами для лучшей читаемости
                             result_file.write("\n")
                         else:
                             stats["skipped"] += 1
 
-                    # Count and write statistics
-                    successful_queries = len([q for q in query_phones_dict if query_phones_dict[q]])
+                    # Статистика и информация
+                    successful_queries = sum(1 for q in query_phones_dict if any(
+                        p.startswith('+79') for p in query_phones_dict[q] if isinstance(p, str)
+                    ))
+
                     success_rate = round((successful_queries / len(valid_queries)) * 100, 1) if valid_queries else 0
 
                     result_file.write(f"\n====================================\n")
                     result_file.write(f"СТАТИСТИКА:\n")
                     result_file.write(
-                        f"Запросов обработано успешно: {successful_queries}/{len(valid_queries)} ({success_rate}%)\n")
+                        f"Запросов с найденными российскими номерами: {successful_queries}/{len(valid_queries)} ({success_rate}%)\n")
 
-                    # Write information about queries with no results
+                    # Информация о запросах без результатов
                     if stats["skipped"] > 0:
-                        result_file.write(f"\nЗапросы без результатов: {stats['skipped']}\n")
+                        result_file.write(f"\nЗапросы без российских мобильных номеров: {stats['skipped']}\n")
                         no_results_queries = [q for q in valid_queries if
-                                              q not in query_phones_dict or not query_phones_dict[q]]
-                        for q in no_results_queries[:5]:  # Show first 5 queries with no results
+                                              q not in query_phones_dict or
+                                              not any(p.startswith('+79') for p in query_phones_dict[q] if
+                                                      isinstance(p, str))]
+
+                        for q in no_results_queries[:5]:  # Показываем первые 5 запросов без результатов
                             result_file.write(f" - {q}\n")
+
                         if len(no_results_queries) > 5:
                             result_file.write(f" ... и еще {len(no_results_queries) - 5} запросов\n")
 
-            # 6.2 Save full data to JSON
+            # 6.2 Сохранение полных данных в JSON
             with open(result_full_data_path, 'w', encoding='utf-8') as full_data_file:
                 json.dump(results_dict, full_data_file, ensure_ascii=False, indent=2)
 
@@ -649,24 +652,24 @@ class MassSearchProcessor:
             logging.error(f"Error saving results: {e}", exc_info=True)
             stats["errors"] += 1
 
-        # Finish mass search in session pool
+        # Завершение массового поиска в пуле сессий
         try:
             await session_pool.finish_mass_search(self.mass_search_id)
         except Exception as e:
             logging.error(f"Error finishing mass search in session pool: {e}")
 
-        # Update statistics
-        stats["phones_found"] = total_unique_phones
-        stats["duplicate_phones"] = duplicate_phones
+        # Обновляем статистику
+        stats["phones_found"] = russian_mobile_count
+        stats["duplicate_phones"] = total_raw_phones - russian_mobile_count
         stats["total_raw_phones"] = total_raw_phones
         stats["processing_time"] = round(time.time() - start_time, 2)
         stats["has_results"] = has_results
 
-        # Finalize statistics
+        # Завершаем статистику
         self.stats["end_time"] = time.time()
 
         logging.info(f"Mass search completed in {stats['processing_time']} seconds. "
-                     f"Found {stats['phones_found']} phones.")
+                     f"Found {stats['phones_found']} Russian mobile phones.")
 
         return result_file_path, stats, results_dict
 
@@ -795,43 +798,47 @@ class MassSearchProcessor:
 
     def format_phone_number(self, phone_str):
         """
-        Improved phone formatting with more format support
+        Форматирует телефонный номер к стандартному виду
+
+        :param phone_str: Строка с телефонным номером
+        :return: Отформатированный номер или None если невалидный
         """
         if not phone_str:
             return None
 
-        # Get only digits (and potentially + at beginning)
+        # Только цифры (и потенциально + в начале)
         has_plus = str(phone_str).strip().startswith('+')
         digits_only = ''.join(c for c in str(phone_str) if c.isdigit())
 
-        # Handle different formats
-        if len(digits_only) == 10:
-            # 10-digit without country code
+        # Проверка российского мобильного формата
+        if len(digits_only) == 10 and digits_only.startswith('9'):
+            # Если начинается с 9 и длина 10 - добавляем код страны
             return f"+7{digits_only}"
-        elif len(digits_only) == 11:
-            # 11-digit with country code
-            if digits_only.startswith('7') or digits_only.startswith('8'):
-                return f"+7{digits_only[1:]}"
-            else:
-                return f"+{digits_only}"
-        elif len(digits_only) >= 12:
-            # International number
-            return f"+{digits_only}" if not has_plus else f"+{digits_only}"
-        elif len(digits_only) >= 8 and len(digits_only) < 10:
-            # Possible local number
-            return f"+7{digits_only}" if len(digits_only) == 9 else None
+        elif len(digits_only) == 11 and digits_only.startswith(('79', '89')):
+            # Если начинается с 79 или 89 и длина 11 - нормализуем к формату +79
+            return f"+7{digits_only[1:]}"
 
-        return None
+        # Для всех других случаев возвращаем исходный номер
+        # Это номера которые не являются российскими мобильными
+        if has_plus:
+            return f"+{digits_only}"
+        return f"+{digits_only}"
 
     def is_valid_mobile_phone(self, phone_str):
         """
-        More permissive check for valid mobile numbers
+        Проверяет, является ли номер российским мобильным (+79XXXXXXXXX)
+
+        :param phone_str: Строка с телефонным номером
+        :return: True если это российский мобильный номер (начинается с +79)
         """
         if not phone_str:
             return False
 
-        formatted = self.format_phone_number(phone_str)
-        return formatted is not None
+        # Очищаем номер от всего, кроме цифр и знака +
+        clean_phone = ''.join(c for c in str(phone_str) if c.isdigit() or c == '+')
+
+        # Проверяем формат российского мобильного (+79XXXXXXXXX)
+        return clean_phone.startswith('+79') and len(clean_phone) == 12
 
     def format_result_for_phones(self, data):
         """
@@ -1179,12 +1186,13 @@ async def process_mass_search_queue(bot):
                     await mass_search_queue.remove_item(user_id, success=False)
                     continue
 
-                # Create unique process ID
+                # Create a unique ID for this mass search process
                 process_id = f"mass_{int(time.time())}_{random.randint(1000, 9999)}"
                 log_id = None
 
                 try:
-                    # Mark as processing and acquire semaphore
+                    # Acquire resources
+                    active_user_searches[user_id] += 1
                     await mass_search_semaphore.acquire()
 
                     # Log in database
@@ -1192,101 +1200,184 @@ async def process_mass_search_queue(bot):
                     if log_id:
                         update_mass_search_status(log_id, "processing")
 
-                    # Send initial status message
+                    # Send initial progress message
                     status_message = await bot.send_message(
                         user_id,
-                        f"🔄 <b>Starting mass search</b>\n\n"
+                        f"🔄 <b>Starting mass search (ID: {process_id})</b>\n\n"
                         f"File contains {valid_lines} queries\n"
                         f"Cost: ${total_cost:.2f}\n\n"
-                        f"<code>[--------------------] 0%</code>\n\n"
+                        f"<code>[░░░░░░░░░░░░░░░░░░░░] 0%</code>\n\n"
                         f"⏳ <i>Please wait...</i>",
                         parse_mode="HTML"
                     )
 
-                    # Process file
+                    # Allocate dedicated sessions for this mass search
+                    if session_pool:
+                        allocated_sessions = await session_pool.allocate_sessions_for_mass_search(
+                            process_id,
+                            requested_count=min(10, max(2, valid_lines // 20))  # Adaptive session count
+                        )
+                        logging.info(f"Allocated {allocated_sessions} sessions for mass search {process_id}")
+
+                    # Create optimized processor with adaptive settings
                     processor = MassSearchProcessor(
-                        max_concurrent=max_concurrent,  # Use same value as semaphore
-                        min_request_interval=0.5,  # Reasonable delay
-                        max_request_interval=1.5,  # Slightly higher
-                        batch_size=10  # Smaller batch size
+                        max_concurrent=min(20, max(5, 100 // (active_users or 1))),  # Adaptive concurrency
+                        min_request_interval=0.2,  # Even faster processing
+                        max_request_interval=1.0,  # Lower upper bound
+                        batch_size=min(30, max(10, valid_lines // 4))  # Adaptive batch size
                     )
 
-                    result_file_path, stats, results_dict = await processor.process_file(
-                        file_path,
-                        user_id,
-                        session_pool,
-                        bot,
-                        status_message.message_id,
-                        process_id=process_id
-                    )
+                    # Process file with comprehensive error handling
+                    try:
+                        result_file_path, stats, results_dict = await processor.process_file(
+                            file_path,
+                            user_id,
+                            session_pool,
+                            bot,
+                            status_message.message_id,
+                            process_id=process_id  # Pass ID for resource tracking
+                        )
 
-                    # Log success
-                    phones_found = stats.get('phones_found', 0)
-                    logging.info(f"Mass search completed for user {user_id}: found {phones_found} phones")
+                        # Update processing statistics
+                        processing_time = time.time() - process_start_time
+                        processing_stats["total_processed"] += 1
+                        processing_stats["successful"] += 1
+                        processing_stats["total_processing_time"] += processing_time
+                        processing_stats["avg_processing_time"] = (
+                                processing_stats["total_processing_time"] /
+                                processing_stats["total_processed"]
+                        )
+
+                        # Log success
+                        phones_found = stats.get('phones_found', 0)
+                        logging.info(
+                            f"Mass search completed for user {user_id}: "
+                            f"found {phones_found} phones in {processing_time:.2f}s"
+                        )
+
+                        # Update database
+                        if log_id:
+                            update_mass_search_status(
+                                log_id,
+                                "completed",
+                                results_file=result_file_path,
+                                phones_found=stats.get('phones_found', 0),
+                                error_message=None
+                            )
+
+                        # Final progress update
+                        await bot.edit_message_text(
+                            chat_id=user_id,
+                            message_id=status_message.message_id,
+                            text=f"✅ <b>Mass search completed!</b>\n\n"
+                                 f"📊 <b>Statistics:</b>\n"
+                                 f"• Total lines: {stats['total_lines']}\n"
+                                 f"• Valid queries: {stats['valid_lines']}\n"
+                                 f"• Phones found: {stats['phones_found']}\n"
+                                 f"• Processing time: {stats['processing_time']:.2f} sec\n\n"
+                                 f"<code>[{'█' * 20}] 100%</code>",
+                            parse_mode="HTML"
+                        )
+
+                        # Send results file if available
+                        if result_file_path and os.path.exists(result_file_path) and os.path.getsize(
+                                result_file_path) > 0:
+                            # Choose message based on results
+                            if stats.get("phones_found", 0) > 0:
+                                result_message = f"📎 Results are in the file below:"
+                            else:
+                                result_message = f"📎 Query verification report in the file below:"
+
+                            # Send message and file
+                            await bot.send_message(user_id, result_message, parse_mode="HTML")
+                            await bot.send_document(user_id, FSInputFile(result_file_path))
+                        else:
+                            # Report file creation issues
+                            await bot.send_message(
+                                user_id,
+                                "⚠️ Could not create results file. Please contact support."
+                            )
+
+                            if log_id:
+                                update_mass_search_status(log_id, "failed",
+                                                          error_message="Results file creation failed")
+
+                    except Exception as file_error:
+                        # Comprehensive error handling
+                        processing_stats["failed"] += 1
+                        error_traceback = traceback.format_exc()
+                        logging.error(
+                            f"Error processing file for user {user_id}: {file_error}\n{error_traceback}"
+                        )
+
+                        # Refund user
+                        refund_success, refund_message = await mass_refund_balance(user_id, valid_lines)
+
+                        # Update database status
+                        if log_id:
+                            update_mass_search_status(
+                                log_id,
+                                "failed",
+                                error_message=f"{str(file_error)[:200]}"
+                            )
+
+                        # Notify user with helpful error message
+                        error_message = str(file_error)
+                        if len(error_message) > 100:
+                            error_message = error_message[:100] + "..."
+
+                        await bot.send_message(
+                            user_id,
+                            f"❌ <b>Error processing your file:</b>\n{error_message}\n\n"
+                            f"{refund_message}\n\n"
+                            f"If this problem persists, please contact support.",
+                            parse_mode="HTML"
+                        )
+
+                except asyncio.CancelledError:
+                    # Handle task cancellation
+                    logging.warning(f"Mass search task for user {user_id} was cancelled")
+                    processing_stats["failed"] += 1
 
                     # Update database
                     if log_id:
-                        update_mass_search_status(
-                            log_id,
-                            "completed",
-                            results_file=result_file_path,
-                            phones_found=stats.get('phones_found', 0)
-                        )
+                        update_mass_search_status(log_id, "failed", error_message="Task cancelled")
 
-                    # Update status message with results
-                    await bot.edit_message_text(
-                        chat_id=user_id,
-                        message_id=status_message.message_id,
-                        text=f"✅ <b>Mass search completed!</b>\n\n"
-                             f"📊 <b>Statistics:</b>\n"
-                             f"• Total lines: {stats['total_lines']}\n"
-                             f"• Valid queries: {stats['valid_lines']}\n"
-                             f"• Phones found: {stats['phones_found']}\n"
-                             f"• Processing time: {stats['processing_time']:.2f} sec\n\n"
-                             f"<code>[{'█' * 20}] 100%</code>",
-                        parse_mode="HTML"
-                    )
-
-                    # Send results file
-                    if result_file_path and os.path.exists(result_file_path) and os.path.getsize(result_file_path) > 0:
-                        if stats.get("phones_found", 0) > 0:
-                            result_message = f"📎 Results file with phone numbers:"
-                        else:
-                            result_message = f"📎 Query verification report:"
-
-                        await bot.send_message(user_id, result_message)
-                        await bot.send_document(user_id, FSInputFile(result_file_path))
-                    else:
-                        await bot.send_message(user_id, "⚠️ Could not create results file.")
-
-                except Exception as e:
-                    # Handle errors
-                    error_message = str(e)
-                    logging.error(f"Error processing mass search for user {user_id}: {error_message}")
-
-                    # Update database if log exists
-                    if log_id:
-                        update_mass_search_status(
-                            log_id,
-                            "failed",
-                            error_message=error_message[:200]
-                        )
-
-                    # Refund user - ВАЖНОЕ ИСПРАВЛЕНИЕ: убрать await перед mass_refund_balance
-                    refund_success, refund_message = mass_refund_balance(user_id, valid_lines)
-
-                    # Notify user
+                    # Refund and notify user
+                    refund_success, refund_message = await mass_refund_balance(user_id, valid_lines)
                     await bot.send_message(
                         user_id,
-                        f"❌ <b>Error processing your file:</b>\n\n"
-                        f"An error occurred during processing. {refund_message}\n\n"
-                        f"Please try again later or contact support.",
+                        "❌ Task was cancelled. Funds have been returned to your balance."
+                    )
+
+                except Exception as e:
+                    # Handle other unexpected errors
+                    processing_stats["failed"] += 1
+                    error_traceback = traceback.format_exc()
+                    logging.error(
+                        f"Unexpected error in mass search for user {user_id}: {e}\n{error_traceback}"
+                    )
+
+                    # Update database
+                    if log_id:
+                        update_mass_search_status(log_id, "failed", error_message=f"Unexpected error: {str(e)[:200]}")
+
+                    # Refund and notify user
+                    refund_success, refund_message = await mass_refund_balance(user_id, valid_lines)
+                    await bot.send_message(
+                        user_id,
+                        f"❌ <b>An unexpected error occurred:</b>\n{str(e)}\n\n{refund_message}",
                         parse_mode="HTML"
                     )
 
                 finally:
-                    # Release resources
+                    # Always release resources
+                    active_user_searches[user_id] = max(0, active_user_searches[user_id] - 1)
                     mass_search_semaphore.release()
+
+                    # Release allocated sessions
+                    if session_pool:
+                        await session_pool.finish_mass_search(process_id)
 
                     # Remove from queue
                     await mass_search_queue.remove_item(user_id)
@@ -1297,7 +1388,11 @@ async def process_mass_search_queue(bot):
                         f"Queue stats: processing={queue_status['processing']}, waiting={queue_status['waiting']}"
                     )
 
+            # Check queue every second
+            await asyncio.sleep(1)
+
         except Exception as e:
-            # Log error and continue processing
-            logging.error(f"Error in mass search queue processor: {e}", exc_info=True)
-            await asyncio.sleep(5)  # Wait longer on unexpected errors
+            # Handle errors in the queue processing loop
+            error_traceback = traceback.format_exc()
+            logging.error(f"Error in mass search queue processor: {e}\n{error_traceback}")
+            await asyncio.sleep(5)  # Wait longer on errors
