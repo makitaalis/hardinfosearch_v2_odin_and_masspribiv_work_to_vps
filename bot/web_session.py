@@ -11,17 +11,17 @@ This module handles web interactions with sauron.info including:
 """
 
 import asyncio
+import hashlib
+import json
 import logging
 import random
 import re
 import time
 import traceback
 from datetime import datetime, timedelta
-import json
-import hashlib
 
 import aiohttp
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 # Diverse user agents for web requests
 USER_AGENTS = [
@@ -519,9 +519,13 @@ class SauronWebSession:
         finally:
             self.is_busy = False
 
+    # The issue appears to be in the parse_results method in bot/web_session.py
+    # Here's the fix for the email parsing problem:
+
     async def parse_results(self, html_content):
         """
-        Parse HTML results page to extract structured data.
+        Universal HTML parser that extracts structured data with enhanced email handling.
+        Works with various HTML structures and protection mechanisms.
 
         Args:
             html_content: HTML string from search results page
@@ -533,61 +537,58 @@ class SauronWebSession:
             soup = BeautifulSoup(html_content, 'html.parser')
 
             # Verify this is a valid results page
-            if "Запрос:" not in html_content or "Подробный отчет" not in html_content:
-                logging.error("Invalid results page received")
-                # Log the start of the page for debugging
-                logging.debug(f"Page start: {html_content[:500]}")
-                return []
+            if ("Запрос:" not in html_content and "Подробный отчет" not in html_content
+                    and "Общая сводка" not in html_content):
+                logging.warning("Non-standard page format - will try to extract data anyway")
 
             # Extract search results
             result_data = []
 
-            # Get query title
-            title_elem = soup.select_one("div.title--main")
-            query = ""
-            if title_elem:
-                query_text = title_elem.text
-                if "Запрос:" in query_text:
-                    query = query_text.replace("Запрос:", "").strip()
-                    logging.info(f"Parsed query: {query}")
+            # STEP 1: Scan entire page for emails to use as references
+            all_emails = self._find_all_emails_on_page(soup, html_content)
+            logging.info(f"Found {len(all_emails)} possible emails on page")
 
-            # Get result blocks
+            # STEP 2: Process standard result blocks
             blocks = soup.select("div.simple--block.simple--result--ltd")
-            logging.info(f"Found {len(blocks)} result blocks")
+            if not blocks:
+                # Try alternative block patterns for different page layouts
+                blocks = soup.select("div.simple--block")
 
-            for block in blocks:
-                block_data = {"database": ""}
+            logging.info(f"Found {len(blocks)} data blocks")
 
-                # Get database name
-                header = block.select_one("div.simple--block--header div.title")
-                if header:
-                    block_data["database"] = header.text.strip()
-                    logging.debug(f"Found database: {block_data['database']}")
-
-                # Get data fields
-                fields = block.select("div.column--flex--content")
-                logging.debug(f"Found {len(fields)} fields in block")
-
-                for field in fields:
-                    title_elem = field.select_one("div.column--flex--title")
-                    value_elem = field.select_one("div.column--flex--result")
-
-                    if title_elem and value_elem:
-                        field_name = title_elem.text.strip().rstrip(':')
-                        field_value = value_elem.text.strip()
-
-                        if field_name and field_value:
-                            block_data[field_name] = field_value
-                            logging.debug(f"  Field: {field_name} = {field_value[:30]}...")
-
-                # Add block to results if it contains data
-                if len(block_data) > 1:  # More than just "database"
-                    result_data.append(block_data)
+            # If no blocks found, try to extract data from the main page structure
+            if not blocks:
+                # Create a synthetic block from the whole page
+                main_block = self._create_synthetic_block(soup, all_emails)
+                if main_block:
+                    result_data.append(main_block)
+            else:
+                # Process each block normally
+                for block in blocks:
+                    block_data = self._process_data_block(block, all_emails)
+                    if block_data and len(block_data) > 1:  # More than just "database"
+                        result_data.append(block_data)
 
             # Return empty list if no data found
             if not result_data:
-                logging.warning("No data found in search results")
-                return result_data
+                logging.warning("No data found in results")
+                # Last resort: create basic record from emails and other data
+                if all_emails:
+                    basic_data = {"database": "Извлеченные данные", "Email": all_emails[0]}
+
+                    # Look for phone numbers
+                    phones = self._extract_phones(soup)
+                    if phones:
+                        basic_data["Телефон"] = phones[0]
+
+                    # Look for names
+                    names = self._extract_names(soup)
+                    if names:
+                        basic_data["ФИО"] = names[0]
+
+                    result_data.append(basic_data)
+                else:
+                    return []
 
             # Normalize field names
             field_mapping = {
@@ -595,6 +596,9 @@ class SauronWebSession:
                 "День рождения": "ДАТА РОЖДЕНИЯ",
                 "Телефон": "ТЕЛЕФОН",
                 "Email": "ПОЧТА",
+                "E-mail": "ПОЧТА",
+                "Почта": "ПОЧТА",
+                "Электронная почта": "ПОЧТА",
                 "ИНН": "ИНН",
                 "СНИЛС": "СНИЛС",
                 "Паспорт": "ПАСПОРТ",
@@ -614,6 +618,7 @@ class SauronWebSession:
                         std_item[field_mapping[key]] = value
                     else:
                         std_item[key] = value
+
                 standardized_data.append(std_item)
 
             logging.info(f"Parsed {len(standardized_data)} result items")
@@ -622,6 +627,400 @@ class SauronWebSession:
             logging.error(f"Session {self.session_id}: Error parsing results: {str(e)}")
             logging.error(traceback.format_exc())
             return []
+
+    def _process_data_block(self, block, all_emails):
+        """Process a single data block and extract fields"""
+        block_data = {"database": ""}
+
+        # Get database name
+        header = block.select_one("div.simple--block--header div.title")
+        if header:
+            block_data["database"] = header.text.strip()
+        else:
+            # Try alternative header patterns
+            header = block.select_one("div.title")
+            if header:
+                block_data["database"] = header.text.strip()
+
+        # Extract emails from tags section for this block
+        email_from_tags = self._extract_email_from_tags(block)
+        if email_from_tags:
+            block_data["Email"] = email_from_tags
+
+        # Process all field-value pairs within the block
+        field_pairs = self._extract_field_pairs(block)
+        for field_name, field_value in field_pairs:
+            # Special handling for email fields
+            if field_name.lower() in ["email", "почта", "e-mail", "электронная почта"]:
+                # Check if value is a protected email
+                if field_value == "[email protected]" or "[email protected]" in field_value or '@' not in field_value:
+                    # Use reference email if available
+                    if email_from_tags:
+                        field_value = email_from_tags
+                    elif all_emails:
+                        field_value = all_emails[0]
+
+            if field_name and field_value:
+                block_data[field_name] = field_value
+
+        return block_data
+
+    def _extract_field_pairs(self, block):
+        """Extract all field-value pairs from a block using various patterns"""
+        pairs = []
+
+        # Pattern 1: Standard column-flex-content structure
+        flex_contents = block.select("div.column--flex--content")
+        for content in flex_contents:
+            title_elem = content.select_one("div.column--flex--title")
+            value_elem = content.select_one("div.column--flex--result")
+
+            if title_elem and value_elem:
+                field_name = title_elem.text.strip().rstrip(':')
+                field_value = value_elem.text.strip()
+                pairs.append((field_name, field_value))
+
+        # Pattern 2: Generic label-value pairs
+        if not pairs:
+            # Try to find field-value pairs in different formats
+            labels = block.select("label, .field-label, .form-label, dt, th")
+            for label in labels:
+                field_name = label.text.strip().rstrip(':')
+                # Look for value in sibling or related element
+                if label.next_sibling:
+                    value_elem = label.next_sibling
+                    if isinstance(value_elem, Tag):
+                        field_value = value_elem.text.strip()
+                        pairs.append((field_name, field_value))
+                # Try form field pattern
+                elif label.get('for'):
+                    field_id = label.get('for')
+                    value_elem = block.select_one(f"#{field_id}")
+                    if value_elem:
+                        field_value = value_elem.get('value', '').strip()
+                        if field_value:
+                            pairs.append((field_name, field_value))
+
+        # Pattern 3: Definition lists
+        definitions = block.select("dl")
+        for dl in definitions:
+            terms = dl.select("dt")
+            values = dl.select("dd")
+            for i in range(min(len(terms), len(values))):
+                field_name = terms[i].text.strip().rstrip(':')
+                field_value = values[i].text.strip()
+                pairs.append((field_name, field_value))
+
+        # Pattern 4: Table rows
+        rows = block.select("tr")
+        for row in rows:
+            cells = row.select("td, th")
+            if len(cells) >= 2:
+                field_name = cells[0].text.strip().rstrip(':')
+                field_value = cells[1].text.strip()
+                pairs.append((field_name, field_value))
+
+        return pairs
+
+    def _find_all_emails_on_page(self, soup, html_content):
+        """Find all email addresses on the page from various sources"""
+        emails = set()
+
+        # Method 1: Regular expression on the whole HTML but exclude script and link tags
+        # Сначала удалим содержимое тегов script и link из анализируемого HTML
+        html_no_scripts = re.sub(r'<script[^>]*>.*?</script>', '', html_content, flags=re.DOTALL)
+        html_no_scripts = re.sub(r'<link[^>]*>.*?</link>', '', html_no_scripts, flags=re.DOTALL)
+
+        email_pattern = r'([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)'
+        email_matches = re.finditer(email_pattern, html_no_scripts)
+        for match in email_matches:
+            email = match.group(0).lower()
+            if self._is_valid_email(email):
+                emails.add(email)
+
+        # Method 2: Form input fields with email type or name
+        email_inputs = soup.select('input[type="email"], input[name*="email"], input[placeholder*="mail"]')
+        for input_field in email_inputs:
+            value = input_field.get('value', '')
+            if '@' in value and self._is_valid_email(value):
+                emails.add(value.lower())
+
+        # Method 3: Elements with "email" in class or id
+        email_elements = soup.select('[class*="email"], [id*="email"], [class*="mail"], [id*="mail"]')
+        for element in email_elements:
+            text = element.text.strip()
+            if '@' in text:
+                # Extract email with regex to handle surrounding text
+                email_match = re.search(email_pattern, text)
+                if email_match and self._is_valid_email(email_match.group(0)):
+                    emails.add(email_match.group(0).lower())
+
+        # Method 4: Elements near email-related labels
+        email_labels = soup.select('label:contains("Email"), span:contains("Email"), div:contains("Email")')
+        for label in email_labels:
+            # Check siblings and children
+            for element in list(label.next_siblings) + list(label.find_all()):
+                if isinstance(element, Tag):
+                    text = element.text.strip()
+                    if '@' in text:
+                        email_match = re.search(email_pattern, text)
+                        if email_match and self._is_valid_email(email_match.group(0)):
+                            emails.add(email_match.group(0).lower())
+
+        return list(emails)
+
+    def _extract_email_from_tags(self, block):
+        """Extract email from the list-tags section of a block"""
+        try:
+            # Pattern 1: Standard list-tags
+            tags_section = block.select_one("div.list-tags")
+            if tags_section:
+                email_spans = tags_section.select("span:contains('Email:') a")
+                for span in email_spans:
+                    if '@' in span.text:
+                        return span.text.strip()
+
+            # Pattern 2: Email in any tag with explicit label
+            email_tags = block.select('[class*="tag"]:contains("Email"), [class*="label"]:contains("Email")')
+            for tag in email_tags:
+                text = tag.text.strip()
+                if '@' in text:
+                    email_pattern = r'([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)'
+                    email_match = re.search(email_pattern, text)
+                    if email_match:
+                        return email_match.group(0)
+
+            return None
+        except Exception as e:
+            logging.error(f"Error extracting email from tags: {e}")
+            return None
+
+    def _extract_phones(self, soup):
+        """Extract phone numbers from the page"""
+        phones = set()
+
+        # Pattern 1: Phone in specific element
+        phone_elements = soup.select('[class*="phone"], [id*="phone"], [class*="tel"], [id*="tel"]')
+        for element in phone_elements:
+            text = element.text.strip()
+            phone = self._clean_phone(text)
+            if phone:
+                phones.add(phone)
+
+        # Pattern 2: Phone labels
+        phone_labels = soup.select('label:contains("Телефон"), span:contains("Телефон"), div:contains("Телефон")')
+        for label in phone_labels:
+            # Check siblings and children
+            for element in list(label.next_siblings) + list(label.find_all()):
+                if isinstance(element, Tag):
+                    text = element.text.strip()
+                    phone = self._clean_phone(text)
+                    if phone:
+                        phones.add(phone)
+
+        # Pattern 3: Phone pattern in text
+        phone_pattern = r'(?:\+7|8)[- (]?\d{3}[- )]?\d{3}[- ]?\d{2}[- ]?\d{2}'
+        for element in soup.find_all(text=True):
+            if not isinstance(element, str):
+                continue
+            text = element.strip()
+            match = re.search(phone_pattern, text)
+            if match:
+                phone = self._clean_phone(match.group(0))
+                if phone:
+                    phones.add(phone)
+
+        return list(phones)
+
+    def _extract_names(self, soup):
+        """Extract person names from the page"""
+        names = set()
+
+        # Pattern 1: Name in specific element
+        name_elements = soup.select('[class*="name"], [id*="name"], [class*="fio"], [id*="fio"]')
+        for element in name_elements:
+            text = element.text.strip()
+            if len(text.split()) >= 2 and len(text) > 5:
+                names.add(text)
+
+        # Pattern 2: Name labels
+        name_labels = soup.select('label:contains("ФИО"), span:contains("ФИО"), div:contains("ФИО")')
+        for label in name_labels:
+            # Check siblings and children
+            for element in list(label.next_siblings) + list(label.find_all()):
+                if isinstance(element, Tag):
+                    text = element.text.strip()
+                    if len(text.split()) >= 2 and len(text) > 5:
+                        names.add(text)
+
+        return list(names)
+
+    def _clean_phone(self, phone_text):
+        """Clean and format phone number"""
+        if not phone_text:
+            return None
+
+        # Extract digits only
+        digits = ''.join(c for c in phone_text if c.isdigit())
+
+        # Check if it looks like a phone number
+        if len(digits) >= 10:
+            # Format to standard form
+            if len(digits) == 10:
+                return f"+7{digits}"
+            elif len(digits) == 11 and digits[0] in ('7', '8'):
+                return f"+7{digits[1:]}"
+            else:
+                return f"+{digits}"
+
+        return None
+
+    def _is_valid_email(self, email):
+        """
+        Улучшенная валидация структуры email-адреса с фильтрацией версий библиотек и других false-positive
+        """
+        if not email or '@' not in email:
+            return False
+
+        # Проверка минимальной длины и наличие точки в домене
+        if len(email) < 5 or '.' not in email.split('@')[1]:
+            return False
+
+        # Разбиваем email на части до и после @
+        username, domain = email.split('@', 1)
+
+        # Проверка на корректность имени пользователя
+        if not username or len(username) < 2:
+            return False
+
+        # Проверка на корректность домена
+        if not domain or len(domain) < 4 or '.' not in domain:
+            return False
+
+        # Проверка на распространенные TLD (top-level domains)
+        valid_tlds = [
+            '.ru', '.com', '.net', '.org', '.info', '.biz', '.edu', '.gov',
+            '.cc', '.io', '.co', '.uk', '.de', '.fr', '.it', '.es', '.ca',
+            '.eu', '.me', '.ua', '.by', '.kz', '.su', '.рф', '.москва'
+        ]
+
+        has_valid_tld = False
+        for tld in valid_tlds:
+            if domain.lower().endswith(tld):
+                has_valid_tld = True
+                break
+
+        # Если нет валидного TLD, это, скорее всего, не email
+        if not has_valid_tld:
+            # Проверяем специфические шаблоны распространенных российских доменов
+            if not (domain.endswith('.ru') or domain.endswith('.рф') or
+                    domain.endswith('.su') or domain.endswith('.москва') or
+                    domain.endswith('.mail.ru') or domain.endswith('.yandex.ru') or
+                    domain.endswith('.gmail.com') or domain.endswith('.ya.ru')):
+                return False
+
+        # Проверка на версии библиотек и пакетов
+        version_patterns = [
+            r'@\d+\.\d+\.\d+',  # @1.2.3
+            r'@v\d+',  # @v1
+            r'@latest',  # @latest
+            r'@dev',  # @dev
+            r'@alpha',  # @alpha
+            r'@beta',  # @beta
+            r'@\d+\.\d+',  # @1.0
+        ]
+
+        for pattern in version_patterns:
+            if re.search(pattern, email):
+                return False
+
+        # Проверка на другие невалидные паттерны
+        invalid_patterns = [
+            r'example\.com$',  # example.com
+            r'test\.com$',  # test.com
+            r'sample\.com$',  # sample.com
+            r'@\.',  # @.
+            r'\.\@',  # .@
+            r'@$',  # @
+            r'^@',  # @
+            r'cdn',  # cdn в адресе
+            r'\.js',  # .js
+            r'\.min',  # .min
+            r'\.css',  # .css
+            r'script',  # script
+            r'library',  # library
+            r'sweetalert',  # sweetalert
+            r'toast',  # toast
+            r'jquery',  # jquery
+            r'bootstrap',  # bootstrap
+            r'protected',  # protected
+        ]
+
+        for pattern in invalid_patterns:
+            if re.search(pattern, email, re.IGNORECASE):
+                return False
+
+        # Проверка на наличие нецензурных слов или spam-indicators
+        bad_words = ['spam', 'sex', 'fuck', 'admin']
+        if any(word in email.lower() for word in bad_words):
+            return False
+
+        # Проверка на слишком короткий домен верхнего уровня
+        tld = domain.split('.')[-1]
+        if len(tld) < 2:
+            return False
+
+        return True
+
+    def _create_synthetic_block(self, soup, all_emails):
+        """Create a synthetic data block from the whole page when standard blocks aren't found"""
+        block_data = {"database": "Извлеченные данные"}
+
+        # Extract title or heading if available
+        title = soup.select_one('h1, h2, h3, .title, .header')
+        if title:
+            block_data["database"] = title.text.strip()
+
+        # Add email if available
+        if all_emails:
+            block_data["Email"] = all_emails[0]
+
+        # Extract phone numbers
+        phones = self._extract_phones(soup)
+        if phones:
+            block_data["Телефон"] = phones[0]
+
+        # Extract names/FIO
+        names = self._extract_names(soup)
+        if names:
+            block_data["ФИО"] = names[0]
+
+        # Try to find other labeled data
+        field_labels = soup.select('label, dt, th, .field-label')
+        for label in field_labels:
+            field_name = label.text.strip().rstrip(':')
+            if field_name and field_name not in ['Email', 'Телефон', 'ФИО']:
+                # Look for associated value
+                value = None
+
+                # Check for 'for' attribute
+                if label.get('for'):
+                    input_id = label.get('for')
+                    input_elem = soup.select_one(f'#{input_id}')
+                    if input_elem:
+                        value = input_elem.get('value', '')
+
+                # Check next sibling
+                if not value and label.next_sibling:
+                    sibling = label.next_sibling
+                    if isinstance(sibling, Tag):
+                        value = sibling.text.strip()
+
+                # Add to data if found
+                if value:
+                    block_data[field_name] = value
+
+        return block_data if len(block_data) > 1 else None
 
     def get_stats(self):
         """
