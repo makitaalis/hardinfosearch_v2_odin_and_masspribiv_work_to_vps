@@ -21,8 +21,12 @@ import traceback
 import os
 from datetime import datetime, timedelta
 
+import asyncio
+from typing import Tuple, Optional, Dict, List, Any
+
 import aiohttp
 from bs4 import BeautifulSoup, Tag
+from pycparser.ply.yacc import debug_file
 
 # Diverse user agents for web requests
 USER_AGENTS = [
@@ -235,6 +239,61 @@ class SauronWebSession:
         else:
             raise RuntimeError(f"Request to {url} failed after {max_retries} retries")
 
+    # Add a new method to SauronWebSession:
+    def _extract_real_emails_from_rendered_html(self, rendered_html):
+        """
+        Extract real email addresses from fully rendered HTML content.
+        This will process the HTML after all JavaScript execution.
+
+        Args:
+            rendered_html: HTML content after browser rendering
+
+        Returns:
+            list: List of extracted email addresses
+        """
+        # Clean HTML by removing script tags
+        cleaned_html = re.sub(r'<script.*?</script>', '', rendered_html, flags=re.DOTALL)
+
+        # Look for email patterns
+        email_pattern = r'[\w\.-]+@[\w\.-]+\.\w+'
+        emails = re.findall(email_pattern, cleaned_html)
+
+        # Filter valid emails
+        valid_emails = []
+        for email in emails:
+            if self._is_valid_email(email):
+                valid_emails.append(email)
+
+        # Look for specific email containers in the DOM structure
+        try:
+            soup = BeautifulSoup(rendered_html, 'html.parser')
+
+            # Find all elements containing email-related classes or text
+            email_elements = soup.select('[class*="email"], [class*="mail"], [href*="mailto"]')
+            for element in email_elements:
+                # Extract text content
+                text = element.get_text().strip()
+                # Check for mailto: href
+                href = element.get('href', '')
+
+                # Extract from mailto: links
+                if href.startswith('mailto:'):
+                    email = href[7:].split('?')[0]  # Remove mailto: prefix and any parameters
+                    if self._is_valid_email(email):
+                        valid_emails.append(email)
+
+                # Extract from text content
+                email_matches = re.findall(email_pattern, text)
+                for email in email_matches:
+                    if self._is_valid_email(email):
+                        valid_emails.append(email)
+        except Exception as e:
+            logging.error(f"Error extracting emails from DOM: {e}")
+
+        # Remove duplicates and sort
+        unique_emails = sorted(list(set(valid_emails)))
+        return unique_emails
+
     async def authenticate(self):
         """
         Completely revised authentication method to fix session and JSON handling issues.
@@ -391,8 +450,8 @@ class SauronWebSession:
 
     async def search(self, query):
         """
-        Выполняет поиск и сохраняет HTML перед парсингом
-        для предотвращения потери исходных email-адресов.
+        Enhanced search method with fallback to Playwright for handling obfuscated emails.
+        First tries the standard HTTP request, and if emails are obfuscated, falls back to browser automation.
         """
         if not self.is_authenticated:
             logging.warning(f"Session {self.session_id}: Attempting search without authentication")
@@ -400,7 +459,7 @@ class SauronWebSession:
             if not auth_success:
                 return False, "Authentication failed before search"
 
-        # Проверяем кэш для идентичного запроса
+        # Check cache for identical query
         query_hash = hashlib.md5(query.encode()).hexdigest()
 
         async with self._cache_lock:
@@ -408,132 +467,130 @@ class SauronWebSession:
                 result, timestamp = self._result_cache[query_hash]
                 age = (datetime.now() - timestamp).total_seconds()
 
-                # Возвращаем кэшированный результат, если он достаточно свежий
+                # Return cached result if fresh enough
                 if age < self._result_cache_ttl:
                     logging.info(f"Session {self.session_id}: Using cached result for query '{query[:20]}...'")
                     return True, result
 
         self.is_busy = True
         try:
-            # Увеличиваем счетчик поисков
+            # Increment search counter
             self.search_count += 1
             logging.info(f"Session {self.session_id}: Performing search #{self.search_count} for query: {query}")
 
-            # Подготавливаем заголовки поиска с соответствующим content type
-            search_headers = {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "X-Requested-With": "XMLHttpRequest",  # Указываем AJAX-запрос
-                "Origin": self.BASE_URL,
-                "Referer": f"{self.BASE_URL}/dashboard"
-            }
-
-            # Отправляем поисковый запрос с оптимизированным timeout
-            search_data = {"query": query}
-            status, content = await self._make_request(
-                "POST",
-                "/api/v1/search/full",
-                data=search_data,
-                headers=search_headers,
-                timeout=35  # Немного увеличенный timeout для поиска
-            )
-
-            if status != 200:
-                self.failed_searches += 1
-                logging.error(f"Session {self.session_id}: Search failed with status {status}")
-                return False, f"Search error, status {status}"
-
+            # First try with standard HTTP request
             try:
-                # Парсим JSON-ответ
-                response_data = json.loads(content)
-                logging.info(f"Search response status: ok={response_data.get('ok')}")
+                # Prepare search headers with appropriate content type
+                search_headers = {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Origin": self.BASE_URL,
+                    "Referer": f"{self.BASE_URL}/dashboard"
+                }
 
-                if response_data.get('ok') == True:
-                    # Проверяем на редирект
-                    redirection = None
-                    if response_data.get('result') and response_data['result'].get('redirection'):
-                        redirection = response_data['result']['redirection']
+                # Send search request with optimized timeout
+                search_data = {"query": query}
+                status, content = await self._make_request(
+                    "POST",
+                    "/api/v1/search/full",
+                    data=search_data,
+                    headers=search_headers,
+                    timeout=35
+                )
 
-                    if redirection:
-                        logging.info(f"Following redirection to: {redirection}")
-
-                        # ИЗМЕНЕНИЕ: Сохраняем HTML перед парсингом
-                        status, result_page = await self._make_request(
-                            "GET",
-                            redirection,
-                            timeout=40,  # Увеличенный timeout для страницы результатов
-                            headers={"Referer": f"{self.BASE_URL}/api/v1/search/full"}
-                        )
-
-                        if status != 200:
-                            self.failed_searches += 1
-                            logging.error(
-                                f"Session {self.session_id}: Failed to load results page, status {status}")
-                            return False, "Failed to load results page"
-
-                        # Увеличиваем счетчик успешных поисков
-                        self.successful_searches += 1
-
-                        # Проверяем содержимое страницы результатов
-                        if "Подробный отчет" in result_page:
-                            logging.info("Found search results page with 'Подробный отчет' section")
-                        else:
-                            logging.warning("Search results page doesn't contain 'Подробный отчет' section")
-
-                        # НОВАЯ ЛОГИКА: Сохраняем HTML-страницу в файл перед парсингом
-                        html_filename = f"temp_html_{int(time.time())}_{self.session_id}.html"
-                        try:
-                            os.makedirs("temp_html", exist_ok=True)
-                            html_path = os.path.join("temp_html", html_filename)
-
-                            with open(html_path, "w", encoding="utf-8") as f:
-                                f.write(result_page)
-
-                            logging.info(f"Saved HTML to {html_path} for offline parsing")
-
-                            # Читаем файл снова для парсинга, чтобы избежать изменений при загрузке в память
-                            with open(html_path, "r", encoding="utf-8") as f:
-                                html_content = f.read()
-
-                            # После отладки можно удалить файл, если нужно
-                            # os.remove(html_path)
-                        except Exception as save_error:
-                            logging.error(f"Error saving HTML to file: {save_error}")
-                            html_content = result_page
-
-                        # Кэшируем результат
-                        async with self._cache_lock:
-                            self._result_cache[query_hash] = (html_content, datetime.now())
-
-                            # Очищаем кэш, если он становится слишком большим (более 100 элементов)
-                            if len(self._result_cache) > 100:
-                                # Удаляем 20 самых старых элементов
-                                sorted_items = sorted(self._result_cache.items(),
-                                                  key=lambda x: x[1][1])  # Сортировка по timestamp
-                                for key, _ in sorted_items[:20]:
-                                    del self._result_cache[key]
-
-                        return True, html_content
-                    else:
-                        self.failed_searches += 1
-                        logging.error(f"Session {self.session_id}: No redirection in search response")
-                        return False, "No redirection in search response"
-                else:
-                    # Ошибка поиска
+                if status != 200:
                     self.failed_searches += 1
-                    error_message = response_data.get('description', 'Unknown error')
-                    logging.error(f"Session {self.session_id}: Search error: {error_message}")
+                    logging.error(f"Session {self.session_id}: Search failed with status {status}")
+                    return False, f"Search error, status {status}"
 
-                    # Проверяем, связана ли ошибка с аутентификацией
-                    if any(term in error_message.lower() for term in ["авториз", "session", "login", "токен"]):
-                        self.is_authenticated = False
-                        # Принудительная повторная аутентификация при следующем поиске
-                        self.session_valid_until = None
+                try:
+                    # Parse JSON response
+                    response_data = json.loads(content)
+                    logging.info(f"Search response status: ok={response_data.get('ok')}")
 
-                    return False, error_message
+                    if response_data.get('ok') == True:
+                        # Check for redirection
+                        redirection = None
+                        if response_data.get('result') and response_data['result'].get('redirection'):
+                            redirection = response_data['result']['redirection']
+
+                        if redirection:
+                            logging.info(f"Following redirection to: {redirection}")
+
+                            # Save HTML before parsing
+                            status, result_page = await self._make_request(
+                                "GET",
+                                redirection,
+                                timeout=40,
+                                headers={"Referer": f"{self.BASE_URL}/api/v1/search/full"}
+                            )
+
+                            if status != 200:
+                                self.failed_searches += 1
+                                logging.error(
+                                    f"Session {self.session_id}: Failed to load results page, status {status}")
+                                return False, "Failed to load results page"
+
+                            # Check if emails are obfuscated
+                            if "[email protected]" in result_page:
+                                logging.warning("Detected obfuscated emails in response. Trying Playwright fallback.")
+                                # Fall back to browser automation
+                                success, rendered_content = await self.get_rendered_page(query)
+
+                                if success:
+                                    logging.info("Successfully retrieved rendered content with Playwright")
+                                    # Use the fully rendered content instead
+                                    result_page = rendered_content
+
+                            # Increment successful search counter
+                            self.successful_searches += 1
+
+                            # Save result to cache
+                            async with self._cache_lock:
+                                self._result_cache[query_hash] = (result_page, datetime.now())
+
+                                # Clean up cache if it gets too large
+                                if len(self._result_cache) > 100:
+                                    sorted_items = sorted(self._result_cache.items(),
+                                                          key=lambda x: x[1][1])
+                                    for key, _ in sorted_items[:20]:
+                                        del self._result_cache[key]
+
+                            return True, result_page
+                        else:
+                            self.failed_searches += 1
+                            logging.error(f"Session {self.session_id}: No redirection in search response")
+                            return False, "No redirection in search response"
+                    else:
+                        # Search error
+                        self.failed_searches += 1
+                        error_message = response_data.get('description', 'Unknown error')
+                        logging.error(f"Session {self.session_id}: Search error: {error_message}")
+
+                        # Check if related to authentication
+                        if any(term in error_message.lower() for term in ["авториз", "session", "login", "токен"]):
+                            self.is_authenticated = False
+                            self.session_valid_until = None
+
+                        return False, error_message
+                except Exception as e:
+                    self.failed_searches += 1
+                    logging.error(f"Session {self.session_id}: Error parsing search response: {str(e)}")
+                    return False, f"Error processing search response: {str(e)}"
             except Exception as e:
-                self.failed_searches += 1
-                logging.error(f"Session {self.session_id}: Error parsing search response: {str(e)}")
-                return False, f"Error processing search response: {str(e)}"
+                logging.error(f"Error in standard search method: {e}")
+                # Try with Playwright as fallback for any error
+                logging.info("Attempting fallback to browser automation with Playwright")
+                success, rendered_content = await self.get_rendered_page(query)
+
+                if success:
+                    # Save to cache
+                    async with self._cache_lock:
+                        self._result_cache[query_hash] = (rendered_content, datetime.now())
+
+                    return True, rendered_content
+                else:
+                    return False, rendered_content
         finally:
             self.is_busy = False
 
@@ -549,13 +606,16 @@ class SauronWebSession:
             list: Список словарей с извлеченными данными
         """
         try:
-            # Сначала извлекаем все email-адреса из сырого HTML
-            emails_from_raw_html = self._extract_emails_from_raw_html(html_content)
-            logging.info(f"Извлечено {len(emails_from_raw_html)} email-адресов из сырого HTML")
+            # Check if content is from Playwright (fully rendered)
+            is_rendered = "[email protected]" not in html_content
 
-            # Сохраняем email-адреса для отладки
-            timestamp = int(time.time())
-            debug_file = f"debug_emails_{timestamp}.txt"
+            # Extract emails based on content type
+            if is_rendered:
+                emails_from_html = self._extract_real_emails_from_rendered_html(html_content)
+                logging.info(f"Extracted {len(emails_from_html)} emails from rendered HTML")
+            else:
+                emails_from_html = self._extract_emails_from_raw_html(html_content)
+                logging.info(f"Extracted {len(emails_from_html)} emails from raw HTML")
             try:
                 with open(debug_file, "w", encoding="utf-8") as f:
                     for email in emails_from_raw_html:
@@ -1235,6 +1295,132 @@ class SauronWebSession:
             "session_valid_until": self.session_valid_until.isoformat() if self.session_valid_until else None,
             "is_busy": self.is_busy
         }
+
+    # Inside the SauronWebSession class, add:
+    @classmethod
+    async def setup_playwright(cls):
+        """Initialize Playwright for browser automation"""
+        try:
+            from playwright.async_api import async_playwright
+            # Install browsers if not already installed
+            import subprocess
+            import sys
+            try:
+                subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+                logging.info("Playwright browsers installed successfully")
+            except subprocess.CalledProcessError as e:
+                logging.error(f"Failed to install Playwright browsers: {e}")
+
+            cls._playwright_initialized = True
+            logging.info("Playwright setup completed")
+        except ImportError:
+            logging.error("Playwright not installed. Install with: pip install playwright")
+            cls._playwright_initialized = False
+
+    async def get_rendered_page(self, query: str) -> Tuple[bool, str]:
+        """
+        Retrieve fully rendered page content using Playwright browser automation.
+        This bypasses email obfuscation by executing all JavaScript.
+
+        Args:
+            query: Search query text
+
+        Returns:
+            Tuple[bool, str]: Success status and page content/error message
+        """
+        try:
+            from playwright.async_api import async_playwright
+
+            if not hasattr(self.__class__, '_playwright_initialized'):
+                await self.__class__.setup_playwright()
+
+            if not getattr(self.__class__, '_playwright_initialized', False):
+                return False, "Playwright not initialized"
+
+            logging.info(f"Session {self.session_id}: Retrieving rendered page for query '{query}'")
+
+            async with async_playwright() as p:
+                # Use incognito context for clean session
+                browser = await p.chromium.launch(headless=True)
+                context = await browser.new_context(
+                    user_agent=self.user_agent,
+                    viewport={"width": 1280, "height": 800}
+                )
+
+                page = await context.new_page()
+
+                # Go to login page
+                try:
+                    logging.info(f"Session {self.session_id}: Opening login page")
+                    await page.goto(f"{self.BASE_URL}/login", wait_until="networkidle")
+                except Exception as e:
+                    logging.error(f"Failed to load login page: {e}")
+                    await browser.close()
+                    return False, f"Login page error: {str(e)}"
+
+                # Perform login
+                try:
+                    logging.info(f"Session {self.session_id}: Logging in as {self.login}")
+                    await page.fill('input[name="login"]', self.login)
+                    await page.fill('input[name="password"]', self.password)
+                    await page.click('button[type="submit"]')
+
+                    # Wait for login to complete
+                    await page.wait_for_navigation(wait_until="networkidle", timeout=30000)
+                except Exception as e:
+                    logging.error(f"Login failed: {e}")
+                    await browser.close()
+                    return False, f"Authentication error: {str(e)}"
+
+                # Verify login success
+                if "/login" in page.url:
+                    logging.error(f"Session {self.session_id}: Login failed - still on login page")
+                    await browser.close()
+                    return False, "Authentication failed"
+
+                # Perform search
+                try:
+                    # Navigate to search page
+                    search_url = f"{self.BASE_URL}/dashboard"
+                    await page.goto(search_url, wait_until="networkidle")
+
+                    # Enter search query and submit
+                    await page.fill('input[name="query"]', query)
+                    await page.press('input[name="query"]', 'Enter')
+
+                    # Wait for search results
+                    await page.wait_for_selector('.simple--block, .simple--result--ltd', timeout=60000)
+
+                    # Wait additional time for any async rendering
+                    await asyncio.sleep(2)
+
+                    # Get the fully rendered content
+                    content = await page.content()
+
+                    # Save the content for debugging
+                    timestamp = int(time.time())
+                    debug_file = f"debug_playwright_{timestamp}.html"
+                    try:
+                        with open(debug_file, "w", encoding="utf-8") as f:
+                            f.write(content)
+                        logging.info(f"Saved rendered HTML to {debug_file}")
+                    except Exception as e:
+                        logging.error(f"Error saving debug HTML: {e}")
+
+                    await browser.close()
+                    return True, content
+
+                except Exception as e:
+                    logging.error(f"Search failed: {e}")
+                    await browser.close()
+                    return False, f"Search error: {str(e)}"
+
+        except ImportError:
+            logging.error("Playwright not installed. Search falling back to regular HTTP requests.")
+            return False, "Playwright not available"
+        except Exception as e:
+            logging.error(f"Unexpected error in get_rendered_page: {e}")
+            return False, f"Error: {str(e)}"
 
     @classmethod
     async def cleanup(cls):

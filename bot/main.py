@@ -210,15 +210,19 @@ async def refresh_expired_sessions():
     """Periodically refresh expired sessions"""
     while True:
         try:
-            global session_pool
+            # Initialize Playwright if session pool is available
             if session_pool is not None:
-                await session_pool.refresh_expired_sessions()
-                logging.info("Expired sessions refreshed")
-            else:
-                logging.warning("Cannot refresh sessions: session_pool is None")
+                if hasattr(session_pool, 'initialize_playwright'):
+                    playwright_task = asyncio.create_task(session_pool.initialize_playwright())
+                    try:
+                        await asyncio.wait_for(playwright_task, timeout=60)
+                        logging.info("Playwright initialized successfully")
+                    except asyncio.TimeoutError:
+                        logging.warning("Playwright initialization timed out, continuing anyway")
+                    except Exception as e:
+                        logging.error(f"Error initializing Playwright: {e}")
         except Exception as e:
-            logging.error(f"Error refreshing sessions: {e}")
-        await asyncio.sleep(1800)  # 30 minutes
+            logging.error(f"Error setting up Playwright: {e}")
 
 
 # Error handler

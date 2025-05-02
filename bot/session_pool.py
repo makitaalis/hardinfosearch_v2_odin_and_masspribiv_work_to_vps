@@ -33,6 +33,8 @@ class SessionPoolManager:
         self.min_sessions_per_mass_search = 3
         self.sessions = []
 
+        self.playwright_initialized = False
+
         # Synchronization primitives
         self.session_lock = asyncio.Lock()
         self.mass_search_lock = asyncio.Lock()
@@ -78,6 +80,17 @@ class SessionPoolManager:
             f"Initialized session pool with {len(self.sessions)} virtual sessions "
             f"based on {len(credentials_list)} credentials"
         )
+
+    async def initialize_playwright(self):
+        """Initialize Playwright for browser automation"""
+        if not self.playwright_initialized:
+            # Get first available session
+            for session in self.sessions:
+                if hasattr(session, 'setup_playwright'):
+                    await session.setup_playwright()
+                    self.playwright_initialized = True
+                    logging.info("Playwright initialized for session pool")
+                    break
 
     def _init_sessions(self, credentials_list):
         """Initialize session objects based on provided credentials"""

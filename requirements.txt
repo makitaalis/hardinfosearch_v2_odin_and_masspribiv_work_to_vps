@@ -43,6 +43,7 @@ isort==5.13.2  # Import sorting
 flake8==6.1.0  # Linting
 mypy==1.7.1  # Type checking
 
+playwright==1.39.0
 
 dotenv~=0.9.9
 
