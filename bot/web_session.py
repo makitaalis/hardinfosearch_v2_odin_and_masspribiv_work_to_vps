@@ -539,8 +539,8 @@ class SauronWebSession:
 
     async def parse_results(self, html_content):
         """
-        Улучшенный парсер HTML для извлечения структурированных данных
-        с прямым извлечением email из исходного HTML.
+        Улучшенный парсер для извлечения структурированных данных из HTML с улучшенной
+        обработкой email, специфичной для sauron.info.
 
         Args:
             html_content: HTML строка со страницей результатов
@@ -549,65 +549,79 @@ class SauronWebSession:
             list: Список словарей с извлеченными данными
         """
         try:
-            # НОВЫЙ ПОДХОД: Сначала находим все email-адреса в сыром HTML
+            # Сначала извлекаем все email-адреса из сырого HTML
             emails_from_raw_html = self._extract_emails_from_raw_html(html_content)
-            logging.info(f"Extracted {len(emails_from_raw_html)} emails from raw HTML")
+            logging.info(f"Извлечено {len(emails_from_raw_html)} email-адресов из сырого HTML")
 
-            # Теперь создаем BeautifulSoup для парсинга структуры
+            # Сохраняем email-адреса для отладки
+            timestamp = int(time.time())
+            debug_file = f"debug_emails_{timestamp}.txt"
+            try:
+                with open(debug_file, "w", encoding="utf-8") as f:
+                    for email in emails_from_raw_html:
+                        f.write(f"{email}\n")
+            except Exception as e:
+                logging.error(f"Ошибка сохранения email для отладки: {e}")
+
+            # Создаем BeautifulSoup для парсинга структуры
             soup = BeautifulSoup(html_content, 'html.parser')
 
-            # Проверяем валидность страницы результатов
-            if ("Запрос:" not in html_content and "Подробный отчет" not in html_content
-                and "Общая сводка" not in html_content):
-                logging.warning("Нестандартный формат страницы - попробуем извлечь данные в любом случае")
+            # Проверяем валидность страницы
+            if ("Запрос:" not in html_content and
+                    "Подробный отчет" not in html_content and
+                    "Общая сводка" not in html_content):
+                logging.warning("Нестандартный формат страницы - попытаемся извлечь данные в любом случае")
 
             # Извлекаем результаты поиска
             result_data = []
 
-            # Извлекаем все блоки с данными
+            # Извлекаем все блоки данных
             blocks = soup.select("div.simple--block.simple--result--ltd")
             if not blocks:
-                # Пробуем альтернативные шаблоны блоков для разных макетов страниц
+                # Пробуем альтернативные шаблоны блоков
                 blocks = soup.select("div.simple--block")
 
             logging.info(f"Найдено {len(blocks)} блоков данных")
 
-            # Если блоки не найдены, пробуем извлечь данные из основной структуры страницы
+            # Если блоки не найдены, пытаемся извлечь данные из основной структуры
             if not blocks:
-                # Создаем синтетический блок из всей страницы
                 main_block = self._extract_data_from_whole_page(soup, emails_from_raw_html)
                 if main_block:
                     result_data.append(main_block)
             else:
-                # Обрабатываем каждый блок с использованием информации о email из сырого HTML
+                # Обрабатываем каждый блок с email-адресами из сырого HTML
                 for i, block in enumerate(blocks):
                     block_data = self._process_block_with_emails(block, emails_from_raw_html, i)
                     if block_data and len(block_data) > 1:  # Больше, чем просто "database"
                         result_data.append(block_data)
 
-            # Возвращаем пустой список, если данные не найдены
-            if not result_data:
-                logging.warning("Данные не найдены в результатах")
+            # Если данные не найдены, но у нас есть email-адреса, создаем базовые записи
+            if not result_data and emails_from_raw_html:
+                logging.warning("Структурированные данные не найдены - создаем базовые записи из email-адресов")
 
-                # Крайний случай: создаем базовую запись из email и других данных
-                if emails_from_raw_html:
-                    basic_data = {"database": "Извлеченные данные", "Email": emails_from_raw_html[0]}
+                for i, email in enumerate(emails_from_raw_html):
+                    basic_data = {
+                        "database": f"Извлеченные данные {i + 1}",
+                        "Email": email
+                    }
 
-                    # Ищем телефонные номера
+                    # Пытаемся найти телефонные номера
                     phones = self._extract_phones(soup)
-                    if phones:
+                    if phones and i < len(phones):
+                        basic_data["Телефон"] = phones[i]
+                    elif phones:
                         basic_data["Телефон"] = phones[0]
 
-                    # Ищем имена
+                    # Пытаемся найти имена
                     names = self._extract_names(soup)
-                    if names:
+                    if names and i < len(names):
+                        basic_data["ФИО"] = names[i]
+                    elif names:
                         basic_data["ФИО"] = names[0]
 
                     result_data.append(basic_data)
-                else:
-                    return []
 
-            # Нормализуем названия полей
+            # Стандартизируем названия полей
             field_mapping = {
                 "ФИО": "ФИО",
                 "День рождения": "ДАТА РОЖДЕНИЯ",
@@ -631,24 +645,23 @@ class SauronWebSession:
                     if key == "database":
                         continue
 
-                    if key in field_mapping:
-                        std_item[field_mapping[key]] = value
-                    else:
-                        std_item[key] = value
+                    std_key = field_mapping.get(key, key)
+                    std_item[std_key] = value
 
                 standardized_data.append(std_item)
 
             logging.info(f"Обработано {len(standardized_data)} элементов результата")
             return standardized_data
+
         except Exception as e:
-            logging.error(f"Ошибка при парсинге результатов: {str(e)}")
+            logging.error(f"Ошибка парсинга результатов: {str(e)}")
             logging.error(traceback.format_exc())
             return []
 
     def _extract_emails_from_raw_html(self, html_content):
         """
-        Извлекает email-адреса прямо из сырого HTML, минуя BeautifulSoup,
-        чтобы избежать преобразований HTML-сущностей.
+        Извлекает email-адреса напрямую из сырого HTML с улучшенными шаблонами,
+        специально нацеленными на структуру HTML сайта sauron.info.
 
         Args:
             html_content: Сырой HTML-контент
@@ -658,78 +671,92 @@ class SauronWebSession:
         """
         valid_emails = []
 
-        # 1. Очищаем HTML от тегов script, чтобы избежать JavaScript-строк
-        cleaned_html = re.sub(r'<script.*?</script>', '', html_content, flags=re.DOTALL|re.IGNORECASE)
+        # Сначала очищаем HTML от тегов script, чтобы избежать JavaScript-строк
+        cleaned_html = re.sub(r'<script.*?</script>', '', html_content, flags=re.DOTALL | re.IGNORECASE)
 
-        # 2. Используем специальный регулярный шаблон для email-адресов
-        # Этот шаблон исключает версии библиотек и другие ложные срабатывания
-        email_pattern = r'(?<![^\s>])([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)(?![^\s<])'
+        # === СПЕЦИФИЧЕСКИЕ ШАБЛОНЫ ДЛЯ SAURON.INFO ===
 
-        # 3. Ищем все совпадения
-        matches = re.findall(email_pattern, cleaned_html)
+        # Шаблон 1: <a class="additionalsearch"><span>EMAIL</span></a>
+        # Это самый распространенный шаблон на sauron.info
+        additionalsearch_pattern = r'<a\s+class=["\']additionalsearch["\'][^>]*>\s*<span>([^<]+)</span>\s*</a>'
+        for match in re.finditer(additionalsearch_pattern, cleaned_html):
+            email_candidate = match.group(1).strip()
+            if '@' in email_candidate:
+                valid_emails.append(email_candidate)
+                logging.info(f"Найден email через шаблон additionalsearch: {email_candidate}")
 
-        # 4. Собираем полные email-адреса и фильтруем
-        for match in matches:
-            email = f"{match[0]}@{match[1]}"
+        # Шаблон 2: Email в структуре column--flex
+        # <div class="column--flex--title">Email:</div><div class="column--flex--result">EMAIL</div>
+        flex_pattern = r'<div\s+class=["\']column--flex--title["\'][^>]*>\s*(?:Email|Почта|E-mail|Электронная почта)[^<]*</div>\s*<div\s+class=["\']column--flex--result["\'][^>]*>\s*([^<]+)\s*</div>'
+        for match in re.finditer(flex_pattern, cleaned_html, re.IGNORECASE):
+            email_candidate = match.group(1).strip()
+            if '@' in email_candidate:
+                valid_emails.append(email_candidate)
+                logging.info(f"Найден email через шаблон column-flex: {email_candidate}")
 
-            # Проверяем, не является ли это версией библиотеки
-            if not re.search(r'\d+\.\d+\.\d+', match[1]) and self._is_valid_email(email):
-                valid_emails.append(email)
+        # Шаблон 3: Секция list-tags с email
+        # <div class="list-tags">...<span>Email: <a class="additionalsearch">EMAIL</a></span>...</div>
+        tags_pattern = r'<div\s+class=["\']list-tags["\'][^>]*>.*?<span>[^<]*(?:Email|Почта|E-mail):\s*<a[^>]*>([^<]+)</a>\s*</span>.*?</div>'
+        for match in re.finditer(tags_pattern, cleaned_html, re.IGNORECASE | re.DOTALL):
+            email_candidate = match.group(1).strip()
+            if '@' in email_candidate:
+                valid_emails.append(email_candidate)
+                logging.info(f"Найден email через шаблон list-tags: {email_candidate}")
 
-        # 5. Дополнительно ищем email-адреса внутри атрибутов href="mailto:"
+        # Шаблон 4: Email в любом div с классом "about--item" (часто в секциях профиля)
+        about_item_pattern = r'<div\s+class=["\'][^"\']*about--item[^"\']*["\'][^>]*>\s*<a[^>]*>\s*<span>([^<]+)</span>\s*</a>'
+        for match in re.finditer(about_item_pattern, cleaned_html):
+            email_candidate = match.group(1).strip()
+            if '@' in email_candidate:
+                valid_emails.append(email_candidate)
+                logging.info(f"Найден email через шаблон about-item: {email_candidate}")
+
+        # Шаблон 5: Прямой email-адрес в любом теге <a> с href="mailto:"
         mailto_pattern = r'href=["\']mailto:([^"\'>]+)["\']'
         mailto_matches = re.findall(mailto_pattern, cleaned_html)
-
         for email in mailto_matches:
             if '@' in email and self._is_valid_email(email):
                 valid_emails.append(email)
+                logging.info(f"Найден email через шаблон mailto: {email}")
 
-        # 6. Ищем email в тегах SPAN и DIV с прямым вхождением
-        span_email_pattern = r'<(?:span|div)[^>]*>([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)</(?:span|div)>'
-        span_matches = re.findall(span_email_pattern, cleaned_html)
-
-        for email in span_matches:
-            if self._is_valid_email(email):
-                valid_emails.append(email)
-
-        # 7. Ищем в элементах с классом additionalsearch, которые часто содержат email
-        additionalsearch_pattern = r'<a class="additionalsearch"[^>]*>\s*<span>([^<]+)</span>\s*</a>'
-        for match in re.finditer(additionalsearch_pattern, cleaned_html):
-            text = match.group(1)
-            if '@' in text and self._is_valid_email(text):
-                valid_emails.append(text)
-
-        # 8. Специфический поиск: ищем после "Email:" или "Почта:"
-        email_label_pattern = r'(?:Email|Почта|E-mail)[:]\s*(?:<[^>]*>)*\s*([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)'
+        # Шаблон 6: Поиск email-подобных структур рядом с текстом "Email:"
+        email_label_pattern = r'(?:Email|Почта|E-mail|Электронная почта)[:]?\s*(?:<[^>]*>)*\s*([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)'
         email_label_matches = re.findall(email_label_pattern, cleaned_html, re.IGNORECASE)
-
         for email in email_label_matches:
             if self._is_valid_email(email):
                 valid_emails.append(email)
+                logging.info(f"Найден email рядом с меткой: {email}")
 
-        # Удаляем дубликаты и отсортируем
-        unique_emails = list(dict.fromkeys([email.lower() for email in valid_emails]))
+        # === ЗАПАСНЫЕ ШАБЛОНЫ ===
 
-        # Если ничего не найдено, попробуем еще один проход с менее строгой проверкой
-        if not unique_emails:
-            # Более общий шаблон
-            simple_pattern = r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'
-            simple_matches = re.findall(simple_pattern, cleaned_html)
-
-            for email in simple_matches:
+        # Если мы все еще не нашли email, пробуем более общие шаблоны
+        if not valid_emails:
+            # Общий шаблон регулярного выражения для email
+            email_pattern = r'([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)'
+            for match in re.finditer(email_pattern, cleaned_html):
+                email = f"{match.group(1)}@{match.group(2)}"
                 if self._is_valid_email(email):
-                    unique_emails.append(email.lower())
+                    valid_emails.append(email)
+                    logging.info(f"Найден email через общий шаблон: {email}")
+
+        # Удаляем дубликаты и сортируем
+        unique_emails = sorted(list(set(valid_emails)))
+
+        if unique_emails:
+            logging.info(f"Успешно извлечено {len(unique_emails)} уникальных email-адресов")
+        else:
+            logging.warning("В HTML-контенте не найдено email-адресов")
 
         return unique_emails
 
     def _process_block_with_emails(self, block, emails_from_raw_html, block_index):
         """
-        Обрабатывает блок данных, используя список email-адресов из сырого HTML
+        Улучшенная обработка блоков с лучшей обработкой email для sauron.info
 
         Args:
             block: BeautifulSoup-элемент блока данных
             emails_from_raw_html: Список email-адресов из сырого HTML
-            block_index: Индекс блока (для сопоставления email с блоками)
+            block_index: Индекс блока (для сопоставления email)
 
         Returns:
             dict: Словарь с данными из блока
@@ -746,36 +773,48 @@ class SauronWebSession:
             if header:
                 block_data["database"] = header.text.strip()
 
-        # Получаем HTML блока для прямого поиска email
+        # Преобразуем блок в строку для прямого поиска email
         block_html = str(block)
 
-        # Ищем email в HTML блока напрямую
+        # Ищем email-адреса в HTML блока напрямую
         block_emails = []
         for email in emails_from_raw_html:
+            # Поиск без учета регистра для максимального совпадения
             if email.lower() in block_html.lower():
                 block_emails.append(email)
 
-        # Если найдены email, добавляем первый в данные блока
+        # Если мы нашли email в этом блоке, добавляем первый из них
         if block_emails:
             block_data["Email"] = block_emails[0]
+            logging.info(f"Привязан email к блоку '{block_data['database']}': {block_emails[0]}")
 
-        # Обрабатываем все пары поле-значение внутри блока
+        # Обрабатываем все пары поле-значение в блоке
         field_pairs = self._extract_field_pairs(block)
         for field_name, field_value in field_pairs:
-            # Специальная обработка полей email
+            # Специальная обработка для полей email
             if field_name.lower() in ["email", "почта", "e-mail", "электронная почта"]:
-                # Если это поле [email protected], заменяем его реальным email
-                if field_value == "[email protected]" or "[email protected]" in field_value or '@' not in field_value:
-                    # Используем найденный email, если доступен
+                # Обнаружение обфусцированных email типа [email protected]
+                if (field_value == "[email protected]" or
+                        "[email protected]" in field_value or
+                        '@' not in field_value or
+                        not self._is_valid_email(field_value)):
+
+                    # Заменяем реальным email в следующем порядке приоритета:
+                    # 1. Email, специфичные для блока
+                    # 2. Email из глобального списка, соответствующий позиции
+                    # 3. Любой доступный email
                     if block_emails:
                         field_value = block_emails[0]
-                    elif len(emails_from_raw_html) > block_index:
-                        # Пробуем сопоставить email из общего списка с текущим блоком
-                        field_value = emails_from_raw_html[block_index]
+                        logging.info(f"Заменен [email protected] на email из блока: {field_value}")
                     elif emails_from_raw_html:
-                        # В крайнем случае берем первый email
-                        field_value = emails_from_raw_html[0]
+                        # Пытаемся получить email по позиции или используем первый
+                        if block_index < len(emails_from_raw_html):
+                            field_value = emails_from_raw_html[block_index]
+                        else:
+                            field_value = emails_from_raw_html[0]
+                        logging.info(f"Заменен [email protected] на извлеченный email: {field_value}")
 
+            # Добавляем поле в наши данные, если существуют и имя, и значение
             if field_name and field_value:
                 block_data[field_name] = field_value
 
