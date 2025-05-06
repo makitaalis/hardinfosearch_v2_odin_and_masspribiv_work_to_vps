@@ -35,42 +35,6 @@ class MassSearchStates(StatesGroup):
 # Create router for mass search handlers
 mass_search_router = Router()
 
-
-# Debug function for comparing results
-async def debug_compare_results(user_id, query):
-    """
-    Debug function for comparing results between single and mass search
-    """
-    # Get data with single request
-    success, single_response = send_api_request(query)
-
-    if not success:
-        logging.error(f"Error getting data with single request: {single_response}")
-        return
-
-    # Log single request results
-    logging.info(f"Single request results for '{query}':")
-    logging.info(json.dumps(single_response, ensure_ascii=False, indent=2)[:1000] + "...")
-
-    # Use functions from single search
-    filtered_data = filter_unique_data(single_response)
-    formatted_text = format_api_response(filtered_data, limit_length=False)
-
-    # Log formatted text
-    logging.info(f"Formatted text from single request:")
-    logging.info(formatted_text[:1000] + "...")
-
-    # Create processor for mass search
-    processor = MassSearchProcessor()
-
-    # Try extracting phones with different methods
-    phones1 = processor.extract_phones(single_response)
-    phones2 = processor.extract_phones_from_text(formatted_text)
-
-    logging.info(f"Phones found with extract_phones method: {phones1}")
-    logging.info(f"Phones found with extract_phones_from_text method: {phones2}")
-
-
 # Class for processing results
 class MassSearchProcessor:
     """

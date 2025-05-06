@@ -189,16 +189,7 @@ async def send_api_request(query: str):
         return False, f"Ошибка при запросе: {str(e)}"
 
 
-async def send_extended_api_request(query: str):
-    """
-    Отправляет расширенный запрос через веб-интерфейс.
-    В текущей версии использует тот же метод, что и обычный запрос.
-
-    Возвращает (success, data_or_error) аналогично send_api_request.
-    """
-    # В веб-версии используем тот же метод, что и для обычного запроса,
-    # так как на сайте нет явного разделения на обычный и расширенный поиск
-    return await send_api_request(query)
+1
 
 
 def validate_query(query: str):

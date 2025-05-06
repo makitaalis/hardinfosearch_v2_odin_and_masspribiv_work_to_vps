@@ -616,10 +616,15 @@ class SauronWebSession:
             else:
                 emails_from_html = self._extract_emails_from_raw_html(html_content)
                 logging.info(f"Extracted {len(emails_from_html)} emails from raw HTML")
+
+            # Debug emails if needed
             try:
+                debug_timestamp = int(time.time())
+                debug_file = f"debug_emails_{debug_timestamp}.txt"
                 with open(debug_file, "w", encoding="utf-8") as f:
-                    for email in emails_from_raw_html:
+                    for email in emails_from_html:
                         f.write(f"{email}\n")
+                logging.info(f"Saved extracted emails to {debug_file}")
             except Exception as e:
                 logging.error(f"Ошибка сохранения email для отладки: {e}")
 
@@ -645,21 +650,21 @@ class SauronWebSession:
 
             # Если блоки не найдены, пытаемся извлечь данные из основной структуры
             if not blocks:
-                main_block = self._extract_data_from_whole_page(soup, emails_from_raw_html)
+                main_block = self._extract_data_from_whole_page(soup, emails_from_html)
                 if main_block:
                     result_data.append(main_block)
             else:
                 # Обрабатываем каждый блок с email-адресами из сырого HTML
                 for i, block in enumerate(blocks):
-                    block_data = self._process_block_with_emails(block, emails_from_raw_html, i)
+                    block_data = self._process_block_with_emails(block, emails_from_html, i)
                     if block_data and len(block_data) > 1:  # Больше, чем просто "database"
                         result_data.append(block_data)
 
             # Если данные не найдены, но у нас есть email-адреса, создаем базовые записи
-            if not result_data and emails_from_raw_html:
+            if not result_data and emails_from_html:
                 logging.warning("Структурированные данные не найдены - создаем базовые записи из email-адресов")
 
-                for i, email in enumerate(emails_from_raw_html):
+                for i, email in enumerate(emails_from_html):
                     basic_data = {
                         "database": f"Извлеченные данные {i + 1}",
                         "Email": email
@@ -1399,13 +1404,6 @@ class SauronWebSession:
 
                     # Save the content for debugging
                     timestamp = int(time.time())
-                    debug_file = f"debug_playwright_{timestamp}.html"
-                    try:
-                        with open(debug_file, "w", encoding="utf-8") as f:
-                            f.write(content)
-                        logging.info(f"Saved rendered HTML to {debug_file}")
-                    except Exception as e:
-                        logging.error(f"Error saving debug HTML: {e}")
 
                     await browser.close()
                     return True, content
